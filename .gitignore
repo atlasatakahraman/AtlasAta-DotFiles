@@ -208,6 +208,8 @@ lfs_cozucu.py
 # --- Editörler
 !.config/nvim/
 !.config/nvim/**
+!.config/zed/
+!.config/zed/**
 .config/nvim.bck.2/
 .config/nvim.bck.3/
 .config/nvim.old/
@@ -274,12 +276,53 @@ lfs_cozucu.py
 !.config/discord/
 !.config/discord/**
 .config/discord/Cache/
+.config/discord/Cache/**
 .config/discord/Code Cache/
+.config/discord/Code Cache/**
 .config/discord/GPUCache/
+.config/discord/GPUCache/**
 .config/discord/[0-9]*/
 .config/discord/logs/
+.config/discord/logs/**
 .config/discord/Local Storage/
+.config/discord/Local Storage/**
 .config/discord/Session Storage/
+.config/discord/Session Storage/**
+# Güvenlik — oturum/token/binary
+.config/discord/Cookies
+.config/discord/Cookies-journal
+.config/discord/Trust Tokens
+.config/discord/Trust Tokens-journal
+.config/discord/DIPS
+.config/discord/domainMigrated
+.config/discord/Local State
+.config/discord/Network Persistent State
+.config/discord/SharedStorage
+.config/discord/TransportSecurity
+.config/discord/Crashpad/
+.config/discord/Crashpad/**
+.config/discord/DawnGraphiteCache/
+.config/discord/DawnGraphiteCache/**
+.config/discord/DawnWebGPUCache/
+.config/discord/DawnWebGPUCache/**
+.config/discord/Dictionaries/
+.config/discord/Dictionaries/**
+.config/discord/Service Worker/
+.config/discord/Service Worker/**
+.config/discord/Shared Dictionary/
+.config/discord/Shared Dictionary/**
+.config/discord/shared_proto_db/
+.config/discord/shared_proto_db/**
+.config/discord/VideoDecodeStats/
+.config/discord/VideoDecodeStats/**
+.config/discord/WebStorage/
+.config/discord/WebStorage/**
+.config/discord/WidevineCdm/
+.config/discord/WidevineCdm/**
+.config/discord/component_crx_cache/
+.config/discord/component_crx_cache/**
+.config/discord/sentry/
+.config/discord/sentry/**
 !.config/legcord/
 !.config/legcord/**
 !.config/equibop/
@@ -429,6 +472,8 @@ lfs_cozucu.py
 .local/share/nvim/transparent_cache
 
 # Zed — sadece settings, extension binary'leri değil
+!.local/share/zed/
+!.local/share/zed/**
 .local/share/zed/extensions/work/
 .local/share/zed/extensions/installed/
 .local/share/zed/external_agents/registry/
