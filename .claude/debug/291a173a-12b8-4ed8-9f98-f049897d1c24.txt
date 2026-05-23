@@ -1,0 +1,243 @@
+2026-02-06T02:14:12.559Z [ERROR] Failed to save config with lock: Error: ENOENT: no such file or directory, lstat '/home/atlasata/.claude.json'
+2026-02-06T02:14:12.560Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344052560
+2026-02-06T02:14:12.560Z [DEBUG] Setting permissions for new file: 600
+2026-02-06T02:14:12.561Z [DEBUG] Temp file written successfully, size: 82 bytes
+2026-02-06T02:14:12.561Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344052560 to /home/atlasata/.claude.json
+2026-02-06T02:14:12.561Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:12.566Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344052566
+2026-02-06T02:14:12.566Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:12.566Z [DEBUG] Temp file written successfully, size: 130 bytes
+2026-02-06T02:14:12.566Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:12.566Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344052566 to /home/atlasata/.claude.json
+2026-02-06T02:14:12.566Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:12.566Z [DEBUG] [init] configureGlobalMTLS starting
+2026-02-06T02:14:12.567Z [DEBUG] [init] configureGlobalMTLS complete
+2026-02-06T02:14:12.567Z [DEBUG] [init] configureGlobalAgents starting
+2026-02-06T02:14:12.567Z [DEBUG] [init] configureGlobalAgents complete
+2026-02-06T02:14:12.569Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344052569
+2026-02-06T02:14:12.569Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:12.569Z [DEBUG] Temp file written successfully, size: 167 bytes
+2026-02-06T02:14:12.569Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:12.569Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344052569 to /home/atlasata/.claude.json
+2026-02-06T02:14:12.574Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:12.576Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344052576
+2026-02-06T02:14:12.576Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:12.576Z [DEBUG] Temp file written successfully, size: 202 bytes
+2026-02-06T02:14:12.576Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:12.576Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344052576 to /home/atlasata/.claude.json
+2026-02-06T02:14:12.576Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:12.577Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344052577
+2026-02-06T02:14:12.577Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:12.577Z [DEBUG] Temp file written successfully, size: 238 bytes
+2026-02-06T02:14:12.577Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:12.577Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344052577 to /home/atlasata/.claude.json
+2026-02-06T02:14:12.577Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:12.578Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344052578
+2026-02-06T02:14:12.578Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:12.578Z [DEBUG] Temp file written successfully, size: 275 bytes
+2026-02-06T02:14:12.578Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:12.578Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344052578 to /home/atlasata/.claude.json
+2026-02-06T02:14:12.578Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:12.589Z [DEBUG] [ToolSearch:optimistic] mode=tst-auto, ENABLE_TOOL_SEARCH=undefined, result=true
+2026-02-06T02:14:12.590Z [DEBUG] [STARTUP] Loading MCP configs...
+2026-02-06T02:14:12.598Z [DEBUG] [STARTUP] Running setup()...
+2026-02-06T02:14:12.599Z [DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+2026-02-06T02:14:12.600Z [DEBUG] Loading skills from: managed=/etc/claude-code/.claude/skills, user=/home/atlasata/.claude/skills, project=[]
+2026-02-06T02:14:12.601Z [DEBUG] Error log sink initialized
+2026-02-06T02:14:12.602Z [DEBUG] getPluginSkills: Processing 0 enabled plugins
+2026-02-06T02:14:12.602Z [DEBUG] Total plugin skills loaded: 0
+2026-02-06T02:14:12.602Z [DEBUG] Total plugin commands loaded: 0
+2026-02-06T02:14:12.602Z [DEBUG] Registered 0 hooks from 0 plugins
+2026-02-06T02:14:12.615Z [DEBUG] [STARTUP] setup() completed in 17ms
+2026-02-06T02:14:12.615Z [DEBUG] [STARTUP] Loading commands and agents...
+2026-02-06T02:14:12.617Z [DEBUG] [claudeai-mcp] Checking gate (cached)...
+2026-02-06T02:14:12.617Z [DEBUG] [claudeai-mcp] Gate returned: false
+2026-02-06T02:14:12.617Z [DEBUG] [claudeai-mcp] Disabled via gate
+2026-02-06T02:14:12.618Z [DEBUG] Total plugin agents loaded: 0
+2026-02-06T02:14:12.619Z [DEBUG] Loaded 0 unique skills (managed: 0, user: 0, project: 0, additional: 0, legacy commands: 0)
+2026-02-06T02:14:12.619Z [DEBUG] getSkills returning: 0 skill dir commands, 0 plugin skills, 2 bundled skills
+2026-02-06T02:14:12.620Z [DEBUG] [STARTUP] Commands and agents loaded in 5ms
+2026-02-06T02:14:12.620Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2026-02-06T02:14:12.620Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2026-02-06T02:14:12.620Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2026-02-06T02:14:12.621Z [DEBUG] Total LSP servers loaded: 0
+2026-02-06T02:14:12.626Z [DEBUG] [STARTUP] MCP configs loaded in 36ms
+2026-02-06T02:14:12.626Z [DEBUG] [LSP SERVER MANAGER] getAllLspServers returned 0 server(s)
+2026-02-06T02:14:12.626Z [DEBUG] LSP manager initialized with 0 servers
+2026-02-06T02:14:12.627Z [DEBUG] LSP server manager initialized successfully
+2026-02-06T02:14:12.627Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2026-02-06T02:14:12.650Z [DEBUG] installed_plugins.json doesn't exist, returning empty V2 object
+2026-02-06T02:14:12.650Z [DEBUG] Initialized versioned plugins system with 0 plugins
+2026-02-06T02:14:12.651Z [DEBUG] [Perfetto] initializePerfettoTracing called, env value: undefined
+2026-02-06T02:14:12.664Z [DEBUG] Writing to temp file: /home/atlasata/.claude/todos/291a173a-12b8-4ed8-9f98-f049897d1c24-agent-291a173a-12b8-4ed8-9f98-f049897d1c24.json.tmp.30657.1770344052664
+2026-02-06T02:14:12.664Z [DEBUG] Temp file written successfully, size: 2 bytes
+2026-02-06T02:14:12.664Z [DEBUG] Renaming /home/atlasata/.claude/todos/291a173a-12b8-4ed8-9f98-f049897d1c24-agent-291a173a-12b8-4ed8-9f98-f049897d1c24.json.tmp.30657.1770344052664 to /home/atlasata/.claude/todos/291a173a-12b8-4ed8-9f98-f049897d1c24-agent-291a173a-12b8-4ed8-9f98-f049897d1c24.json
+2026-02-06T02:14:12.665Z [DEBUG] File /home/atlasata/.claude/todos/291a173a-12b8-4ed8-9f98-f049897d1c24-agent-291a173a-12b8-4ed8-9f98-f049897d1c24.json written atomically
+2026-02-06T02:14:12.803Z [DEBUG] Getting matching hook commands for SessionStart with query: startup
+2026-02-06T02:14:12.803Z [DEBUG] Found 0 hook matchers in settings
+2026-02-06T02:14:12.803Z [DEBUG] Matched 0 unique hooks for query "startup" (0 before deduplication)
+2026-02-06T02:14:12.818Z [DEBUG] Total plugin output styles loaded: 0
+2026-02-06T02:14:12.837Z [DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/home/atlasata/.local/share/zed/external_agents/claude-code-acp/0.15.0/node_modules/@anthropic-ai/claude-agent-sdk/vendor/ripgrep/x64-linux/rg)
+2026-02-06T02:14:12.866Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-06T02:14:12.866Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-06T02:14:12.866Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-06T02:14:12.879Z [ERROR] "Error: Error: Could not resolve authentication method. Expected either apiKey or authToken to be set. Or for one of the \"X-Api-Key\" or \"Authorization\" headers to be explicitly omitted\n    at vC.validateHeaders (file:///home/atlasata/.local/share/zed/external_agents/claude-code-acp/0.15.0/node_modules/@anthropic-ai/claude-agent-sdk/cli.js:422:1008)\n    at vC.buildHeaders (file:///home/atlasata/.local/share/zed/external_agents/claude-code-acp/0.15.0/node_modules/@anthropic-ai/claude-agent-sdk/cli.js:422:8502)\n    at async vC.buildRequest (file:///home/atlasata/.local/share/zed/external_agents/claude-code-acp/0.15.0/node_modules/@anthropic-ai/claude-agent-sdk/cli.js:422:7560)\n    at async vC.makeRequest (file:///home/atlasata/.local/share/zed/external_agents/claude-code-acp/0.15.0/node_modules/@anthropic-ai/claude-agent-sdk/cli.js:422:3388)\n    at async file:///home/atlasata/.local/share/zed/external_agents/claude-code-acp/0.15.0/node_modules/@anthropic-ai/claude-agent-sdk/cli.js:3362:17174\n    at async file:///home/atlasata/.local/share/zed/external_agents/claude-code-acp/0.15.0/node_modules/@anthropic-ai/claude-agent-sdk/cli.js:1038:2232\n    at async wI9 (file:///home/atlasata/.local/share/zed/external_agents/claude-code-acp/0.15.0/node_modules/@anthropic-ai/claude-agent-sdk/cli.js:1037:9420)\n    at async J64 (file:///home/atlasata/.local/share/zed/external_agents/claude-code-acp/0.15.0/node_modules/@anthropic-ai/claude-agent-sdk/cli.js:1038:2165)\n    at async yg1 (file:///home/atlasata/.local/share/zed/external_agents/claude-code-acp/0.15.0/node_modules/@anthropic-ai/claude-agent-sdk/cli.js:3362:2221)\n    at async vd (file:///home/atlasata/.local/share/zed/external_agents/claude-code-acp/0.15.0/node_modules/@anthropic-ai/claude-agent-sdk/cli.js:3362:2917)"
+2026-02-06T02:14:12.879Z [DEBUG] countTokensWithFallback: API returned null, trying haiku fallback (13 tools)
+2026-02-06T02:14:12.879Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-06T02:14:12.879Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-06T02:14:12.879Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-06T02:14:12.880Z [DEBUG] countTokensWithFallback: haiku fallback failed: Could not resolve authentication method. Expected either apiKey or authToken to be set. Or for one of the "X-Api-Key" or "Authorization" headers to be explicitly omitted
+2026-02-06T02:14:12.880Z [ERROR] "Error: Error: Could not resolve authentication method. Expected either apiKey or authToken to be set. Or for one of the \"X-Api-Key\" or \"Authorization\" headers to be explicitly omitted\n    at vC.validateHeaders (file:///home/atlasata/.local/share/zed/external_agents/claude-code-acp/0.15.0/node_modules/@anthropic-ai/claude-agent-sdk/cli.js:422:1008)\n    at vC.buildHeaders (file:///home/atlasata/.local/share/zed/external_agents/claude-code-acp/0.15.0/node_modules/@anthropic-ai/claude-agent-sdk/cli.js:422:8502)\n    at async vC.buildRequest (file:///home/atlasata/.local/share/zed/external_agents/claude-code-acp/0.15.0/node_modules/@anthropic-ai/claude-agent-sdk/cli.js:422:7560)\n    at async vC.makeRequest (file:///home/atlasata/.local/share/zed/external_agents/claude-code-acp/0.15.0/node_modules/@anthropic-ai/claude-agent-sdk/cli.js:422:3388)\n    at async _a4 (file:///home/atlasata/.local/share/zed/external_agents/claude-code-acp/0.15.0/node_modules/@anthropic-ai/claude-agent-sdk/cli.js:3362:17866)\n    at async yg1 (file:///home/atlasata/.local/share/zed/external_agents/claude-code-acp/0.15.0/node_modules/@anthropic-ai/claude-agent-sdk/cli.js:3362:2493)\n    at async vd (file:///home/atlasata/.local/share/zed/external_agents/claude-code-acp/0.15.0/node_modules/@anthropic-ai/claude-agent-sdk/cli.js:3362:2917)\n    at async $r4 (file:///home/atlasata/.local/share/zed/external_agents/claude-code-acp/0.15.0/node_modules/@anthropic-ai/claude-agent-sdk/cli.js:3182:554)"
+2026-02-06T02:14:12.880Z [DEBUG] countToolDefinitionTokens returned null for 13 tools: Task, TaskOutput, Glob, Grep, ExitPlanMode, NotebookEdit, WebFetch, TodoWrite, WebSearch, TaskStop, ...
+2026-02-06T02:14:13.118Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053118
+2026-02-06T02:14:13.118Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.118Z [DEBUG] Temp file written successfully, size: 451 bytes
+2026-02-06T02:14:13.118Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.118Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053118 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.118Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.119Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053119
+2026-02-06T02:14:13.119Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.119Z [DEBUG] Temp file written successfully, size: 487 bytes
+2026-02-06T02:14:13.119Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.119Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053119 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.126Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.127Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053127
+2026-02-06T02:14:13.127Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.127Z [DEBUG] Temp file written successfully, size: 515 bytes
+2026-02-06T02:14:13.127Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.127Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053127 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.127Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.128Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053128
+2026-02-06T02:14:13.128Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.128Z [DEBUG] Temp file written successfully, size: 567 bytes
+2026-02-06T02:14:13.128Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.128Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053128 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.128Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.129Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053129
+2026-02-06T02:14:13.129Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.129Z [DEBUG] Temp file written successfully, size: 606 bytes
+2026-02-06T02:14:13.129Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.129Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053129 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.129Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.129Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053129
+2026-02-06T02:14:13.129Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.129Z [DEBUG] Temp file written successfully, size: 645 bytes
+2026-02-06T02:14:13.129Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.129Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053129 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.129Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.130Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053130
+2026-02-06T02:14:13.130Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.130Z [DEBUG] Temp file written successfully, size: 683 bytes
+2026-02-06T02:14:13.130Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.130Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053130 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.130Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.130Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053130
+2026-02-06T02:14:13.130Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.131Z [DEBUG] Temp file written successfully, size: 715 bytes
+2026-02-06T02:14:13.131Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.131Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053130 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.131Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.131Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053131
+2026-02-06T02:14:13.131Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.131Z [DEBUG] Temp file written successfully, size: 745 bytes
+2026-02-06T02:14:13.131Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.131Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053131 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.131Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.132Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053132
+2026-02-06T02:14:13.132Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.132Z [DEBUG] Temp file written successfully, size: 778 bytes
+2026-02-06T02:14:13.132Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.132Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053132 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.132Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.133Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053133
+2026-02-06T02:14:13.133Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.133Z [DEBUG] Temp file written successfully, size: 822 bytes
+2026-02-06T02:14:13.133Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.133Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053133 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.133Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.134Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053134
+2026-02-06T02:14:13.134Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.134Z [DEBUG] Temp file written successfully, size: 874 bytes
+2026-02-06T02:14:13.134Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.134Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053134 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.134Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.134Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053134
+2026-02-06T02:14:13.134Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.134Z [DEBUG] Temp file written successfully, size: 904 bytes
+2026-02-06T02:14:13.134Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.134Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053134 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.134Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.135Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053135
+2026-02-06T02:14:13.135Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.135Z [DEBUG] Temp file written successfully, size: 928 bytes
+2026-02-06T02:14:13.135Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.135Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053135 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.135Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.136Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053136
+2026-02-06T02:14:13.136Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.136Z [DEBUG] Temp file written successfully, size: 964 bytes
+2026-02-06T02:14:13.136Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.136Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053136 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.136Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.136Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053136
+2026-02-06T02:14:13.136Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.136Z [DEBUG] Temp file written successfully, size: 999 bytes
+2026-02-06T02:14:13.136Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.136Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053136 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.136Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.137Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053137
+2026-02-06T02:14:13.137Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.137Z [DEBUG] Temp file written successfully, size: 1044 bytes
+2026-02-06T02:14:13.137Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.137Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053137 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.137Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.137Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053137
+2026-02-06T02:14:13.137Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.137Z [DEBUG] Temp file written successfully, size: 1088 bytes
+2026-02-06T02:14:13.138Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.138Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053137 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.138Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.138Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053138
+2026-02-06T02:14:13.138Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.138Z [DEBUG] Temp file written successfully, size: 1130 bytes
+2026-02-06T02:14:13.138Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.138Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053138 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.138Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.139Z [DEBUG] Tool search disabled for model 'claude-haiku-4-5-20251001': model does not support tool_reference blocks. This feature is only available on Claude Sonnet 4+, Opus 4+, and newer models.
+2026-02-06T02:14:13.139Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053139
+2026-02-06T02:14:13.139Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.139Z [DEBUG] Temp file written successfully, size: 1197 bytes
+2026-02-06T02:14:13.139Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.139Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053139 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.140Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.141Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.32.9ff; cc_entrypoint=sdk-ts;
+2026-02-06T02:14:13.142Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: false, has Authorization header: false
+2026-02-06T02:14:13.142Z [DEBUG] [API:auth] OAuth token check starting
+2026-02-06T02:14:13.143Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053143
+2026-02-06T02:14:13.143Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.143Z [DEBUG] Temp file written successfully, size: 1244 bytes
+2026-02-06T02:14:13.143Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.143Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053143 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.143Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.145Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053145
+2026-02-06T02:14:13.145Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.145Z [DEBUG] Temp file written successfully, size: 1283 bytes
+2026-02-06T02:14:13.145Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.145Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053145 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.145Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.145Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053145
+2026-02-06T02:14:13.145Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.145Z [DEBUG] Temp file written successfully, size: 1321 bytes
+2026-02-06T02:14:13.145Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.145Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053145 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.145Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.146Z [DEBUG] Writing to temp file: /home/atlasata/.claude.json.tmp.30657.1770344053146
+2026-02-06T02:14:13.146Z [DEBUG] Preserving file permissions: 100600
+2026-02-06T02:14:13.146Z [DEBUG] Temp file written successfully, size: 1349 bytes
+2026-02-06T02:14:13.146Z [DEBUG] Applied original permissions to temp file
+2026-02-06T02:14:13.146Z [DEBUG] Renaming /home/atlasata/.claude.json.tmp.30657.1770344053146 to /home/atlasata/.claude.json
+2026-02-06T02:14:13.146Z [DEBUG] File /home/atlasata/.claude.json written atomically
+2026-02-06T02:14:13.146Z [DEBUG] [API:auth] OAuth token check complete
+2026-02-06T02:14:13.147Z [ERROR] API error (attempt 1/11): Could not resolve authentication method. Expected either apiKey or authToken to be set. Or for one of the "X-Api-Key" or "Authorization" headers to be explicitly omitted
+2026-02-06T02:14:13.147Z [ERROR] Error in non-streaming fallback: Could not resolve authentication method. Expected either apiKey or authToken to be set. Or for one of the "X-Api-Key" or "Authorization" headers to be explicitly omitted
+2026-02-06T02:14:13.148Z [ERROR] "Error: Error: Could not resolve authentication method. Expected either apiKey or authToken to be set. Or for one of the \"X-Api-Key\" or \"Authorization\" headers to be explicitly omitted\n    at vC.validateHeaders (file:///home/atlasata/.local/share/zed/external_agents/claude-code-acp/0.15.0/node_modules/@anthropic-ai/claude-agent-sdk/cli.js:422:1008)\n    at vC.buildHeaders (file:///home/atlasata/.local/share/zed/external_agents/claude-code-acp/0.15.0/node_modules/@anthropic-ai/claude-agent-sdk/cli.js:422:8502)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async vC.buildRequest (file:///home/atlasata/.local/share/zed/external_agents/claude-code-acp/0.15.0/node_modules/@anthropic-ai/claude-agent-sdk/cli.js:422:7560)\n    at async vC.makeRequest (file:///home/atlasata/.local/share/zed/external_agents/claude-code-acp/0.15.0/node_modules/@anthropic-ai/claude-agent-sdk/cli.js:422:3388)"

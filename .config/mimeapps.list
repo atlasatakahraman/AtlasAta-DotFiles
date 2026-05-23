@@ -1,0 +1,9 @@
+[Added Associations]
+application/x-tiled-tsx=neovide.desktop;
+font/woff2=neovide.desktop;
+text/plain=neovide.desktop;org.kde.kate.desktop;
+application/json=neovide.desktop;
+
+[Default Applications]
+font/woff2=neovide.desktop
+application/json=neovide.desktop

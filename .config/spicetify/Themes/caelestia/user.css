@@ -1,0 +1,393 @@
+/* ╔══════════════════════════════════════════════════════╗
+   ║  AtlasAta — Caelestia Light                          ║
+   ║  Spicetify user.css                                  ║
+   ║  Path: ~/.config/spicetify/Themes/<theme>/user.css   ║
+   ╚══════════════════════════════════════════════════════╝
+
+   Extends color.ini with the full Caelestia Light palette.
+   --spice-* variables are injected by Spicetify from color.ini.
+   --cl-* variables below fill in the tokens color.ini can't expose.
+*/
+
+
+
+/* ─── Fonts ──────────────────────────────────────────────── */
+/* NOTE: These are served from Anthropic's CDN and may rotate
+   without notice. Consider self-hosting the woff2 files under
+   your theme directory and referencing them with a relative
+   url() instead. */
+@font-face {
+  font-family: "Anthropic Sans";
+  src: url("https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/cc27851ad-CFxw3nG7.woff2") format("woff2");
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anthropic Sans";
+  src: url("https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/c9d3a3a49-BI1hrwN4.woff2") format("woff2");
+  font-weight: 300 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* FIX 1: Exclude icon/glyph fonts from the global override.
+   The bare * selector with !important overwrites icon font
+   families, turning icon characters into "tofu" boxes. */
+*:not([class*="icon"]):not([class*="Icon"]):not([class*="encore-graphic"]):not(svg):not(path) {
+  font-family: "Anthropic Sans", system-ui, sans-serif !important;
+}
+
+@font-face {
+  font-family: "Anthropic Mono";
+  src: url("https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/c5dbe0935-B88FVziN.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* FIX 2: The original rule applied Anthropic Mono to ALL
+   .encore-text-body-small elements, making every small-body
+   label monospace. Scope it to actual timestamp/duration
+   elements only. .main-trackList-rowSectionEnd is a row
+   section container — use the inner duration cell instead. */
+.main-trackList-rowDuration,
+.playback-bar__progress-time,
+.x-NowPlayingWidget-remainingTime {
+  font-family: "Anthropic Mono", monospace !important;
+}
+
+/* ─── Full palette extension ────────────────────────────── */
+:root {
+  /* Surfaces */
+  --cl-surface-lowest:   #ffffff;
+  --cl-surface-low:      #f7f3f0;
+  --cl-surface:          #f2edea;
+  --cl-surface-high:     #ece7e4;
+  --cl-surface-highest:  #e6e2df;
+  --cl-surface-dim:      #ddd9d6;
+  --cl-mantle:           #f4f0ee;
+  --cl-crust:            #eeeae9;
+
+  /* Primary */
+  --cl-primary:          #3b3628;
+  --cl-primary-dim:      #575242;
+  --cl-primary-on:       #ffffff;
+  --cl-primary-container: #524d3d;
+
+  /* Secondary */
+  --cl-secondary:        #625e56;
+  --cl-secondary-dim:    #55524a;
+  --cl-secondary-container: #e8e2d7;
+
+  /* Tertiary */
+  --cl-tertiary:         #38353f;
+
+  /* Text hierarchy */
+  --cl-text:             #1c1b1a;
+  --cl-subtext1:         #4a473e;
+  --cl-subtext0:         #7b776d;
+  --cl-overlay2:         #8b877e;
+  --cl-overlay1:         #9c9890;
+  --cl-overlay0:         #ada9a2;
+
+  /* Outline */
+  --cl-outline:          #7b776d;
+  --cl-outline-variant:  #ccc6bb;
+
+  /* Semantic */
+  --cl-error:            #ba1a1a;
+  --cl-error-container:  #ffdad6;
+  --cl-success:          #4f6354;
+  --cl-success-container:#d1e8d5;
+
+  /* Accents */
+  --cl-rosewater:        #9b782c;
+  --cl-flamingo:         #9a6e00;
+  --cl-pink:             #ab7100;
+  --cl-mauve:            #8f3b00;
+  --cl-yellow:           #9a7a00;
+  --cl-green:            #787100;
+  --cl-teal:             #636e1c;
+  --cl-sky:              #4b882e;
+  --cl-sapphire:         #697a22;
+  --cl-blue:             #00664e;
+  --cl-lavender:         #c2484e;
+
+  /* Links */
+  --cl-link:             #7b776d;
+  --cl-link-visited:     #c06b00;
+}
+
+/* ─── Scrollbars ─────────────────────────────────────────── */
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--cl-outline-variant) !important;
+  border-radius: 3px !important;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--cl-outline) !important;
+}
+
+/* ─── Top bar / nav ──────────────────────────────────────── */
+.Root__top-bar header,
+.nav-bar {
+  background-color: var(--cl-mantle) !important;
+  border-bottom: 1px solid var(--cl-outline-variant) !important;
+}
+
+/* Search input */
+.x-searchInput-searchInputInput {
+  background-color: var(--cl-surface) !important;
+  color: var(--cl-text) !important;
+  border: 1px solid var(--cl-outline-variant) !important;
+  border-radius: 6px;
+}
+.x-searchInput-searchInputInput:focus {
+  border-color: var(--cl-primary) !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--cl-primary) 20%, transparent) !important;
+}
+
+/* ─── Now playing bar ────────────────────────────────────── */
+.Root__now-playing-bar {
+  background-color: var(--cl-surface) !important;
+  border-top: 1px solid var(--cl-outline-variant) !important;
+}
+
+/* Track name */
+.encore-text-body-small-bold.standalone-ellipsis-one-line {
+  color: var(--cl-text) !important;
+}
+
+/* Artist name */
+.encore-text-body-small.standalone-ellipsis-one-line {
+  color: var(--cl-subtext1) !important;
+}
+
+/* ─── Progress / seek bar ────────────────────────────────── */
+.progress-bar__bg {
+  background-color: var(--cl-outline-variant) !important;
+}
+.progress-bar__fg {
+  background-color: var(--cl-primary) !important;
+}
+/* Playback thumb */
+.progress-bar .progress-bar__slider {
+  background-color: var(--cl-primary) !important;
+}
+
+/* ─── Volume bar ─────────────────────────────────────────── */
+.volume-bar .progress-bar__fg {
+  background-color: var(--cl-secondary) !important;
+}
+
+/* ─── All player bar buttons — broad scope beats --spice-* ── */
+/* Targets every button and its SVG in the entire now-playing
+   bar so Spotify's injected --spice-button white can't win.  */
+.Root__now-playing-bar button:not(.control-button--circled),
+.Root__now-playing-bar .control-button:not(.control-button--circled),
+.Root__now-playing-bar button:not(.control-button--circled) svg,
+.Root__now-playing-bar .control-button:not(.control-button--circled) svg {
+  color: var(--cl-subtext1) !important;
+  fill: currentColor !important;
+  transition: color 0.15s ease, fill 0.15s ease !important;
+}
+.Root__now-playing-bar button:not(.control-button--circled):hover,
+.Root__now-playing-bar .control-button:not(.control-button--circled):hover,
+.Root__now-playing-bar button:not(.control-button--circled):hover svg,
+.Root__now-playing-bar .control-button:not(.control-button--circled):hover svg {
+  color: var(--cl-text) !important;
+  fill: currentColor !important;
+}
+
+/* Active states (shuffle on, repeat on, queue open, etc.) */
+.Root__now-playing-bar button[aria-checked="true"],
+.Root__now-playing-bar button.control-button--active,
+.Root__now-playing-bar button[aria-checked="true"] svg,
+.Root__now-playing-bar button.control-button--active svg {
+  color: var(--cl-primary) !important;
+  fill: currentColor !important;
+}
+
+/* ─── Play / pause circled button ────────────────────────── */
+/* Use `background` shorthand so it overrides both
+   background-color and any --spice-button shorthand rules.  */
+.control-button--circled {
+  background: var(--cl-primary) !important;
+  color: var(--cl-primary-on) !important;
+}
+.control-button--circled svg {
+  color: var(--cl-primary-on) !important;
+  fill: currentColor !important;
+}
+.control-button--circled:hover {
+  background: var(--cl-primary-dim) !important;
+  color: var(--cl-primary-on) !important;
+  transform: scale(1.04) !important;
+}
+.control-button--circled:hover svg {
+  color: var(--cl-primary-on) !important;
+  fill: currentColor !important;
+}
+
+/* ─── Sidebar ────────────────────────────────────────────── */
+.Root__nav-bar {
+  background-color: var(--cl-surface-low) !important;
+  border-right: 1px solid var(--cl-outline-variant) !important;
+}
+
+.nav-bar__link {
+  color: var(--cl-subtext0) !important;
+  border-radius: 6px !important;
+  transition: background 0.1s, color 0.1s !important;
+}
+.nav-bar__link:hover {
+  background-color: var(--cl-surface-high) !important;
+  color: var(--cl-text) !important;
+}
+.nav-bar__link--active {
+  color: var(--cl-primary) !important;
+  background-color: var(--cl-secondary-container) !important;
+}
+
+/* Playlist entries */
+.main-rootlist-rootlistItem:hover {
+  background-color: var(--cl-surface-high) !important;
+}
+.main-rootlist-rootlistItem--active {
+  color: var(--cl-primary) !important;
+}
+
+/* ─── Cards (artist / album / playlist) ─────────────────── */
+.x-cardImage-imageWrapper,
+.main-card-card {
+  border-radius: 8px !important;
+  transition: box-shadow 0.2s ease !important;
+}
+.main-card-card:hover {
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--spice-shadow) 18%, transparent) !important;
+}
+
+.main-card-cardMetadata .encore-text-body-medium-bold {
+  color: var(--cl-text) !important;
+}
+.main-card-cardMetadata .encore-text-body-small {
+  color: var(--cl-subtext0) !important;
+}
+
+/* ─── Context menu / tooltip ─────────────────────────────── */
+.main-contextMenu-menu {
+  background-color: var(--cl-surface) !important;
+  border: 1px solid var(--cl-outline-variant) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--spice-shadow) 20%, transparent) !important;
+}
+/* FIX: menu items had no explicit text color, inheriting
+   something nearly invisible against the light surface. */
+.main-contextMenu-menuItem,
+.main-contextMenu-menuItem button,
+.main-contextMenu-menuItem span {
+  color: var(--cl-text) !important;
+}
+.main-contextMenu-menuItem svg {
+  color: var(--cl-subtext1) !important;
+}
+.main-contextMenu-menuItem:hover {
+  background-color: var(--cl-surface-high) !important;
+}
+.main-contextMenu-menuItem:hover svg {
+  color: var(--cl-primary) !important;
+}
+.main-contextMenu-menuItem--danger,
+.main-contextMenu-menuItem--danger span {
+  color: var(--cl-error) !important;
+}
+
+/* ─── Track list rows ────────────────────────────────────── */
+.main-trackList-trackListRow:hover {
+  background-color: var(--cl-surface-high) !important;
+  border-radius: 4px !important;
+}
+.main-trackList-trackListRow--active .main-trackList-trackListRowTitle {
+  color: var(--cl-primary) !important;
+}
+.main-trackList-rowSectionIndex {
+  color: var(--cl-subtext0) !important;
+}
+
+/* Playing indicator */
+.main-trackList-playingIcon {
+  color: var(--cl-primary) !important;
+}
+
+/* ─── Liked / heart button ───────────────────────────────── */
+.main-addButton-button[aria-checked="true"] {
+  color: var(--cl-primary) !important;
+}
+.main-addButton-button:hover {
+  color: var(--cl-primary-dim) !important;
+}
+
+/* ─── Badges / labels ────────────────────────────────────── */
+.main-badge-base {
+  background-color: var(--cl-secondary-container) !important;
+  color: var(--cl-subtext1) !important;
+  border-radius: 4px !important;
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.04em !important;
+}
+
+/* Explicit badge */
+.main-trackList-explicitBadge {
+  background-color: var(--cl-surface-dim) !important;
+  color: var(--cl-subtext0) !important;
+}
+
+/* ─── Notification toasts ────────────────────────────────── */
+.GlueNotification {
+  background-color: var(--cl-primary) !important;
+  color: var(--cl-primary-on) !important;
+  border-radius: 8px;
+}
+.GlueNotification--error {
+  background-color: var(--cl-error-container) !important;
+  color: var(--cl-error) !important;
+}
+
+/* ─── Modal / overlay ────────────────────────────────────── */
+.GenericModal,
+.ReactModalPortal .main-embedWidgetGenerator-container {
+  background-color: var(--cl-surface) !important;
+  border: 1px solid var(--cl-outline-variant) !important;
+  border-radius: 12px !important;
+}
+.main-genericModal-overlay {
+  background-color: color-mix(in srgb, var(--spice-shadow) 50%, transparent) !important;
+}
+
+/* ─── Links ──────────────────────────────────────────────── */
+a {
+  color: var(--cl-link) !important;
+}
+a:visited {
+  color: var(--cl-link-visited) !important;
+}
+a:hover {
+  color: var(--cl-primary) !important;
+  text-decoration: underline !important;
+}
+
+/* ─── Selection highlight ────────────────────────────────── */
+::selection {
+  background-color: color-mix(in srgb, var(--cl-primary) 25%, transparent) !important;
+  color: var(--cl-text) !important;
+}
+
+.main-entityHeader-backgroundColor { background-color: inherit !important; }
+.main-actionBarBackground-background { background-color: inherit !important; }
