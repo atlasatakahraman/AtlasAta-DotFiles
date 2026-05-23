@@ -106,8 +106,29 @@ lfs_cozucu.py
 .vscode-oss/
 .vscode-oss-shared/
 .local/share/Trash/
+# ── Antigravity (home root) — sadece manifest ve özel tema
 .antigravity/
 !.antigravity/argv.json
+!.antigravity/extensions/
+.antigravity/extensions/**
+!.antigravity/extensions/extensions.json
+!.antigravity/extensions/.obsolete
+!.antigravity/extensions/caelestia-light/
+!.antigravity/extensions/caelestia-light/**
+
+# ── Gemini — credentials HARİÇ config
+.gemini/
+!.gemini/GEMINI.md
+!.gemini/settings.json
+!.gemini/antigravity/
+.gemini/antigravity/**
+!.gemini/antigravity/mcp_config.json
+!.gemini/antigravity/USER_MEMORY.md
+!.gemini/antigravity/skills.txt
+!.gemini/antigravity/skills/
+!.gemini/antigravity/skills/**
+!.gemini/antigravity/scripts/
+!.gemini/antigravity/scripts/**
 
 # ============================================================
 # .CONFIG — tümü ignore, whitelist ile aç
@@ -243,6 +264,11 @@ lfs_cozucu.py
 !.config/Antigravity/
 .config/Antigravity/**
 !.config/Antigravity/argv.json
+!.config/Antigravity/User/
+!.config/Antigravity/User/settings.json
+!.config/Antigravity/User/keybindings.json
+!.config/Antigravity/User/snippets/
+!.config/Antigravity/User/snippets/**
 !.config/Antigravity/extensions/
 !.config/Antigravity/extensions/**
 .config/Antigravity/extensions/**/node_modules/
