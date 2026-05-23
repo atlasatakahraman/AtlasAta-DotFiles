@@ -173,8 +173,6 @@ lfs_cozucu.py
 # --- Editörler
 !.config/nvim/
 !.config/nvim/**
-!.config/zed/
-!.config/zed/**
 .config/nvim.bck.2/
 .config/nvim.bck.3/
 .config/nvim.old/
@@ -375,20 +373,13 @@ lfs_cozucu.py
 !.local/share/nvim/
 !.local/share/nvim/**
 .local/share/nvim/lazy/
+.local/share/nvim/lazy/**
 .local/share/nvim/mason/
+.local/share/nvim/mason/**
 .local/share/nvim/harpoon/
+.local/share/nvim/harpoon/**
 .local/share/nvim/base46/
-
-# Zed — sadece settings, extension binary'leri değil
-!.local/share/zed/
-!.local/share/zed/**
-.local/share/zed/extensions/work/
-.local/share/zed/extensions/installed/
-.local/share/zed/external_agents/registry/
-.local/share/zed/external_agents/**/node_modules/
-.local/share/zed/languages/
-.local/share/zed/prettier/
-.local/share/zed/node/
+.local/share/nvim/base46/**
 
 # Tauri app data — WebKit cache hariç
 !.local/share/com.atlasata.theatlas/
@@ -408,3 +399,5 @@ lfs_cozucu.py
 !.mozilla/firefox/*/chrome/
 !.mozilla/firefox/*/chrome/userChrome.css
 !.mozilla/firefox/*/chrome/userContent.css
+.claude/
+.local/share/fish/fish_history
