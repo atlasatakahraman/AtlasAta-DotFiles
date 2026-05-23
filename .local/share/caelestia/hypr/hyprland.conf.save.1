@@ -1,0 +1,55 @@
+$hypr = ~/.config/hypr
+$hl = $hypr/hyprland
+$cConf = ~/.config/caelestia
+
+# Variables (colours + other vars)
+exec = cp -L --no-preserve=mode --update=none $hypr/scheme/default.conf $hypr/scheme/current.conf
+source = $hypr/scheme/current.conf
+source = $hypr/variables.conf
+
+# User variables
+exec = mkdir -p $cConf && touch -a $cConf/hypr-vars.conf
+source = $cConf/hypr-vars.conf
+
+# Default monitor conf
+monitor = DP-1, 2560x1440@180, auto, 1
+monitor = HDMI-A-1, 1080x1920@60, auto, 1, transform,3
+
+workspace=1,monitor:DP-1
+workspace=2,monitor:HDMI-A-1
+
+
+
+env = GDK_SCALE,1
+env = GDK_DPI_SCALE,1
+env = QT_SCALE_FACTOR,1
+env = QT_AUTO_SCREEN_SCALE_FACTOR,0
+
+# Configs
+source = $hl/env.conf
+source = $hl/general.conf
+source = $hl/input.conf
+source = $hl/misc.conf
+source = $hl/animations.conf
+source = $hl/decoration.conf
+source = $hl/group.conf
+source = $hl/execs.conf
+source = $hl/rules.conf
+source = $hl/gestures.conf
+source = $hl/keybinds.conf
+
+# User configs
+exec = mkdir -p $cConf && touch -a $cConf/hypr-user.conf
+source = $cConf/hypr-user.conf
+
+exec-once = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+
+input {
+
+	kb_layout = tr
+	kb_variant = ,qwerty
+
+}
+
+bind = SUPER, C, togglefloating

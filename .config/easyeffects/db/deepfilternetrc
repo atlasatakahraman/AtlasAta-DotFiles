@@ -1,0 +1,4 @@
+[sie][DeepFilterNet#0]
+bypass=true
+minProcessingThreshold=5
+postFilterBeta=0.019999999552965164

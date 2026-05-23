@@ -1,0 +1,503 @@
+/* ╔══════════════════════════════════════════════════════════╗
+   ║  AtlasAta Caelestia Fidelity                            ║
+   ║  Spicetify user.css                                     ║
+   ║                                                          ║
+   ║  A comprehensive light theme CSS that preserves the      ║
+   ║  Default Spotify layout while applying the full          ║
+   ║  Caelestia palette through extended CSS custom           ║
+   ║  properties. Every surface, accent, and semantic         ║
+   ║  color is mapped for a cohesive, warm experience.        ║
+   ║                                                          ║
+   ║  Author: atlasatakahraman                                ║
+   ║  https://github.com/atlasatakahraman                     ║
+   ╚══════════════════════════════════════════════════════════╝ */
+
+
+/* ═══════════════════════════════════════════════════════════
+   §1  EXTENDED CAELESTIA CUSTOM PROPERTIES
+   ───────────────────────────────────────────────────────────
+   Spicetify auto-generates --spice-* from color.ini.
+   Below we define the FULL Caelestia palette as additional
+   CSS custom properties for comprehensive coverage.
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* ─── Core Background & Foreground ──────────────────── */
+  --caelestia-bg:                     #fdf8f5;
+  --caelestia-fg:                     #1c1b1a;
+  --caelestia-cursor:                 #625e56;
+
+  /* ─── Surface Hierarchy ─────────────────────────────── */
+  --caelestia-surface-lowest:         #ffffff;
+  --caelestia-surface-low:            #f7f3f0;
+  --caelestia-surface:                #f2edea;
+  --caelestia-surface-high:           #ece7e4;
+  --caelestia-surface-highest:        #e6e2df;
+  --caelestia-surface-dim:            #ddd9d6;
+  --caelestia-surface-variant:        #e8e2d6;
+  --caelestia-surface-tint:           #645e4d;
+
+  /* ─── Catppuccin-style Surface Stack ────────────────── */
+  --caelestia-base:                   #fdf8f5;
+  --caelestia-mantle:                 #f4f0ee;
+  --caelestia-crust:                  #eeeae9;
+
+  /* ─── Primary ───────────────────────────────────────── */
+  --caelestia-primary:                #3b3628;
+  --caelestia-primary-dim:            #575242;
+  --caelestia-on-primary:             #ffffff;
+  --caelestia-primary-container:      #524d3d;
+  --caelestia-on-primary-container:   #c6beaa;
+  --caelestia-inverse-primary:        #cec6b1;
+  --caelestia-primary-fixed:          #eae2cd;
+  --caelestia-primary-fixed-dim:      #cec6b1;
+
+  /* ─── Secondary ─────────────────────────────────────── */
+  --caelestia-secondary:              #625e56;
+  --caelestia-secondary-dim:          #55524a;
+  --caelestia-on-secondary:           #ffffff;
+  --caelestia-secondary-container:    #e8e2d7;
+  --caelestia-on-secondary-container: #68645c;
+
+  /* ─── Tertiary ──────────────────────────────────────── */
+  --caelestia-tertiary:               #38353f;
+  --caelestia-tertiary-dim:           #54515b;
+  --caelestia-on-tertiary:            #ffffff;
+  --caelestia-tertiary-container:     #4f4c56;
+  --caelestia-on-tertiary-container:  #c2bdc9;
+
+  /* ─── Text Hierarchy ────────────────────────────────── */
+  --caelestia-text:                   #1c1b1a;
+  --caelestia-subtext1:               #4a473e;
+  --caelestia-subtext0:               #7b776d;
+  --caelestia-overlay2:               #8b877e;
+  --caelestia-overlay1:               #9c9890;
+  --caelestia-overlay0:               #ada9a2;
+
+  /* ─── Outline & Border ──────────────────────────────── */
+  --caelestia-outline:                #7b776d;
+  --caelestia-outline-variant:        #ccc6bb;
+
+  /* ─── Error & Success ───────────────────────────────── */
+  --caelestia-error:                  #ba1a1a;
+  --caelestia-on-error:               #ffffff;
+  --caelestia-error-container:        #ffdad6;
+  --caelestia-on-error-container:     #93000a;
+  --caelestia-success:                #4f6354;
+  --caelestia-on-success:             #ffffff;
+  --caelestia-success-container:      #d1e8d5;
+
+  /* ─── Inverse ───────────────────────────────────────── */
+  --caelestia-inverse-surface:        #31302e;
+  --caelestia-inverse-on-surface:     #f4f0ed;
+
+  /* ─── Catppuccin-style Accent Palette ───────────────── */
+  --caelestia-rosewater:              #9b782c;
+  --caelestia-flamingo:               #9a6e00;
+  --caelestia-pink:                   #ab7100;
+  --caelestia-mauve:                  #8f3b00;
+  --caelestia-red:                    #6f4e00;
+  --caelestia-maroon:                 #855f00;
+  --caelestia-peach:                  #957000;
+  --caelestia-yellow:                 #9a7a00;
+  --caelestia-green:                  #787100;
+  --caelestia-teal:                   #636e1c;
+  --caelestia-sky:                    #4b882e;
+  --caelestia-sapphire:               #697a22;
+  --caelestia-blue:                   #00664e;
+  --caelestia-lavender:               #c2484e;
+
+  /* ─── Semantic Links ────────────────────────────────── */
+  --caelestia-link:                   #559652;
+  --caelestia-link-visited:           #c06b00;
+  --caelestia-positive:               #b7ac00;
+  --caelestia-neutral:                #d8a200;
+  --caelestia-negative:               #b47d00;
+
+  /* ─── Transition Defaults ───────────────────────────── */
+  --caelestia-transition-fast:        150ms ease;
+  --caelestia-transition-normal:      250ms ease;
+  --caelestia-transition-slow:        400ms ease;
+
+  /* ─── Border Radius ─────────────────────────────────── */
+  --caelestia-radius-sm:              4px;
+  --caelestia-radius-md:              6px;
+  --caelestia-radius-lg:              8px;
+  --caelestia-radius-xl:              12px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   §2  GLOBAL LIGHT MODE ENFORCEMENT
+   ───────────────────────────────────────────────────────────
+   Ensures Spotify respects the light palette throughout.
+   ═══════════════════════════════════════════════════════════ */
+
+body {
+  color-scheme: light;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   §2b SHADOW SOFTENING
+   ───────────────────────────────────────────────────────────
+   color.ini shadow (#0f0f0e) is 18:1 contrast against main.
+   Override with softer rgba() to prevent harsh dark pools.
+   ═══════════════════════════════════════════════════════════ */
+
+.main-entityHeader-shadow {
+  box-shadow: 0 0 40px rgba(15, 15, 14, 0.06) !important;
+}
+
+.main-card-card {
+  box-shadow: 0 2px 8px rgba(15, 15, 14, 0.04);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   §2c SIDEBAR BOUNDARY
+   ───────────────────────────────────────────────────────────
+   Sidebar (#f7f3f0) vs main (#fdf8f5) is only 1.05:1 CR.
+   A subtle right border makes the boundary clear.
+   ═══════════════════════════════════════════════════════════ */
+
+.Root__nav-bar {
+  border-right: 1px solid var(--caelestia-outline-variant) !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   §3  SCROLLBAR STYLING
+   ───────────────────────────────────────────────────────────
+   Thin, warm-toned scrollbars that blend with surfaces.
+   ═══════════════════════════════════════════════════════════ */
+
+/* Webkit-based scrollbars (Spotify uses Chromium) */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--caelestia-outline-variant);
+  border-radius: var(--caelestia-radius-sm);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--caelestia-outline);
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: var(--caelestia-subtext0);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   §4  SMOOTH TRANSITIONS ON INTERACTIVE ELEMENTS
+   ───────────────────────────────────────────────────────────
+   Adds subtle animation to buttons, cards, and rows
+   without altering layout or structure.
+   ═══════════════════════════════════════════════════════════ */
+
+/* Buttons — play, pause, shuffle, repeat, skip */
+.main-playPauseButton-button,
+.main-repeatButton-button,
+.main-skipForwardButton-button,
+.main-skipBackButton-button,
+.main-shuffleButton-button,
+button[class*="Button"] {
+  transition: background-color var(--caelestia-transition-fast),
+              color var(--caelestia-transition-fast),
+              opacity var(--caelestia-transition-fast),
+              transform var(--caelestia-transition-fast);
+}
+
+/* Cards — playlist, album, artist tiles */
+.main-card-card {
+  transition: background-color var(--caelestia-transition-normal),
+              box-shadow var(--caelestia-transition-normal);
+}
+
+.main-card-card:hover {
+  box-shadow: 0 4px 16px rgba(15, 15, 14, 0.08);
+}
+
+/* Track list rows */
+.main-trackList-trackListRow {
+  transition: background-color var(--caelestia-transition-fast);
+}
+
+.main-trackList-trackListRow:hover {
+  background-color: var(--caelestia-secondary-container) !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   §5  TOP BAR REFINEMENTS
+   ───────────────────────────────────────────────────────────
+   Subtle border and backdrop for the navigation header.
+   ═══════════════════════════════════════════════════════════ */
+
+.main-topBar-background {
+  border-bottom: 1px solid var(--caelestia-outline-variant) !important;
+  transition: background-color var(--caelestia-transition-slow);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   §6  SIDEBAR POLISH
+   ───────────────────────────────────────────────────────────
+   Warm surface differentiation for the navigation sidebar.
+   ═══════════════════════════════════════════════════════════ */
+
+/* Active nav item highlight */
+.main-navBar-navBarLinkActive,
+.main-navBar-navBarLinkActive:focus {
+  background-color: var(--caelestia-secondary-container) !important;
+  border-radius: var(--caelestia-radius-md);
+}
+
+/* Sidebar dividers */
+.main-rootlist-rootlistDivider {
+  border-color: var(--caelestia-outline-variant) !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   §7  PLAYER BAR POLISH
+   ───────────────────────────────────────────────────────────
+   Subtle top border on the now-playing bar for separation.
+   ═══════════════════════════════════════════════════════════ */
+
+.main-nowPlayingBar-nowPlayingBar {
+  border-top: 1px solid var(--caelestia-outline-variant) !important;
+}
+
+/* Progress bar accent */
+.progress-bar {
+  --fg-color: var(--spice-button) !important;
+}
+
+.progress-bar__slider {
+  transition: transform var(--caelestia-transition-fast);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   §8  CARD & CONTAINER SURFACES
+   ───────────────────────────────────────────────────────────
+   Light elevated surfaces for content containers.
+   ═══════════════════════════════════════════════════════════ */
+
+/* Album art placeholder */
+.main-entityHeader-imagePlaceholder {
+  background-color: var(--caelestia-surface) !important;
+}
+
+/* Colored header backgrounds — muted for light theme */
+.main-actionBarBackground-background,
+.main-entityHeader-overlay,
+.main-entityHeader-backgroundColor {
+  opacity: 0.4 !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   §9  NOTIFICATION TOASTS
+   ───────────────────────────────────────────────────────────
+   Warm-styled notification popups.
+   ═══════════════════════════════════════════════════════════ */
+
+/* Default notification toast */
+.main-notification-notification {
+  border-radius: var(--caelestia-radius-lg) !important;
+  box-shadow: 0 4px 20px rgba(15, 15, 14, 0.12) !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   §9b SEEKBAR & VOLUME TRACK VISIBILITY
+   ───────────────────────────────────────────────────────────
+   button-disabled (#ccc6bb) is only 1.61:1 on main.
+   Darken the inactive track to ensure seekbar/volume
+   backgrounds are clearly visible.
+   ═══════════════════════════════════════════════════════════ */
+
+.progress-bar__bg,
+.volume-bar__slider-container {
+  background-color: var(--caelestia-overlay0) !important;  /* #ada9a2 — CR 2.55:1 on main */
+}
+
+/* Improve selected-row prominence with left accent border */
+.main-trackList-trackListRow.main-trackList-selected,
+.main-trackList-trackListRow[aria-selected="true"] {
+  border-left: 3px solid var(--caelestia-primary) !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   §9c OVERLAY TEXT CONTRAST FIX
+   ───────────────────────────────────────────────────────────
+   overlay0 (#ada9a2) and overlay1 (#9c9890) FAIL WCAG on
+   light backgrounds. Boost timestamps, durations, and
+   other muted secondary text to use subtext0 (#7b776d)
+   which passes AA-Large at 4.24:1.
+   ═══════════════════════════════════════════════════════════ */
+
+.main-trackList-rowDuration,
+.main-trackList-rowPlayCount,
+.playback-bar__progress-time-elapsed,
+.main-playbackBarRemainingTime-container,
+.main-type-mestoBold,
+.main-type-mesto {
+  color: var(--caelestia-subtext0) !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   §10  SEARCH INPUT
+   ───────────────────────────────────────────────────────────
+   Clean search input styling.
+   ═══════════════════════════════════════════════════════════ */
+
+.x-searchInput-searchInputSearchIcon,
+.x-searchInput-searchInputClearButton {
+  color: var(--caelestia-subtext0) !important;
+  transition: color var(--caelestia-transition-fast);
+}
+
+.x-searchInput-searchInputSearchIcon:hover,
+.x-searchInput-searchInputClearButton:hover {
+  color: var(--caelestia-primary) !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   §11  CONTEXT MENUS & DROPDOWNS
+   ───────────────────────────────────────────────────────────
+   Elevated surfaces with warm shadows.
+   ═══════════════════════════════════════════════════════════ */
+
+/* Tippy / Dropdown popover */
+[data-tippy-root] .tippy-content,
+.main-contextMenu-menu {
+  border-radius: var(--caelestia-radius-lg) !important;
+  box-shadow: 0 8px 32px rgba(15, 15, 14, 0.10),
+              0 2px 8px rgba(15, 15, 14, 0.06) !important;
+  border: 1px solid var(--caelestia-outline-variant) !important;
+}
+
+/* Menu item hover */
+.main-contextMenu-menuItemButton:hover,
+.main-contextMenu-menuItemButton:focus {
+  background-color: var(--caelestia-secondary-container) !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   §12  COVER ART POLISH
+   ───────────────────────────────────────────────────────────
+   Gentle rounding and shadow on album artwork.
+   ═══════════════════════════════════════════════════════════ */
+
+.cover-art {
+  border-radius: var(--caelestia-radius-md);
+  overflow: hidden;
+}
+
+.cover-art-image {
+  transition: opacity var(--caelestia-transition-normal),
+              transform var(--caelestia-transition-normal);
+}
+
+/* Now-playing cover art */
+.main-coverSlotExpanded-shadow {
+  box-shadow: 0 8px 24px rgba(15, 15, 14, 0.10) !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   §13  HOME SHORTCUTS GRID
+   ───────────────────────────────────────────────────────────
+   Warm hover states for the quick-play grid.
+   ═══════════════════════════════════════════════════════════ */
+
+.view-homeShortcutsGrid-shortcut {
+  transition: background-color var(--caelestia-transition-fast),
+              box-shadow var(--caelestia-transition-fast);
+}
+
+.view-homeShortcutsGrid-shortcut:hover {
+  box-shadow: 0 2px 12px rgba(15, 15, 14, 0.08);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   §14  TABS & CHIPS
+   ───────────────────────────────────────────────────────────
+   Warm active states for filter chips and tab bars.
+   ═══════════════════════════════════════════════════════════ */
+
+.queue-tabBar-active {
+  background-color: var(--caelestia-secondary-container) !important;
+  transition: background-color var(--caelestia-transition-fast);
+}
+
+/* Library filter chips */
+.main-yourLibraryX-filterArea button {
+  transition: background-color var(--caelestia-transition-fast),
+              color var(--caelestia-transition-fast);
+  border-radius: var(--caelestia-radius-xl) !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   §15  SELECTION & FOCUS STATES
+   ───────────────────────────────────────────────────────────
+   Accessible focus rings using the primary palette.
+   ═══════════════════════════════════════════════════════════ */
+
+*:focus-visible {
+  outline: 2px solid var(--caelestia-primary) !important;
+  outline-offset: 2px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   §16  GENRE & CATEGORY CARDS
+   ───────────────────────────────────────────────────────────
+   Smooth hover lift on browse category tiles.
+   ═══════════════════════════════════════════════════════════ */
+
+.x-categoryCard-CategoryCard {
+  transition: transform var(--caelestia-transition-normal),
+              box-shadow var(--caelestia-transition-normal);
+  border-radius: var(--caelestia-radius-lg);
+  overflow: hidden;
+}
+
+.x-categoryCard-CategoryCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(15, 15, 14, 0.10);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   §17  PLAYBACK CONTROLS CURSOR
+   ───────────────────────────────────────────────────────────
+   Explicit pointer cursors on playback buttons.
+   ═══════════════════════════════════════════════════════════ */
+
+.main-playPauseButton-button,
+.main-repeatButton-button,
+.main-skipForwardButton-button,
+.main-skipBackButton-button,
+.main-shuffleButton-button {
+  cursor: pointer !important;
+}

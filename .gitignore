@@ -1,0 +1,382 @@
+# ============================================================
+# GÜVENLİK — asla commit'e girmesin
+# ============================================================
+.Xauthority
+.gnupg/
+.ssh/
+.pki/
+.claude.json
+.claude.json.backup.*
+.gemini/
+**/.env
+**/.env.*
+!**/.env.example
+**/*cookie*
+**/*Cookie*
+**/*.sqlite
+**/*.sqlite-wal
+**/*.sqlite-shm
+**/*password*
+**/*secret*
+**/*token*
+**/credentials
+**/access_token
+.anydesk/
+
+# ============================================================
+# SHELL & SİSTEM
+# ============================================================
+.bash_history
+.bash_logout
+.node_repl_history
+.wget-hsts
+.bash_profile
+.bashrc
+.profile
+
+# ============================================================
+# YENİDEN KURULABİLİR ARAÇLAR
+# ============================================================
+.bun/
+.cargo/
+.rustup/
+.npm/
+.gradle/
+.java/
+.android/
+.config/go/
+.supabase/
+
+# ============================================================
+# CACHE & RUNTIME (global)
+# ============================================================
+.cache/
+.nv/
+.var/
+**/.cache/
+**/Cache/
+**/Cache_Data/
+**/cache/
+**/Code Cache/
+**/GPUCache/
+**/ShaderCache/
+**/blob_storage/
+**/CrashPad/
+**/Crash Reports/
+**/Session Storage/
+**/Local Storage/
+**/IndexedDB/
+**/sessionData/
+**/Local State
+**/Network/
+**/NetworkPersist/
+**/node_modules/
+
+# ============================================================
+# BÜYÜK MEDYA / DRIVE'A GİDECEKLER
+# ============================================================
+stream/
+Pictures/
+Music/
+Videos/
+Downloads/
+github/
+minecraft/
+fix/
+MASAUSTU_KURTARMA/
+backup/
+aseprite/
+shortcuts/
+
+# ============================================================
+# KOD PROJELERİ — Drive'a gidecek
+# ============================================================
+code/
+
+# ============================================================
+# MİSC
+# ============================================================
+*.log
+Thumbs.db
+.DS_Store
+desktop.ini
+lfs_cozucu.py
+.gitconfig
+.config.bak/
+.vscode-oss/
+.vscode-oss-shared/
+.local/share/Trash/
+.antigravity/
+!.antigravity/argv.json
+
+# ============================================================
+# .CONFIG — tümü ignore, whitelist ile aç
+# ============================================================
+.config/**
+
+# --- Caelestia (dotfile manager)
+!.config/caelestia/
+!.config/caelestia/**
+
+# --- Hyprland / Wayland
+!.config/hypr/
+!.config/hypr/**
+!.config/uwsm/
+!.config/uwsm/**
+
+# --- Bar / Launcher / Bildirimler
+!.config/waybar/
+!.config/waybar/**
+!.config/fuzzel/
+!.config/fuzzel/**
+!.config/cava/
+!.config/cava/**
+!.config/mako/
+!.config/mako/**
+
+# --- Terminal
+!.config/kitty/
+!.config/kitty/**
+!.config/foot/
+!.config/foot/**
+!.config/alacritty/
+!.config/alacritty/**
+
+# --- Shell / CLI
+!.config/fish/
+!.config/fish/**
+!.config/starship.toml
+
+# --- Editörler
+!.config/nvim/
+!.config/nvim/**
+!.config/zed/
+!.config/zed/**
+.config/nvim.bck.2/
+.config/nvim.bck.3/
+.config/nvim.old/
+.config/nvim.old.2/
+
+# --- Sistem monitör
+!.config/btop/
+!.config/btop/**
+!.config/htop/
+!.config/htop/**
+!.config/nvtop/
+!.config/nvtop/**
+!.config/fastfetch/
+!.config/fastfetch/**
+
+# --- Theming
+!.config/gtk-3.0/
+!.config/gtk-3.0/**
+!.config/gtk-4.0/
+!.config/gtk-4.0/**
+!.config/Kvantum/
+!.config/Kvantum/**
+!.config/qt5ct/
+!.config/qt5ct/**
+!.config/qt6ct/
+!.config/qt6ct/**
+!.config/kdeglobals
+!.config/mimeapps.list
+!.config/user-dirs.dirs
+
+# --- Ses
+!.config/pipewire/
+!.config/pipewire/**
+!.config/easyeffects/
+!.config/easyeffects/**
+!.config/easyeffectsrc
+!.config/pavucontrol.ini
+
+# --- Medya
+!.config/mpv/
+!.config/mpv/**
+!.config/vlc/
+!.config/vlc/**
+
+# --- Ekran görüntüsü
+!.config/flameshot/
+!.config/flameshot/**
+
+# --- Müzik / Spicetify
+!.config/spicetify/
+!.config/spicetify/**
+!.config/spotify/
+.config/spotify/**
+!.config/spotify/prefs
+
+# --- Discord istemcileri
+!.config/Vencord/
+!.config/Vencord/**
+.config/Vencord/dist/
+!.config/BetterDiscord/
+!.config/BetterDiscord/**
+!.config/vesktop/
+!.config/vesktop/**
+!.config/discord/
+!.config/discord/**
+.config/discord/Cache/
+.config/discord/Code Cache/
+.config/discord/GPUCache/
+.config/discord/[0-9]*/
+.config/discord/logs/
+.config/discord/Local Storage/
+.config/discord/Session Storage/
+!.config/legcord/
+!.config/legcord/**
+!.config/equibop/
+!.config/equibop/**
+!.config/Equicord/
+!.config/Equicord/**
+
+# --- Tarayıcılar
+!.config/vivaldi/
+.config/vivaldi/**
+!.config/vivaldi/Default/
+.config/vivaldi/Default/**
+!.config/vivaldi/Default/Preferences
+!.config/vivaldi/Default/Bookmarks
+
+# --- Antigravity (sadece config, extension binary'leri hariç)
+!.config/Antigravity/
+.config/Antigravity/**
+!.config/Antigravity/argv.json
+!.config/Antigravity/extensions/
+!.config/Antigravity/extensions/**
+.config/Antigravity/extensions/**/node_modules/
+
+# --- Yaratıcı araçlar
+!.config/GIMP/
+!.config/GIMP/**
+.config/GIMP/3.0/tool-options/
+!.config/inkscape/
+!.config/inkscape/**
+!.config/OpenRGB/
+!.config/OpenRGB/**
+.config/OpenRGB/logs/
+
+# --- VS Code OSS / Cursor / Antigravity editör
+!.config/Code - OSS/
+!.config/Code - OSS/User/
+!.config/Code - OSS/User/settings.json
+!.config/Code - OSS/User/keybindings.json
+!.config/Code - OSS/User/snippets/
+!.config/Code - OSS/User/snippets/**
+!.config/cursor/
+!.config/cursor/User/
+!.config/cursor/User/settings.json
+!.config/cursor/User/keybindings.json
+!.config/Cursor/
+!.config/Cursor/User/
+!.config/Cursor/User/settings.json
+!.config/Cursor/User/keybindings.json
+
+# --- Notion
+!.config/Notion/
+.config/Notion/**
+!.config/Notion/config.json
+
+# --- KDE araçları (Thunar, Kate, Dolphin)
+!.config/Thunar/
+!.config/Thunar/**
+!.config/kate/
+!.config/kate/**
+!.config/katerc
+!.config/katevirc
+!.config/kate-externaltoolspluginrc
+!.config/kdeglobals
+!.config/QtProject.conf
+!.config/dolphinrc
+
+# --- Systemd user units (önemli!)
+!.config/systemd/
+!.config/systemd/**
+
+# --- Autostart
+!.config/autostart/
+!.config/autostart/**
+
+# --- Diğer küçük config'ler
+!.config/yay/
+!.config/yay/**
+!.config/session/
+!.config/session/**
+
+# ============================================================
+# .LOCAL — seçici whitelist
+# ============================================================
+.local/state/
+.local/bin/
+.local/share/**
+
+# Caelestia (symlink source of truth)
+!.local/share/caelestia/
+!.local/share/caelestia/**
+
+# Fish shell data
+!.local/share/fish/
+!.local/share/fish/**
+
+# Fontlar
+!.local/share/fonts/
+!.local/share/fonts/**
+
+# PrismLauncher — sadece ayarlar, runtime/data değil
+!.local/share/PrismLauncher/
+!.local/share/PrismLauncher/**
+.local/share/PrismLauncher/instances/
+.local/share/PrismLauncher/libraries/
+.local/share/PrismLauncher/metacache/
+.local/share/PrismLauncher/meta/
+.local/share/PrismLauncher/jars/
+.local/share/PrismLauncher/cache/
+.local/share/PrismLauncher/java/
+.local/share/PrismLauncher/assets/
+
+# MultiMC — sadece ayarlar
+!.local/share/multimc/
+!.local/share/multimc/**
+.local/share/multimc/instances/
+.local/share/multimc/libraries/
+.local/share/multimc/assets/
+.local/share/multimc/update/
+
+# Nvim — plugin runtime'ları hariç sadece config verileri
+!.local/share/nvim/
+!.local/share/nvim/**
+.local/share/nvim/lazy/
+.local/share/nvim/mason/
+.local/share/nvim/harpoon/
+.local/share/nvim/base46/
+
+# Zed — sadece settings, extension binary'leri değil
+!.local/share/zed/
+!.local/share/zed/**
+.local/share/zed/extensions/work/
+.local/share/zed/extensions/installed/
+.local/share/zed/external_agents/registry/
+.local/share/zed/external_agents/**/node_modules/
+.local/share/zed/languages/
+.local/share/zed/prettier/
+.local/share/zed/node/
+
+# Tauri app data — WebKit cache hariç
+!.local/share/com.atlasata.theatlas/
+!.local/share/com.atlasata.theatlas/**
+.local/share/com.atlasata.theatlas/WebKitCache/
+!.local/share/com.atlasata.theatlas-youtube/
+!.local/share/com.atlasata.theatlas-youtube/**
+.local/share/com.atlasata.theatlas-youtube/WebKitCache/
+
+# ============================================================
+# MOZİLLA — sadece userChrome.css
+# ============================================================
+.mozilla/**
+!.mozilla/firefox/
+!.mozilla/firefox/*/
+.mozilla/firefox/*/**
+!.mozilla/firefox/*/chrome/
+!.mozilla/firefox/*/chrome/userChrome.css
+!.mozilla/firefox/*/chrome/userContent.css

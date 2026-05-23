@@ -1,0 +1,5 @@
+{
+	"sysmon": {
+		"enable": false,	
+	}
+}

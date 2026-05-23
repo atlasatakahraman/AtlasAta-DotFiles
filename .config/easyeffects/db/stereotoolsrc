@@ -1,0 +1,6 @@
+[sie][StereoTools#0]
+mode=3
+softclip=true
+
+[soe][StereoTools#0]
+outputGain=0.7
