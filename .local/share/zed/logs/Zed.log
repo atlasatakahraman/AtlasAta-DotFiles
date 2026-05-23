@@ -1,0 +1,1834 @@
+2026-02-06T10:10:54+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:10:54+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 368
+}
+2026-02-06T10:10:55+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 321
+}
+2026-02-06T10:10:56+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:10:56+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:10:56+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 328
+}
+2026-02-06T10:10:56+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 317
+}
+2026-02-06T10:10:59+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:11:00+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:11:00+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 351
+}
+2026-02-06T10:11:00+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 438
+}
+2026-02-06T10:11:10+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:11:10+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:11:10+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 395
+}
+2026-02-06T10:11:11+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 335
+}
+2026-02-06T10:11:13+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:11:13+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:11:13+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 400
+}
+2026-02-06T10:11:13+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 335
+}
+2026-02-06T10:11:15+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:11:15+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:11:15+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 328
+}
+2026-02-06T10:11:15+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 323
+}
+2026-02-06T10:11:17+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:11:17+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 340
+}
+2026-02-06T10:11:17+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:11:17+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 356
+}
+2026-02-06T10:11:18+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 331
+}
+2026-02-06T10:11:18+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 333
+}
+2026-02-06T10:11:18+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:11:19+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:11:19+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 318
+}
+2026-02-06T10:11:19+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 318
+}
+2026-02-06T10:11:21+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:11:21+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:11:21+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 446
+}
+2026-02-06T10:11:21+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 360
+}
+2026-02-06T10:11:25+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:11:26+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 353
+}
+2026-02-06T10:11:26+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:11:26+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 365
+}
+2026-02-06T10:11:26+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:11:26+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 338
+}
+2026-02-06T10:11:27+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 311
+}
+2026-02-06T10:11:29+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 329
+}
+2026-02-06T10:11:31+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 319
+}
+2026-02-06T10:11:32+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 348
+}
+2026-02-06T10:11:33+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 346
+}
+2026-02-06T10:11:36+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 333
+}
+2026-02-06T10:11:36+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 333
+}
+2026-02-06T10:11:37+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 360
+}
+2026-02-06T10:11:39+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 352
+}
+2026-02-06T10:11:40+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 316
+}
+2026-02-06T10:11:41+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 323
+}
+2026-02-06T10:11:41+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 331
+}
+2026-02-06T10:11:42+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 307
+}
+2026-02-06T10:11:43+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 335
+}
+2026-02-06T10:11:44+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 337
+}
+2026-02-06T10:11:46+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 315
+}
+2026-02-06T10:11:48+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 294
+}
+2026-02-06T10:11:49+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 353
+}
+2026-02-06T10:11:50+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 352
+}
+2026-02-06T10:11:51+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 343
+}
+2026-02-06T10:11:52+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 332
+}
+2026-02-06T10:11:53+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 311
+}
+2026-02-06T10:11:55+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 318
+}
+2026-02-06T10:11:56+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 301
+}
+2026-02-06T10:12:13+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:12:14+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:12:14+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 431
+}
+2026-02-06T10:12:14+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 330
+}
+2026-02-06T10:12:15+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:12:15+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:12:15+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 351
+}
+2026-02-06T10:12:15+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 343
+}
+2026-02-06T10:12:21+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 356
+}
+2026-02-06T10:12:21+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 360
+}
+2026-02-06T10:12:23+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:12:23+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 379
+}
+2026-02-06T10:12:23+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 318
+}
+2026-02-06T10:12:23+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 326
+}
+2026-02-06T10:12:24+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 321
+}
+2026-02-06T10:12:24+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:12:24+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 305
+}
+2026-02-06T10:12:24+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 304
+}
+2026-02-06T10:12:25+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 297
+}
+2026-02-06T10:12:25+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:12:25+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 313
+}
+2026-02-06T10:12:25+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 309
+}
+2026-02-06T10:12:26+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 349
+}
+2026-02-06T10:12:26+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:12:26+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 337
+}
+2026-02-06T10:12:26+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 327
+}
+2026-02-06T10:12:27+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 318
+}
+2026-02-06T10:12:27+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 450
+}
+2026-02-06T10:12:27+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:12:27+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 326
+}
+2026-02-06T10:12:28+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 288
+}
+2026-02-06T10:12:28+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:12:28+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 333
+}
+2026-02-06T10:12:28+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 325
+}
+2026-02-06T10:12:29+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 303
+}
+2026-02-06T10:12:30+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:12:30+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:12:30+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 327
+}
+2026-02-06T10:12:31+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 316
+}
+2026-02-06T10:12:32+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:12:32+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:12:32+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 352
+}
+2026-02-06T10:12:33+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 351
+}
+2026-02-06T10:12:39+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:12:39+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:12:39+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 434
+}
+2026-02-06T10:12:40+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 337
+}
+2026-02-06T10:12:40+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:12:40+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:12:41+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 360
+}
+2026-02-06T10:12:41+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 330
+}
+2026-02-06T10:12:42+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 353
+}
+2026-02-06T10:12:42+03:00 WARN  [project::lsp_store] Get completion via vtsls failed: Request textDocument/completion failed with message: Reduce of empty array with no initial value
+2026-02-06T10:12:43+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 339
+}
+2026-02-06T10:12:50+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 323
+}
+2026-02-06T10:12:50+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 372
+}
+2026-02-06T10:12:51+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 333
+}
+2026-02-06T10:12:51+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 349
+}
+2026-02-06T10:12:56+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 360
+}
+2026-02-06T10:13:03+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 367
+}
+2026-02-06T10:13:03+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 338
+}
+2026-02-06T10:13:04+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 328
+}
+2026-02-06T10:13:04+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 293
+}
+2026-02-06T10:13:05+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 328
+}
+2026-02-06T10:13:06+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 317
+}
+2026-02-06T10:13:07+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 337
+}
+2026-02-06T10:13:07+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 320
+}
+2026-02-06T10:13:13+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 356
+}
+2026-02-06T10:13:13+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 349
+}
+2026-02-06T10:13:13+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 308
+}
+2026-02-06T10:13:14+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/signup/page.tsx",
+  "state": 1,
+  "validationTime": 301
+}
+2026-02-06T10:15:19+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/api/auth/signup/route.ts",
+  "state": 1,
+  "validationTime": 127
+}
+2026-02-06T10:23:33+03:00 INFO  [lsp] Language server with id 7 sent unhandled notification eslint/status:
+{
+  "uri": "file:///home/atlasata/frontend/theatlas/app/login/page.tsx",
+  "state": 1,
+  "validationTime": 419
+}
+2026-02-06T11:02:25+03:00 ERROR [crates/fs/src/fs_watcher.rs:216] Error { kind: WatchNotFound, paths: ["/home/atlasata/frontend/theatlas/app/signin"] }
+2026-02-06T14:01:50+03:00 INFO  [zed] ========== starting zed version 0.220.6+stable, sha unknown ==========
+2026-02-06T14:01:50+03:00 INFO  [crashes] spawning crash handler process
+2026-02-06T14:01:50+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-02-06T14:01:50+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-02-06T14:01:50+03:00 INFO  [crashes] crash handler registered
+2026-02-06T14:01:50+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-02-06T14:01:50+03:00 INFO  [gpui::platform::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-02-06T14:01:50+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": No such file or directory (os error 2)
+2026-02-06T14:01:50+03:00 ERROR [crates/client/src/client.rs:364] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-02-06T14:01:50+03:00 INFO  [gpui::platform::blade::blade_renderer] Initializing Blade pipelines for surface SurfaceInfo { format: Bgra8Unorm, alpha: PreMultiplied }
+2026-02-06T14:01:50+03:00 INFO  [gpui::platform::blade::blade_renderer] Initializing Blade pipelines for surface SurfaceInfo { format: Bgra8Unorm, alpha: Ignored }
+2026-02-06T14:01:50+03:00 INFO  [workspace] Rendered first frame
+2026-02-06T14:01:50+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "590.48.01" }
+2026-02-06T14:01:50+03:00 INFO  [node_runtime] using Node.js found on PATH: SystemNodeRuntime { node: "/usr/bin/node", npm: "/usr/bin/npm", global_node_modules: "/usr/lib/node_modules\n", scratch_dir: "/home/atlasata/.local/share/zed/node" }
+2026-02-06T14:01:53+03:00 WARN  [agent_servers::acp] agent stderr: (node:4290) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-02-06T14:01:53+03:00 WARN  [agent_servers::acp] agent stderr: (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-02-06T14:01:56+03:00 WARN  [agent_servers::acp] agent stderr: (node:4324) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-02-06T14:01:56+03:00 WARN  [agent_servers::acp] agent stderr: (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-02-06T16:07:59+03:00 INFO  [zed] ========== starting zed version 0.220.6+stable, sha unknown ==========
+2026-02-06T16:07:59+03:00 INFO  [crashes] spawning crash handler process
+2026-02-06T16:07:59+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin:/usr/lib/jvm/default/bin
+2026-02-06T16:07:59+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-02-06T16:07:59+03:00 INFO  [crashes] crash handler registered
+2026-02-06T16:07:59+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-02-06T16:07:59+03:00 INFO  [gpui::platform::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-02-06T16:07:59+03:00 ERROR [crates/client/src/client.rs:364] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-02-06T16:07:59+03:00 INFO  [gpui::platform::blade::blade_renderer] Initializing Blade pipelines for surface SurfaceInfo { format: Bgra8Unorm, alpha: PreMultiplied }
+2026-02-06T16:07:59+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": No such file or directory (os error 2)
+2026-02-06T16:07:59+03:00 INFO  [gpui::platform::blade::blade_renderer] Initializing Blade pipelines for surface SurfaceInfo { format: Bgra8Unorm, alpha: Ignored }
+2026-02-06T16:07:59+03:00 INFO  [workspace] Rendered first frame
+2026-02-06T16:07:59+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "590.48.01" }
+2026-02-06T16:08:00+03:00 INFO  [node_runtime] using Node.js found on PATH: SystemNodeRuntime { node: "/usr/bin/node", npm: "/usr/bin/npm", global_node_modules: "/usr/lib/node_modules\n", scratch_dir: "/home/atlasata/.local/share/zed/node" }
+2026-02-06T16:08:02+03:00 WARN  [agent_servers::acp] agent stderr: (node:69883) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-02-06T16:08:02+03:00 WARN  [agent_servers::acp] agent stderr: (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-02-06T16:08:05+03:00 WARN  [agent_servers::acp] agent stderr: (node:69919) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-02-06T16:08:05+03:00 WARN  [agent_servers::acp] agent stderr: (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-02-07T17:54:42+03:00 INFO  [zed] ========== starting zed version 0.222.4+stable, sha unknown ==========
+2026-02-07T17:54:42+03:00 INFO  [crashes] spawning crash handler process
+2026-02-07T17:54:42+03:00 INFO  [sqlez::migrations] Found 17 foreign key relationships to check
+2026-02-07T17:54:42+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-02-07T17:54:42+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-02-07T17:54:42+03:00 INFO  [crashes] crash handler registered
+2026-02-07T17:54:42+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-02-07T17:54:42+03:00 INFO  [gpui::platform::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-02-07T17:54:42+03:00 ERROR [crates/client/src/client.rs:364] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-02-07T17:54:42+03:00 INFO  [gpui::platform::blade::blade_renderer] Initializing Blade pipelines for surface SurfaceInfo { format: Bgra8Unorm, alpha: PreMultiplied }
+2026-02-07T17:54:42+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-02-07T17:54:42+03:00 INFO  [gpui::platform::blade::blade_renderer] Initializing Blade pipelines for surface SurfaceInfo { format: Bgra8Unorm, alpha: Ignored }
+2026-02-07T17:54:42+03:00 INFO  [workspace] Rendered first frame
+2026-02-07T17:54:42+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "590.48.01" }
+2026-02-07T17:54:42+03:00 INFO  [sqlez::migrations] Found 17 foreign key relationships to check
+2026-02-07T18:12:17+03:00 ERROR [crates/gpui/src/platform/linux/wayland/client.rs:826] OtherError(IoError(Os { code: 32, kind: BrokenPipe, message: "Broken pipe" }))
+2026-02-18T21:30:50+03:00 INFO  [zed] ========== starting zed version 0.223.3+stable, sha unknown ==========
+2026-02-18T21:30:50+03:00 INFO  [crashes] spawning crash handler process
+2026-02-18T21:30:50+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-02-18T21:30:50+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-02-18T21:30:50+03:00 INFO  [crashes] crash handler registered
+2026-02-18T21:30:50+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-02-18T21:30:50+03:00 INFO  [gpui::platform::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-02-18T21:30:50+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-02-18T21:30:50+03:00 ERROR [crates/client/src/client.rs:364] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-02-18T21:30:50+03:00 INFO  [gpui::platform::blade::blade_renderer] Initializing Blade pipelines for surface SurfaceInfo { format: Bgra8Unorm, alpha: PreMultiplied }
+2026-02-18T21:30:50+03:00 INFO  [gpui::platform::blade::blade_renderer] Initializing Blade pipelines for surface SurfaceInfo { format: Bgra8Unorm, alpha: Ignored }
+2026-02-18T21:30:50+03:00 INFO  [workspace] Rendered first frame
+2026-02-18T21:30:50+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "590.48.01" }
+2026-02-18T21:30:51+03:00 INFO  [extension_host] installing extension slint 1.15.1
+2026-02-27T23:37:10+03:00 INFO  [zed] ========== starting zed version 0.223.3+stable, sha unknown ==========
+2026-02-27T23:37:10+03:00 INFO  [crashes] spawning crash handler process
+2026-02-27T23:37:10+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-02-27T23:37:10+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-02-27T23:37:10+03:00 INFO  [crashes] crash handler registered
+2026-02-27T23:37:10+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-02-27T23:37:10+03:00 INFO  [gpui::platform::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-02-27T23:37:10+03:00 ERROR [crates/client/src/client.rs:364] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-02-27T23:37:10+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-02-27T23:37:10+03:00 INFO  [gpui::platform::blade::blade_renderer] Initializing Blade pipelines for surface SurfaceInfo { format: Bgra8Unorm, alpha: PreMultiplied }
+2026-02-27T23:37:10+03:00 INFO  [gpui::platform::blade::blade_renderer] Initializing Blade pipelines for surface SurfaceInfo { format: Bgra8Unorm, alpha: Ignored }
+2026-02-27T23:37:10+03:00 INFO  [workspace] Rendered first frame
+2026-02-27T23:37:10+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "590.48.01" }
+2026-02-27T23:37:11+03:00 INFO  [extension_host] installing extension scss 0.1.7
+2026-02-27T23:37:12+03:00 INFO  [extension_host] rebuilt extension index in 20.237434ms
+2026-02-27T23:37:12+03:00 INFO  [extension_host] extensions updated. loading 0, reloading 0, unloading 1
+2026-02-27T23:37:12+03:00 INFO  [extension_host] rebuilt extension index in 7.213307ms
+2026-02-27T23:37:12+03:00 INFO  [extension_host] extensions updated. loading 1, reloading 0, unloading 0
+2026-02-27T23:37:12+03:00 INFO  [extension_host] installing extension slint 1.15.1
+2026-02-27T23:37:13+03:00 INFO  [extension_host] rebuilt extension index in 8.224723ms
+2026-02-27T23:37:13+03:00 INFO  [extension_host] extensions updated. loading 0, reloading 1, unloading 0
+2026-02-27T23:37:13+03:00 INFO  [extension_host] installing extension toml 1.0.2
+2026-02-27T23:37:14+03:00 INFO  [extension_host] rebuilt extension index in 7.123809ms
+2026-02-27T23:37:14+03:00 INFO  [extension_host] extensions updated. loading 0, reloading 1, unloading 0
+2026-02-28T06:55:09+03:00 INFO  [zed] ========== starting zed version 0.223.3+stable, sha unknown ==========
+2026-02-28T06:55:10+03:00 INFO  [crashes] spawning crash handler process
+2026-02-28T06:55:10+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-02-28T06:55:10+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-02-28T06:55:10+03:00 INFO  [crashes] crash handler registered
+2026-02-28T06:55:10+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-02-28T06:55:10+03:00 INFO  [gpui::platform::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-02-28T06:55:10+03:00 ERROR [crates/client/src/client.rs:364] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-02-28T06:55:10+03:00 INFO  [gpui::platform::blade::blade_renderer] Initializing Blade pipelines for surface SurfaceInfo { format: Bgra8Unorm, alpha: PreMultiplied }
+2026-02-28T06:55:10+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-02-28T06:55:10+03:00 INFO  [gpui::platform::blade::blade_renderer] Initializing Blade pipelines for surface SurfaceInfo { format: Bgra8Unorm, alpha: Ignored }
+2026-02-28T06:55:10+03:00 INFO  [workspace] Rendered first frame
+2026-02-28T06:55:10+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "590.48.01" }
+2026-03-27T06:09:46+03:00 INFO  [zed] ========== starting zed version 0.223.3+stable, sha unknown ==========
+2026-03-27T06:09:46+03:00 INFO  [crashes] spawning crash handler process
+2026-03-27T06:09:46+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-03-27T06:09:47+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-03-27T06:09:47+03:00 INFO  [crashes] crash handler registered
+2026-03-27T06:09:47+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-03-27T06:09:47+03:00 INFO  [gpui::platform::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-03-27T06:09:47+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-03-27T06:09:47+03:00 ERROR [crates/client/src/client.rs:364] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-03-27T06:09:47+03:00 INFO  [gpui::platform::blade::blade_renderer] Initializing Blade pipelines for surface SurfaceInfo { format: Bgra8Unorm, alpha: PreMultiplied }
+2026-03-27T06:09:47+03:00 INFO  [gpui::platform::blade::blade_renderer] Initializing Blade pipelines for surface SurfaceInfo { format: Bgra8Unorm, alpha: Ignored }
+2026-03-27T06:09:47+03:00 INFO  [workspace] Rendered first frame
+2026-03-27T06:09:47+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "590.48.01" }
+2026-03-27T06:09:47+03:00 INFO  [extension_host] installing extension git-firefly 0.1.4
+2026-03-27T06:43:35+03:00 INFO  [zed] ========== starting zed version 0.223.3+stable, sha unknown ==========
+2026-03-27T06:43:35+03:00 INFO  [crashes] spawning crash handler process
+2026-03-27T06:43:35+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-03-27T06:43:35+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-03-27T06:43:35+03:00 INFO  [crashes] crash handler registered
+2026-03-27T06:43:35+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-03-27T06:43:35+03:00 INFO  [gpui::platform::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-03-27T06:43:35+03:00 ERROR [crates/client/src/client.rs:364] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-03-27T06:43:35+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-03-27T06:43:35+03:00 INFO  [gpui::platform::blade::blade_renderer] Initializing Blade pipelines for surface SurfaceInfo { format: Bgra8Unorm, alpha: PreMultiplied }
+2026-03-27T06:43:35+03:00 INFO  [gpui::platform::blade::blade_renderer] Initializing Blade pipelines for surface SurfaceInfo { format: Bgra8Unorm, alpha: Ignored }
+2026-03-27T06:43:35+03:00 INFO  [workspace] Rendered first frame
+2026-03-27T06:43:35+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "590.48.01" }
+2026-03-27T06:43:36+03:00 INFO  [node_runtime] using Node.js found on PATH: SystemNodeRuntime { node: "/usr/bin/node", npm: "/usr/bin/npm", global_node_modules: "/usr/lib/node_modules\n", scratch_dir: "/home/atlasata/.local/share/zed/node" }
+2026-03-27T06:43:36+03:00 INFO  [extension_host] rebuilt extension index in 16.205338ms
+2026-03-27T06:43:36+03:00 INFO  [extension_host] extensions updated. loading 0, reloading 1, unloading 0
+2026-03-27T06:43:36+03:00 INFO  [lsp] starting language server process. binary path: "/home/atlasata/.local/share/zed/languages/package-version-server/package-version-server-v0.0.10", working directory: "/home/atlasata/stream/backup/kisuke/profile", args: []
+2026-03-27T06:43:36+03:00 INFO  [extension_host] installing extension html 0.3.1
+2026-03-27T06:43:36+03:00 INFO  [lsp] starting language server process. binary path: "/usr/bin/node", working directory: "/home/atlasata/stream/backup/kisuke/profile", args: ["/home/atlasata/.local/share/zed/languages/json-language-server/node_modules/vscode-langservers-extracted/bin/vscode-json-language-server", "--stdio"]
+2026-03-27T06:43:38+03:00 INFO  [extension_host] rebuilt extension index in 10.813471ms
+2026-03-27T06:43:38+03:00 INFO  [extension_host] extensions updated. loading 0, reloading 1, unloading 0
+2026-03-27T06:43:38+03:00 INFO  [extension_host] installing extension lua 0.1.9
+2026-03-27T06:43:38+03:00 INFO  [extension_host] rebuilt extension index in 9.544756ms
+2026-03-27T06:43:38+03:00 INFO  [extension_host] extensions updated. loading 0, reloading 0, unloading 1
+2026-03-27T06:43:39+03:00 INFO  [extension_host] rebuilt extension index in 10.231471ms
+2026-03-27T06:43:39+03:00 INFO  [extension_host] extensions updated. loading 1, reloading 0, unloading 0
+2026-03-27T06:43:39+03:00 INFO  [extension_host] installing extension scss 0.2.0
+2026-03-27T06:43:40+03:00 INFO  [extension_host] rebuilt extension index in 9.847809ms
+2026-03-27T06:43:40+03:00 INFO  [extension_host] extensions updated. loading 0, reloading 0, unloading 1
+2026-03-27T06:43:40+03:00 INFO  [extension_host] rebuilt extension index in 11.259279ms
+2026-03-27T06:43:40+03:00 INFO  [extension_host] extensions updated. loading 1, reloading 0, unloading 0
+2026-03-28T17:11:59+03:00 INFO  [zed] ========== starting zed version 0.229.0+stable, sha unknown ==========
+2026-03-28T17:11:59+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-03-28T17:11:59+03:00 INFO  [crashes] crash signal handlers installed
+2026-03-28T17:11:59+03:00 INFO  [crashes] spawning crash handler process
+2026-03-28T17:11:59+03:00 INFO  [sqlez::migrations] Found 17 foreign key relationships to check
+2026-03-28T17:11:59+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-03-28T17:11:59+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-03-28T17:11:59+03:00 INFO  [crashes] crash handler registered
+2026-03-28T17:11:59+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-03-28T17:11:59+03:00 INFO  [sqlez::migrations] Found 17 foreign key relationships to check
+2026-03-28T17:11:59+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-03-28T17:11:59+03:00 ERROR [crates/client/src/client.rs:365] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-03-28T17:11:59+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-03-28T17:11:59+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-03-28T17:11:59+03:00 WARN  [wgpu_hal::gles::egl] Re-initializing Gles context due to Wayland window
+2026-03-28T17:11:59+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-03-28T17:11:59+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-03-28T17:11:59+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-03-28T17:11:59+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-03-28T17:11:59+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-03-28T17:11:59+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-03-28T17:11:59+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-03-28T17:12:00+03:00 INFO  [workspace] Rendered first frame
+2026-03-28T17:12:00+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-03-28T17:12:00+03:00 INFO  [sqlez::migrations] Found 18 foreign key relationships to check
+2026-03-28T17:12:00+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:125] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `Custom`", line: 1, column: 40)
+2026-03-28T17:12:00+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-03-28T17:12:00+03:00 INFO  [node_runtime] using Node.js found on PATH: SystemNodeRuntime { node: "/usr/bin/node", npm: "/usr/bin/npm", global_node_modules: "/usr/lib/node_modules\n", scratch_dir: "/home/atlasata/.local/share/zed/node" }
+2026-03-28T17:12:01+03:00 INFO  [lsp] starting language server process. binary path: "/usr/bin/node", working directory: "/home/atlasata/.config/mozilla/firefox/nwoin3r5.default-release/chrome", args: ["/home/atlasata/.local/share/zed/languages/vscode-css-language-server/node_modules/vscode-langservers-extracted/bin/vscode-css-language-server", "--stdio"]
+2026-03-28T17:12:01+03:00 INFO  [lsp] starting language server process. binary path: "/usr/bin/node", working directory: "/home/atlasata/.config/mozilla/firefox/nwoin3r5.default-release/chrome", args: ["/home/atlasata/.local/share/zed/languages/tailwindcss-language-server/node_modules/.bin/tailwindcss-language-server", "--stdio"]
+2026-03-28T17:12:01+03:00 ERROR [crates/editor/src/editor.rs:3811] persisting editor selections for editor 4294967603, workspace WorkspaceId(49)
+
+Caused by:
+    Sqlite call failed with code 787 and message: Some("FOREIGN KEY constraint failed")
+2026-03-28T17:12:04+03:00 WARN  [simplecss] The @media rule is not supported. Skipped.
+2026-03-28T17:12:14+03:00 ERROR [crates/editor/src/editor.rs:3811] persisting editor selections for editor 4294967603, workspace WorkspaceId(49)
+
+Caused by:
+    Sqlite call failed with code 787 and message: Some("FOREIGN KEY constraint failed")
+2026-03-28T17:12:16+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:12:18+03:00 ERROR [crates/editor/src/editor.rs:3811] persisting editor selections for editor 4294967603, workspace WorkspaceId(49)
+
+Caused by:
+    Sqlite call failed with code 787 and message: Some("FOREIGN KEY constraint failed")
+2026-03-28T17:12:50+03:00 ERROR [crates/editor/src/editor.rs:3811] persisting editor selections for editor 4294967603, workspace WorkspaceId(49)
+
+Caused by:
+    Sqlite call failed with code 787 and message: Some("FOREIGN KEY constraint failed")
+2026-03-28T17:12:51+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:13:00+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:13:12+03:00 WARN  [simplecss] The @media rule is not supported. Skipped.
+2026-03-28T17:13:42+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:13:43+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:17:33+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:17:33+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:17:34+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:17:34+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:17:34+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:17:42+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:17:43+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:17:44+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:17:44+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:17:52+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:17:52+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] no credentials provided
+2026-03-28T17:17:53+03:00 ERROR [editor] No entry in selection_history found for redo. This may correspond to a bug where undo does not update the selection. If this is occurring, please add details to https://github.com/zed-industries/zed/issues/22692
+2026-03-28T17:17:53+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:17:53+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:17:54+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:16+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:16+03:00 WARN  [simplecss] The @media rule is not supported. Skipped.
+2026-03-28T17:18:16+03:00 WARN  [simplecss] The @media rule is not supported. Skipped.
+2026-03-28T17:18:16+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:16+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:17+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:17+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:17+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:18+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:18+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:19+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:19+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:19+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:20+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:20+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:20+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:21+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:21+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:21+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:22+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:22+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:22+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:23+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:23+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:23+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:24+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:24+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:24+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:25+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:25+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:25+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:27+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:28+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:28+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:28+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:29+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:29+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:29+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:30+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:30+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:30+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:31+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:32+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:33+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:33+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:35+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:36+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:36+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:36+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:36+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:43+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:44+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:44+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:53+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:53+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:53+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T17:18:54+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2195] prompt contains special tokens
+2026-03-28T19:02:45+03:00 INFO  [zed] ========== starting zed version 0.229.0+stable, sha unknown ==========
+2026-03-28T19:02:45+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-03-28T19:02:45+03:00 INFO  [crashes] crash signal handlers installed
+2026-03-28T19:02:45+03:00 INFO  [crashes] spawning crash handler process
+2026-03-28T19:02:45+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-03-28T19:02:45+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-03-28T19:02:45+03:00 INFO  [crashes] crash handler registered
+2026-03-28T19:02:46+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-03-28T19:02:46+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-03-28T19:02:46+03:00 ERROR [crates/client/src/client.rs:365] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-03-28T19:02:46+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-03-28T19:02:46+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-03-28T19:02:46+03:00 WARN  [wgpu_hal::gles::egl] Re-initializing Gles context due to Wayland window
+2026-03-28T19:02:46+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-03-28T19:02:46+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-03-28T19:02:46+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-03-28T19:02:46+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-03-28T19:02:46+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-03-28T19:02:46+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-03-28T19:02:46+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-03-28T19:02:46+03:00 INFO  [workspace] Rendered first frame
+2026-03-28T19:02:46+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-03-28T19:02:46+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:125] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `Custom`", line: 1, column: 40)
+2026-03-28T19:02:46+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-03-28T19:02:49+03:00 INFO  [client] set status on client 0: Authenticating
+2026-03-28T19:02:49+03:00 ERROR [crates/client/src/client.rs:365] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-03-29T13:22:35+03:00 INFO  [zed] ========== starting zed version 0.229.0+stable, sha unknown ==========
+2026-03-29T13:22:35+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-03-29T13:22:35+03:00 INFO  [crashes] crash signal handlers installed
+2026-03-29T13:22:35+03:00 INFO  [crashes] spawning crash handler process
+2026-03-29T13:22:35+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-03-29T13:22:35+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-03-29T13:22:35+03:00 INFO  [crashes] crash handler registered
+2026-03-29T13:22:35+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-03-29T13:22:35+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-03-29T13:22:35+03:00 ERROR [crates/client/src/client.rs:365] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-03-29T13:22:35+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-03-29T13:22:35+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-03-29T13:22:35+03:00 WARN  [wgpu_hal::gles::egl] Re-initializing Gles context due to Wayland window
+2026-03-29T13:22:35+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-03-29T13:22:35+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-03-29T13:22:35+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-03-29T13:22:35+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-03-29T13:22:35+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-03-29T13:22:35+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-03-29T13:22:35+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-03-29T13:22:35+03:00 INFO  [workspace] Rendered first frame
+2026-03-29T13:22:35+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-03-29T13:22:35+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:125] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `Custom`", line: 1, column: 40)
+2026-03-29T13:22:35+03:00 ERROR [crates/workspace/src/workspace.rs:6312] failed to save contents of buffer
+
+Caused by:
+    0: failed to save serialized editor
+    1: Error in save_serialized_editor, exec_bound failed to execute or parse for: INSERT INTO
+         editors (
+           item_id,
+           workspace_id,
+           path,
+           buffer_path,
+           contents,
+           language,
+           mtime_seconds,
+           mtime_nanos
+         )
+       VALUES
+         (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8) ON CONFLICT DO
+       UPDATE
+       SET
+         item_id = ?1,
+         workspace_id = ?2,
+         path = ?3,
+         buffer_path = ?4,
+         contents = ?5,
+         language = ?6,
+         mtime_seconds = ?7,
+         mtime_nanos = ?8
+    2: Sqlite call failed with code 787 and message: Some("FOREIGN KEY constraint failed")
+2026-03-29T13:22:35+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-03-29T13:22:49+03:00 INFO  [zed] ========== starting zed version 0.229.0+stable, sha unknown ==========
+2026-03-29T13:22:49+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-03-29T13:22:49+03:00 INFO  [crashes] crash signal handlers installed
+2026-03-29T13:22:49+03:00 INFO  [crashes] spawning crash handler process
+2026-03-29T13:22:49+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-03-29T13:22:49+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-03-29T13:22:49+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-03-29T13:22:49+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-03-29T13:22:49+03:00 INFO  [crashes] crash handler registered
+2026-03-29T13:22:49+03:00 ERROR [crates/client/src/client.rs:365] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-03-29T13:22:49+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-03-29T13:22:49+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-03-29T13:22:49+03:00 WARN  [wgpu_hal::gles::egl] Re-initializing Gles context due to Wayland window
+2026-03-29T13:22:49+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-03-29T13:22:49+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-03-29T13:22:49+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-03-29T13:22:49+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-03-29T13:22:49+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-03-29T13:22:49+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-03-29T13:22:49+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-03-29T13:22:49+03:00 INFO  [workspace] Rendered first frame
+2026-03-29T13:22:49+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-03-29T13:22:49+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:125] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `Custom`", line: 1, column: 40)
+2026-03-29T13:22:49+03:00 ERROR [worktree] failed to canonicalize root path "/home/atlasata/update": canonicalizing "/home/atlasata/update": No such file or directory (os error 2)
+2026-03-29T13:22:49+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-03T22:47:11+03:00 INFO  [zed] ========== starting zed version 0.230.1+stable, sha unknown ==========
+2026-04-03T22:47:11+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-04-03T22:47:11+03:00 INFO  [sqlez::migrations] Found 19 foreign key relationships to check
+2026-04-03T22:47:11+03:00 INFO  [sqlez::migrations] Found 20 foreign key relationships to check
+2026-04-03T22:47:11+03:00 INFO  [sqlez::migrations] Found 21 foreign key relationships to check
+2026-04-03T22:47:11+03:00 INFO  [sqlez::migrations] Found 22 foreign key relationships to check
+2026-04-03T22:47:11+03:00 INFO  [sqlez::migrations] Found 23 foreign key relationships to check
+2026-04-03T22:47:11+03:00 INFO  [crashes] crash signal handlers installed
+2026-04-03T22:47:11+03:00 INFO  [crashes] spawning crash handler process
+2026-04-03T22:47:11+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-04-03T22:47:11+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-04-03T22:47:11+03:00 INFO  [crashes] crash handler registered
+2026-04-03T22:47:11+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-04-03T22:47:11+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-03T22:47:11+03:00 ERROR [crates/client/src/client.rs:365] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-03T22:47:11+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-04-03T22:47:11+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/config.lua"
+2026-04-03T22:47:11+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-04-03T22:47:11+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-04-03T22:47:11+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-04-03T22:47:11+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-04-03T22:47:11+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-04-03T22:47:11+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-04-03T22:47:11+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-04-03T22:47:12+03:00 INFO  [workspace] Rendered first frame
+2026-04-03T22:47:12+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-04-03T22:47:12+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:129] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `Custom`", line: 1, column: 40)
+2026-04-03T22:47:12+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/config.lua"
+2026-04-03T22:47:12+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/config.lua"
+2026-04-03T22:47:12+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-03T22:47:12+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:47:12+03:00 INFO  [git::repository] opening git repository at "/home/atlasata/.config/nvim/.git" using git binary "/usr/bin/git"
+2026-04-03T22:47:12+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:47:16+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:47:17+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:47:17+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:47:17+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:47:18+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:47:18+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/config.lua"
+2026-04-03T22:47:18+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/config.lua"
+2026-04-03T22:48:02+03:00 INFO  [zed] ========== starting zed version 0.230.1+stable, sha unknown ==========
+2026-04-03T22:48:02+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-04-03T22:48:02+03:00 INFO  [crashes] crash signal handlers installed
+2026-04-03T22:48:02+03:00 INFO  [crashes] spawning crash handler process
+2026-04-03T22:48:02+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-04-03T22:48:02+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-04-03T22:48:02+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-03T22:48:02+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-04-03T22:48:02+03:00 INFO  [crashes] crash handler registered
+2026-04-03T22:48:02+03:00 ERROR [crates/client/src/client.rs:365] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-03T22:48:02+03:00 INFO  [worktree] inserting parent git repo for this worktree: "init.lua"
+2026-04-03T22:48:02+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-04-03T22:48:02+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-04-03T22:48:02+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-04-03T22:48:02+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-04-03T22:48:02+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-04-03T22:48:02+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-04-03T22:48:03+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-04-03T22:48:03+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-04-03T22:48:03+03:00 INFO  [workspace] Rendered first frame
+2026-04-03T22:48:03+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-04-03T22:48:03+03:00 INFO  [git::repository] opening git repository at "/home/atlasata/.config/nvim/.git" using git binary "/usr/bin/git"
+2026-04-03T22:48:03+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:129] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `Custom`", line: 1, column: 40)
+2026-04-03T22:48:03+03:00 INFO  [worktree] inserting parent git repo for this worktree: "init.lua"
+2026-04-03T22:48:03+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:48:03+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-03T22:48:03+03:00 INFO  [worktree] inserting parent git repo for this worktree: "init.lua"
+2026-04-03T22:48:03+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:48:23+03:00 INFO  [zed] ========== starting zed version 0.230.1+stable, sha unknown ==========
+2026-04-03T22:48:23+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-04-03T22:48:23+03:00 INFO  [crashes] crash signal handlers installed
+2026-04-03T22:48:23+03:00 INFO  [crashes] spawning crash handler process
+2026-04-03T22:48:23+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-04-03T22:48:23+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-04-03T22:48:23+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-03T22:48:23+03:00 ERROR [crates/client/src/client.rs:365] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-03T22:48:23+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-04-03T22:48:23+03:00 INFO  [crashes] crash handler registered
+2026-04-03T22:48:23+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/config.lua"
+2026-04-03T22:48:23+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-04-03T22:48:23+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-04-03T22:48:23+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-04-03T22:48:23+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-04-03T22:48:23+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-04-03T22:48:23+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-04-03T22:48:23+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-04-03T22:48:23+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-04-03T22:48:23+03:00 INFO  [workspace] Rendered first frame
+2026-04-03T22:48:23+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-04-03T22:48:23+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:129] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `Custom`", line: 1, column: 40)
+2026-04-03T22:48:23+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/config.lua"
+2026-04-03T22:48:23+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-03T22:48:23+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/config.lua"
+2026-04-03T22:48:23+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:48:23+03:00 INFO  [git::repository] opening git repository at "/home/atlasata/.config/nvim/.git" using git binary "/usr/bin/git"
+2026-04-03T22:48:23+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:48:24+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:48:25+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:48:25+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:48:25+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:48:26+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/config.lua"
+2026-04-03T22:48:26+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/config.lua"
+2026-04-03T22:48:40+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:48:41+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/config.lua"
+2026-04-03T22:48:41+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/config.lua"
+2026-04-03T22:48:45+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-03T22:48:45+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-03T22:48:45+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:48:49+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:48:50+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:48:50+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:48:50+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:48:51+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-03T22:48:51+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-03T22:49:02+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:49:02+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:49:02+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:49:03+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-03T22:49:03+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-03T22:49:23+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:49:25+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-03T22:49:25+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-03T22:49:39+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:49:39+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:49:39+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:49:39+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-03T22:49:39+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-03T22:49:44+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:49:44+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-03T22:49:44+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-03T22:49:52+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:49:52+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:49:52+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:49:53+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-03T22:49:53+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-03T22:49:59+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:49:59+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-03T22:49:59+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-03T22:50:15+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:50:16+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:50:16+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:50:16+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:50:16+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-03T22:50:17+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-03T22:50:27+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-03T22:50:27+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-03T22:50:28+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-03T22:50:40+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-03T22:50:40+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-03T22:51:11+03:00 ERROR [gpui::app] timed out waiting on app_will_quit
+2026-04-03T23:21:21+03:00 INFO  [zed] ========== starting zed version 0.230.1+stable, sha unknown ==========
+2026-04-03T23:21:21+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-04-03T23:21:21+03:00 INFO  [crashes] crash signal handlers installed
+2026-04-03T23:21:21+03:00 INFO  [crashes] spawning crash handler process
+2026-04-03T23:21:21+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-04-03T23:21:21+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-04-03T23:21:21+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-03T23:21:21+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-04-03T23:21:21+03:00 INFO  [crashes] crash handler registered
+2026-04-03T23:21:21+03:00 ERROR [crates/client/src/client.rs:365] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-03T23:21:21+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-04-03T23:21:21+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-04-03T23:21:21+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-04-03T23:21:21+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-04-03T23:21:21+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-04-03T23:21:21+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-04-03T23:21:21+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-04-03T23:21:21+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-04-03T23:21:21+03:00 INFO  [workspace] Rendered first frame
+2026-04-03T23:21:21+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-04-03T23:21:21+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:129] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `Custom`", line: 1, column: 40)
+2026-04-03T23:21:21+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-03T23:30:27+03:00 INFO  [zed] ========== starting zed version 0.230.1+stable, sha unknown ==========
+2026-04-03T23:30:27+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-04-03T23:30:27+03:00 INFO  [crashes] crash signal handlers installed
+2026-04-03T23:30:27+03:00 INFO  [crashes] spawning crash handler process
+2026-04-03T23:30:27+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-04-03T23:30:27+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-04-03T23:30:27+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-03T23:30:27+03:00 ERROR [crates/client/src/client.rs:365] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-03T23:30:27+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-04-03T23:30:27+03:00 INFO  [crashes] crash handler registered
+2026-04-03T23:30:27+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-04-03T23:30:27+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-04-03T23:30:27+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-04-03T23:30:27+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-04-03T23:30:27+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-04-03T23:30:27+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-04-03T23:30:27+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-04-03T23:30:27+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-04-03T23:30:27+03:00 INFO  [workspace] Rendered first frame
+2026-04-03T23:30:27+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-04-03T23:30:27+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:129] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `Custom`", line: 1, column: 40)
+2026-04-03T23:30:27+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-03T23:30:27+03:00 INFO  [node_runtime] using Node.js found on PATH: SystemNodeRuntime { node: "/usr/bin/node", npm: "/usr/bin/npm", global_node_modules: "/usr/lib/node_modules\n", scratch_dir: "/home/atlasata/.local/share/zed/node" }
+2026-04-03T23:30:28+03:00 INFO  [lsp] starting language server process. binary path: "/home/atlasata/.local/share/zed/languages/package-version-server/package-version-server-v0.0.10", working directory: "/home/atlasata/.var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher/instances/TheAtlas/minecraft/config/Veinminer", args: []
+2026-04-03T23:30:28+03:00 INFO  [lsp] starting language server process. binary path: "/usr/bin/node", working directory: "/home/atlasata/.var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher/instances/TheAtlas/minecraft/config/Veinminer", args: ["/home/atlasata/.local/share/zed/languages/json-language-server/node_modules/vscode-langservers-extracted/bin/vscode-json-language-server", "--stdio"]
+2026-04-03T23:30:28+03:00 ERROR [gpui::app] timed out waiting on app_will_quit
+2026-04-03T23:36:00+03:00 INFO  [zed] ========== starting zed version 0.230.1+stable, sha unknown ==========
+2026-04-03T23:36:00+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-04-03T23:36:00+03:00 INFO  [crashes] crash signal handlers installed
+2026-04-03T23:36:00+03:00 INFO  [crashes] spawning crash handler process
+2026-04-03T23:36:00+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-04-03T23:36:00+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-04-03T23:36:00+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-03T23:36:00+03:00 ERROR [crates/client/src/client.rs:365] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-03T23:36:00+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-04-03T23:36:00+03:00 INFO  [crashes] crash handler registered
+2026-04-03T23:36:00+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-04-03T23:36:00+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-04-03T23:36:00+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-04-03T23:36:00+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-04-03T23:36:00+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-04-03T23:36:00+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-04-03T23:36:00+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-04-03T23:36:00+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-04-03T23:36:00+03:00 INFO  [workspace] Rendered first frame
+2026-04-03T23:36:00+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-04-03T23:36:00+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:129] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `Custom`", line: 1, column: 40)
+2026-04-03T23:36:00+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-04T01:54:21+03:00 INFO  [zed] ========== starting zed version 0.230.1+stable, sha unknown ==========
+2026-04-04T01:54:21+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-04-04T01:54:21+03:00 INFO  [crashes] crash signal handlers installed
+2026-04-04T01:54:21+03:00 INFO  [crashes] spawning crash handler process
+2026-04-04T01:54:21+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-04-04T01:54:21+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-04-04T01:54:21+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-04-04T01:54:21+03:00 INFO  [crashes] crash handler registered
+2026-04-04T01:54:21+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-04T01:54:21+03:00 ERROR [crates/client/src/client.rs:365] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-04T01:54:21+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-04-04T01:54:21+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-04-04T01:54:21+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-04-04T01:54:21+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-04-04T01:54:21+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-04-04T01:54:21+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-04-04T01:54:21+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-04-04T01:54:21+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-04-04T01:54:21+03:00 INFO  [workspace] Rendered first frame
+2026-04-04T01:54:21+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-04-04T01:54:21+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:129] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `Custom`", line: 1, column: 40)
+2026-04-04T01:54:21+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-04T14:09:03+03:00 INFO  [zed] ========== starting zed version 0.230.1+stable, sha unknown ==========
+2026-04-04T14:09:03+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-04-04T14:09:03+03:00 INFO  [crashes] crash signal handlers installed
+2026-04-04T14:09:03+03:00 INFO  [crashes] spawning crash handler process
+2026-04-04T14:09:03+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-04-04T14:09:03+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-04-04T14:09:03+03:00 INFO  [crashes] crash handler registered
+2026-04-04T14:09:03+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-04-04T14:09:03+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-04T14:09:03+03:00 ERROR [crates/client/src/client.rs:365] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-04T14:09:03+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-04-04T14:09:03+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-04-04T14:09:03+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-04-04T14:09:03+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-04-04T14:09:03+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-04-04T14:09:03+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-04-04T14:09:03+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-04-04T14:09:03+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-04-04T14:09:03+03:00 INFO  [workspace] Rendered first frame
+2026-04-04T14:09:03+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-04-04T14:09:03+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:129] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `Custom`", line: 1, column: 40)
+2026-04-04T14:09:03+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-06T03:38:23+03:00 INFO  [zed] ========== starting zed version 0.230.1+stable, sha unknown ==========
+2026-04-06T03:38:23+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-04-06T03:38:23+03:00 INFO  [crashes] crash signal handlers installed
+2026-04-06T03:38:23+03:00 INFO  [crashes] spawning crash handler process
+2026-04-06T03:38:24+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-04-06T03:38:24+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-04-06T03:38:24+03:00 INFO  [crashes] crash handler registered
+2026-04-06T03:38:24+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-04-06T03:38:24+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-06T03:38:24+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-04-06T03:38:24+03:00 ERROR [crates/client/src/client.rs:365] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-06T03:38:24+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-04-06T03:38:24+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-04-06T03:38:24+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-04-06T03:38:24+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-04-06T03:38:24+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-04-06T03:38:24+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-04-06T03:38:24+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-04-06T03:38:24+03:00 INFO  [workspace] Rendered first frame
+2026-04-06T03:38:24+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-04-06T03:38:24+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:129] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `Custom`", line: 1, column: 40)
+2026-04-06T03:38:24+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-11T13:07:52+03:00 INFO  [zed] ========== starting zed version 0.231.2+stable, sha unknown ==========
+2026-04-11T13:07:52+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-04-11T13:07:52+03:00 INFO  [sqlez::migrations] Found 23 foreign key relationships to check
+2026-04-11T13:07:52+03:00 INFO  [sqlez::migrations] Found 23 foreign key relationships to check
+2026-04-11T13:07:52+03:00 INFO  [sqlez::migrations] Found 23 foreign key relationships to check
+2026-04-11T13:07:52+03:00 INFO  [crashes] crash signal handlers installed
+2026-04-11T13:07:52+03:00 INFO  [crashes] spawning crash handler process
+2026-04-11T13:07:52+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/home/atlasata/.bun/bin:/home/atlasata/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-04-11T13:07:52+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-04-11T13:07:52+03:00 INFO  [crashes] crash handler registered
+2026-04-11T13:07:52+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-04-11T13:07:52+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-11T13:07:52+03:00 ERROR [crates/client/src/client.rs:365] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-11T13:07:52+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-04-11T13:07:52+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-04-11T13:07:52+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-04-11T13:07:52+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-04-11T13:07:52+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-04-11T13:07:52+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-04-11T13:07:52+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-04-11T13:07:52+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-04-11T13:07:52+03:00 INFO  [workspace] Rendered first frame
+2026-04-11T13:07:52+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-04-11T13:07:52+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:147] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 40)
+2026-04-11T13:07:52+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:105] Error("unknown variant `gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 17)
+2026-04-11T13:07:52+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-11T13:07:52+03:00 INFO  [node_runtime] using Node.js found on PATH: SystemNodeRuntime { node: "/usr/bin/node", npm: "/usr/bin/npm", global_node_modules: "/usr/lib/node_modules\n", scratch_dir: "/home/atlasata/.local/share/zed/node" }
+2026-04-11T13:07:53+03:00 INFO  [lsp] starting language server process. binary path: "/usr/bin/node", working directory: "/home/atlasata/.config/spicetify/Themes/caelestia", args: ["/home/atlasata/.local/share/zed/languages/tailwindcss-language-server/node_modules/.bin/tailwindcss-language-server", "--stdio"]
+2026-04-11T13:07:53+03:00 INFO  [lsp] starting language server process. binary path: "/usr/bin/node", working directory: "/home/atlasata/.config/spicetify/Themes/caelestia", args: ["/home/atlasata/.local/share/zed/languages/vscode-css-language-server/node_modules/vscode-langservers-extracted/bin/vscode-css-language-server", "--stdio"]
+2026-04-12T19:49:36+03:00 INFO  [zed] ========== starting zed version 0.231.2+stable, sha unknown ==========
+2026-04-12T19:49:36+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-04-12T19:49:37+03:00 INFO  [crashes] crash signal handlers installed
+2026-04-12T19:49:37+03:00 INFO  [crashes] spawning crash handler process
+2026-04-12T19:49:37+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/home/atlasata/.bun/bin:/home/atlasata/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-04-12T19:49:37+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-04-12T19:49:37+03:00 INFO  [crashes] crash handler registered
+2026-04-12T19:49:37+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-04-12T19:49:37+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-12T19:49:37+03:00 ERROR [crates/client/src/client.rs:365] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-12T19:49:37+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-04-12T19:49:37+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-04-12T19:49:37+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-04-12T19:49:37+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-04-12T19:49:37+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-04-12T19:49:37+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-04-12T19:49:37+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-04-12T19:49:37+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-04-12T19:49:37+03:00 INFO  [workspace] Rendered first frame
+2026-04-12T19:49:37+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-04-12T19:49:37+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:147] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 40)
+2026-04-12T19:49:37+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:105] Error("unknown variant `gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 17)
+2026-04-12T19:49:37+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-12T20:06:35+03:00 INFO  [zed] ========== starting zed version 0.231.2+stable, sha unknown ==========
+2026-04-12T20:06:35+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-04-12T20:06:35+03:00 INFO  [crashes] crash signal handlers installed
+2026-04-12T20:06:35+03:00 INFO  [crashes] spawning crash handler process
+2026-04-12T20:06:35+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/home/atlasata/.bun/bin:/home/atlasata/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-04-12T20:06:35+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-04-12T20:06:35+03:00 INFO  [crashes] crash handler registered
+2026-04-12T20:06:36+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-04-12T20:06:36+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-12T20:06:36+03:00 ERROR [crates/client/src/client.rs:365] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-12T20:06:36+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-04-12T20:06:36+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-04-12T20:06:36+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-04-12T20:06:36+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-04-12T20:06:36+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-04-12T20:06:36+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-04-12T20:06:36+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-04-12T20:06:36+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-04-12T20:06:36+03:00 INFO  [workspace] Rendered first frame
+2026-04-12T20:06:36+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-04-12T20:06:36+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:147] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 40)
+2026-04-12T20:06:36+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:105] Error("unknown variant `gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 17)
+2026-04-12T20:06:36+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-12T20:06:36+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-12T20:07:21+03:00 INFO  [zed] ========== starting zed version 0.231.2+stable, sha unknown ==========
+2026-04-12T20:07:21+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-04-12T20:07:21+03:00 INFO  [crashes] crash signal handlers installed
+2026-04-12T20:07:21+03:00 INFO  [crashes] spawning crash handler process
+2026-04-12T20:07:21+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/home/atlasata/.bun/bin:/home/atlasata/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-04-12T20:07:21+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-04-12T20:07:21+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-12T20:07:21+03:00 ERROR [crates/client/src/client.rs:365] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-12T20:07:21+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-04-12T20:07:21+03:00 INFO  [crashes] crash handler registered
+2026-04-12T20:07:21+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-04-12T20:07:21+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-04-12T20:07:21+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-04-12T20:07:21+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-04-12T20:07:21+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-04-12T20:07:21+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-04-12T20:07:21+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-04-12T20:07:21+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-04-12T20:07:21+03:00 INFO  [workspace] Rendered first frame
+2026-04-12T20:07:21+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-04-12T20:07:21+03:00 ERROR [crates/workspace/src/persistence/model.rs:332] Unable to deserialize editor: No entry in database for item_id: 4294967547 and workspace_id WorkspaceId(87)
+2026-04-12T20:07:21+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:147] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 40)
+2026-04-12T20:07:21+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:105] Error("unknown variant `gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 17)
+2026-04-12T20:07:21+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-12T20:07:21+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-13T04:25:12+03:00 INFO  [zed] ========== starting zed version 0.231.2+stable, sha unknown ==========
+2026-04-13T04:25:12+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-04-13T04:25:12+03:00 INFO  [crashes] crash signal handlers installed
+2026-04-13T04:25:12+03:00 INFO  [crashes] spawning crash handler process
+2026-04-13T04:25:12+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/home/atlasata/.bun/bin:/home/atlasata/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-04-13T04:25:12+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-04-13T04:25:12+03:00 INFO  [crashes] crash handler registered
+2026-04-13T04:25:12+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-04-13T04:25:12+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-13T04:25:12+03:00 ERROR [crates/client/src/client.rs:365] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-13T04:25:12+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-04-13T04:25:12+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-04-13T04:25:12+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-04-13T04:25:12+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-04-13T04:25:12+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-04-13T04:25:12+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-04-13T04:25:13+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-04-13T04:25:13+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-04-13T04:25:13+03:00 INFO  [workspace] Rendered first frame
+2026-04-13T04:25:13+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-04-13T04:25:13+03:00 ERROR [crates/workspace/src/persistence/model.rs:332] Unable to deserialize editor: No entry in database for item_id: 12884902103 and workspace_id WorkspaceId(87)
+2026-04-13T04:25:13+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:147] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 40)
+2026-04-13T04:25:13+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:105] Error("unknown variant `gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 17)
+2026-04-13T04:25:13+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-13T04:25:13+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-16T12:48:41+03:00 INFO  [zed] ========== starting zed version 0.231.2+stable, sha unknown ==========
+2026-04-16T12:48:41+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-04-16T12:48:41+03:00 INFO  [crashes] crash signal handlers installed
+2026-04-16T12:48:41+03:00 INFO  [crashes] spawning crash handler process
+2026-04-16T12:48:41+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/home/atlasata/.bun/bin:/home/atlasata/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-04-16T12:48:42+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-04-16T12:48:42+03:00 INFO  [crashes] crash handler registered
+2026-04-16T12:48:42+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-04-16T12:48:42+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-16T12:48:42+03:00 ERROR [crates/client/src/client.rs:365] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-16T12:48:42+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-04-16T12:48:42+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-04-16T12:48:42+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-04-16T12:48:42+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-04-16T12:48:42+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-04-16T12:48:42+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-04-16T12:48:42+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-04-16T12:48:42+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-04-16T12:48:42+03:00 INFO  [workspace] Rendered first frame
+2026-04-16T12:48:42+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-04-16T12:48:42+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:147] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 40)
+2026-04-16T12:48:42+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:105] Error("unknown variant `gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 17)
+2026-04-16T12:48:42+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-16T12:48:42+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-16T12:48:43+03:00 INFO  [node_runtime] using Node.js found on PATH: SystemNodeRuntime { node: "/usr/bin/node", npm: "/usr/bin/npm", global_node_modules: "/usr/lib/node_modules\n", scratch_dir: "/home/atlasata/.local/share/zed/node" }
+2026-04-16T12:48:43+03:00 INFO  [lsp] starting language server process. binary path: "/home/atlasata/.local/share/zed/languages/package-version-server/package-version-server-v0.0.10", working directory: "/home/atlasata/.var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher/instances/TheAtlas/minecraft/resourcepacks/TheAtlas Resources/assets/minecraft", args: []
+2026-04-16T12:48:43+03:00 INFO  [lsp] starting language server process. binary path: "/usr/bin/node", working directory: "/home/atlasata/.var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher/instances/TheAtlas/minecraft/resourcepacks/TheAtlas Resources/assets/minecraft", args: ["/home/atlasata/.local/share/zed/languages/json-language-server/node_modules/vscode-langservers-extracted/bin/vscode-json-language-server", "--stdio"]
+2026-04-20T20:49:40+03:00 INFO  [zed] ========== starting zed version 0.231.2+stable, sha unknown ==========
+2026-04-20T20:49:40+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-04-20T20:49:40+03:00 INFO  [crashes] crash signal handlers installed
+2026-04-20T20:49:40+03:00 INFO  [crashes] spawning crash handler process
+2026-04-20T20:49:40+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/home/atlasata/.bun/bin:/home/atlasata/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-04-20T20:49:40+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-04-20T20:49:40+03:00 INFO  [crashes] crash handler registered
+2026-04-20T20:49:41+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-04-20T20:49:41+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-20T20:49:41+03:00 ERROR [crates/client/src/client.rs:365] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-20T20:49:41+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-04-20T20:49:41+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-20T20:49:41+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-04-20T20:49:41+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-04-20T20:49:41+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-04-20T20:49:41+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-04-20T20:49:41+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-04-20T20:49:41+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-04-20T20:49:41+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-04-20T20:49:41+03:00 INFO  [workspace] Rendered first frame
+2026-04-20T20:49:41+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-04-20T20:49:41+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:147] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 40)
+2026-04-20T20:49:41+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:105] Error("unknown variant `gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 17)
+2026-04-20T20:49:41+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-20T20:49:41+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-20T20:49:41+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/user/plugins/theme/tokyonight.lua"
+2026-04-20T20:49:41+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-20T20:49:41+03:00 INFO  [git::repository] opening git repository at "/home/atlasata/.config/nvim/.git" using git binary "/usr/bin/git"
+2026-04-20T20:49:41+03:00 INFO  [extension_host] installing extension slint 1.16.0
+2026-04-20T20:49:41+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-20T20:49:42+03:00 INFO  [extension_host] rebuilt extension index in 13.463555ms
+2026-04-20T20:49:42+03:00 INFO  [extension_host] extensions updated. loading 0, reloading 0, unloading 1
+2026-04-20T20:49:42+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-20T20:49:43+03:00 INFO  [extension_host] rebuilt extension index in 9.643733ms
+2026-04-20T20:49:43+03:00 INFO  [extension_host] extensions updated. loading 1, reloading 0, unloading 0
+2026-04-20T20:49:45+03:00 INFO  [lsp] starting language server process. binary path: "/home/atlasata/.local/share/zed/extensions/work/lua/lua-language-server-3.18.2/bin/lua-language-server", working directory: "/home/atlasata/.config/nvim/lua/user/plugins/theme", args: []
+2026-04-20T20:49:45+03:00 INFO  [lsp] Language server with id 1 sent unhandled notification $/hello:
+[
+  "world"
+]
+2026-04-20T20:49:47+03:00 ERROR [gpui::app] timed out waiting on app_will_quit
+2026-04-20T20:50:25+03:00 INFO  [zed] ========== starting zed version 0.231.2+stable, sha unknown ==========
+2026-04-20T20:50:25+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-04-20T20:50:25+03:00 INFO  [crashes] crash signal handlers installed
+2026-04-20T20:50:25+03:00 INFO  [crashes] spawning crash handler process
+2026-04-20T20:50:25+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/home/atlasata/.bun/bin:/home/atlasata/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-04-20T20:50:26+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-04-20T20:50:26+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-04-20T20:50:26+03:00 INFO  [crashes] crash handler registered
+2026-04-20T20:50:26+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-20T20:50:26+03:00 ERROR [crates/client/src/client.rs:365] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-20T20:50:26+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/caelestia/init.lua"
+2026-04-20T20:50:26+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-04-20T20:50:26+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-04-20T20:50:26+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-04-20T20:50:26+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-04-20T20:50:26+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-04-20T20:50:26+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-04-20T20:50:26+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-04-20T20:50:26+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-04-20T20:50:26+03:00 INFO  [workspace] Rendered first frame
+2026-04-20T20:50:26+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-04-20T20:50:26+03:00 INFO  [git::repository] opening git repository at "/home/atlasata/.config/nvim/.git" using git binary "/usr/bin/git"
+2026-04-20T20:50:26+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:147] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 40)
+2026-04-20T20:50:26+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:105] Error("unknown variant `gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 17)
+2026-04-20T20:50:26+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/caelestia/init.lua"
+2026-04-20T20:50:26+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/caelestia/init.lua"
+2026-04-20T20:50:26+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-20T20:50:26+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-20T20:50:26+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-20T20:57:56+03:00 INFO  [zed] ========== starting zed version 0.231.2+stable, sha unknown ==========
+2026-04-20T20:57:56+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-04-20T20:57:56+03:00 INFO  [crashes] crash signal handlers installed
+2026-04-20T20:57:56+03:00 INFO  [crashes] spawning crash handler process
+2026-04-20T20:57:56+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/home/atlasata/.bun/bin:/home/atlasata/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-04-20T20:57:56+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-04-20T20:57:56+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-20T20:57:56+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-04-20T20:57:56+03:00 INFO  [crashes] crash handler registered
+2026-04-20T20:57:56+03:00 ERROR [crates/client/src/client.rs:365] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-20T20:57:56+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/caelestia/init.lua"
+2026-04-20T20:57:56+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-04-20T20:57:56+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-04-20T20:57:56+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-04-20T20:57:56+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-04-20T20:57:56+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-04-20T20:57:56+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-04-20T20:57:56+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-04-20T20:57:56+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-04-20T20:57:56+03:00 INFO  [workspace] Rendered first frame
+2026-04-20T20:57:56+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-04-20T20:57:56+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:147] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 40)
+2026-04-20T20:57:56+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:105] Error("unknown variant `gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 17)
+2026-04-20T20:57:56+03:00 ERROR [crates/workspace/src/persistence/model.rs:332] Unable to deserialize editor: No entry in database for item_id: 4294967547 and workspace_id WorkspaceId(86)
+2026-04-20T20:57:56+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/caelestia/init.lua"
+2026-04-20T20:57:56+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/caelestia/init.lua"
+2026-04-20T20:57:56+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-20T20:57:56+03:00 INFO  [git::repository] opening git repository at "/home/atlasata/.config/nvim/.git" using git binary "/usr/bin/git"
+2026-04-20T20:57:56+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-20T20:57:57+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-20T20:58:04+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/caelestia/init.lua"
+2026-04-20T20:58:04+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/caelestia/init.lua"
+2026-04-20T20:58:11+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/caelestia/init.lua"
+2026-04-20T20:58:11+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/caelestia/init.lua"
+2026-04-20T20:58:42+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/caelestia/init.lua"
+2026-04-20T20:58:42+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/caelestia/init.lua"
+2026-04-20T21:03:06+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-20T21:03:06+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-20T21:03:07+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-20T21:03:07+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-20T21:03:08+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/caelestia/init.lua"
+2026-04-20T21:03:08+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/caelestia/init.lua"
+2026-04-20T21:03:15+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-20T21:03:15+03:00 ERROR [editor] No entry in selection_history found for redo. This may correspond to a bug where undo does not update the selection. If this is occurring, please add details to https://github.com/zed-industries/zed/issues/22692
+2026-04-20T21:03:15+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-20T21:03:15+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-20T21:03:15+03:00 ERROR [editor] No entry in selection_history found for redo. This may correspond to a bug where undo does not update the selection. If this is occurring, please add details to https://github.com/zed-industries/zed/issues/22692
+2026-04-20T21:03:15+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2125] no credentials provided
+2026-04-20T21:03:16+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/caelestia/init.lua"
+2026-04-20T21:03:16+03:00 INFO  [worktree] inserting parent git repo for this worktree: "lua/caelestia/init.lua"
+2026-04-25T23:10:32+03:00 INFO  [zed] ========== starting zed version 0.233.8+stable, sha unknown ==========
+2026-04-25T23:10:32+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-04-25T23:10:32+03:00 INFO  [sqlez::migrations] Found 24 foreign key relationships to check
+2026-04-25T23:10:32+03:00 INFO  [crashes] crash signal handlers installed
+2026-04-25T23:10:32+03:00 INFO  [crashes] spawning crash handler process
+2026-04-25T23:10:32+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/home/atlasata/.bun/bin:/home/atlasata/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-04-25T23:10:32+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-04-25T23:10:32+03:00 INFO  [crashes] crash handler registered
+2026-04-25T23:10:32+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-04-25T23:10:32+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-25T23:10:32+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-25T23:10:32+03:00 ERROR [settings::settings_store] Failed to parse settings for update: invalid type: boolean `true`, expected string or map
+invalid type: boolean `false`, expected string or map
+2026-04-25T23:10:32+03:00 ERROR [crates/client/src/client.rs:369] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-25T23:10:32+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-04-25T23:10:32+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-04-25T23:10:32+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-04-25T23:10:32+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-04-25T23:10:32+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-04-25T23:10:32+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-04-25T23:10:33+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-04-25T23:10:33+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-04-25T23:10:33+03:00 INFO  [workspace] Rendered first frame
+2026-04-25T23:10:33+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-04-25T23:10:33+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:155] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 40)
+2026-04-25T23:10:33+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:113] Error("unknown variant `gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 17)
+2026-04-25T23:10:33+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-25T23:10:33+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2214] no credentials provided
+2026-04-25T23:10:33+03:00 INFO  [extension_host] installing extension git-firefly 0.1.5
+2026-04-26T03:20:25+03:00 INFO  [zed] ========== starting zed version 0.233.8+stable, sha unknown ==========
+2026-04-26T03:20:25+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-04-26T03:20:25+03:00 INFO  [crashes] crash signal handlers installed
+2026-04-26T03:20:25+03:00 INFO  [crashes] spawning crash handler process
+2026-04-26T03:20:25+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/home/atlasata/.bun/bin:/home/atlasata/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-04-26T03:20:25+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-04-26T03:20:25+03:00 INFO  [crashes] crash handler registered
+2026-04-26T03:20:25+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-04-26T03:20:25+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-26T03:20:25+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-26T03:20:25+03:00 ERROR [crates/client/src/client.rs:369] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-26T03:20:25+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-04-26T03:20:25+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-04-26T03:20:25+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-04-26T03:20:25+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-04-26T03:20:25+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-04-26T03:20:25+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-04-26T03:20:25+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-04-26T03:20:25+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-04-26T03:20:25+03:00 INFO  [workspace] Rendered first frame
+2026-04-26T03:20:25+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-04-26T03:20:25+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:155] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 40)
+2026-04-26T03:20:25+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:113] Error("unknown variant `gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 17)
+2026-04-26T03:20:25+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-26T03:20:26+03:00 INFO  [extension_host] rebuilt extension index in 23.516317ms
+2026-04-26T03:20:26+03:00 INFO  [extension_host] extensions updated. loading 0, reloading 1, unloading 0
+2026-04-26T03:20:26+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2214] no credentials provided
+2026-04-26T03:20:26+03:00 INFO  [extension_host] installing extension toml 1.0.3
+2026-04-26T03:20:27+03:00 INFO  [extension_host] rebuilt extension index in 9.336984ms
+2026-04-26T03:20:27+03:00 INFO  [extension_host] extensions updated. loading 0, reloading 1, unloading 0
+2026-04-26T03:20:27+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2214] no credentials provided
+2026-04-26T05:39:21+03:00 INFO  [zed] ========== starting zed version 0.233.8+stable, sha unknown ==========
+2026-04-26T05:39:21+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-04-26T05:39:21+03:00 INFO  [crashes] crash signal handlers installed
+2026-04-26T05:39:21+03:00 INFO  [crashes] spawning crash handler process
+2026-04-26T05:39:21+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/home/atlasata/.bun/bin:/home/atlasata/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-04-26T05:39:21+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-04-26T05:39:21+03:00 INFO  [crashes] crash handler registered
+2026-04-26T05:39:21+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-04-26T05:39:21+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-26T05:39:21+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-26T05:39:21+03:00 ERROR [crates/client/src/client.rs:369] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-26T05:39:21+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-04-26T05:39:21+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-04-26T05:39:21+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-04-26T05:39:21+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-04-26T05:39:21+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-04-26T05:39:21+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-04-26T05:39:22+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-04-26T05:39:22+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-04-26T05:39:22+03:00 INFO  [workspace] Rendered first frame
+2026-04-26T05:39:22+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-04-26T05:39:22+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:155] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 40)
+2026-04-26T05:39:22+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:113] Error("unknown variant `gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 17)
+2026-04-26T05:39:22+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-27T23:38:07+03:00 INFO  [zed] ========== starting zed version 0.233.8+stable, sha unknown ==========
+2026-04-27T23:38:07+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-04-27T23:38:07+03:00 INFO  [crashes] crash signal handlers installed
+2026-04-27T23:38:07+03:00 INFO  [crashes] spawning crash handler process
+2026-04-27T23:38:07+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/home/atlasata/.bun/bin:/home/atlasata/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-04-27T23:38:07+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-04-27T23:38:07+03:00 INFO  [crashes] crash handler registered
+2026-04-27T23:38:07+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-04-27T23:38:07+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-27T23:38:07+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-04-27T23:38:07+03:00 ERROR [crates/client/src/client.rs:369] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-27T23:38:07+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-04-27T23:38:07+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-04-27T23:38:07+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-04-27T23:38:07+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-04-27T23:38:07+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-04-27T23:38:07+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-04-27T23:38:07+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-04-27T23:38:07+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-04-27T23:38:08+03:00 INFO  [workspace] Rendered first frame
+2026-04-27T23:38:08+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-04-27T23:38:08+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:155] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 40)
+2026-04-27T23:38:08+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:113] Error("unknown variant `gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 17)
+2026-04-27T23:38:08+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-04-27T23:38:08+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2214] no credentials provided
+2026-04-27T23:38:08+03:00 INFO  [node_runtime] using Node.js found on PATH: SystemNodeRuntime { node: "/usr/bin/node", npm: "/usr/bin/npm", scratch_dir: "/home/atlasata/.local/share/zed/node" }
+2026-04-27T23:38:08+03:00 INFO  [extension_host] installing extension slint 1.16.1
+2026-04-27T23:38:08+03:00 INFO  [lsp] starting language server process. binary path: "/home/atlasata/.local/share/zed/languages/package-version-server/package-version-server-v0.0.10", working directory: "/home/atlasata/.var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher/instances/TheAtlas/minecraft/resourcepacks/TheAtlas Languages/assets/creeperoverhaul/lang", args: []
+2026-04-27T23:38:08+03:00 INFO  [lsp] starting language server process. binary path: "/usr/bin/node", working directory: "/home/atlasata/.var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher/instances/TheAtlas/minecraft/resourcepacks/TheAtlas Languages/assets/creeperoverhaul/lang", args: ["/home/atlasata/.local/share/zed/languages/json-language-server/node_modules/vscode-langservers-extracted/bin/vscode-json-language-server", "--stdio"]
+2026-04-27T23:38:09+03:00 INFO  [extension_host] rebuilt extension index in 23.508896ms
+2026-04-27T23:38:09+03:00 INFO  [extension_host] extensions updated. loading 0, reloading 0, unloading 1
+2026-04-27T23:38:09+03:00 INFO  [project::lsp_store] stopping language server json-language-server
+2026-04-27T23:38:09+03:00 INFO  [project::lsp_store] stopping language server package-version-server
+2026-04-27T23:38:09+03:00 INFO  [lsp] starting language server process. binary path: "/usr/bin/node", working directory: "/home/atlasata/.var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher/instances/TheAtlas/minecraft/resourcepacks/TheAtlas Languages/assets/creeperoverhaul/lang", args: ["/home/atlasata/.local/share/zed/languages/json-language-server/node_modules/vscode-langservers-extracted/bin/vscode-json-language-server", "--stdio"]
+2026-04-27T23:38:09+03:00 INFO  [lsp] starting language server process. binary path: "/home/atlasata/.local/share/zed/languages/package-version-server/package-version-server-v0.0.10", working directory: "/home/atlasata/.var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher/instances/TheAtlas/minecraft/resourcepacks/TheAtlas Languages/assets/creeperoverhaul/lang", args: []
+2026-04-27T23:38:09+03:00 INFO  [extension_host] rebuilt extension index in 9.834018ms
+2026-04-27T23:38:09+03:00 INFO  [extension_host] extensions updated. loading 1, reloading 0, unloading 0
+2026-05-02T22:48:43+03:00 INFO  [zed] ========== starting zed version 0.233.10+stable, sha unknown ==========
+2026-05-02T22:48:43+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-05-02T22:48:43+03:00 INFO  [crashes] crash signal handlers installed
+2026-05-02T22:48:43+03:00 INFO  [crashes] spawning crash handler process
+2026-05-02T22:48:43+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/home/atlasata/.bun/bin:/home/atlasata/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-05-02T22:48:43+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-05-02T22:48:43+03:00 INFO  [crashes] crash handler registered
+2026-05-02T22:48:43+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-05-02T22:48:43+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-05-02T22:48:43+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-05-02T22:48:43+03:00 INFO  [agent_ui::thread_metadata_store] Migrating 1 thread store entries
+2026-05-02T22:48:43+03:00 ERROR [crates/client/src/client.rs:369] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-05-02T22:48:43+03:00 INFO  [agent_ui::thread_metadata_store] Finished migrating thread store entries
+2026-05-02T22:48:43+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-05-02T22:48:43+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-05-02T22:48:43+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-05-02T22:48:43+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-05-02T22:48:43+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-05-02T22:48:43+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-05-02T22:48:43+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-05-02T22:48:43+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-05-02T22:48:43+03:00 INFO  [workspace] Rendered first frame
+2026-05-02T22:48:43+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-05-02T22:48:44+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:155] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 40)
+2026-05-02T22:48:44+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:113] Error("unknown variant `gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 17)
+2026-05-02T22:48:44+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-05-02T22:48:44+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2214] no credentials provided
+2026-05-02T22:48:44+03:00 INFO  [node_runtime] using Node.js found on PATH: SystemNodeRuntime { node: "/usr/bin/node", npm: "/usr/bin/npm", scratch_dir: "/home/atlasata/.local/share/zed/node" }
+2026-05-02T22:48:44+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2214] no credentials provided
+2026-05-02T22:48:44+03:00 INFO  [lsp] starting language server process. binary path: "/usr/bin/node", working directory: "/run/media/atlasata/ATLAS SSD/ATLASATA - BACKUPS.1/APPLICATION CFG - BCK.1/vencord/themes", args: ["/home/atlasata/.local/share/zed/languages/vscode-css-language-server/node_modules/vscode-langservers-extracted/bin/vscode-css-language-server", "--stdio"]
+2026-05-02T22:48:44+03:00 INFO  [lsp] starting language server process. binary path: "/usr/bin/node", working directory: "/run/media/atlasata/ATLAS SSD/ATLASATA - BACKUPS.1/APPLICATION CFG - BCK.1/vencord/themes", args: ["/home/atlasata/.local/share/zed/languages/tailwindcss-language-server/node_modules/.bin/tailwindcss-language-server", "--stdio"]
+2026-05-04T10:48:48+03:00 INFO  [zed] ========== starting zed version 0.233.10+stable, sha unknown ==========
+2026-05-04T10:48:48+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-05-04T10:48:48+03:00 INFO  [crashes] crash signal handlers installed
+2026-05-04T10:48:48+03:00 INFO  [crashes] spawning crash handler process
+2026-05-04T10:48:48+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/home/atlasata/.bun/bin:/home/atlasata/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-05-04T10:48:48+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-05-04T10:48:48+03:00 INFO  [crashes] crash handler registered
+2026-05-04T10:48:48+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-05-04T10:48:48+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-05-04T10:48:48+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-05-04T10:48:48+03:00 ERROR [crates/client/src/client.rs:369] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-05-04T10:48:48+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-05-04T10:48:48+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-05-04T10:48:48+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-05-04T10:48:48+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-05-04T10:48:48+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-05-04T10:48:48+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-05-04T10:48:48+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-05-04T10:48:48+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-05-04T10:48:48+03:00 INFO  [workspace] Rendered first frame
+2026-05-04T10:48:48+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-05-04T10:48:48+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:155] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 40)
+2026-05-04T10:48:48+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:113] Error("unknown variant `gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 17)
+2026-05-04T10:48:49+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-05-04T10:48:49+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2214] no credentials provided
+2026-05-04T10:48:49+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2214] no credentials provided
+2026-05-04T10:48:49+03:00 INFO  [node_runtime] using Node.js found on PATH: SystemNodeRuntime { node: "/usr/bin/node", npm: "/usr/bin/npm", scratch_dir: "/home/atlasata/.local/share/zed/node" }
+2026-05-04T10:48:49+03:00 INFO  [http_client::github_download] downloading github artifact from https://github.com/microsoft/vscode-eslint/archive/refs/tags/release%2F3.0.24.tar.gz
+2026-05-04T10:48:49+03:00 INFO  [lsp] starting language server process. binary path: "/usr/bin/node", working directory: "/home/atlasata/code/frontend/theatlas/app", args: ["/home/atlasata/.local/share/zed/languages/tailwindcss-language-server/node_modules/.bin/tailwindcss-language-server", "--stdio"]
+2026-05-04T10:48:52+03:00 INFO  [lsp] starting language server process. binary path: "/usr/bin/node", working directory: "/home/atlasata/code/frontend/theatlas/app", args: ["/home/atlasata/.local/share/zed/languages/vtsls/node_modules/@vtsls/language-server/bin/vtsls.js", "--stdio"]
+2026-05-04T10:48:55+03:00 WARN  [project::lsp_store] skipping diagnostics update, no worktree found for path "/home/atlasata/code/frontend/theatlas/tsconfig.json"
+2026-05-04T10:48:59+03:00 INFO  [lsp] starting language server process. binary path: "/usr/bin/node", working directory: "/home/atlasata/code/frontend/theatlas/app", args: ["--max-old-space-size=8192", "/home/atlasata/.local/share/zed/languages/eslint/vscode-eslint-3.0.24/vscode-eslint/server/out/eslintServer.js", "--stdio"]
+2026-05-04T10:48:59+03:00 ERROR [project::lsp_store] Failed to start language server "eslint": Not a directory (os error 20)
+2026-05-04T10:48:59+03:00 INFO  [lsp] Language server with id 3 sent unhandled notification window/logMessage:
+{
+  "type": 3,
+  "message": "ESLint server running in node v25.9.0"
+}
+2026-05-04T10:49:08+03:00 INFO  [zed] ========== starting zed version 0.233.10+stable, sha unknown ==========
+2026-05-04T10:49:08+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-05-04T10:49:08+03:00 INFO  [crashes] crash signal handlers installed
+2026-05-04T10:49:08+03:00 INFO  [crashes] spawning crash handler process
+2026-05-04T10:49:08+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/home/atlasata/.bun/bin:/home/atlasata/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-05-04T10:49:08+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-05-04T10:49:08+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-05-04T10:49:08+03:00 INFO  [crashes] crash handler registered
+2026-05-04T10:49:08+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-05-04T10:49:08+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-05-04T10:49:08+03:00 ERROR [crates/client/src/client.rs:369] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-05-04T10:49:08+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-05-04T10:49:08+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-05-04T10:49:08+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-05-04T10:49:08+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-05-04T10:49:08+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-05-04T10:49:08+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-05-04T10:49:08+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-05-04T10:49:08+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-05-04T10:49:08+03:00 INFO  [workspace] Rendered first frame
+2026-05-04T10:49:08+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-05-04T10:49:08+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:155] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 40)
+2026-05-04T10:49:08+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:113] Error("unknown variant `gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 17)
+2026-05-04T10:49:08+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2214] no credentials provided
+2026-05-04T10:49:08+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-05-04T10:49:08+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2214] no credentials provided
+2026-05-04T10:49:08+03:00 INFO  [node_runtime] using Node.js found on PATH: SystemNodeRuntime { node: "/usr/bin/node", npm: "/usr/bin/npm", scratch_dir: "/home/atlasata/.local/share/zed/node" }
+2026-05-04T10:49:08+03:00 INFO  [lsp] starting language server process. binary path: "/usr/bin/node", working directory: "/home/atlasata/code/frontend/theatlas/components/provider", args: ["--max-old-space-size=8192", "/home/atlasata/.local/share/zed/languages/eslint/vscode-eslint-3.0.24/vscode-eslint/server/out/eslintServer.js", "--stdio"]
+2026-05-04T10:49:08+03:00 ERROR [project::lsp_store] Failed to start language server "eslint": Not a directory (os error 20)
+2026-05-04T10:49:09+03:00 INFO  [lsp] Language server with id 3 sent unhandled notification window/logMessage:
+{
+  "type": 3,
+  "message": "ESLint server running in node v25.9.0"
+}
+2026-05-04T10:49:09+03:00 INFO  [lsp] starting language server process. binary path: "/usr/bin/node", working directory: "/home/atlasata/code/frontend/theatlas/components/provider", args: ["/home/atlasata/.local/share/zed/languages/tailwindcss-language-server/node_modules/.bin/tailwindcss-language-server", "--stdio"]
+2026-05-04T10:49:09+03:00 INFO  [lsp] starting language server process. binary path: "/usr/bin/node", working directory: "/home/atlasata/code/frontend/theatlas/components/provider", args: ["/home/atlasata/.local/share/zed/languages/vtsls/node_modules/@vtsls/language-server/bin/vtsls.js", "--stdio"]
+2026-05-04T10:49:12+03:00 WARN  [project::lsp_store] skipping diagnostics update, no worktree found for path "/home/atlasata/code/frontend/theatlas/tsconfig.json"
+2026-05-04T10:49:25+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2214] no credentials provided
+2026-05-04T10:49:25+03:00 ERROR [crates/edit_prediction/src/edit_prediction.rs:2214] no credentials provided
+2026-05-04T15:08:30+03:00 INFO  [zed] ========== starting zed version 0.233.10+stable, sha unknown ==========
+2026-05-04T15:08:30+03:00 INFO  [gpui_linux::linux::platform] Compositor GPU hint: vendor=0x10de, device=0x2188 (from dev 226:128)
+2026-05-04T15:08:30+03:00 INFO  [crashes] crash signal handlers installed
+2026-05-04T15:08:30+03:00 INFO  [crashes] spawning crash handler process
+2026-05-04T15:08:30+03:00 INFO  [util] set environment variables from shell:/usr/bin/bash, path:/home/atlasata/.bun/bin:/home/atlasata/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin
+2026-05-04T15:08:30+03:00 INFO  [extension_host] extensions updated. loading 12, reloading 0, unloading 0
+2026-05-04T15:08:30+03:00 INFO  [crashes] connected to crash handler process after 100ms
+2026-05-04T15:08:30+03:00 INFO  [crashes] crash handler registered
+2026-05-04T15:08:30+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-05-04T15:08:30+03:00 INFO  [gpui_linux::linux::platform] activate is not implemented on Linux, ignoring the call
+2026-05-04T15:08:30+03:00 ERROR [crates/client/src/client.rs:369] DBus error service error org.freedesktop.zbus.Error: The name is not activatable
+2026-05-04T15:08:30+03:00 ERROR [extension_host] Cannot load snippets: Loading snippets from "/home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json": Failed to read file /home/atlasata/.local/share/zed/extensions/installed/nextjs-react-snippets/./snippets/jsx.json: No such file or directory (os error 2)
+2026-05-04T15:08:30+03:00 INFO  [wgpu_hal::gles::egl] EGL says it can present to the window but not natively
+2026-05-04T15:08:30+03:00 INFO  [gpui_wgpu::wgpu_context] Found 2 GPU adapter(s):
+2026-05-04T15:08:30+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650 (vendor=0x10de, device=0x2188, backend=Vulkan, type=DiscreteGpu)
+2026-05-04T15:08:30+03:00 INFO  [gpui_wgpu::wgpu_context]   - NVIDIA GeForce GTX 1650/PCIe/SSE2 (vendor=0x10de, device=0x0000, backend=Gl, type=Other)
+2026-05-04T15:08:30+03:00 INFO  [gpui_wgpu::wgpu_context] Testing adapter: NVIDIA GeForce GTX 1650 (Vulkan)...
+2026-05-04T15:08:30+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU (passed configuration test): NVIDIA GeForce GTX 1650 (Vulkan)
+2026-05-04T15:08:30+03:00 INFO  [gpui_wgpu::wgpu_context] Selected GPU adapter: "NVIDIA GeForce GTX 1650" (Vulkan)
+2026-05-04T15:08:30+03:00 INFO  [workspace] Rendered first frame
+2026-05-04T15:08:30+03:00 INFO  [zed::zed] Using GPU: GpuSpecs { is_software_emulated: false, device_name: "NVIDIA GeForce GTX 1650", driver_name: "NVIDIA", driver_info: "595.58.03" }
+2026-05-04T15:08:30+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:155] Error("unknown variant `Gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 40)
+2026-05-04T15:08:30+03:00 ERROR [crates/agent_ui/src/agent_panel.rs:113] Error("unknown variant `gemini`, expected one of `NativeAgent`, `TextThread`, `native_agent`, `Custom`, `custom`", line: 1, column: 17)
+2026-05-04T15:08:30+03:00 ERROR [agent] Failed to authenticate provider: Amazon Bedrock: DBus error service error org.freedesktop.zbus.Error: The name is not activatable
