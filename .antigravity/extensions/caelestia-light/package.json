@@ -1,0 +1,13 @@
+{
+  "name": "caelestia-light",
+  "displayName": "AtlasAta - Caelestia Light (Fidelity)",
+  "version": "1.0.0",
+  "engines": { "vscode": "^1.60.0" },
+  "contributes": {
+    "themes": [{
+      "label": "AtlasAta - Caelestia Light",
+      "uiTheme": "vs",
+      "path": "./themes/caelestia-light.json"
+    }]
+  }
+}

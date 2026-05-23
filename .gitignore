@@ -7,7 +7,9 @@
 .pki/
 .claude.json
 .claude.json.backup.*
-.gemini/
+.gemini/oauth_creds.json
+.gemini/google_accounts.json
+.gemini/installation_id
 **/.env
 **/.env.*
 !**/.env.example
@@ -107,7 +109,7 @@ lfs_cozucu.py
 .vscode-oss-shared/
 .local/share/Trash/
 # ── Antigravity (home root) — sadece manifest ve özel tema
-.antigravity/
+.antigravity/**
 !.antigravity/argv.json
 !.antigravity/extensions/
 .antigravity/extensions/**
@@ -117,7 +119,7 @@ lfs_cozucu.py
 !.antigravity/extensions/caelestia-light/**
 
 # ── Gemini — credentials HARİÇ config
-.gemini/
+.gemini/**
 !.gemini/GEMINI.md
 !.gemini/settings.json
 !.gemini/antigravity/
