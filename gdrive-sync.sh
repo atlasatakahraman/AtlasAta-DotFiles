@@ -21,10 +21,14 @@ warning() { echo -e "${YELLOW}[!]${NC} $1" | tee -a "$LOG_FILE"; }
 error()   { echo -e "${RED}[✗]${NC} $1" | tee -a "$LOG_FILE"; }
 section() { echo -e "\n${CYAN}══ $1 ══${NC}" | tee -a "$LOG_FILE"; }
 
+BWLIMIT=""
+FAILED_DIRS=()
+
 # Argüman parse
 for arg in "$@"; do
     case $arg in
-        --dry-run) DRY_RUN=true; warning "DRY-RUN modu: hiçbir şey yüklenmeyecek" ;;
+        --dry-run)  DRY_RUN=true; warning "DRY-RUN modu: hiçbir şey yüklenmeyecek" ;;
+        --bwlimit=*) BWLIMIT="${arg#*=}"; warning "Bant genişliği limiti: $BWLIMIT" ;;
     esac
 done
 
@@ -45,16 +49,19 @@ echo "=== Sync başladı: $(date '+%Y-%m-%d %H:%M:%S') ===" >> "$LOG_FILE"
 
 # rclone copy parametreleri
 RCLONE_OPTS=(
-    --copy-links           # symlink'leri takip et
-    --transfers 8          # paralel transfer
-    --checkers 16          # paralel kontrol
-    --progress             # ilerleme göster
-    --stats 10s            # 10 saniyede bir istatistik
+    --copy-links                  # symlink'leri takip et
+    --transfers 8                 # paralel transfer
+    --checkers 16                 # paralel kontrol
+    --fast-list                   # Drive API'sini verimli kullan
+    --drive-chunk-size 128M       # büyük dosya yüklemelerini hızlandır
+    --progress                    # ilerleme göster
+    --stats 10s                   # 10 saniyede bir istatistik
     --log-file "$LOG_FILE"
     --log-level INFO
 )
 
 [[ "$DRY_RUN" == true ]] && RCLONE_OPTS+=(--dry-run)
+[[ -n "$BWLIMIT" ]] && RCLONE_OPTS+=(--bwlimit "$BWLIMIT")
 
 # ── Yardımcı fonksiyon ───────────────────────────────────────
 sync_dir() {
@@ -79,6 +86,7 @@ sync_dir() {
         info "✓ Tamamlandı: $dest"
     else
         warning "Hatalar var: $dest (exit: $exit_code)"
+        FAILED_DIRS+=("$dest")
     fi
 }
 
@@ -93,6 +101,7 @@ sync_dir "$HOME_DIR/stream" "stream"
 # ════════════════════════════════════════════════════════════
 section "Code (kaynak kod)"
 sync_dir "$HOME_DIR/code" "code" \
+    --exclude ".git/**" \
     --exclude "node_modules/**" \
     --exclude "**/target/**" \
     --exclude "**/.next/**" \
@@ -138,6 +147,7 @@ sync_dir "$HOME_DIR/Music" "Music"
 # ════════════════════════════════════════════════════════════
 section "GitHub klonları"
 sync_dir "$HOME_DIR/github" "github" \
+    --exclude ".git/**" \
     --exclude "node_modules/**" \
     --exclude "**/target/**" \
     --exclude "**/.next/**" \
@@ -162,5 +172,16 @@ sync_dir "$HOME_DIR/Documents" "Documents"
 # ════════════════════════════════════════════════════════════
 echo ""
 info "✅ Drive sync tamamlandı: $(date '+%H:%M:%S')"
+
+if [ ${#FAILED_DIRS[@]} -gt 0 ]; then
+    warning "Hata veren dizinler (${#FAILED_DIRS[@]}):"
+    for d in "${FAILED_DIRS[@]}"; do
+        warning "  ✗ $d"
+    done
+else
+    info "Tüm dizinler başarıyla sync edildi."
+fi
+
 info "Log: $LOG_FILE"
 info "Drive'ı görüntüle: rclone ls $REMOTE | head -20"
+info "Kullanım: bash gdrive-sync.sh [--dry-run] [--bwlimit=50M]"
