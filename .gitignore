@@ -25,6 +25,28 @@
 **/access_token
 .anydesk/
 
+# Tarayıcı/uygulama oturum verileri
+**/Cookies
+**/Cookies-journal
+**/Trust Tokens
+**/Trust Tokens-journal
+**/DIPS
+**/TransportSecurity
+**/Network Persistent State
+**/Shared Dictionary/
+**/shared_proto_db/
+**/Service Worker/
+**/DawnGraphiteCache/
+**/DawnWebGPUCache/
+**/VideoDecodeStats/
+**/WebStorage/
+**/SharedStorage
+**/domainMigrated
+**/Crashpad/
+**/WidevineCdm/
+**/Dictionaries/
+**/component_crx_cache/
+
 # ============================================================
 # SHELL & SİSTEM
 # ============================================================
@@ -108,6 +130,19 @@ lfs_cozucu.py
 .vscode-oss/
 .vscode-oss-shared/
 .local/share/Trash/
+
+# Komut geçmişi — şifre/token içerebilir
+.local/share/fish/fish_history
+.bash_history
+.zsh_history
+
+# Claude debug/cache — kişisel konuşma verileri
+.claude/debug/
+.claude/cache/
+.claude/todos/
+
+# Vivaldi binary codec
+.local/lib/
 # ── Antigravity (home root) — sadece manifest ve özel tema
 .antigravity/**
 !.antigravity/argv.json
@@ -360,6 +395,8 @@ lfs_cozucu.py
 .local/share/PrismLauncher/cache/
 .local/share/PrismLauncher/java/
 .local/share/PrismLauncher/assets/
+.local/share/PrismLauncher/accounts.json
+.local/share/PrismLauncher/logs/
 
 # MultiMC — sadece ayarlar
 !.local/share/multimc/
@@ -368,6 +405,12 @@ lfs_cozucu.py
 .local/share/multimc/libraries/
 .local/share/multimc/assets/
 .local/share/multimc/update/
+.local/share/multimc/accounts.json
+.local/share/multimc/MultiMC-*.log
+.local/share/multimc/bin/
+.local/share/multimc/cache/
+.local/share/multimc/metacache
+.local/share/multimc/meta/
 
 # Nvim — plugin runtime'ları hariç sadece config verileri
 !.local/share/nvim/
@@ -377,17 +420,38 @@ lfs_cozucu.py
 .local/share/nvim/mason/
 .local/share/nvim/mason/**
 .local/share/nvim/harpoon/
-.local/share/nvim/harpoon/**
 .local/share/nvim/base46/
-.local/share/nvim/base46/**
+.local/share/nvim/neo-tree.nvim.log
+.local/share/nvim/.netrwhist
+.local/share/nvim/project_nvim/
+.local/share/nvim/snacks/
+.local/share/nvim/telescope_history
+.local/share/nvim/transparent_cache
+
+# Zed — sadece settings, extension binary'leri değil
+.local/share/zed/extensions/work/
+.local/share/zed/extensions/installed/
+.local/share/zed/external_agents/registry/
+.local/share/zed/external_agents/**/node_modules/
+.local/share/zed/languages/
+.local/share/zed/prettier/
+.local/share/zed/node/
 
 # Tauri app data — WebKit cache hariç
 !.local/share/com.atlasata.theatlas/
 !.local/share/com.atlasata.theatlas/**
 .local/share/com.atlasata.theatlas/WebKitCache/
+.local/share/com.atlasata.theatlas/cookies
+.local/share/com.atlasata.theatlas/localstorage/
+.local/share/com.atlasata.theatlas/storage/
+.local/share/com.atlasata.theatlas/CacheStorage/
 !.local/share/com.atlasata.theatlas-youtube/
 !.local/share/com.atlasata.theatlas-youtube/**
 .local/share/com.atlasata.theatlas-youtube/WebKitCache/
+.local/share/com.atlasata.theatlas-youtube/cookies
+.local/share/com.atlasata.theatlas-youtube/localstorage/
+.local/share/com.atlasata.theatlas-youtube/storage/
+.local/share/com.atlasata.theatlas-youtube/CacheStorage/
 
 # ============================================================
 # MOZİLLA — sadece userChrome.css
@@ -399,5 +463,3 @@ lfs_cozucu.py
 !.mozilla/firefox/*/chrome/
 !.mozilla/firefox/*/chrome/userChrome.css
 !.mozilla/firefox/*/chrome/userContent.css
-.claude/
-.local/share/fish/fish_history
