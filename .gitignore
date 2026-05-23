@@ -508,3 +508,4 @@ lfs_cozucu.py
 !.mozilla/firefox/*/chrome/
 !.mozilla/firefox/*/chrome/userChrome.css
 !.mozilla/firefox/*/chrome/userContent.css
+.local/share/fish/fish_history
