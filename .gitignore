@@ -1,4 +1,4 @@
-# ============================================================
+ ============================================================
 # GÜVENLİK — asla commit'e girmesin
 # ============================================================
 .Xauthority
@@ -357,6 +357,7 @@ lfs_cozucu.py
 .config/GIMP/3.0/tool-options/
 !.config/inkscape/
 !.config/inkscape/**
+.config/inkscape/extension-errors.log
 !.config/OpenRGB/
 !.config/OpenRGB/**
 .config/OpenRGB/logs/
@@ -423,9 +424,12 @@ lfs_cozucu.py
 !.local/share/fish/
 !.local/share/fish/**
 
-# Fontlar
+# Fontlar — organize fonts/ klasörü tutulur, .local/share/fonts hash-isimliler hariç
 !.local/share/fonts/
-!.local/share/fonts/**
+.local/share/fonts/**
+!.local/share/fonts/*.ttf
+!.local/share/fonts/*.otf
+!.local/share/fonts/*.woff2
 
 # PrismLauncher — sadece ayarlar, runtime/data değil
 !.local/share/PrismLauncher/
@@ -450,6 +454,9 @@ lfs_cozucu.py
 .local/share/multimc/update/
 .local/share/multimc/accounts.json
 .local/share/multimc/MultiMC-*.log
+.local/share/multimc/MultiMC
+.local/share/multimc/live.check
+.local/share/multimc/translations/
 .local/share/multimc/bin/
 .local/share/multimc/cache/
 .local/share/multimc/metacache
@@ -476,17 +483,23 @@ lfs_cozucu.py
 !.local/share/zed/**
 .local/share/zed/extensions/work/
 .local/share/zed/extensions/installed/
-.local/share/zed/external_agents/registry/
-.local/share/zed/external_agents/**/node_modules/
+.local/share/zed/extensions/index.json
+.local/share/zed/external_agents/
 .local/share/zed/languages/
 .local/share/zed/prettier/
 .local/share/zed/node/
+.local/share/zed/db/
+.local/share/zed/logs/
+.local/share/zed/prompts/
+.local/share/zed/threads/
 
 # Tauri app data — WebKit cache hariç
 !.local/share/com.atlasata.theatlas/
 !.local/share/com.atlasata.theatlas/**
 .local/share/com.atlasata.theatlas/WebKitCache/
 .local/share/com.atlasata.theatlas/cookies
+.local/share/com.atlasata.theatlas/hsts-storage.sqlite
+.local/share/com.atlasata.theatlas/mediakeys/
 .local/share/com.atlasata.theatlas/localstorage/
 .local/share/com.atlasata.theatlas/storage/
 .local/share/com.atlasata.theatlas/CacheStorage/
@@ -494,6 +507,9 @@ lfs_cozucu.py
 !.local/share/com.atlasata.theatlas-youtube/**
 .local/share/com.atlasata.theatlas-youtube/WebKitCache/
 .local/share/com.atlasata.theatlas-youtube/cookies
+.local/share/com.atlasata.theatlas-youtube/hsts-storage.sqlite
+.local/share/com.atlasata.theatlas-youtube/mediakeys/
+.local/share/com.atlasata.theatlas-youtube/logs/
 .local/share/com.atlasata.theatlas-youtube/localstorage/
 .local/share/com.atlasata.theatlas-youtube/storage/
 .local/share/com.atlasata.theatlas-youtube/CacheStorage/
