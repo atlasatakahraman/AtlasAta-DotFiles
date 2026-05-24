@@ -1,6 +1,6 @@
 # USER_MEMORY.md — Cross-Project User Preferences
-<!-- Last consolidated: 2026-05-04T14:14:00+03:00 -->
-<!-- Conversations scanned: 21 -->
+<!-- Last consolidated: 2026-05-24T05:06:00+03:00 -->
+<!-- Conversations scanned: 30 -->
 
 ## User Identity
 - **Name**: atlasata / TheAtlas
@@ -11,19 +11,21 @@
 ## Coding Preferences
 - Research thoroughly before writing code
 - Present implementation plans for review before execution
-- Premium aesthetics for all web UIs (cyberpunk, dark themes, glassmorphism)
+- Premium aesthetics for all web UIs (Caelestia palette, dark themes, glassmorphism)
 - Performance is a first-class concern in every project
 - Use modern tooling (Java 21, Next.js 16, ZGC, @dnd-kit, Bun)
+- Turkish UI labels, English code and comments
 - Brace style preference is flexible (user edits both K&R and Allman)
+- Inside joke: "Chickenn!" — recurring easter egg phrase
 
 ## Project Locations
 | Project | Path | Stack | Status |
 |---|---|---|---|
-| TheAtlas YouTube | `/home/atlasata/code/frontend/theatlas-youtube/` | Next.js 16/Shadcn/youtubei.js | ACTIVE — adaptive download bug |
+| TheAtlas YouTube | `/home/atlasata/code/frontend/theatlas-youtube/` | Tauri 2/Next.js 16/FFmpeg sidecar | Active — custom FFmpeg build |
+| TheAtlas Queue | `/home/atlasata/code/web/TheAtlas-Queue/` | Next.js 16/Shadcn 4/@dnd-kit | Active — UI redesign done |
 | Nvidium Update | `/home/atlasata/code/java/nvidium-update/` | Java/Fabric/Mixin | Research done |
-| TheAtlas Queue | `/home/atlasata/code/web/theatlas-queue/` | Next.js/Shadcn/@dnd-kit | Active |
-| AtlasAta Queue | `/home/atlasata/code/web/atlasata-queue/` | Next.js | Unknown |
-| TheAtlas Web | `/home/atlasata/code/web/theatlas/` | Web | Unknown |
+| Streaming Widgets | (caelestia-shell widgets) | HTML/CSS/JS | Active — Caelestia Shell theme |
+| Spicetify Theme | (AtlasAta Caelestia Fidelity) | CSS/INI | Complete |
 
 ## Dream Mode
 - **Skill**: `~/.gemini/antigravity/skills/dream/SKILL.md` — full protocol
