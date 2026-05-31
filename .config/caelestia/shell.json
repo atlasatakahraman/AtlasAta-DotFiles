@@ -11,6 +11,8 @@
     },
     "font": {
       "family": {
+        "sans": "Rubik",
+        "mono": "CaskaydiaCove NF",
         "material": "Material Symbols Rounded",
         "clock": "Rubik"
       },
@@ -164,7 +166,7 @@
     },
     "tray": {
       "background": true,
-      "recolour": true,
+      "recolour": false,
       "compact": false,
       "iconSubs": [],
       "hiddenIcons": []
