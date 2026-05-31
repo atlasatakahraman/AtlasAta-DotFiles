@@ -1,0 +1,69 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+	{
+		"context": "Workspace",
+		"bindings": {
+			// "shift shift": "file_finder::Toggle"
+		},
+	},
+	{
+		"context": "Editor && vim_mode == insert",
+		"bindings": {
+			// "j k": "vim::NormalBefore"
+		},
+	},
+	{
+		"context": "Editor",
+		"bindings": {
+			"ctrl+space": "file_finder::Toggle"
+		}
+	},
+ {
+  "context": "Editor",
+  "unbind": {
+   "ctrl-space": "editor::ShowCompletions"
+  }
+ },
+ {
+  "context": "FileFinder || FileFinder > Picker > Editor",
+  "unbind": {
+   "ctrl-p": "file_finder::Toggle"
+  }
+ },
+ {
+  "context": "FileFinder || FileFinder > Picker > Editor",
+  "unbind": {
+   "ctrl-p": "file_finder::Toggle"
+  }
+ },
+ {
+  "context": "FileFinder || FileFinder > Picker > Editor",
+  "bindings": {
+   "ctrl-space": "file_finder::Toggle"
+  }
+ },
+ {
+  "context": "FileFinder || FileFinder > Picker > Editor",
+  "unbind": {
+   "ctrl-p": "file_finder::Toggle"
+  }
+ },
+ {
+  "context": "Workspace",
+  "bindings": {
+   "ctrl-space": "file_finder::Toggle"
+  }
+ },
+ {
+  "context": "Workspace",
+  "unbind": {
+   "ctrl-p": "file_finder::Toggle"
+  }
+ }
+]

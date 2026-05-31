@@ -9,9 +9,9 @@ header_bg = #e8e2d6
 
 # Text colors
 text = #1c1b1a
-selected_text = #3b3628
+selected_text = #7a7463
 header_text = #4a473e
-inactive_text = #7b776d
+inactive_text = #78746b
 
 # GPU utilization colors (gradient from low to high)
 gpu_util_low = #787100
@@ -35,15 +35,15 @@ power_high = #855f00
 
 # Process list colors
 process_normal = #1c1b1a
-process_highlight = #3b3628
+process_highlight = #7a7463
 process_killed = #6f4e00
 
 # Border and separator colors
-border = #7b776d
+border = #78746b
 separator = #ccc6bb
 
 # Chart and graph colors
-chart_line = #38353f
+chart_line = #70776a
 chart_fill = #f2edea
 
 # Status indicators
