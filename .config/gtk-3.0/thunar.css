@@ -57,12 +57,12 @@
 }
 
 .thunar .frame.standard-view .view *:selected {
-    color: #7a7463;
+    color: #3b3628;
 }
 
 .thunar .rubberband {
-    background-color: alpha(#7a7463, 0.15);
-    border: 1px solid alpha(#7a7463, 0.15);
+    background-color: alpha(#3b3628, 0.15);
+    border: 1px solid alpha(#3b3628, 0.15);
 }
 
 
@@ -82,12 +82,12 @@
 }
 
 .thunar header.top tabs .reorderable-page:hover {
-    background-color: alpha(#7a7463, 0.08);
+    background-color: alpha(#3b3628, 0.08);
 
 }
 .thunar header.top tabs .reorderable-page:checked {
-    color: #7a7463;
-    background-color: alpha(#7a7463, 0.15);
+    color: #3b3628;
+    background-color: alpha(#3b3628, 0.15);
 
 }
 
@@ -115,8 +115,8 @@
 }
 
 .thunar .sidebar .view:selected {
-    background: alpha(#7a7463, 0.15);
-    color: #7a7463;
+    background: alpha(#3b3628, 0.15);
+    color: #3b3628;
 }
 
 /* =============================================================================
@@ -132,8 +132,8 @@
 .thunar .location-button.toggle:checked,
 .thunar .path-bar-button.toggle:checked {
     padding: 8px 25px;
-    background: alpha(#7a7463, 0.15);
-    color: #7a7463;
+    background: alpha(#3b3628, 0.15);
+    color: #3b3628;
     box-shadow: none;
 }
 
@@ -142,8 +142,8 @@
 }
 
 .thunar .location-button.path-bar-button:not(:checked):hover {
-    background: alpha(#7a7463, 0.08);
-    color: alpha(#7a7463, 0.8);
+    background: alpha(#3b3628, 0.08);
+    color: alpha(#3b3628, 0.8);
 }
 
 .thunar .location-button.toggle+.location-button.toggle:checked {
@@ -160,7 +160,7 @@
    ============================================================================= */
 
 .thunar button.toggle:checked {
-    color: #7a7463;
+    color: #3b3628;
 }
 
 .thunar .image-button {

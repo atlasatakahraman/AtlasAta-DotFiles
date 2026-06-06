@@ -1,0 +1,45 @@
+{
+    "animations.Enabled": true,
+    "animations.Install-Method": "Custom CSS and JS",
+    "animations.Auto-Install": false,
+    "custom-ui-style.external.imports": [
+        "file:///home/atlasata/.vscode-oss/extensions/brandonkirbyson.vscode-animations-2.0.1-universal/dist/updateHandler.js"
+    ],
+    "animations.Smooth-Mode": false,
+    "animations.Scrolling": "Fade",
+    "animations.Focus-Dimming-Amount": 30,
+    "editor.smoothScrolling": true,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "workbench.list.smoothScrolling": true,
+    "terminal.integrated.smoothScrolling": true,
+    "window.zoomLevel": 1,
+    "workbench.colorTheme": "AtlasAta - Caelestia Light",
+    // --- FONT (matches kitty font_family + font_size) ---
+    "editor.fontFamily": "'JetBrainsMono Nerd Font', monospace",
+    "editor.fontSize": 14,
+    "editor.fontLigatures": true,
+    // --- PADDING (matches window_padding_width 15) ---
+    "editor.padding.top": 15,
+    "editor.padding.bottom": 15,
+    // --- CURSOR (matches cursor_shape block) ---
+    "editor.cursorStyle": "line",
+    "editor.cursorBlinking": "smooth",
+    // --- CURSOR TRAIL (matches cursor_trail 3 + cursor_trail_decay 0.1 0.3) ---
+    "animations.CursorAnimation": true,
+    "animations.CursorAnimationOptions": {
+        "CursorStyle": "block",
+        "Color": "#625e56",
+        "TrailLength": 18,
+    },
+    "animations.Durations": {
+        "Smooth-Mode": 0
+    },
+    // --- INTEGRATED TERMINAL (consistency with kitty) ---
+    "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font'",
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.cursorStyle": "block",
+    "terminal.integrated.defaultProfile.linux": "fish",
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    }
+}

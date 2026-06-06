@@ -1,5 +1,10 @@
 {
-	"completion_menu_item_kind": "off",
+	"proxy": "",
+ "calls": {
+  "mute_on_join": true,
+  "share_on_join": true
+ },
+ "completion_menu_item_kind": "off",
 	"show_completion_documentation": true,
 	"hover_popover_enabled": true,
 	"show_signature_help_after_edits": false,

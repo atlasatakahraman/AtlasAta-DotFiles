@@ -40,7 +40,7 @@ color_scheme=6
 # Main interface colors
 color_background=#fdf8f5
 color_text=#1c1b1a
-color_highlight=#7a7463
+color_highlight=#3b3628
 color_selected=#f2edea
 
 # CPU meter colors (gradient)
@@ -57,22 +57,22 @@ color_mem_available=#787100
 # Process list colors
 color_process_normal=#1c1b1a
 color_process_running=#787100
-color_process_sleeping=#78746b
+color_process_sleeping=#7b776d
 color_process_zombie=#6f4e00
 color_process_stopped=#9a7a00
 
 # Header and border colors
 color_header=#4a473e
-color_border=#78746b
+color_border=#7b776d
 color_separator=#ccc6bb
 
 # Function key colors
-color_function_key=#70776a
+color_function_key=#38353f
 color_function_desc=#1c1b1a
 
 # Tree view colors
-color_tree_line=#78746b
-color_tree_collapsed=#7a7463
+color_tree_line=#7b776d
+color_tree_collapsed=#3b3628
 color_tree_expanded=#625e56
 
 # Load average colors
@@ -83,7 +83,7 @@ color_load_high=#6f4e00
 # Priority colors
 color_priority_high=#6f4e00
 color_priority_normal=#1c1b1a
-color_priority_low=#78746b
+color_priority_low=#7b776d
 
 # Swap meter colors
 color_swap_used=#855f00

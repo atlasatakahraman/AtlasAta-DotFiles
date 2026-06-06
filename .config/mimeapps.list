@@ -20,6 +20,7 @@ application/x-extension-xht=firefox-developer-edition.desktop;
 text/markdown=libreoffice-writer.desktop;org.kde.kwrite.desktop;org.kde.kate.desktop;okularApplication_md.desktop;zettlr.desktop;
 application/octet-stream=mpv.desktop;
 text/vnd.trolltech.linguist=neovide.desktop;
+image/jpeg=org.kde.gwenview.desktop;
 
 [Default Applications]
 font/woff2=org.gnome.font-viewer.desktop
@@ -56,3 +57,4 @@ application/x-extension-xhtml=firefox-developer-edition.desktop
 application/x-extension-xht=firefox-developer-edition.desktop
 application/x-tiled-tsx=dev.zed.Zed.desktop
 application/octet-stream=mpv.desktop
+image/jpeg=org.kde.gwenview.desktop

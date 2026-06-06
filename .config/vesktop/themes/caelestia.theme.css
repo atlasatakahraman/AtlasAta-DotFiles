@@ -74,8 +74,8 @@ body {
   --text-1: rgb(51.6444444444, 49.8, 47.9555555556); /* bright text on colored elements */
   --text-2: rgb(39.8222222222, 38.4, 36.9777777778); /* headings and important text */
   --text-3: #1c1b1a; /* normal text */
-  --text-4: #78746b; /* icon buttons and channels */
-  --text-5: #78746b; /* muted channels/chats and timestamps */
+  --text-4: #7b776d; /* icon buttons and channels */
+  --text-5: #7b776d; /* muted channels/chats and timestamps */
   /* background and dark colors */
   --bg-1: #e6e2df; /* dark buttons when clicked */
   --bg-2: #ece7e4; /* dark buttons */
@@ -119,9 +119,9 @@ body {
   --streaming: var(--purple-2); /* change to #593695 for default */
   --offline: var(--text-4); /* change to #83838b for default offline color */
   /* border colors */
-  --border-light: rgba(120, 116, 107, 0); /* light border color */
-  --border: rgba(120, 116, 107, 0.2); /* normal border color */
-  --button-border: rgba(120, 116, 107, 0); /* neutral border color of buttons */
+  --border-light: rgba(123, 119, 109, 0); /* light border color */
+  --border: rgba(123, 119, 109, 0.2); /* normal border color */
+  --button-border: rgba(123, 119, 109, 0); /* neutral border color of buttons */
   /* base colors */
   --red-1: #ba1a1a;
   --red-2: rgb(176.7, 24.7, 24.7);
@@ -133,11 +133,11 @@ body {
   --green-3: rgb(108, 101.7, 0);
   --green-4: rgb(102, 96.05, 0);
   --green-5: rgb(96, 90.4, 0);
-  --blue-1: #7a7463;
-  --blue-2: rgb(115.9, 110.2, 94.05);
-  --blue-3: rgb(109.8, 104.4, 89.1);
-  --blue-4: rgb(103.7, 98.6, 84.15);
-  --blue-5: rgb(97.6, 92.8, 79.2);
+  --blue-1: #3b3628;
+  --blue-2: rgb(56.05, 51.3, 38);
+  --blue-3: rgb(53.1, 48.6, 36);
+  --blue-4: rgb(50.15, 45.9, 34);
+  --blue-5: rgb(47.2, 43.2, 32);
   --yellow-1: #9a7a00;
   --yellow-2: rgb(146.3, 115.9, 0);
   --yellow-3: rgb(138.6, 109.8, 0);
