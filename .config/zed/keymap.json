@@ -65,5 +65,29 @@
   "unbind": {
    "ctrl-p": "file_finder::Toggle"
   }
+ },
+ {
+  "context": "Workspace",
+  "bindings": {
+   "ctrl-b": "project_panel::ToggleFocus"
+  }
+ },
+ {
+  "context": "Workspace",
+  "unbind": {
+   "ctrl-shift-e": "project_panel::ToggleFocus"
+  }
+ },
+ {
+  "context": "Workspace",
+  "bindings": {
+   "ctrl-b": "workspace::ToggleRightDock"
+  }
+ },
+ {
+  "context": "Workspace",
+  "unbind": {
+   "ctrl-alt-b": "workspace::ToggleRightDock"
+  }
  }
 ]

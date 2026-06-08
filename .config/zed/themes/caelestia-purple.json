@@ -4,7 +4,7 @@
 	"author": "Based on Caelestia Design System",
 	"themes": [
 		{
-			"name": "Caelestia Dark",
+			"name": "Caelestia Purple Dark",
 			"appearance": "dark",
 			"style": {
 				"border": "#49454e",
@@ -290,7 +290,7 @@
 			}
 		},
 		{
-			"name": "Caelestia Light",
+			"name": "Caelestia Purple Light",
 			"appearance": "light",
 			"style": {
 				"border": "#cac4cf",
