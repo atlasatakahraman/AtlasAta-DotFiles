@@ -1,0 +1,44 @@
+{
+  "cachedGrowthBookFeatures": {
+    "tengu_1p_event_batch_config": {
+      "scheduledDelayMillis": 5000,
+      "maxExportBatchSize": 200,
+      "maxQueueSize": 8192
+    },
+    "tengu_mcp_tool_search": false,
+    "tengu_scratch": false,
+    "tengu_disable_bypass_permissions_mode": false,
+    "tengu_event_sampling_config": {},
+    "tengu_log_segment_events": false,
+    "tengu_log_datadog_events": true,
+    "tengu_marble_anvil": true,
+    "tengu_tool_pear": false,
+    "tengu_scarf_coffee": false,
+    "tengu_claudeai_mcp_connectors": false,
+    "tengu_keybinding_customization_release": true,
+    "tengu_thinkback": false,
+    "tengu_oboe": true,
+    "tengu_chomp_inflection": true,
+    "tengu_copper_lantern": false,
+    "tengu_pid_based_version_locking": true,
+    "tengu_marble_lantern_disabled": false,
+    "tengu_tst_names_in_messages": false,
+    "tengu_tool_search_unsupported_models": [
+      "haiku"
+    ],
+    "tengu_system_prompt_global_cache": false,
+    "tengu_attribution_header": false,
+    "enhanced_telemetry_beta": false,
+    "tengu_workout2": true
+  },
+  "userID": "afcaa84915ecd712b0b3bc477188750b7e994457d6826ac7a00c77bc1ce4863d",
+  "firstStartTime": "2026-02-06T02:14:12.564Z",
+  "sonnet45MigrationComplete": true,
+  "opus45MigrationComplete": true,
+  "opusProMigrationComplete": true,
+  "thinkingMigrationComplete": true,
+  "sonnet1m45MigrationComplete": true,
+  "seenNotifications": {},
+  "migrationVersion": 13,
+  "changelogLastFetched": 1778328039522
+}

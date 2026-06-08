@@ -7,6 +7,7 @@
 .pki/
 .claude.json
 .claude.json.backup.*
+.openclaude/.credentials.json
 .gemini/oauth_creds.json
 .gemini/google_accounts.json
 .gemini/installation_id

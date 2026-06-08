@@ -1,0 +1,10 @@
+{
+  "claude-plugins-official": {
+    "source": {
+      "source": "github",
+      "repo": "anthropics/claude-plugins-official"
+    },
+    "installLocation": "/home/atlasata/.openclaude/plugins/marketplaces/claude-plugins-official",
+    "lastUpdated": "2026-06-08T14:39:36.965Z"
+  }
+}
