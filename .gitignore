@@ -141,6 +141,9 @@ lfs_cozucu.py
 .claude/debug/
 .claude/cache/
 .claude/todos/
+.openclaude/debug/
+.openclaude/cache/
+.openclaude/todos/
 
 # Vivaldi binary codec
 .local/lib/
@@ -264,7 +267,6 @@ lfs_cozucu.py
 !.config/spicetify/**
 !.config/spotify/
 .config/spotify/**
-!.config/spotify/prefs
 
 # --- Discord istemcileri
 !.config/Vencord/

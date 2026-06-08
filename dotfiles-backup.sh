@@ -58,6 +58,19 @@ if [ ! -f ".gitignore" ]; then
 fi
 info ".gitignore mevcut ($(wc -l < .gitignore) satır)"
 
+# ── 4. Pre-flight: token/secret scan ─────────────────────────
+info "Token taraması yapılıyor..."
+DANGER=$(git diff --cached --name-only 2>/dev/null; git ls-files --others --exclude-standard 2>/dev/null) 
+
+# Check staged/new files for dangerous patterns
+HITS=$(git add -A --dry-run 2>&1 | awk '{print $2}' | while read f; do
+  [ -f "$f" ] && grep -lqiE "(access_token|refresh_token|client_secret|Bearer [a-zA-Z0-9])" "$f" 2>/dev/null && echo "$f"
+done)
+
+if [ -n "$HITS" ]; then
+  error "⛔ Potansiyel token bulundu:\n$HITS\n\n.gitignore güncelle, sonra tekrar çalıştır."
+fi
+
 # ── 4. Stage & Commit ────────────────────────────────────────
 info "Dosyalar stage ediliyor..."
 git add -A 2>&1 | grep -v "^warning"
