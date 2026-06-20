@@ -89,5 +89,186 @@
   "unbind": {
    "ctrl-alt-b": "workspace::ToggleRightDock"
   }
+ },
+ {
+  "context": "Workspace",
+  "bindings": {
+   "ctrl-shift-space": "command_palette::Toggle"
+  }
+ },
+ {
+  "context": "Workspace",
+  "unbind": {
+   "ctrl-shift-p": "command_palette::Toggle"
+  }
+ },
+ {
+  "context": "Editor",
+  "unbind": {
+   "ctrl-shift-space": "editor::ShowWordCompletions"
+  }
+ },
+ {
+  "context": "StashDiff > Editor",
+  "unbind": {
+   "ctrl-shift-space": "git::PopCurrentStash"
+  }
+ },
+ {
+  "context": "GitPanel",
+  "unbind": {
+   "ctrl-shift-space": "git::UnstageAll"
+  }
+ },
+ {
+  "context": "GitDiff > Editor",
+  "unbind": {
+   "ctrl-shift-space": "git::UnstageAll"
+  }
+ },
+ {
+  "context": "Terminal",
+  "unbind": {
+   "ctrl-shift-space": "terminal::ToggleViMode"
+  }
+ },
+ {
+  "context": "Workspace",
+  "unbind": {
+   "ctrl-shift-n": "workspace::NewWindow"
+  }
+ },
+ {
+  "context": "AgentPanel",
+  "unbind": {
+   "ctrl-n": "agent::NewThread"
+  }
+ },
+ {
+  "context": "AcpThread",
+  "unbind": {
+   "ctrl-n": "agent::NewThread"
+  }
+ },
+ {
+  "context": "AgentPanel > Terminal",
+  "unbind": {
+   "ctrl-n": "agent::NewThread"
+  }
+ },
+ {
+  "context": "ThreadsSidebar",
+  "unbind": {
+   "ctrl-n": "agents_sidebar::NewThreadInGroup"
+  }
+ },
+ {
+  "context": "Editor && (showing_code_actions || showing_completions)",
+  "unbind": {
+   "ctrl-n": "editor::ContextMenuNext"
+  }
+ },
+ {
+  "unbind": {
+   "ctrl-n": "menu::SelectNext"
+  }
+ },
+ {
+  "context": "ProjectPanel",
+  "unbind": {
+   "ctrl-n": "project_panel::NewFile"
+  }
+ },
+ {
+  "context": "Workspace",
+  "unbind": {
+   "ctrl-n": "workspace::NewFile"
+  }
+ },
+ {
+  "context": "Welcome",
+  "unbind": {
+   "ctrl-n": "workspace::NewFile"
+  }
+ },
+ {
+  "context": "ProjectPanel",
+  "bindings": {
+   "ctrl-n": "project_panel::NewFile"
+  }
+ },
+ {
+  "context": "ProjectPanel",
+  "unbind": {
+   "new": "project_panel::NewFile"
+  }
+ },
+ {
+  "context": "ProjectPanel",
+  "bindings": {
+   "ctrl-shift-n": "project_panel::NewDirectory"
+  }
+ },
+ {
+  "context": "ProjectPanel",
+  "unbind": {
+   "ctrl-alt-n": "project_panel::NewDirectory"
+  }
+ },
+ {
+  "context": "SettingsWindow",
+  "unbind": {
+   "ctrl-w": "workspace::CloseWindow"
+  }
+ },
+ {
+  "context": "SkillCreator",
+  "unbind": {
+   "ctrl-w": "workspace::CloseWindow"
+  }
+ },
+ {
+  "context": "SkillCreator > Editor",
+  "unbind": {
+   "ctrl-w": "workspace::CloseWindow"
+  }
+ },
+ {
+  "context": "Workspace",
+  "unbind": {
+   "ctrl-w": "workspace::CloseActiveDock"
+  }
+ },
+ {
+  "context": "Terminal",
+  "unbind": {
+   "ctrl-w": [
+    "terminal::SendKeystroke",
+    "ctrl-w"
+   ]
+  }
+ },
+ {
+  "context": "Pane",
+  "unbind": {
+   "ctrl-w": [
+    "pane::CloseActiveItem",
+    {
+     "close_pinned": false
+    }
+   ]
+  }
+ },
+ {
+  "context": "Editor",
+  "bindings": {
+   "ctrl-w": [
+    "editor::DeleteToPreviousWordStart",
+    {
+     "ignore_newlines": false,
+     "ignore_brackets": false
+    }
+   ]
+  }
  }
 ]

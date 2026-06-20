@@ -2,7 +2,7 @@
 application/x-tiled-tsx=neovide.desktop;dev.zed.Zed.desktop;
 font/woff2=neovide.desktop;org.gnome.font-viewer.desktop;
 text/plain=neovide.desktop;org.kde.kate.desktop;
-application/json=neovide.desktop;
+application/json=obsidian.desktop;neovide.desktop;
 application/x-shellscript=neovide.desktop;
 application/java-archive=org.kde.ark.desktop;
 audio/mpeg=mpv.desktop;
