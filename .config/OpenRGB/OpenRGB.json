@@ -1790,7 +1790,7 @@
             "y": 0
         },
         "greyscale_tray_icon": true,
-        "language": "default",
+        "language": "System Default",
         "minimize_on_close": false
     }
 }

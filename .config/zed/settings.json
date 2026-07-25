@@ -1,5 +1,6 @@
 {
-	"proxy": "",
+	"cli_default_open_behavior": "new_window",
+ "proxy": "",
  "calls": {
   "mute_on_join": true,
   "share_on_join": true
@@ -19,7 +20,9 @@
 		"dock": "right"
 	},
 	"project_panel": {
-		"dock": "right",
+		"hide_hidden": false,
+  "hide_root": false,
+  "dock": "right",
 		"hide_gitignore": false
 	},
 	"agent": {

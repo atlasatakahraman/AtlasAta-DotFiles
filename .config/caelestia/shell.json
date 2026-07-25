@@ -29,7 +29,7 @@
             },
             "enabled": true,
             "invertColors": true,
-            "position": "bottom-right",
+            "position": "top-right",
             "scale": 1,
             "shadow": {
                 "blur": 0.4,

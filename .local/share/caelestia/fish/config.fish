@@ -9,6 +9,11 @@ if status is-interactive
     # Better ls
     alias ls='eza --icons --group-directories-first -1'
 
+    # Alias clear
+    alias cls='clear'
+    alias cl='clear'
+    alias c='clear'
+
     # Abbrs
     abbr lg 'lazygit'
     abbr gd 'git diff'
@@ -27,10 +32,20 @@ if status is-interactive
     abbr gco 'git checkout'
     abbr gsh 'git show'
 
+    # Abbrs - AtlasAta
+
+    abbr cdp '/home/atlasata/projects'
+    abbr cdc '/home/atlasata/code'
+    abbr cdcr '/home/atlasata/code/rust'
+    abbr cdcw '/home/atlasata/code/web'
+    abbr cdcj '/home/atlasata/code/java'
+    
+
     abbr l 'ls'
     abbr ll 'ls -l'
     abbr la 'ls -a'
     abbr lla 'ls -la'
+    abbr lr 'ls --recurse'
 
     # Custom colours
     cat ~/.local/state/caelestia/sequences.txt 2> /dev/null

@@ -21,6 +21,7 @@ text/markdown=libreoffice-writer.desktop;org.kde.kwrite.desktop;org.kde.kate.des
 application/octet-stream=mpv.desktop;
 text/vnd.trolltech.linguist=neovide.desktop;
 image/jpeg=org.kde.gwenview.desktop;
+image/png=org.kde.gwenview.desktop;org.gimp.GIMP.desktop;
 
 [Default Applications]
 font/woff2=org.gnome.font-viewer.desktop
