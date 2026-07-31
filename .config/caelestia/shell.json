@@ -28,7 +28,7 @@
                 "opacity": 0.4485811400182037
             },
             "enabled": true,
-            "invertColors": true,
+            "invertColors": false,
             "position": "top-right",
             "scale": 1,
             "shadow": {
@@ -447,7 +447,7 @@
                 "to": "YT Music"
             }
         ],
-        "showLyrics": true,
+        "showLyrics": false,
         "smartScheme": true,
         "useFahrenheit": false,
         "useFahrenheitPerformance": false,
