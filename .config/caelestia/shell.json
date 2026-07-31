@@ -439,7 +439,7 @@
         "brightnessIncrement": 0.09,
         "defaultPlayer": "Spotify",
         "gpuType": "nvidia",
-        "lyricsBackend": "Auto",
+        "lyricsBackend": "NetEase",
         "maxVolume": 1.44,
         "playerAliases": [
             {
@@ -447,6 +447,7 @@
                 "to": "YT Music"
             }
         ],
+        "showLyrics": true,
         "smartScheme": true,
         "useFahrenheit": false,
         "useFahrenheitPerformance": false,

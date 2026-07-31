@@ -4,6 +4,6 @@
 -- │   between themes in `lua/themes/`        │
 -- └──────────────────────────────────────────┘
 
-local active_theme = "tokyonight" -- options: "tokyonight", "catppuccin"
+local active_theme = "caelestia" -- options: "caelestia", "tokyonight", "catppuccin"
 
 return require("themes." .. active_theme)

@@ -45,7 +45,7 @@ require("lazy").setup({
 
   -- Colorscheme used during plugin install
   install = {
-    colorscheme = { "catppuccin", "habamax" },
+    colorscheme = { "caelestia", "catppuccin", "habamax" },
   },
 
   -- Performance optimizations
