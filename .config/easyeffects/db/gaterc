@@ -1,6 +1,6 @@
 [sie][Gate#0]
 attack=5
-curveThreshold=-50
+curveThreshold=-45
 curveZone=-2
 hysteresis=true
 hysteresisThreshold=-3
@@ -9,10 +9,11 @@ inputToLink=0
 inputToSidechain=0
 linkToInput=0
 linkToSidechain=0
-makeup=1
-reduction=-12
-release=250
+makeup=5
+reduction=-10
+release=300
 sidechainMode=1
+sidechainPreamp=-3
 sidechainToInput=0
 sidechainToLink=0
-wet=-1
+wet=-3

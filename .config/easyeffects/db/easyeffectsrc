@@ -18,7 +18,7 @@ mostUsedPresets=atlas,fifine_masc_voice_noise_reduction
 plugins=rnnoise#0,deepfilternet#0,gate#0,equalizer#0,compressor#0,deesser#0,stereo_tools#0,limiter#0
 usedPresets=atlas:7,fifine_masc_voice_noise_reduction:6
 visiblePage=pluginsPage
-visiblePlugin=compressor#0
+visiblePlugin=equalizer#0
 
 [StreamOutputs]
 blocklist=java,Chromium,audio-src
