@@ -447,7 +447,7 @@
                 "to": "YT Music"
             }
         ],
-        "showLyrics": false,
+        "showLyrics": true,
         "smartScheme": true,
         "useFahrenheit": false,
         "useFahrenheitPerformance": false,
