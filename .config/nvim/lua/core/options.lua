@@ -32,6 +32,7 @@ opt.cmdheight = 1                   -- Command line height
 opt.laststatus = 3                  -- Global statusline
 opt.conceallevel = 0                -- Show all text (no concealing)
 opt.showtabline = 2                 -- Always show tabline
+opt.guicursor:append("t:ver25")     -- Line cursor in terminal mode
 
 -- ── Search ────────────────────────────────────────────────────
 opt.hlsearch = true                 -- Highlight search results

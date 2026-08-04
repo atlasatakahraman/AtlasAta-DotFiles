@@ -63,6 +63,7 @@ return {
 
 		-- Terminal keymaps
 		on_open = function(term)
+
 			-- Close Neo-tree if it is open (saves layout squashing on vertical open)
 			local neotree_open = false
 			for _, win in ipairs(vim.api.nvim_list_wins()) do

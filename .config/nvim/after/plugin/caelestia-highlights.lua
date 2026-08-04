@@ -113,6 +113,28 @@ local function apply_extended_highlights()
   set_hl(0, "TabLineSel",      { fg = fg, bg = surface_mid, bold = true })
 
   -- ══════════════════════════════════════════════════════════
+  -- ║ TERMINAL COLORS                                        ║
+  -- ══════════════════════════════════════════════════════════
+
+  -- Synced with caelestia-shell's term0–term15 for parity with external terminal
+  vim.g.terminal_color_0  = c.term0  or "#353433"  -- black
+  vim.g.terminal_color_1  = c.term1  or "#cc8000"  -- red
+  vim.g.terminal_color_2  = c.term2  or "#fac442"  -- green
+  vim.g.terminal_color_3  = c.term3  or "#ffe2b7"  -- yellow
+  vim.g.terminal_color_4  = c.term4  or "#b6ac67"  -- blue
+  vim.g.terminal_color_5  = c.term5  or "#e59a50"  -- magenta
+  vim.g.terminal_color_6  = c.term6  or "#e4c76d"  -- cyan
+  vim.g.terminal_color_7  = c.term7  or "#e7d6bf"  -- white
+  vim.g.terminal_color_8  = c.term8  or "#aea18f"  -- bright black
+  vim.g.terminal_color_9  = c.term9  or "#ec9500"  -- bright red
+  vim.g.terminal_color_10 = c.term10 or "#ffd887"  -- bright green
+  vim.g.terminal_color_11 = c.term11 or "#fff2e3"  -- bright yellow
+  vim.g.terminal_color_12 = c.term12 or "#cdc193"  -- bright blue
+  vim.g.terminal_color_13 = c.term13 or "#f3b270"  -- bright magenta
+  vim.g.terminal_color_14 = c.term14 or "#fbd873"  -- bright cyan
+  vim.g.terminal_color_15 = c.term15 or "#ffffff"  -- bright white
+
+  -- ══════════════════════════════════════════════════════════
   -- ║ SYNTAX                                                 ║
   -- ══════════════════════════════════════════════════════════
 
