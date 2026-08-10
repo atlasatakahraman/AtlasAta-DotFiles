@@ -23,6 +23,7 @@ text/vnd.trolltech.linguist=neovide.desktop;
 image/jpeg=org.kde.gwenview.desktop;
 image/png=org.kde.gwenview.desktop;org.gimp.GIMP.desktop;
 image/x-adobe-dng=org.kde.gwenview.desktop;
+image/gif=org.kde.gwenview.desktop;
 
 [Default Applications]
 font/woff2=org.gnome.font-viewer.desktop
@@ -61,3 +62,4 @@ application/x-tiled-tsx=dev.zed.Zed.desktop
 application/octet-stream=mpv.desktop
 image/jpeg=org.kde.gwenview.desktop
 application/java-archive=org.kde.ark.desktop
+image/gif=org.kde.gwenview.desktop

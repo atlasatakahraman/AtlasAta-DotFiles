@@ -128,7 +128,7 @@
             ],
             "iconSubs": [
             ],
-            "recolour": false
+            "recolour": true
         },
         "workspaces": {
             "activeIndicator": true,
@@ -408,7 +408,7 @@
         "enableFprint": true,
         "hideNotifs": true,
         "maxFprintTries": 3,
-        "recolourLogo": false
+        "recolourLogo": true
     },
     "notifs": {
         "actionOnClick": false,
@@ -429,9 +429,9 @@
     "paths": {
         "lockNoNotifsPic": "root:/assets/dino.png",
         "lyricsDir": "/home/atlasata/Music/lyrics/",
-        "mediaGif": "root:/assets/bongocat.gif",
+        "mediaGif": "/home/atlasata/assets/caelestia/dark/media.gif",
         "noNotifsPic": "root:/assets/dino.png",
-        "sessionGif": "root:/assets/kurukuru.gif",
+        "sessionGif": "/home/atlasata/assets/caelestia/dark/session.gif",
         "wallpaperDir": "/home/atlasata/Pictures/Wallpapers"
     },
     "services": {
@@ -447,7 +447,6 @@
                 "to": "YT Music"
             }
         ],
-        "showLyrics": true,
         "smartScheme": true,
         "useFahrenheit": false,
         "useFahrenheitPerformance": false,
