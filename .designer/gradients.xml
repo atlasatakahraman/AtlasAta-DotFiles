@@ -1,0 +1,498 @@
+<gradients>
+ <gradient name="BlackWhite">
+  <gradientData coordinateMode="StretchToDeviceMode" endX="1" endY="0" spread="PadSpread" startX="0" startY="0" type="LinearGradient">
+   <stopData position="0">
+    <colorData a="255" b="0" g="0" r="0"/>
+   </stopData>
+   <stopData position="1">
+    <colorData a="255" b="255" g="255" r="255"/>
+   </stopData>
+  </gradientData>
+ </gradient>
+ <gradient name="Czech">
+  <gradientData angle="0" centerX="0.5" centerY="0.5" coordinateMode="StretchToDeviceMode" spread="RepeatSpread" type="ConicalGradient">
+   <stopData position="0">
+    <colorData a="255" b="255" g="255" r="255"/>
+   </stopData>
+   <stopData position="0.373979">
+    <colorData a="255" b="255" g="255" r="255"/>
+   </stopData>
+   <stopData position="0.373991">
+    <colorData a="255" b="255" g="30" r="33"/>
+   </stopData>
+   <stopData position="0.624018">
+    <colorData a="255" b="255" g="30" r="33"/>
+   </stopData>
+   <stopData position="0.624043">
+    <colorData a="255" b="0" g="0" r="255"/>
+   </stopData>
+   <stopData position="1">
+    <colorData a="255" b="0" g="0" r="255"/>
+   </stopData>
+  </gradientData>
+ </gradient>
+ <gradient name="Dutch">
+  <gradientData coordinateMode="StretchToDeviceMode" endX="0" endY="1" spread="PadSpread" startX="0" startY="0" type="LinearGradient">
+   <stopData position="0">
+    <colorData a="255" b="0" g="0" r="255"/>
+   </stopData>
+   <stopData position="0.339795">
+    <colorData a="255" b="0" g="0" r="255"/>
+   </stopData>
+   <stopData position="0.339799">
+    <colorData a="255" b="255" g="255" r="255"/>
+   </stopData>
+   <stopData position="0.662444">
+    <colorData a="255" b="255" g="255" r="255"/>
+   </stopData>
+   <stopData position="0.662469">
+    <colorData a="255" b="255" g="0" r="0"/>
+   </stopData>
+   <stopData position="1">
+    <colorData a="255" b="255" g="0" r="0"/>
+   </stopData>
+  </gradientData>
+ </gradient>
+ <gradient name="Eye">
+  <gradientData centerX="0.5" centerY="0.5" coordinateMode="StretchToDeviceMode" focalX="0.5" focalY="0.5" radius="0.5" spread="PadSpread" type="RadialGradient">
+   <stopData position="0">
+    <colorData a="255" b="0" g="0" r="0"/>
+   </stopData>
+   <stopData position="0.19397">
+    <colorData a="255" b="0" g="0" r="0"/>
+   </stopData>
+   <stopData position="0.202312">
+    <colorData a="255" b="0" g="97" r="122"/>
+   </stopData>
+   <stopData position="0.495514">
+    <colorData a="255" b="0" g="58" r="76"/>
+   </stopData>
+   <stopData position="0.504819">
+    <colorData a="255" b="255" g="255" r="255"/>
+   </stopData>
+   <stopData position="0.79">
+    <colorData a="255" b="255" g="255" r="255"/>
+   </stopData>
+   <stopData position="1">
+    <colorData a="255" b="158" g="158" r="255"/>
+   </stopData>
+  </gradientData>
+ </gradient>
+ <gradient name="Flare1">
+  <gradientData centerX="0.5" centerY="0.5" coordinateMode="StretchToDeviceMode" focalX="0.5" focalY="0.5" radius="0.5" spread="PadSpread" type="RadialGradient">
+   <stopData position="0">
+    <colorData a="255" b="255" g="255" r="255"/>
+   </stopData>
+   <stopData position="0.1">
+    <colorData a="255" b="255" g="255" r="255"/>
+   </stopData>
+   <stopData position="0.2">
+    <colorData a="167" b="176" g="176" r="255"/>
+   </stopData>
+   <stopData position="0.3">
+    <colorData a="92" b="151" g="151" r="255"/>
+   </stopData>
+   <stopData position="0.4">
+    <colorData a="51" b="125" g="125" r="255"/>
+   </stopData>
+   <stopData position="0.5">
+    <colorData a="205" b="76" g="76" r="255"/>
+   </stopData>
+   <stopData position="0.52">
+    <colorData a="205" b="76" g="76" r="255"/>
+   </stopData>
+   <stopData position="0.6">
+    <colorData a="84" b="180" g="180" r="255"/>
+   </stopData>
+   <stopData position="1">
+    <colorData a="0" b="255" g="255" r="255"/>
+   </stopData>
+  </gradientData>
+ </gradient>
+ <gradient name="Flare2">
+  <gradientData centerX="0.5" centerY="0.5" coordinateMode="StretchToDeviceMode" focalX="0.5" focalY="0.5" radius="0.5" spread="PadSpread" type="RadialGradient">
+   <stopData position="0">
+    <colorData a="0" b="0" g="0" r="0"/>
+   </stopData>
+   <stopData position="0.52">
+    <colorData a="0" b="0" g="0" r="0"/>
+   </stopData>
+   <stopData position="0.565">
+    <colorData a="33" b="76" g="121" r="82"/>
+   </stopData>
+   <stopData position="0.65">
+    <colorData a="64" b="148" g="235" r="159"/>
+   </stopData>
+   <stopData position="0.721925">
+    <colorData a="129" b="150" g="238" r="255"/>
+   </stopData>
+   <stopData position="0.77">
+    <colorData a="204" b="128" g="128" r="255"/>
+   </stopData>
+   <stopData position="0.89">
+    <colorData a="64" b="255" g="128" r="191"/>
+   </stopData>
+   <stopData position="1">
+    <colorData a="0" b="0" g="0" r="0"/>
+   </stopData>
+  </gradientData>
+ </gradient>
+ <gradient name="Flare3">
+  <gradientData centerX="0.5" centerY="0.5" coordinateMode="StretchToDeviceMode" focalX="0.5" focalY="0.5" radius="0.5" spread="PadSpread" type="RadialGradient">
+   <stopData position="0">
+    <colorData a="206" b="235" g="235" r="255"/>
+   </stopData>
+   <stopData position="0.35">
+    <colorData a="80" b="188" g="188" r="255"/>
+   </stopData>
+   <stopData position="0.4">
+    <colorData a="80" b="162" g="162" r="255"/>
+   </stopData>
+   <stopData position="0.425">
+    <colorData a="156" b="132" g="132" r="255"/>
+   </stopData>
+   <stopData position="0.44">
+    <colorData a="80" b="128" g="128" r="252"/>
+   </stopData>
+   <stopData position="1">
+    <colorData a="0" b="255" g="255" r="255"/>
+   </stopData>
+  </gradientData>
+ </gradient>
+ <gradient name="German">
+  <gradientData coordinateMode="StretchToDeviceMode" endX="0" endY="1" spread="PadSpread" startX="0" startY="0" type="LinearGradient">
+   <stopData position="0">
+    <colorData a="255" b="0" g="0" r="0"/>
+   </stopData>
+   <stopData position="0.33">
+    <colorData a="255" b="0" g="0" r="0"/>
+   </stopData>
+   <stopData position="0.34">
+    <colorData a="255" b="30" g="30" r="255"/>
+   </stopData>
+   <stopData position="0.66">
+    <colorData a="255" b="0" g="0" r="255"/>
+   </stopData>
+   <stopData position="0.67">
+    <colorData a="255" b="0" g="255" r="255"/>
+   </stopData>
+   <stopData position="1">
+    <colorData a="255" b="0" g="255" r="255"/>
+   </stopData>
+  </gradientData>
+ </gradient>
+ <gradient name="Golden">
+  <gradientData angle="0" centerX="0.5" centerY="0.5" coordinateMode="StretchToDeviceMode" spread="PadSpread" type="ConicalGradient">
+   <stopData position="0">
+    <colorData a="255" b="3" g="40" r="35"/>
+   </stopData>
+   <stopData position="0.16">
+    <colorData a="255" b="22" g="106" r="136"/>
+   </stopData>
+   <stopData position="0.225">
+    <colorData a="255" b="41" g="140" r="166"/>
+   </stopData>
+   <stopData position="0.285">
+    <colorData a="255" b="74" g="181" r="204"/>
+   </stopData>
+   <stopData position="0.345">
+    <colorData a="255" b="102" g="219" r="235"/>
+   </stopData>
+   <stopData position="0.415">
+    <colorData a="255" b="112" g="236" r="245"/>
+   </stopData>
+   <stopData position="0.52">
+    <colorData a="255" b="76" g="190" r="209"/>
+   </stopData>
+   <stopData position="0.57">
+    <colorData a="255" b="51" g="156" r="187"/>
+   </stopData>
+   <stopData position="0.635">
+    <colorData a="255" b="42" g="142" r="168"/>
+   </stopData>
+   <stopData position="0.695">
+    <colorData a="255" b="68" g="174" r="202"/>
+   </stopData>
+   <stopData position="0.75">
+    <colorData a="255" b="86" g="202" r="218"/>
+   </stopData>
+   <stopData position="0.815">
+    <colorData a="255" b="73" g="187" r="208"/>
+   </stopData>
+   <stopData position="0.88">
+    <colorData a="255" b="51" g="156" r="187"/>
+   </stopData>
+   <stopData position="0.935">
+    <colorData a="255" b="26" g="108" r="137"/>
+   </stopData>
+   <stopData position="1">
+    <colorData a="255" b="3" g="40" r="35"/>
+   </stopData>
+  </gradientData>
+ </gradient>
+ <gradient name="Japanese">
+  <gradientData centerX="0.5" centerY="0.5" coordinateMode="StretchToDeviceMode" focalX="0.5" focalY="0.5" radius="0.5" spread="PadSpread" type="RadialGradient">
+   <stopData position="0">
+    <colorData a="255" b="0" g="0" r="255"/>
+   </stopData>
+   <stopData position="0.479904">
+    <colorData a="255" b="0" g="0" r="255"/>
+   </stopData>
+   <stopData position="0.522685">
+    <colorData a="255" b="255" g="255" r="255"/>
+   </stopData>
+   <stopData position="1">
+    <colorData a="255" b="255" g="255" r="255"/>
+   </stopData>
+  </gradientData>
+ </gradient>
+ <gradient name="Norwegian">
+  <gradientData coordinateMode="StretchToDeviceMode" endX="1" endY="0" spread="RepeatSpread" startX="0" startY="0" type="LinearGradient">
+   <stopData position="0">
+    <colorData a="255" b="0" g="0" r="255"/>
+   </stopData>
+   <stopData position="0.17">
+    <colorData a="255" b="0" g="0" r="255"/>
+   </stopData>
+   <stopData position="0.18">
+    <colorData a="255" b="255" g="255" r="255"/>
+   </stopData>
+   <stopData position="0.210212">
+    <colorData a="255" b="255" g="255" r="255"/>
+   </stopData>
+   <stopData position="0.220212">
+    <colorData a="255" b="255" g="16" r="0"/>
+   </stopData>
+   <stopData position="0.279897">
+    <colorData a="255" b="255" g="16" r="0"/>
+   </stopData>
+   <stopData position="0.289897">
+    <colorData a="255" b="255" g="255" r="255"/>
+   </stopData>
+   <stopData position="0.32">
+    <colorData a="255" b="255" g="255" r="255"/>
+   </stopData>
+   <stopData position="0.33">
+    <colorData a="255" b="0" g="0" r="255"/>
+   </stopData>
+   <stopData position="1">
+    <colorData a="255" b="0" g="0" r="255"/>
+   </stopData>
+  </gradientData>
+ </gradient>
+ <gradient name="Pastels">
+  <gradientData coordinateMode="StretchToDeviceMode" endX="1" endY="0" spread="PadSpread" startX="0" startY="0" type="LinearGradient">
+   <stopData position="0">
+    <colorData a="255" b="176" g="224" r="245"/>
+   </stopData>
+   <stopData position="0.09">
+    <colorData a="255" b="237" g="189" r="246"/>
+   </stopData>
+   <stopData position="0.14">
+    <colorData a="255" b="246" g="207" r="194"/>
+   </stopData>
+   <stopData position="0.19">
+    <colorData a="255" b="168" g="160" r="184"/>
+   </stopData>
+   <stopData position="0.25">
+    <colorData a="255" b="248" g="186" r="171"/>
+   </stopData>
+   <stopData position="0.32">
+    <colorData a="255" b="224" g="248" r="243"/>
+   </stopData>
+   <stopData position="0.385">
+    <colorData a="255" b="183" g="162" r="249"/>
+   </stopData>
+   <stopData position="0.47">
+    <colorData a="255" b="124" g="115" r="100"/>
+   </stopData>
+   <stopData position="0.58">
+    <colorData a="255" b="202" g="205" r="251"/>
+   </stopData>
+   <stopData position="0.65">
+    <colorData a="255" b="185" g="128" r="170"/>
+   </stopData>
+   <stopData position="0.75">
+    <colorData a="255" b="204" g="222" r="252"/>
+   </stopData>
+   <stopData position="0.805">
+    <colorData a="255" b="218" g="122" r="206"/>
+   </stopData>
+   <stopData position="0.86">
+    <colorData a="255" b="175" g="223" r="254"/>
+   </stopData>
+   <stopData position="0.91">
+    <colorData a="255" b="244" g="236" r="254"/>
+   </stopData>
+   <stopData position="1">
+    <colorData a="255" b="221" g="191" r="255"/>
+   </stopData>
+  </gradientData>
+ </gradient>
+ <gradient name="Polish">
+  <gradientData coordinateMode="StretchToDeviceMode" endX="0" endY="1" spread="PadSpread" startX="0" startY="0" type="LinearGradient">
+   <stopData position="0">
+    <colorData a="255" b="255" g="255" r="255"/>
+   </stopData>
+   <stopData position="0.495">
+    <colorData a="255" b="255" g="255" r="255"/>
+   </stopData>
+   <stopData position="0.505">
+    <colorData a="255" b="0" g="0" r="255"/>
+   </stopData>
+   <stopData position="1">
+    <colorData a="255" b="0" g="0" r="255"/>
+   </stopData>
+  </gradientData>
+ </gradient>
+ <gradient name="Rainbow">
+  <gradientData coordinateMode="StretchToDeviceMode" endX="1" endY="0" spread="PadSpread" startX="0" startY="0" type="LinearGradient">
+   <stopData position="0">
+    <colorData a="255" b="0" g="0" r="255"/>
+   </stopData>
+   <stopData position="0.166">
+    <colorData a="255" b="0" g="255" r="255"/>
+   </stopData>
+   <stopData position="0.333">
+    <colorData a="255" b="0" g="255" r="0"/>
+   </stopData>
+   <stopData position="0.5">
+    <colorData a="255" b="255" g="255" r="0"/>
+   </stopData>
+   <stopData position="0.666">
+    <colorData a="255" b="255" g="0" r="0"/>
+   </stopData>
+   <stopData position="0.833">
+    <colorData a="255" b="255" g="0" r="255"/>
+   </stopData>
+   <stopData position="1">
+    <colorData a="255" b="0" g="0" r="255"/>
+   </stopData>
+  </gradientData>
+ </gradient>
+ <gradient name="Sky">
+  <gradientData coordinateMode="StretchToDeviceMode" endX="0" endY="0" spread="PadSpread" startX="0" startY="1" type="LinearGradient">
+   <stopData position="0">
+    <colorData a="255" b="0" g="0" r="0"/>
+   </stopData>
+   <stopData position="0.05">
+    <colorData a="255" b="73" g="8" r="14"/>
+   </stopData>
+   <stopData position="0.36">
+    <colorData a="255" b="145" g="17" r="28"/>
+   </stopData>
+   <stopData position="0.6">
+    <colorData a="255" b="81" g="14" r="126"/>
+   </stopData>
+   <stopData position="0.75">
+    <colorData a="255" b="11" g="11" r="234"/>
+   </stopData>
+   <stopData position="0.79">
+    <colorData a="255" b="5" g="70" r="244"/>
+   </stopData>
+   <stopData position="0.86">
+    <colorData a="255" b="0" g="136" r="255"/>
+   </stopData>
+   <stopData position="0.935">
+    <colorData a="255" b="55" g="236" r="239"/>
+   </stopData>
+  </gradientData>
+ </gradient>
+ <gradient name="SunRay">
+  <gradientData angle="135" centerX="0" centerY="0" coordinateMode="StretchToDeviceMode" spread="RepeatSpread" type="ConicalGradient">
+   <stopData position="0">
+    <colorData a="69" b="0" g="255" r="255"/>
+   </stopData>
+   <stopData position="0.375">
+    <colorData a="69" b="0" g="255" r="255"/>
+   </stopData>
+   <stopData position="0.423533">
+    <colorData a="145" b="0" g="255" r="251"/>
+   </stopData>
+   <stopData position="0.45">
+    <colorData a="208" b="0" g="255" r="247"/>
+   </stopData>
+   <stopData position="0.477581">
+    <colorData a="130" b="71" g="244" r="255"/>
+   </stopData>
+   <stopData position="0.518717">
+    <colorData a="130" b="71" g="218" r="255"/>
+   </stopData>
+   <stopData position="0.55">
+    <colorData a="255" b="0" g="255" r="255"/>
+   </stopData>
+   <stopData position="0.57754">
+    <colorData a="130" b="0" g="203" r="255"/>
+   </stopData>
+   <stopData position="0.625">
+    <colorData a="69" b="0" g="255" r="255"/>
+   </stopData>
+   <stopData position="1">
+    <colorData a="69" b="0" g="255" r="255"/>
+   </stopData>
+  </gradientData>
+ </gradient>
+ <gradient name="Tropical">
+  <gradientData coordinateMode="StretchToDeviceMode" endX="1" endY="0" spread="PadSpread" startX="0" startY="0" type="LinearGradient">
+   <stopData position="0">
+    <colorData a="255" b="4" g="41" r="9"/>
+   </stopData>
+   <stopData position="0.085">
+    <colorData a="255" b="0" g="79" r="2"/>
+   </stopData>
+   <stopData position="0.19">
+    <colorData a="255" b="22" g="147" r="50"/>
+   </stopData>
+   <stopData position="0.275">
+    <colorData a="255" b="49" g="191" r="236"/>
+   </stopData>
+   <stopData position="0.39">
+    <colorData a="255" b="34" g="61" r="243"/>
+   </stopData>
+   <stopData position="0.555">
+    <colorData a="255" b="60" g="81" r="135"/>
+   </stopData>
+   <stopData position="0.667">
+    <colorData a="255" b="255" g="75" r="121"/>
+   </stopData>
+   <stopData position="0.825">
+    <colorData a="255" b="244" g="255" r="164"/>
+   </stopData>
+   <stopData position="0.885">
+    <colorData a="255" b="71" g="222" r="104"/>
+   </stopData>
+   <stopData position="1">
+    <colorData a="255" b="0" g="128" r="93"/>
+   </stopData>
+  </gradientData>
+ </gradient>
+ <gradient name="Wave">
+  <gradientData centerX="0.5" centerY="0.5" coordinateMode="StretchToDeviceMode" focalX="0.5" focalY="0.5" radius="0.077" spread="RepeatSpread" type="RadialGradient">
+   <stopData position="0">
+    <colorData a="147" b="255" g="169" r="0"/>
+   </stopData>
+   <stopData position="0.497326">
+    <colorData a="147" b="0" g="0" r="0"/>
+   </stopData>
+   <stopData position="1">
+    <colorData a="147" b="255" g="169" r="0"/>
+   </stopData>
+  </gradientData>
+ </gradient>
+ <gradient name="Wood">
+  <gradientData coordinateMode="StretchToDeviceMode" endX="1" endY="0" spread="PadSpread" startX="0" startY="0" type="LinearGradient">
+   <stopData position="0">
+    <colorData a="255" b="102" g="178" r="255"/>
+   </stopData>
+   <stopData position="0.55">
+    <colorData a="255" b="61" g="148" r="235"/>
+   </stopData>
+   <stopData position="0.98">
+    <colorData a="255" b="0" g="0" r="0"/>
+   </stopData>
+   <stopData position="1">
+    <colorData a="0" b="0" g="0" r="0"/>
+   </stopData>
+  </gradientData>
+ </gradient>
+</gradients>
