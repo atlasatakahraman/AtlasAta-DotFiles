@@ -1,6 +1,7 @@
 [sie][Compressor#0]
 attack=15
 boostAmount=0
+bypass=true
 inputToLink=0
 inputToSidechain=0
 knee=-12
