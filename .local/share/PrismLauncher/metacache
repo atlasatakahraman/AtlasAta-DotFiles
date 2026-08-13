@@ -114027,17 +114027,17 @@
         {
             "base": "asset_indexes",
             "current_age": 0,
-            "last_changed_timestamp": 1785858557864,
+            "last_changed_timestamp": 1786555104199,
             "max_age": 1209600,
-            "md5sum": "4198151aecab253cbf2aee45fb4bc4ec",
+            "md5sum": "d94d1df4e1eb3fbd2648931b3529cd51",
             "path": "5.json",
-            "remote_changed_timestamp": "Tue, 04 Aug 2026 12:00:09 GMT"
+            "remote_changed_timestamp": "Wed, 12 Aug 2026 09:24:22 GMT"
         },
         {
             "base": "feed",
             "current_age": 0,
             "etag": "W/\"290c82c644b4893688f2585a831376d8\"",
-            "last_changed_timestamp": 1786364244302,
+            "last_changed_timestamp": 1786555098511,
             "max_age": 86400,
             "md5sum": "9c3daf5d5d8429fc596a4323b27d340f",
             "path": "feed.xml"
@@ -116201,13 +116201,13 @@
         },
         {
             "base": "meta",
-            "current_age": 286,
-            "etag": "W/\"6a79da6b-997\"",
-            "last_changed_timestamp": 1786384423592,
+            "current_age": 561,
+            "etag": "W/\"6a7c6226-997\"",
+            "last_changed_timestamp": 1786555103527,
             "max_age": 600,
-            "md5sum": "e79c31b73fbcd4185974474cef69f550",
+            "md5sum": "cbc0ceca8fd2f7e6a6a6990801f4c910",
             "path": "index.json",
-            "remote_changed_timestamp": "Mon, 10 Aug 2026 14:04:27 GMT"
+            "remote_changed_timestamp": "Wed, 12 Aug 2026 12:08:06 GMT"
         },
         {
             "base": "meta",
@@ -116301,13 +116301,13 @@
         },
         {
             "base": "meta",
-            "current_age": 46,
-            "etag": "W/\"6a71ff8c-3a218\"",
-            "last_changed_timestamp": 1785858557262,
+            "current_age": 399,
+            "etag": "W/\"6a7c6225-3a3ef\"",
+            "last_changed_timestamp": 1786555103620,
             "max_age": 600,
-            "md5sum": "292459796f996607369e319c0d6ca70f",
+            "md5sum": "5caa4fd5247af61aaf90af8ae4f7367c",
             "path": "net.fabricmc.intermediary/index.json",
-            "remote_changed_timestamp": "Tue, 04 Aug 2026 15:04:44 GMT"
+            "remote_changed_timestamp": "Wed, 12 Aug 2026 12:08:05 GMT"
         },
         {
             "base": "meta",
@@ -116341,13 +116341,13 @@
         },
         {
             "base": "meta",
-            "current_age": 28,
-            "etag": "W/\"6a71ff8c-50f8\"",
-            "last_changed_timestamp": 1785858557367,
+            "current_age": 493,
+            "etag": "W/\"6a7c6225-50f8\"",
+            "last_changed_timestamp": 1786555103751,
             "max_age": 600,
-            "md5sum": "a91edc1e4c74307bd88c53be722b7a8c",
+            "md5sum": "b8a52a37e44962aa581d6deaab689fbd",
             "path": "net.minecraft/1.20.1.json",
-            "remote_changed_timestamp": "Tue, 04 Aug 2026 15:04:44 GMT"
+            "remote_changed_timestamp": "Wed, 12 Aug 2026 12:08:05 GMT"
         },
         {
             "base": "meta",
@@ -116371,13 +116371,13 @@
         },
         {
             "base": "meta",
-            "current_age": 46,
-            "etag": "W/\"6a71ff8c-6a9fa\"",
-            "last_changed_timestamp": 1785858557293,
+            "current_age": 159,
+            "etag": "W/\"6a7c6225-6abaa\"",
+            "last_changed_timestamp": 1786555103681,
             "max_age": 600,
-            "md5sum": "53f9f2cd2316898d57d13238247f2da1",
+            "md5sum": "69bbe0ea6575f028216e48cdb88054d3",
             "path": "net.minecraft/index.json",
-            "remote_changed_timestamp": "Tue, 04 Aug 2026 15:04:44 GMT"
+            "remote_changed_timestamp": "Wed, 12 Aug 2026 12:08:05 GMT"
         },
         {
             "base": "meta",
@@ -116471,13 +116471,13 @@
         },
         {
             "base": "translations",
-            "current_age": 117,
-            "etag": "W/\"6a79cab2-6d55\"",
-            "last_changed_timestamp": 1786384421542,
+            "current_age": 216,
+            "etag": "W/\"6a7c6dc9-6d53\"",
+            "last_changed_timestamp": 1786555098496,
             "max_age": 600,
-            "md5sum": "0617edb967c5f4e721550ae38fe027c2",
+            "md5sum": "48eaf795d92d26a08c03fc00b828c3a1",
             "path": "index_v2.json",
-            "remote_changed_timestamp": "Mon, 10 Aug 2026 12:57:22 GMT"
+            "remote_changed_timestamp": "Wed, 12 Aug 2026 12:57:45 GMT"
         }
     ],
     "version": "1"

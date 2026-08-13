@@ -32,7 +32,7 @@ channels=left
 
 [Window]
 autostartOnLogin=true
-height=1334
+height=974
 showTrayIcon=false
 visiblePage=inputPage
-width=1189
+width=869
