@@ -1,6 +1,5 @@
 [sie][Equalizer#0]
 balance=0.9
-bypass=true
 inputGain=3
 mode=3
 numBands=12

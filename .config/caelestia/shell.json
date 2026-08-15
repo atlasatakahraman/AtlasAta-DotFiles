@@ -54,7 +54,7 @@
             "showOnHover": true
         },
         "clock": {
-            "background": false,
+            "background": true,
             "showDate": false,
             "showIcon": true
         },
@@ -128,7 +128,7 @@
             ],
             "iconSubs": [
             ],
-            "recolour": true
+            "recolour": false
         },
         "workspaces": {
             "activeIndicator": true,
