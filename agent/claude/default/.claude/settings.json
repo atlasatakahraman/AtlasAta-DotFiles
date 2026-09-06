@@ -1,0 +1,158 @@
+{
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "model": "opus[1m]",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:/Users/atlasfirarda/.bun/bin/bun.exe\" --bun \"C:/Users/atlasfirarda/.claude/hooks/context-mode-cache-heal.mjs\""
+          },
+          {
+            "type": "command",
+            "command": "\"C:/Users/atlasfirarda/.bun/bin/bun.exe\" --bun \"C:/Users/atlasfirarda/.claude/hooks/brain-session.mjs\""
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:/Users/atlasfirarda/.bun/bin/bun.exe\" --bun \"C:/Users/atlasfirarda/.claude/hooks/brain-inject.mjs\""
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:/Users/atlasfirarda/.bun/bin/bun.exe\" --bun \"C:/Users/atlasfirarda/.claude/hooks/brain-capture.mjs\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:/Users/atlasfirarda/.bun/bin/bun.exe\" --bun \"C:/Users/atlasfirarda/.claude/hooks/brain-capture.mjs\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:/Users/atlasfirarda/.bun/bin/bun.exe\" --bun \"C:/Users/atlasfirarda/.claude/hooks/brain-reindex.mjs\""
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:/Users/atlasfirarda/.bun/bin/bun.exe\" --bun \"C:/Users/atlasfirarda/.claude/hooks/brain-commit.mjs\"",
+            "timeout": 15,
+            "async": true
+          }
+        ]
+      }
+    ]
+  },
+  "enableWorkflows": true,
+  "enabledPlugins": {
+    "everything-claude-code@everything-claude-code": false,
+    "frontend-design@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
+    "vercel@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "supabase@claude-plugins-official": true,
+    "remember@claude-plugins-official": true,
+    "ponytail@ponytail": true,
+    "context-mode@context-mode": true,
+    "nateherk-design@nateherk": true
+  },
+  "extraKnownMarketplaces": {
+    "everything-claude-code": {
+      "source": {
+        "source": "github",
+        "repo": "affaan-m/everything-claude-code"
+      }
+    },
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    },
+    "context-mode": {
+      "source": {
+        "source": "github",
+        "repo": "mksglu/context-mode"
+      }
+    },
+    "nateherk": {
+      "source": {
+        "source": "github",
+        "repo": "nateherkai/scroll-craft"
+      }
+    }
+  },
+  "outputStyle": "Concise",
+  "syntaxHighlightingDisabled": false,
+  "effortLevel": "high",
+  "dialogExpiry": "never",
+  "autoUpdatesChannel": "latest",
+  "autoDreamEnabled": true,
+  "theme": "dark-daltonized",
+  "verbose": false,
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true,
+  "autoMode": {
+    "allow": [
+      "$defaults",
+      "Bash(cargo clippy:*)",
+      "Bash(cargo fmt:*)",
+      "Bash(rustup show:*)"
+    ],
+    "soft_deny": [
+      "$defaults",
+      "Bash(gh repo edit:*)"
+    ],
+    "environment": [
+      "REDACTED — this repo is public. The real block describes the security posture:",
+      "branch-protection state, secrets management, trusted repos and remotes, protected",
+      "namespaces. Restore it from the live ~/.claude/settings.json, never from here."
+    ]
+  },
+  "modelSettings": {
+    "claude-sonnet-5": {
+      "effortLevel": "medium"
+    },
+    "claude-opus-5": {
+      "effortLevel": "high"
+    }
+  }
+}
