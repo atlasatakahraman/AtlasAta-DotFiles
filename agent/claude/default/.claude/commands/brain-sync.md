@@ -62,20 +62,24 @@ reports and never deletes. Different case: that proposes retiring articles *not 
 days*, a heuristic that can discard useful notes. Here the file is already gone from disk — the
 index entry is a lie with no information value, and removing it cannot lose knowledge.
 
-5. **Verify links.** Check every `[[wikilink]]` in `00-Brain/`, `20-Knowledge/` and the
-   `10-Repos/*.md` pointer pages resolves to a real note. **Strip code fences first** — the
-   dotfiles `agent/` tree contains bash `[[ ... ]]` conditionals that look identical to wikilinks
-   and produced ~50 phantom failures. That tree now lives at `C:\dev\AtlasAta-DotFiles`, outside
-   the vault, so a vault scan should not reach it at all — if it still appears, something is
-   scanning too widely.
+5. **Verify referential integrity** — every `[[wikilink]]` resolves, every `checkout:`/`docs:`
+   pointer exists on disk. Exits non-zero if anything is broken:
 
-6. **Check the pointers resolve.** Every `checkout:` path in `10-Repos/*.md` frontmatter must
-   exist on disk. A dead pointer is the index failing at its one job.
+```bash
+bun --bun ~/.claude/hooks/brain-verify.mjs
+```
 
-7. Report only what changed: node/edge delta, phantoms pruned, and any newly broken links.
+**Do not re-derive this check as a shell one-liner.** It was got wrong twice in one run that way —
+once from case-sensitivity (Obsidian resolves `[[TheAtlas-Media]]` to `theatlas-media.md`), once
+from shell escaping mangling a regex so it skipped three files and printed a confident wrong
+count. The script handles case-insensitivity, frontmatter `aliases:`, code-fence stripping (bash
+`[[ ... ]]` conditionals are indistinguishable from wikilinks), and treats `80-Assets/` copies as
+link targets but not as vault notes.
 
-Known-dangling and deliberately left alone: `[[claude-tooling]]`, `[[project-ecosystem]]`.
-They mark notes worth writing.
+The deliberate-dangling allowlist lives in the vault — any MOC's **"Known gaps — don't chase
+these"** section — not in the script. Add a link there to silence it, with the reason.
+
+6. Report only what changed: node/edge delta, phantoms pruned, and any newly broken links.
 
 **Do not run `/graphify . --update`** unless the user explicitly asks — that is the semantic pass
 over docs and images, it dispatches subagents, and it costs real tokens. `graphify update .` is
