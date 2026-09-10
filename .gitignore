@@ -545,3 +545,9 @@ lfs_cozucu.py
 
 # graphify — AST graph, rebuilt by `graphify update .`; the vault merges it in
 graphify-out/
+
+# Runtime state inside the hooks dir. ~/.claude/hooks is a symlink to
+# agent/claude/default/.claude/hooks, so anything the hooks write at
+# runtime lands in this working tree. Config is tracked; state is not.
+agent/claude/default/.claude/hooks/.remember/
+agent/claude/default/.claude/hooks/.statusline-cache.json
