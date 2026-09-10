@@ -2,7 +2,7 @@
 //   1. every [[wikilink]] resolves to a real note
 //   2. every checkout:/docs: pointer in 10-Repos/*.md exists on disk
 //
-// Runtime is bun (`bun --bun`), per 00-Brain/Hard-Rules. Exits 1 if anything is broken, so it
+// Runtime is bun (`bun --bun`), per 00-Meta/Hard-Rules. Exits 1 if anything is broken, so it
 // can gate a script; prints nothing but the verdict when clean.
 //
 // Written 2026-09-06 after getting both checks WRONG twice as throwaway shell one-liners in a

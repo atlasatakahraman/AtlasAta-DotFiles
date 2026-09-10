@@ -1,5 +1,5 @@
 // brain-prune.mjs - drop context-mode index entries whose source file no longer exists.
-// Runtime is bun (`bun --bun`), per 00-Brain/Hard-Rules.
+// Runtime is bun (`bun --bun`), per 00-Meta/Hard-Rules.
 //
 // Why this exists: `context-mode index` is ADDITIVE. Re-indexing never removes entries for files
 // that have been deleted or renamed, so every note the compiler retires stays searchable forever
@@ -21,7 +21,7 @@ const CONTENT = join(homedir(), ".claude", "context-mode", "content");
 const apply = process.argv.includes("--apply");
 
 // A file-backed source's label ends with an absolute Windows path:
-//   brain-vault:C:\obsidian\root\00-Brain\Identity.md
+//   brain-vault:C:\obsidian\root\00-Meta\Identity.md
 //   repo:TheAtlas:C:\dev\TheAtlas\apps\core\page.tsx
 // Web sources use `name::https://...` and command captures use `batch:...` - neither has one,
 // and neither must ever be pruned.

@@ -1,5 +1,5 @@
 // brain-compile.mjs - promotes a FINISHED daily log into the curated tiers, then commits.
-// Runtime is bun (`bun --bun`), per 00-Brain/Hard-Rules.
+// Runtime is bun (`bun --bun`), per 00-Meta/Hard-Rules.
 // Spec: C:\obsidian\root\40-Plans\2026-08-22-brain-memory-compiler.md
 //
 // Gate is "the log is finished", not a wall clock. The old `hour >= 18` gate could never fire
@@ -84,8 +84,8 @@ try {
   const prompt = [
     `Compile a session log into the vault at ${VAULT}.`,
     "",
-    "MANDATORY FIRST STEP, before writing anything: read 00-Brain/00-MOC-Root.md and",
-    "00-Brain/Conventions.md, then LIST the full contents of 60-Decisions/<Repo-Name>/ and every",
+    "MANDATORY FIRST STEP, before writing anything: read 00-Meta/00-MOC-Root.md and",
+    "00-Meta/Conventions.md, then LIST the full contents of 60-Decisions/<Repo-Name>/ and every",
     "20-Knowledge/<Area>/ you might write to. You must know every existing filename and the",
     "highest ADR number already on disk before you create a single file. Do not skip this.",
     "",
@@ -93,7 +93,7 @@ try {
     "- decisions   -> 60-Decisions/<Repo-Name>/<NNNN>-<slug>.md",
     "- gotchas     -> 20-Knowledge/<Area>/<slug>.md",
     "- patterns    -> 20-Knowledge/Connections/<slug>.md",
-    "- preferences -> append to 00-Brain/Hard-Rules.md or 00-Brain/Identity.md",
+    "- preferences -> append to 00-Meta/Hard-Rules.md or 00-Meta/Identity.md",
     "",
     "A decision the user reversed, and a mistake either of you fixed, are BOTH decisions -",
     "record what was chosen, what was rejected, and why. Do not drop the reversal.",
@@ -125,7 +125,7 @@ try {
   // compiler actually touched. `git add <dir>` swept in whatever the user happened to have dirty
   // in those five directories - on 2026-09-06 it laundered hand-written ADRs into a
   // `chore(brain): compile` commit authored by brain-compiler, mid-edit.
-  const SCOPE = ["00-Brain", "20-Knowledge", "60-Decisions", "30-Sessions", "50-Ops"];
+  const SCOPE = ["00-Meta", "20-Knowledge", "60-Decisions", "30-Sessions", "50-Ops"];
   const snapshot = () => {
     try {
       return new Map(

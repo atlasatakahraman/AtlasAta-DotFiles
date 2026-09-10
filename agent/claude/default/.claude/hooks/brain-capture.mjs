@@ -1,14 +1,14 @@
 // brain-capture.mjs - SessionEnd + PreCompact. No parsing, no API. Under 100ms.
 // Spec: C:\obsidian\root\40-Plans\2026-08-22-brain-memory-compiler.md
-import { copyFileSync, existsSync, statSync } from "node:fs";
+import { copyFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
-import { tmpdir } from "node:os";
+import { tmpdir, homedir } from "node:os";
 import { spawn } from "node:child_process";
 import { guard, readStdin, logicalDate, HOOKS, VAULT } from "./brain-lib.mjs";
 
 guard(); // MUST be first - without this, flush's own `claude -p` re-fires this hook.
 
-// process.execPath is bun.exe; --bun forces the bun runtime, per 00-Brain/Hard-Rules.
+// process.execPath is bun.exe; --bun forces the bun runtime, per 00-Meta/Hard-Rules.
 const detach = (tag, ...argv) => {
   const c = spawn(process.execPath, ["--bun", ...argv], {
     detached: true,
@@ -18,6 +18,40 @@ const detach = (tag, ...argv) => {
   });
   c.unref();
 };
+
+/**
+ * The transcript for this session, however we can find it.
+ *
+ * `input.transcript_path` is the fast path and is usually right. It is also sometimes absent
+ * or stale - Claude Code #13668 documents that for compactions, and on 2026-09-10 it turned out
+ * to happen on ordinary SessionEnd too. That single `process.exit(0)` cost four days of daily
+ * notes: capture kept running the whole time (usage.py fired, the session DBs kept growing) and
+ * simply never copied a transcript, so flush had nothing to work on and the vault went quiet.
+ * The canary caught the symptom; this is the cause.
+ *
+ * The file is on disk regardless, at ~/.claude/projects/<slugified-cwd>/<session_id>.jsonl.
+ * Scanning for the filename beats reconstructing the slug: session ids are UUIDs, so a match
+ * is exact, and we never have to care how Claude Code mangles a cwd into a directory name.
+ */
+function resolveTranscript(input) {
+  const given = input.transcript_path;
+  if (given && existsSync(given)) return given;
+
+  const sid = String(input.session_id || "").replace(/[^a-z0-9-]/gi, "");
+  if (!sid) return null;
+
+  const root = join(homedir(), ".claude", "projects");
+  try {
+    for (const d of readdirSync(root, { withFileTypes: true })) {
+      if (!d.isDirectory()) continue;
+      const f = join(root, d.name, `${sid}.jsonl`);
+      if (existsSync(f)) return f;
+    }
+  } catch {
+    /* no projects dir - fall through to null */
+  }
+  return null;
+}
 
 try {
   const input = readStdin();
@@ -49,8 +83,8 @@ try {
     u.unref();
   }
 
-  const tp = input.transcript_path;
-  if (!tp || !existsSync(tp)) process.exit(0); // Claude Code #13668: empty on some compactions
+  const tp = resolveTranscript(input);
+  if (!tp) process.exit(0);
 
   const sid = String(input.session_id || "unknown").replace(/[^a-z0-9-]/gi, "");
   const temp = join(tmpdir(), `brain-flush-${sid}.jsonl`);

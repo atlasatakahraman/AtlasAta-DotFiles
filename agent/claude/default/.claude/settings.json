@@ -142,9 +142,30 @@
       "Bash(gh repo edit:*)"
     ],
     "environment": [
-      "REDACTED — this repo is public. The real block describes the security posture:",
-      "branch-protection state, secrets management, trusted repos and remotes, protected",
-      "namespaces. Restore it from the live ~/.claude/settings.json, never from here."
+      "### Org-wide",
+      "**Organization**: None configured — single-author personal project under github.com/atlasatakahraman",
+      "**Cloud provider(s)**: None configured",
+      "**Repository visibility**: PUBLIC — atlasatakahraman/TheAtlas-Media (verified via gh); any push publishes",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: None configured — only GITHUB_TOKEN referenced in CI; repo .gitignore excludes `.env*`",
+      "**Default / protected branches**: default branch `main`; no rulesets and no classic protected branches listed (per gh)",
+      "**CI/CD deploy targets**: None configured — .github/workflows/ci.yml runs lint/typecheck/cargo checks on ubuntu/macos-14/windows only",
+      "**Network posture**: None configured — local-first desktop app, no telemetry, no application server",
+      "**Source control**: The trusted repo and its remote(s) only (no additional orgs configured) — github.com/atlasatakahraman/TheAtlas-Media, which is PUBLIC",
+      "**Trusted internal domains**: None configured",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: None configured",
+      "**Internal package registry**: None configured — public npm/crates.io via Bun and Cargo",
+      "**Sensitive data locations & audiences**: any file or store holding personal data, confidential business data, credentials, regulated data, or similarly sensitive material; preserve exact handles when known and share only with audiences cleared at the [named+specifics] bar; note `.env*` files are gitignored here and this repo is public",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment (hyphen/underscore/dot-delimited — e.g. matches `prod-db`, not `producer`)",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development — Next.js 16 static-export frontend plus Tauri 2 / Rust backend in this one repo",
+      "**Trusted repo**: this checkout of atlasatakahraman/TheAtlas-Media (working directory under .claude/worktrees/) and its `origin` remote https://github.com/atlasatakahraman/TheAtlas-Media.git. The repo is PUBLIC, so only that repo's own work may be committed or pushed there — content ported, repointed, or first read from outside this session's repo is not its own work, whoever directed the port. Visibility never clears secrets or sensitive data into the repo.",
+      "**Org-specific CLIs**: None configured — routine local tooling seen in shell history is bun, cargo, rustup, git, npm/npx, uv, pip, ffmpeg, yt-dlp, gallery-dl, rg",
+      "**Routine under this repo only**: bun scripts (dev/build/lint), `bun tsc --noEmit`, cargo fmt/clippy/check/test in src-tauri/, and the bash guard scripts under scripts/"
     ]
   },
   "modelSettings": {

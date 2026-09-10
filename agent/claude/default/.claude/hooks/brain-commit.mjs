@@ -1,5 +1,5 @@
 // brain-commit.mjs - PostToolUse(Bash). Records every commit in 50-Ops/Commits/YYYY-MM.md.
-// Runtime is bun (`bun --bun`), per 00-Brain/Hard-Rules.
+// Runtime is bun (`bun --bun`), per 00-Meta/Hard-Rules.
 //
 // Zero tokens: the subject says what the commit does, the touched top-level dirs and the
 // shortstat say how much. `/brain-commits` still owns the full monthly digest and the count line.
@@ -21,7 +21,7 @@ function ensureDigest(file, cs) {
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(
     file,
-    `---\ntype: commits\nproject: brain\ntags: [commits, git, ops]\n` +
+    `---\ntype: commits\nproject: knowledge\ntags: [commits, git, ops]\n` +
       `created: ${cs}\nupdated: ${cs}\nstatus: active\n---\n\n` +
       `# Commits — ${cs.slice(0, 7)}\n\nAuto-recorded per commit by \`brain-commit\`. ` +
       `Full digest via \`/brain-commits\`.\n`,

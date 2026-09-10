@@ -6,7 +6,7 @@
 // regardless of cwd, so sessions started OUTSIDE the vault (where the vault's own
 // CLAUDE.md never loads) still know who the user is and where things live.
 //
-// Runtime is bun (`bun --bun`), per 00-Brain/Hard-Rules.
+// Runtime is bun (`bun --bun`), per 00-Meta/Hard-Rules.
 import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { VAULT, sessionDbs } from "./brain-lib.mjs";
@@ -62,8 +62,8 @@ function flushCanary() {
 }
 
 const CORE = [
-  ["Identity", join(VAULT, "00-Brain", "Identity.md")],
-  ["Where things live", join(VAULT, "00-Brain", "00-MOC-Root.md")],
+  ["Identity", join(VAULT, "00-Meta", "Identity.md")],
+  ["Where things live", join(VAULT, "00-Meta", "00-MOC-Root.md")],
 ];
 
 // Strip YAML frontmatter - it is metadata, not context worth spending tokens on.
@@ -105,7 +105,7 @@ try {
     "on 2026-09-06, so searching the vault is now cheap. Do NOT sweep C:\\dev\\ blind: that is where",
     "node_modules and target/ live. Repo code is reachable via ctx_search (indexed per repo) and",
     "through the merged graph, so a blind sweep is the wrong tool there too.",
-    "Full behavioural rules: 00-Brain/Hard-Rules.md.",
+    "Full behavioural rules: 00-Meta/Hard-Rules.md.",
     "",
     parts.join("\n\n---\n\n"),
   ].join("\n");

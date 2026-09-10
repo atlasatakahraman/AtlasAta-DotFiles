@@ -1,5 +1,5 @@
 // brain-lib.mjs - shared helpers for the brain memory hooks.
-// Runtime is bun (`bun --bun`), per 00-Brain/Hard-Rules.
+// Runtime is bun (`bun --bun`), per 00-Meta/Hard-Rules.
 // Spec: C:\obsidian\root\40-Plans\2026-08-22-brain-memory-compiler.md
 import { readFileSync, existsSync, mkdirSync, writeFileSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
@@ -59,7 +59,7 @@ export function ensureNote(file, now) {
   const stamp = logicalDate(now).toISOString().slice(0, 10);
   writeFileSync(
     file,
-    `---\ntype: session\nproject: brain\ntags: [session, log]\n` +
+    `---\ntype: session\nproject: knowledge\ntags: [session, log]\n` +
       `created: ${stamp}\nupdated: ${stamp}\nstatus: active\n---\n\n` +
       `# ${stamp}\n\nAuto-captured. Write the real log with \`/brain-log\`.\n\n## Sessions\n\n`,
     "utf8",
