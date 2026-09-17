@@ -10,7 +10,7 @@
 import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { release } from "node:os";
-import { VAULT, DEV_ROOT, sessionDbs } from "./brain-lib.mjs";
+import { VAULT, DEV_ROOT, sessionDbs, failures } from "./brain-lib.mjs";
 
 /**
  * Which OS this session runs on, detected now rather than written into a file. The machine
@@ -131,7 +131,15 @@ try {
     canary = flushCanary();
   } catch {}
 
+  // The cause, when a hook recorded one — no waiting STALE_DAYS for the symptom.
+  const failing = Object.entries(failures()).map(
+    ([tag, f]) =>
+      `!! BRAIN ${tag.toUpperCase()} FAILING since ${new Date(f.at).toISOString().slice(0, 16)}Z: ${f.reason}. ` +
+      "Tell the user in the first reply; a `claude -p` auth failure needs them to run `claude` and /login.",
+  );
+
   const ctx = [
+    ...failing.flatMap((l) => [l, ""]),
     ...(canary ? [canary, ""] : []),
     machine(),
     "",
