@@ -9,9 +9,10 @@ Personal dotfiles for a **dual-boot** machine: Windows 10 Pro and Arch Linux (Hy
 |---|---|---|
 | `main` | Shared material only: fonts, the agent hooks and commands, licences | nowhere — merged into both |
 | `windows` | Windows-side config, and `brain-paths.mjs` for `C:\obsidian\root` / `C:\dev` | Windows, checked out at `C:\dev\AtlasAta-DotFiles` |
-| `arch-caelestia` | The Arch `$HOME` (Hyprland, fish, Caelestia, GTK/Qt, editors, apps), and `brain-paths.mjs` for `~/obsidian/root` / `~/dev` | Arch, cloned into `$HOME` |
+| `arch-caelestia` | Selected Arch config (Hyprland, fish, Caelestia, GTK/Qt, editors, apps), and `brain-paths.mjs` for `~/obsidian/root` / `~/dev` | Arch — changes are committed and pushed from there |
 
-A machine checks out its own branch and carries nothing from the other platform.
+A machine works on its own branch and carries nothing from the other platform. A platform
+branch is not a snapshot to merge wholesale: each side commits and pushes its own changes.
 
 **Shared changes land on `main` first**, then merge into each platform branch:
 
@@ -40,8 +41,8 @@ New-Item -ItemType SymbolicLink -Path $HOME\.claude\hooks -Target C:\dev\AtlasAt
 ```
 
 ```bash
-# Arch (repo cloned into $HOME)
-ln -s ~/agent/claude/default/.claude/hooks ~/.claude/hooks
+# Arch — from wherever arch-caelestia is checked out
+ln -s "$PWD/agent/claude/default/.claude/hooks" ~/.claude/hooks
 ```
 
 ## License
