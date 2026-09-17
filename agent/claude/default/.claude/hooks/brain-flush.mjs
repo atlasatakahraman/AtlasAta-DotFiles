@@ -5,10 +5,14 @@ import { readFileSync, writeFileSync, appendFileSync, existsSync, unlinkSync } f
 import { join, basename } from "node:path";
 import { tmpdir } from "node:os";
 import { execFileSync } from "node:child_process";
-import { sessionDbs, notePath, ensureNote, openDb } from "./brain-lib.mjs";
+import { sessionDbs, notePath, ensureNote, openDb, recordFailure, clearFailure } from "./brain-lib.mjs";
 
 const [, , tempPath, sessionId, cwd] = process.argv;
 const dry = process.argv.includes("--dry-run");
+// `--date YYYY-MM-DD`: backfill a note a failed flush never wrote. Noon, so the 05:00 rollover
+// cannot move it to the previous day.
+const dateAt = process.argv.indexOf("--date");
+const backfill = dateAt !== -1 ? new Date(`${process.argv[dateAt + 1]}T12:00:00`) : null;
 const STATE = join(tmpdir(), "brain-last-flush.json");
 // `rule` and `error` are deliberately absent: context-mode tags injected CLAUDE.md paths and
 // their contents as `rule`, and successful Bash stdout as `error`. Forwarding those buried the
@@ -106,20 +110,28 @@ try {
     `\n## Transcript tail\n${tail}`,
   ].join("\n");
 
-  const out = execFileSync("claude", ["-p", "--model", "haiku"], {
-    input: prompt,
-    encoding: "utf8",
-    timeout: 120_000,
-    windowsHide: true,
-    env: { ...process.env, CLAUDE_INVOKED_BY: "brain_flush" },
-  }).trim();
+  let out;
+  try {
+    out = execFileSync("claude", ["-p", "--model", "haiku"], {
+      input: prompt,
+      encoding: "utf8",
+      timeout: 120_000,
+      stdio: ["pipe", "pipe", "pipe"],
+      windowsHide: true,
+      env: { ...process.env, CLAUDE_INVOKED_BY: "brain_flush" },
+    }).trim();
+    if (!dry) clearFailure("flush");
+  } catch (e) {
+    if (!dry) recordFailure("flush", e);
+    throw e;
+  }
 
   if (!out || out.includes("FLUSH_OK")) process.exit(0);
 
-  const now = new Date();
+  const now = backfill && !Number.isNaN(backfill.getTime()) ? backfill : new Date();
   const file = notePath(now);
   const where = cwd ? basename(String(cwd).replace(/[\\/]+$/, "")) : "?";
-  const block = `\n### ${now.toTimeString().slice(0, 5)} · ${where}\n\n${out}\n`;
+  const block = `\n### ${backfill ? "backfill" : now.toTimeString().slice(0, 5)} · ${where}\n\n${out}\n`;
 
   if (dry) {
     process.stdout.write(`[dry-run] would append to ${file}:\n${block}`);

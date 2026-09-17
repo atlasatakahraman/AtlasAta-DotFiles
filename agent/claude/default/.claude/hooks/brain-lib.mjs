@@ -3,7 +3,7 @@
 // Spec: C:\obsidian\root\40-Plans\2026-08-22-brain-memory-compiler.md
 import { readFileSync, existsSync, mkdirSync, writeFileSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
-import { homedir } from "node:os";
+import { homedir, tmpdir } from "node:os";
 import { Database } from "bun:sqlite";
 
 /**
@@ -23,6 +23,42 @@ export { VAULT, DEV_ROOT } from "./brain-paths.mjs";
 export const HOOKS = join(homedir(), ".claude", "hooks");
 export const CTX = join(homedir(), ".claude", "context-mode");
 export const ROLLOVER_HOUR = 5;
+
+/**
+ * Why the last `claude -p` a background hook spawned failed, by hook tag. Hooks fail silent, and
+ * the canary only notices days later that notes stopped: on 2026-09-17 flush had been dying on
+ * "OAuth session expired" since 09-15 with nothing saying so. SessionStart reads this.
+ */
+const FAILURES = join(tmpdir(), "brain-claude-failures.json");
+
+export function failures() {
+  try {
+    return JSON.parse(readFileSync(FAILURES, "utf8"));
+  } catch {
+    return {};
+  }
+}
+
+export function recordFailure(tag, e) {
+  const reason =
+    // `claude -p` prints "Failed to authenticate…" on stdout, not stderr.
+    `${e?.stderr ?? ""}\n${e?.stdout ?? ""}`
+      .split("\n")
+      .map((l) => l.trim())
+      .find((l) => l && !l.includes("hook [")) || String(e?.message ?? e).split("\n")[0];
+  try {
+    writeFileSync(FAILURES, JSON.stringify({ ...failures(), [tag]: { at: Date.now(), reason } }));
+  } catch {}
+}
+
+export function clearFailure(tag) {
+  const all = failures();
+  if (!(tag in all)) return;
+  delete all[tag];
+  try {
+    writeFileSync(FAILURES, JSON.stringify(all));
+  } catch {}
+}
 
 /** Exit immediately if we are running inside a claude -p spawned by our own hooks. */
 export function guard() {

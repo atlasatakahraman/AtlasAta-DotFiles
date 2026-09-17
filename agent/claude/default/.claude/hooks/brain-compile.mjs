@@ -10,7 +10,7 @@ import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
-import { notePath, VAULT, DEV_ROOT } from "./brain-lib.mjs";
+import { notePath, VAULT, DEV_ROOT, recordFailure, clearFailure } from "./brain-lib.mjs";
 
 const STATE = join(VAULT, "50-Ops", "brain-compile-state.json");
 const SESSIONS = join(VAULT, "30-Sessions");
@@ -145,6 +145,7 @@ try {
   };
   const before = snapshot();
 
+  try {
   execFileSync(
     "claude",
     [
@@ -160,11 +161,18 @@ try {
       encoding: "utf8",
       cwd: VAULT,
       timeout: 900_000,
-      stdio: ["pipe", "inherit", "inherit"],
+      // stderr piped, not inherited: a detached parent has nowhere to inherit it to, and the
+      // failure reason is what recordFailure needs.
+      stdio: ["pipe", "inherit", "pipe"],
       windowsHide: true,
       env: { ...process.env, CLAUDE_INVOKED_BY: "brain_compile" },
     },
   );
+    if (!dry) clearFailure("compile");
+  } catch (e) {
+    if (!dry) recordFailure("compile", e);
+    throw e;
+  }
 
   if (dry) process.exit(0);
 
