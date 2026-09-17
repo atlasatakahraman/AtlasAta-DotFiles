@@ -1,70 +1,47 @@
 # AtlasAta DotFiles
 
-Personal dotfiles for my Arch Linux + Hyprland setup, backed up automatically to GitHub and Google Drive.
+Personal dotfiles for a **dual-boot** machine: Windows 10 Pro and Arch Linux (Hyprland +
+[Caelestia](https://github.com/caelestia-dots/caelestia)), on the same hardware.
 
-## System
+## Branches
 
-- **OS:** Arch Linux
-- **WM:** Hyprland (Wayland)
-- **Shell:** Fish
-- **Theme:** [Caelestia](https://github.com/caelestia-dots/caelestia)
-- **Terminal:** Kitty / Foot
-- **Editor:** Neovim / Zed / Cursor
-- **Bar/Launcher:** Waybar / Fuzzel
+| Branch | Holds | Deployed on |
+|---|---|---|
+| `main` | Shared material only: fonts, the agent hooks and commands, licences | nowhere — merged into both |
+| `windows` | Windows-side config, and `brain-paths.mjs` for `C:\obsidian\root` / `C:\dev` | Windows, checked out at `C:\dev\AtlasAta-DotFiles` |
+| `arch-caelestia` | The Arch `$HOME` (Hyprland, fish, Caelestia, GTK/Qt, editors, apps), and `brain-paths.mjs` for `~/obsidian/root` / `~/dev` | Arch, cloned into `$HOME` |
 
-## What's Included
+A machine checks out its own branch and carries nothing from the other platform.
 
-| Category | Path |
-|---|---|
-| Hyprland config | `.config/caelestia/hypr-*.conf` |
-| Fish shell | `.local/share/caelestia/fish/` |
-| Neovim | `.config/nvim/` |
-| Zed | `.config/zed/` |
-| Kitty | `.config/kitty/kitty.conf` |
-| Starship prompt | `.config/starship.toml` |
-| Spicetify | `.config/spicetify/` |
-| EasyEffects | `.config/easyeffects/` |
-| GTK 3 / 4 | `.config/gtk-3.0/`, `.config/gtk-4.0/` |
-| Qt5ct / Qt6ct | `.config/qt5ct/`, `.config/qt6ct/` |
-| GIMP | `.config/GIMP/` |
-| Inkscape | `.config/inkscape/` |
-| OpenRGB | `.config/OpenRGB/` |
-| Discord (Vencord) | `.config/Vencord/`, `.config/discord/settings.json` |
-| Spicetify | `.config/spicetify/` |
-| Fonts | `fonts/` |
-| Gemini config | `.gemini/` |
-| Antigravity | `.antigravity/` |
-| Caelestia data | `.local/share/caelestia/` |
-
-## Backup Scripts
-
-### `dotfiles-backup.sh` — GitHub backup
-
-Stages all tracked dotfiles and pushes to this repo.
+**Shared changes land on `main` first**, then merge into each platform branch:
 
 ```bash
-cd ~ && bash dotfiles-backup.sh
+git switch main           # commit the shared change here
+git switch windows        && git merge main
+git switch arch-caelestia && git merge main
 ```
 
-### `gdrive-sync.sh` — Google Drive backup
+Another Arch desktop later is a sibling branch (e.g. `arch-kde`) merging the same `main`.
 
-Syncs larger directories (stream, code, minecraft, pictures, videos, github) to Google Drive via rclone.
+## Agent hooks
 
-```bash
-bash gdrive-sync.sh
-bash gdrive-sync.sh --dry-run       # preview without uploading
-bash gdrive-sync.sh --bwlimit=50M   # limit bandwidth
+`agent/claude/default/.claude/hooks/` is shared code. What differs per OS — the vault root and
+the checkouts root — lives in `brain-paths.mjs`, which **only the platform branches carry**.
+`main` alone does not run the hooks, deliberately: it is never deployed.
+
+`brain-session.mjs` detects the running OS every session and tells the agent the machine
+dual-boots and which side it is on.
+
+Link the hooks into Claude Code's config directory:
+
+```powershell
+# Windows
+New-Item -ItemType SymbolicLink -Path $HOME\.claude\hooks -Target C:\dev\AtlasAta-DotFiles\agent\claude\default\.claude\hooks
 ```
 
-**Requires:** `rclone` configured with a remote named `gdrive`.
-
-## Installation
-
-> These are my personal configs — no install script is provided. Feel free to cherry-pick whatever's useful.
-
 ```bash
-# Clone to home directory
-git clone git@github.com:atlasatakahraman/AtlasAta-DotFiles.git ~
+# Arch (repo cloned into $HOME)
+ln -s ~/agent/claude/default/.claude/hooks ~/.claude/hooks
 ```
 
 ## License

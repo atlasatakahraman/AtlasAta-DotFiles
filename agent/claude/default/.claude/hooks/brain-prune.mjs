@@ -20,12 +20,16 @@ import { homedir, tmpdir } from "node:os";
 const CONTENT = join(homedir(), ".claude", "context-mode", "content");
 const apply = process.argv.includes("--apply");
 
-// A file-backed source's label ends with an absolute Windows path:
+// A file-backed source's label ends with an absolute path, Windows or POSIX:
 //   brain-vault:C:\obsidian\root\00-Meta\Identity.md
 //   repo:TheAtlas:C:\dev\TheAtlas\apps\core\page.tsx
+//   repo:TheAtlas:/home/atlasata/dev/TheAtlas/apps/core/page.tsx
 // Web sources use `name::https://...` and command captures use `batch:...` - neither has one,
-// and neither must ever be pruned.
-const filePath = (label) => (String(label).match(/([A-Za-z]:\\.+)$/) || [])[1] ?? null;
+// and neither must ever be pruned (`::` and `https:` never precede a bare `/`).
+const filePath = (label) => {
+  const m = String(label).match(/([A-Za-z]:\\.+)$/) || String(label).match(/[^:]:(\/[^/].*)$/);
+  return m ? m[1] : null;
+};
 
 let dbs = [];
 try {

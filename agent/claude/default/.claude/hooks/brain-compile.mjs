@@ -10,7 +10,7 @@ import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
-import { notePath, VAULT } from "./brain-lib.mjs";
+import { notePath, VAULT, DEV_ROOT } from "./brain-lib.mjs";
 
 const STATE = join(VAULT, "50-Ops", "brain-compile-state.json");
 const SESSIONS = join(VAULT, "30-Sessions");
@@ -100,7 +100,7 @@ try {
     "",
     "Rules:",
     "- ADRs are CENTRAL. Never write into a checkout's own Decisions/ folder - the checkouts live",
-    "  outside the vault at C:\\dev\\<remote-name>\\, so anything written there is invisible to the",
+    `  outside the vault at ${join(DEV_ROOT, "<remote-name>")}, so anything written there is invisible to the`,
     "  vault's history, its search index and its graph. Write to 60-Decisions/<Repo-Name>/.",
     "- ONE decision per ADR file. Never bundle several decisions into one omnibus note - if the",
     "  log holds four decisions, that is four files, not one titled 'X, Y and Z'.",

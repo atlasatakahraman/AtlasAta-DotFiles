@@ -16,7 +16,10 @@ export function openDb(file) {
   return new Database(file, { readonly: true });
 }
 
-export const VAULT = "C:\\obsidian\\root";
+// The two roots differ per OS, so they live in `brain-paths.mjs`: each platform branch of
+// AtlasAta-DotFiles (`windows`, `arch-caelestia`) carries its own. `main` has none — it is never
+// deployed, only merged from.
+export { VAULT, DEV_ROOT } from "./brain-paths.mjs";
 export const HOOKS = join(homedir(), ".claude", "hooks");
 export const CTX = join(homedir(), ".claude", "context-mode");
 export const ROLLOVER_HOUR = 5;
@@ -34,9 +37,33 @@ export function readStdin() {
   }
 }
 
-/** Windows paths arrive with mixed separators - normalize before comparing. */
+export const IS_WINDOWS = process.platform === "win32";
+
+/**
+ * A path in comparable form. Windows paths arrive with mixed separators and are
+ * case-insensitive, so there they are unified to `\` and lower-cased. Linux paths are
+ * case-sensitive and already `/`-separated: only a trailing separator goes.
+ */
 export function normDir(p) {
-  return String(p || "").replace(/\//g, "\\").replace(/\\+$/, "").toLowerCase();
+  const s = String(p || "");
+  if (!IS_WINDOWS) return s.replace(/\/+$/, "");
+  return s.replace(/\//g, "\\").replace(/\\+$/, "").toLowerCase();
+}
+
+/**
+ * The context-mode CLI bundle, newest installed version. It ships as a plugin bundle, not on
+ * PATH. Resolved rather than pinned: a pinned version path breaks silently on every update.
+ */
+export function contextModeCli() {
+  const base = join(homedir(), ".claude", "plugins", "cache", "context-mode", "context-mode");
+  try {
+    const versions = readdirSync(base)
+      .filter((v) => existsSync(join(base, v, "cli.bundle.mjs")))
+      .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+    return versions.length ? join(base, versions.at(-1), "cli.bundle.mjs") : null;
+  } catch {
+    return null;
+  }
 }
 
 /** The logical date `now` belongs to. Rollover is 05:00 - a 02:00 session is still yesterday. */

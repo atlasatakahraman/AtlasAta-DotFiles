@@ -2,20 +2,19 @@
 // Runtime is bun (`bun --bun`), per 00-Meta/Hard-Rules.
 // Spec: C:\obsidian\root\40-Plans\2026-08-22-brain-memory-compiler.md
 import { readFileSync, writeFileSync, unlinkSync, existsSync, readdirSync } from "node:fs";
-import { join } from "node:path";
+import { join, sep } from "node:path";
 import { tmpdir } from "node:os";
 import { spawn, execFileSync } from "node:child_process";
-import { readStdin, normDir, VAULT, HOOKS } from "./brain-lib.mjs";
+import { readStdin, normDir, VAULT, HOOKS, DEV_ROOT, contextModeCli } from "./brain-lib.mjs";
 
 const STAMP = join(tmpdir(), "brain-reindex.json");
 const DEBOUNCE_MS = 90_000;
 const LOCK_STALE_MS = 15 * 60_000; // a settler that died leaves a lock; expire it
 const EXCLUDES = ["node_modules", "out", "target", ".git", "graphify-out"];
 // context-mode is NOT on PATH - it ships as a plugin bundle. Invoke it through the runtime.
-const CM_CLI =
-  "C:\\Users\\atlasfirarda\\.claude\\plugins\\cache\\context-mode\\context-mode\\1.0.169\\cli.bundle.mjs";
+const CM_CLI = contextModeCli();
 // Checkouts left the vault on 2026-09-06 - see [[0012-repos-leave-the-vault-index-stays]].
-const DEV_ROOT = "C:\\dev";
+// DEV_ROOT comes from brain-paths.mjs: C:\dev on Windows, ~/dev on Arch.
 
 // Every child runs headless. Without this, each one opens a console window on Windows.
 const QUIET = { stdio: "ignore", windowsHide: true };
@@ -47,7 +46,8 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
  * indexed it by hand.
  */
 function indexRepoDocs(root) {
-  const name = root.split("\\").pop();
+  const name = root.split(sep).pop();
+  if (!CM_CLI) return;
   try {
     execFileSync(
       process.execPath,
@@ -90,18 +90,19 @@ function schedule({ vault = false, repo = null }) {
 }
 
 /**
- * `C:\dev\<Repo>\…` → `C:\dev\<Repo>`, or null outside DEV_ROOT. `path` arrives lower-cased by
- * `normDir`, so the name is looked up on disk for its real casing: `theatlas` and `TheAtlas` are
- * one directory to Windows and two different projects to the source label (Conventions § Renaming).
+ * `<DEV_ROOT>/<Repo>/…` → `<DEV_ROOT>/<Repo>`, or null outside DEV_ROOT. On Windows `path`
+ * arrives lower-cased by `normDir`, so the name is looked up on disk for its real casing:
+ * `theatlas` and `TheAtlas` are one directory to Windows and two different projects to the
+ * source label (Conventions § Renaming).
  */
 function repoRoot(path) {
-  const base = normDir(DEV_ROOT) + "\\";
+  const base = normDir(DEV_ROOT) + sep;
   if (!path.startsWith(base)) return null;
-  const lower = path.slice(base.length).split("\\")[0];
-  if (!lower) return null;
+  const folded = path.slice(base.length).split(sep)[0];
+  if (!folded) return null;
   try {
-    const name = readdirSync(DEV_ROOT).find((n) => n.toLowerCase() === lower);
-    return name ? DEV_ROOT + "\\" + name : null;
+    const name = readdirSync(DEV_ROOT).find((n) => normDir(n) === folded);
+    return name ? join(DEV_ROOT, name) : null;
   } catch {
     return null;
   }
@@ -183,7 +184,7 @@ if (process.argv.includes("--settle")) {
     const input = readStdin();
     const path = normDir(input.tool_input?.file_path || "");
     if (!path) process.exit(0);
-    if (EXCLUDES.some((e) => path.includes(`\\${e}\\`))) process.exit(0);
+    if (EXCLUDES.some((e) => path.includes(`${sep}${e}${sep}`))) process.exit(0);
 
     if (path.startsWith(normDir(VAULT))) schedule({ vault: true });
     else if (path.endsWith(".md") && repoRoot(path)) schedule({ repo: repoRoot(path) });

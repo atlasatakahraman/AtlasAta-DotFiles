@@ -10,13 +10,13 @@
 // so it silently skipped three files and reported a confident wrong number. A wrong-but-plausible
 // answer is worse than an error, and re-deriving a check each run is how you get one.
 import { readdirSync, readFileSync, existsSync } from "node:fs";
-import { join, basename, relative } from "node:path";
+import { join, basename, relative, sep } from "node:path";
 import { VAULT } from "./brain-lib.mjs";
 
 const SKIP = new Set(["graphify-out", ".obsidian", ".remember", ".git", "node_modules"]);
 // 80-Assets holds attachments and verbatim COPIES of repo files. They are valid link TARGETS but
 // are not vault notes, so their own links are not the vault's problem.
-const isVaultNote = (p) => !p.includes(`${"\\"}80-Assets${"\\"}`);
+const isVaultNote = (p) => !p.includes(`${sep}80-Assets${sep}`);
 
 const allMd = [];
 (function walk(d) {

@@ -9,7 +9,37 @@
 // Runtime is bun (`bun --bun`), per 00-Meta/Hard-Rules.
 import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
-import { VAULT, sessionDbs } from "./brain-lib.mjs";
+import { release } from "node:os";
+import { VAULT, DEV_ROOT, sessionDbs } from "./brain-lib.mjs";
+
+/**
+ * Which OS this session runs on, detected now rather than written into a file. The machine
+ * dual-boots, and the same dotfiles (merged from `main`) are checked out on both sides — a
+ * hand-written "you are on Windows" would be right on one boot and wrong on the other.
+ */
+function machine() {
+  let current;
+  if (process.platform === "win32") {
+    current = `Windows (NT ${release()})`;
+  } else if (process.platform === "linux") {
+    let distro = "Linux";
+    try {
+      distro = readFileSync("/etc/os-release", "utf8").match(/^PRETTY_NAME="?([^"\n]+)/m)?.[1] ?? distro;
+    } catch {}
+    const desktop = [process.env.XDG_CURRENT_DESKTOP, process.env.XDG_SESSION_TYPE].filter(Boolean).join(", ");
+    current = desktop ? `${distro} (${desktop})` : distro;
+  } else {
+    current = process.platform;
+  }
+  return [
+    "## Machine",
+    "",
+    "This machine DUAL-BOOTS Windows 10 Pro and Arch Linux (Hyprland + Caelestia shell), on the",
+    `same hardware. **Current OS: ${current}.** Paths, shells and tools differ per OS: vault`,
+    `${VAULT}, checkouts ${DEV_ROOT}. Hardware and per-OS details: Identity.md § Machine.`,
+    "Dotfiles: AtlasAta-DotFiles, branch `windows` or `arch-caelestia`; shared material on `main`.",
+  ].join("\n");
+}
 
 const CAP = 7000; // chars; ~1,900 tokens, paid once per session
 const STALE_DAYS = 3; // slack for a weekend off, tight enough to catch a real break early
@@ -70,7 +100,19 @@ const CORE = [
 const body = (t) => t.replace(/^---\n[\s\S]*?\n---\n/, "").trim();
 
 try {
-  if (!existsSync(VAULT)) process.exit(0);
+  // The OS line matters even when the vault is missing — more so, since that is how a fresh
+  // boot into the other OS usually looks.
+  if (!existsSync(VAULT)) {
+    process.stdout.write(
+      JSON.stringify({
+        hookSpecificOutput: {
+          hookEventName: "SessionStart",
+          additionalContext: `${machine()}\n\nThe vault is not at ${VAULT} on this OS.`,
+        },
+      }),
+    );
+    process.exit(0);
+  }
 
   const parts = [];
   let used = 0;
@@ -91,6 +133,8 @@ try {
 
   const ctx = [
     ...(canary ? [canary, ""] : []),
+    machine(),
+    "",
     `The user's second brain is at ${VAULT}. This is its always-true core, injected at`,
     "session start. It is authoritative about who the user is and where things live.",
     "",
@@ -101,8 +145,8 @@ try {
     `project: "${VAULT}"). Without it you get "Knowledge base is empty" in any session`,
     "started outside the vault - the content is there, you just scoped past it.",
     "",
-    "The vault is notes only (~160 markdown files) - the checkouts moved to C:\\dev\\<remote-name>\\",
-    "on 2026-09-06, so searching the vault is now cheap. Do NOT sweep C:\\dev\\ blind: that is where",
+    `The vault is notes only (~160 markdown files) - the checkouts moved to ${join(DEV_ROOT, "<remote-name>")}`,
+    `on 2026-09-06, so searching the vault is now cheap. Do NOT sweep ${DEV_ROOT} blind: that is where`,
     "node_modules and target/ live. Repo code is reachable via ctx_search (indexed per repo) and",
     "through the merged graph, so a blind sweep is the wrong tool there too.",
     "Full behavioural rules: 00-Meta/Hard-Rules.md.",
