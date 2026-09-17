@@ -40,6 +40,73 @@ const clear = () => {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+/**
+ * Index one checkout's markdown — `docs/` (plans, DESIGN, DEVELOPMENT), `CLAUDE.md`, README —
+ * under `repo:<Name>:docs`. The checkouts left the vault on 2026-09-06, and from then on nothing
+ * re-indexed them: a decision recorded in `docs/plans` was invisible to `ctx_search` until someone
+ * indexed it by hand.
+ */
+function indexRepoDocs(root) {
+  const name = root.split("\\").pop();
+  try {
+    execFileSync(
+      process.execPath,
+      [
+        "--bun", CM_CLI, "index", root,
+        "--source", `repo:${name}:docs`,
+        "--max-depth", "5",
+        "--max-files", "300",
+        "--ext", ".md",
+        ...EXCLUDES.flatMap((e) => ["--exclude", `**/${e}/**`]),
+      ],
+      { cwd: root, timeout: 600_000, ...QUIET },
+    );
+  } catch {}
+}
+
+/**
+ * Record what changed and start a settler if none is running. `vault` and `repos` accumulate
+ * across edits inside one debounce window, so a vault edit and a repo edit settle together.
+ */
+function schedule({ vault = false, repo = null }) {
+  const prev = read();
+  const lockLive = prev?.lock && Date.now() - prev.lock < LOCK_STALE_MS;
+  const repos = [...new Set([...(prev?.repos ?? []), ...(repo ? [repo] : [])])];
+  // Always refresh `at` so a live settler extends its wait instead of firing early.
+  write({
+    at: Date.now(),
+    lock: lockLive ? prev.lock : Date.now(),
+    // A stamp from before this field existed meant "the vault changed".
+    vault: vault || (prev ? prev.vault !== false : false),
+    repos,
+  });
+  if (!lockLive) {
+    const c = spawn(process.execPath, ["--bun", join(HOOKS, "brain-reindex.mjs"), "--settle"], {
+      detached: true,
+      ...QUIET,
+    });
+    c.unref();
+  }
+}
+
+/**
+ * `C:\dev\<Repo>\…` → `C:\dev\<Repo>`, or null outside DEV_ROOT. `path` arrives lower-cased by
+ * `normDir`, so the name is looked up on disk for its real casing: `theatlas` and `TheAtlas` are
+ * one directory to Windows and two different projects to the source label (Conventions § Renaming).
+ */
+function repoRoot(path) {
+  const base = normDir(DEV_ROOT) + "\\";
+  if (!path.startsWith(base)) return null;
+  const lower = path.slice(base.length).split("\\")[0];
+  if (!lower) return null;
+  try {
+    const name = readdirSync(DEV_ROOT).find((n) => n.toLowerCase() === lower);
+    return name ? DEV_ROOT + "\\" + name : null;
+  } catch {
+    return null;
+  }
+}
+
 if (process.argv.includes("--settle")) {
   // Trailing debounce: keep waiting while edits are still arriving, then run once.
   (async () => {
@@ -52,6 +119,9 @@ if (process.argv.includes("--settle")) {
           await sleep(DEBOUNCE_MS - quiet);
           continue; // re-check: more edits may have landed while sleeping
         }
+        // Repo docs first: cheap, and the reason this hook fires most days now.
+        for (const repo of s.repos ?? []) indexRepoDocs(repo);
+        if (s.vault === false) break; // only repo docs changed; the vault indexes are current
         try {
           execFileSync("graphify", ["update", "."], { cwd: VAULT, timeout: 600_000, ...QUIET });
         } catch {}
@@ -101,24 +171,22 @@ if (process.argv.includes("--settle")) {
   })();
 } else {
   try {
+    // `--repo <root>`: brain-commit's entry, for markdown committed by any means — an edit made
+    // through a shell script never reaches the Edit|Write matcher.
+    const flag = process.argv.indexOf("--repo");
+    if (flag !== -1) {
+      const root = process.argv[flag + 1];
+      if (root && repoRoot(normDir(root))) schedule({ repo: repoRoot(normDir(root)) });
+      process.exit(0);
+    }
+
     const input = readStdin();
     const path = normDir(input.tool_input?.file_path || "");
-    if (!path || !path.startsWith(normDir(VAULT))) process.exit(0);
+    if (!path) process.exit(0);
     if (EXCLUDES.some((e) => path.includes(`\\${e}\\`))) process.exit(0);
 
-    const prev = read();
-    const lockLive = prev?.lock && Date.now() - prev.lock < LOCK_STALE_MS;
-    // Always refresh `at` so a live settler extends its wait instead of firing early.
-    write({ at: Date.now(), lock: lockLive ? prev.lock : Date.now() });
-
-    if (!lockLive) {
-      const c = spawn(
-        process.execPath,
-        ["--bun", join(HOOKS, "brain-reindex.mjs"), "--settle"],
-        { detached: true, ...QUIET },
-      );
-      c.unref();
-    }
+    if (path.startsWith(normDir(VAULT))) schedule({ vault: true });
+    else if (path.endsWith(".md") && repoRoot(path)) schedule({ repo: repoRoot(path) });
   } catch {}
   process.exit(0);
 }

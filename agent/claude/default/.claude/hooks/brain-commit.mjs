@@ -5,8 +5,8 @@
 // shortstat say how much. `/brain-commits` still owns the full monthly digest and the count line.
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { join, dirname, basename } from "node:path";
-import { execFileSync } from "node:child_process";
-import { readStdin, VAULT } from "./brain-lib.mjs";
+import { execFileSync, spawn } from "node:child_process";
+import { readStdin, VAULT, HOOKS } from "./brain-lib.mjs";
 
 const dry = process.argv.includes("--dry-run");
 
@@ -93,6 +93,19 @@ try {
     insert(body, repo, bullet).replace(/^(updated:) .*$/m, `$1 ${cs}`),
     "utf8",
   );
+
+  // Markdown in the commit → re-index that checkout's docs. Covers edits that never went through
+  // Edit|Write (scripts, sed), which brain-reindex's own matcher cannot see.
+  const touchedMarkdown = git("log", "-1", "--pretty=", "--name-only")
+    .split("\n")
+    .some((f) => f.endsWith(".md"));
+  if (touchedMarkdown) {
+    spawn(
+      process.execPath,
+      ["--bun", join(HOOKS, "brain-reindex.mjs"), "--repo", git("rev-parse", "--show-toplevel")],
+      { detached: true, stdio: "ignore", windowsHide: true },
+    ).unref();
+  }
 } catch {
   /* a logging hook must never break a session */
 }
