@@ -9,10 +9,17 @@ Personal dotfiles for a **dual-boot** machine: Windows 10 Pro and Arch Linux (Hy
 |---|---|---|
 | `main` | Shared material only: fonts, the agent hooks and commands, licences | nowhere — merged into both |
 | `windows` | Windows-side config, and `brain-paths.mjs` for `C:\obsidian\root` / `C:\dev` | Windows, checked out at `C:\dev\AtlasAta-DotFiles` |
-| `arch-caelestia` | Selected Arch config (Hyprland, fish, Caelestia, GTK/Qt, editors, apps), and `brain-paths.mjs` for `~/obsidian/root` / `~/dev` | Arch — changes are committed and pushed from there |
+| `arch-caelestia` | Selected Arch config (Hyprland, fish, Caelestia, GTK/Qt, editors, apps), and `brain-paths.mjs` for `~/obsidian/root` / `~/dev` | Arch — the repo's working tree is `$HOME`; `.gitignore` whitelists what is tracked |
 
-A machine works on its own branch and carries nothing from the other platform. A platform
-branch is not a snapshot to merge wholesale: each side commits and pushes its own changes.
+A machine works on its own branch and carries nothing from the other platform. Each side commits
+and pushes only its own changes — on Arch, `dotfiles-backup.sh` does that for `arch-caelestia`.
+
+Moving the Arch `$HOME` checkout from the old `main` onto its branch changes no tracked config:
+`arch-caelestia`'s Arch files are exactly what `origin/main` held.
+
+```bash
+cd ~ && git fetch && git switch arch-caelestia
+```
 
 **Shared changes land on `main` first**, then merge into each platform branch:
 
@@ -41,8 +48,8 @@ New-Item -ItemType SymbolicLink -Path $HOME\.claude\hooks -Target C:\dev\AtlasAt
 ```
 
 ```bash
-# Arch — from wherever arch-caelestia is checked out
-ln -s "$PWD/agent/claude/default/.claude/hooks" ~/.claude/hooks
+# Arch (the repo is $HOME)
+ln -s ~/agent/claude/default/.claude/hooks ~/.claude/hooks
 ```
 
 ## License
