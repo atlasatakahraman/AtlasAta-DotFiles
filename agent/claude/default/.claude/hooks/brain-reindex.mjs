@@ -5,12 +5,12 @@ import { readFileSync, writeFileSync, unlinkSync, existsSync, readdirSync } from
 import { join, sep } from "node:path";
 import { tmpdir } from "node:os";
 import { spawn, execFileSync } from "node:child_process";
-import { readStdin, normDir, VAULT, HOOKS, DEV_ROOT, contextModeCli } from "./brain-lib.mjs";
+import { readStdin, normDir, VAULT, HOOKS, DEV_ROOT, contextModeCli, INDEX_EXCLUDES } from "./brain-lib.mjs";
 
 const STAMP = join(tmpdir(), "brain-reindex.json");
 const DEBOUNCE_MS = 90_000;
 const LOCK_STALE_MS = 15 * 60_000; // a settler that died leaves a lock; expire it
-const EXCLUDES = ["node_modules", "out", "target", ".git", "graphify-out"];
+const EXCLUDES = INDEX_EXCLUDES; // shared with brain-doctor, so what is indexed and what counts as a note cannot drift
 // context-mode is NOT on PATH - it ships as a plugin bundle. Invoke it through the runtime.
 const CM_CLI = contextModeCli();
 // Checkouts left the vault on 2026-09-06 - see [[0012-repos-leave-the-vault-index-stays]].
