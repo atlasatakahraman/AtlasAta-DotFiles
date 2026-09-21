@@ -1,6 +1,6 @@
 // brain-compile.mjs - promotes a FINISHED daily log into the curated tiers, then commits.
 // Runtime is bun (`bun --bun`), per 00-Meta/Hard-Rules.
-// Spec: C:\obsidian\root\40-Plans\2026-08-22-brain-memory-compiler.md
+// Spec: C:\obsidian\root\40-Plans\2026-08-22-brain-memory-compiler\2026-08-22-brain-memory-compiler.md
 //
 // Gate is "the log is finished", not a wall clock. The old `hour >= 18` gate could never fire
 // for a 03:00-07:00 worker, and nothing scheduled it anyway - so this tier never ran once.
@@ -10,12 +10,15 @@ import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { createHash } from "node:crypto";
 import { execFileSync, spawn } from "node:child_process";
-import { notePath, VAULT, DEV_ROOT, HOOKS, recordFailure, clearFailure } from "./brain-lib.mjs";
+import { notePath, VAULT, DEV_ROOT, HOOKS, STATE_DIR, recordFailure, clearFailure } from "./brain-lib.mjs";
 
 const STATE = join(VAULT, "50-Ops", "brain-compile-state.json");
 const SESSIONS = join(VAULT, "30-Sessions");
 const force = process.argv.includes("--force");
 const dry = process.argv.includes("--dry-run");
+// Kill switch for structural work on the vault: a compile firing mid-restructure would stage a
+// half-moved tree under its own author. While this file exists, compile does nothing.
+if (existsSync(join(STATE_DIR, "compile.disabled"))) process.exit(0);
 
 // A compile that died mid-run leaves its claim behind; expire it. Longer than the 900s sonnet
 // timeout, so a live run is never stolen from.
@@ -85,12 +88,12 @@ try {
     `Compile a session log into the vault at ${VAULT}.`,
     "",
     "MANDATORY FIRST STEP, before writing anything: read 00-Meta/00-MOC-Root.md and",
-    "00-Meta/Conventions.md, then LIST the full contents of 60-Decisions/<Repo-Name>/ and every",
+    "00-Meta/Conventions.md, then LIST the full contents of the 60-Decisions/ folder you will write to and every",
     "20-Knowledge/<Area>/ you might write to. You must know every existing filename and the",
     "highest ADR number already on disk before you create a single file. Do not skip this.",
     "",
     "Then route each item:",
-    "- decisions   -> 60-Decisions/<Repo-Name>/<NNNN>-<slug>.md",
+    "- decisions   -> 60-Decisions/Repos/<Repo-Name>/<NNNN>-<slug>.md about one repo; 60-Decisions/Identity/<NNNN>-<slug>.md about the vault, its hooks, or how the agent must behave. <Repo-Name> is the GitHub remote's exact casing.",
     "- gotchas     -> 20-Knowledge/<Area>/<slug>.md",
     "- patterns    -> 20-Knowledge/Connections/<slug>.md",
     "- preferences -> append to 00-Meta/Hard-Rules.md or 00-Meta/Identity.md",
@@ -101,7 +104,7 @@ try {
     "Rules:",
     "- ADRs are CENTRAL. Never write into a checkout's own Decisions/ folder - the checkouts live",
     `  outside the vault at ${join(DEV_ROOT, "<remote-name>")}, so anything written there is invisible to the`,
-    "  vault's history, its search index and its graph. Write to 60-Decisions/<Repo-Name>/.",
+    "  vault's history, its search index and its graph. Write to 60-Decisions/Repos/<Repo-Name>/ or 60-Decisions/Identity/.",
     "- ONE decision per ADR file. Never bundle several decisions into one omnibus note - if the",
     "  log holds four decisions, that is four files, not one titled 'X, Y and Z'.",
     "- If a decision or gotcha in this log ALREADY has a file, EDIT THAT FILE. Do not write a",

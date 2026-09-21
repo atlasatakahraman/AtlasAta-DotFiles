@@ -1,6 +1,6 @@
 // brain-reindex.mjs - PostToolUse(Edit|Write). Trailing-debounce rebuild of both indexes.
 // Runtime is bun (`bun --bun`), per 00-Meta/Hard-Rules.
-// Spec: C:\obsidian\root\40-Plans\2026-08-22-brain-memory-compiler.md
+// Spec: C:\obsidian\root\40-Plans\2026-08-22-brain-memory-compiler\2026-08-22-brain-memory-compiler.md
 import { readFileSync, writeFileSync, unlinkSync, existsSync, readdirSync } from "node:fs";
 import { join, sep } from "node:path";
 import { tmpdir } from "node:os";

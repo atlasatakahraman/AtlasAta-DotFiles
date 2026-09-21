@@ -112,6 +112,11 @@ function noteFor(c, files, month, dd, n) {
   const areas = [...new Set(files.map((f) => (f.includes("/") ? `${f.split("/")[0]}/` : f)))].slice(0, 6).join(" ");
   const day = `${month}-${dd}`;
   const t = new Date(c.iso);
+  // Link the day's session log only if it exists: 09-07, 09-11 and 09-16 have commits but no log
+  // (the flush pipeline was down), and 55 notes carried a dead [[day]] link.
+  // ponytail: checked at record time, so a commit made before the day's first flush says "no
+  // session log" for good; relinking records when a log appears later is the upgrade.
+  const logged = existsSync(join(VAULT, "30-Sessions", month.slice(0, 4), month.slice(5), `${day}.md`));
   const why =
     c.body ||
     "_No commit body. Under D5 option A a commit record carries only what its message says — the why belongs in the body._";
@@ -135,7 +140,7 @@ function noteFor(c, files, month, dd, n) {
     "",
     `# ${c.subject}`,
     "",
-    `\`${c.hash.slice(0, 7)}\` · ${c.name} · ${pad(t.getHours())}:${pad(t.getMinutes())} · session log [[${day}]]`,
+    `\`${c.hash.slice(0, 7)}\` · ${c.name} · ${pad(t.getHours())}:${pad(t.getMinutes())} · ${logged ? `session log [[${day}]]` : "no session log"}`,
     "",
     "## Why",
     "",
