@@ -19,7 +19,11 @@ export function openDb(file) {
 // The two roots differ per OS, so they live in `brain-paths.mjs`: each platform branch of
 // AtlasAta-DotFiles (`windows`, `arch-caelestia`) carries its own. `main` has none — it is never
 // deployed, only merged from.
-export { VAULT, DEV_ROOT } from "./brain-paths.mjs";
+// Imported AND re-exported: a bare `export { … } from` creates no local binding, and brain-lib's own
+// vault helpers need VAULT in scope. Getting this wrong fails at MODULE LOAD, before any hook's
+// try/catch exists - so every hook importing this file dies at once. It did, on 2026-09-21.
+import { VAULT, DEV_ROOT } from "./brain-paths.mjs";
+export { VAULT, DEV_ROOT };
 export const HOOKS = join(homedir(), ".claude", "hooks");
 export const CTX = join(homedir(), ".claude", "context-mode");
 export const ROLLOVER_HOUR = 5;
@@ -143,6 +147,70 @@ const dbs = (sub) => {
 /** The SAME session_id can appear in several DBs - always union across all of them. */
 export const sessionDbs = () => dbs("sessions");
 export const contentDbs = () => dbs("content");
+
+// ---- Vault-scoped search -------------------------------------------------------------------
+// Shared by brain-inject (every prompt) and brain-doctor (the retrieval regression test), so the
+// test exercises exactly the path production takes. Until 2026-09-21 brain-inject walked every
+// content DB under a 50ms budget and never reached the vault's, which sorts 9th of 12.
+// Evidence: 40-Plans/2026-09-20-vault-governance-overhaul/evidence/2026-09-21-retrieval-audit.md
+
+/** `VAULT\%`. `\` is not an escape character in SQLite LIKE, so Windows paths need no handling. */
+export const VAULT_LIKE = `${VAULT}${VAULT.includes("\\") ? "\\" : "/"}%`;
+export const VAULT_DB_CACHE = join(tmpdir(), "brain-vault-db.json");
+
+// Vault sources only, and never the dead 00-Brain tree left over from the rename. The path filter
+// is what stops a stale copy outranking a live one: dedupe is by basename, so before this a
+// 2026-09-10 snapshot of Hard-Rules.md could and did win.
+const VAULT_SQL = `SELECT s.file_path AS path, snippet(chunks,1,'','','…',26) AS snip, bm25(chunks) AS rank
+                   FROM chunks JOIN sources s ON s.id = chunks.source_id
+                   WHERE chunks MATCH ?
+                     AND s.file_path LIKE ?
+                     AND s.file_path NOT LIKE '%00-Brain%'
+                   ORDER BY rank LIMIT 6`;
+const VAULT_HAS = `SELECT 1 FROM sources WHERE file_path LIKE ? LIMIT 1`;
+
+/** Query one DB: its vault hits, and whether it holds vault sources at all (for self-healing). */
+function askVault(file, match) {
+  let db;
+  try {
+    db = openDb(file);
+    const rows = db.prepare(VAULT_SQL).all(match, VAULT_LIKE);
+    return { rows, isVault: rows.length > 0 || !!db.prepare(VAULT_HAS).get(VAULT_LIKE) };
+  } catch {
+    return { rows: [], isVault: false };
+  } finally {
+    try {
+      db?.close();
+    } catch {}
+  }
+}
+
+/**
+ * Search vault notes only. Steady state is one ~9ms open of the cached DB. On a miss - first run,
+ * or context-mode re-keyed the project - it scans every content DB with NO time budget: a budget
+ * on a scan whose target sorts late is exactly the bug this replaced. The scan runs once per
+ * cache lifetime.
+ *
+ * Returns `{ rows, file }`; `file` is null when no DB holds vault sources at all.
+ */
+export function vaultSearch(match) {
+  try {
+    const cached = JSON.parse(readFileSync(VAULT_DB_CACHE, "utf8")).file;
+    if (cached) {
+      const r = askVault(cached, match);
+      if (r.isVault) return { rows: r.rows, file: cached };
+    }
+  } catch {}
+  for (const file of contentDbs()) {
+    const r = askVault(file, match);
+    if (!r.isVault) continue;
+    try {
+      writeFileSync(VAULT_DB_CACHE, JSON.stringify({ file, at: Date.now() }));
+    } catch {}
+    return { rows: r.rows, file };
+  }
+  return { rows: [], file: null };
+}
 
 const STOP = new Set([
   "the", "and", "for", "with", "that", "this", "from", "have", "been", "are", "was",
