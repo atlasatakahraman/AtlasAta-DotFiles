@@ -12,7 +12,7 @@
 // Two of ten planned checks. The rest land with Part B of the spec.
 import { readdirSync, statSync } from "node:fs";
 import { join, basename } from "node:path";
-import { VAULT, VAULT_LIKE, openDb, ftsMatch, vaultSearch } from "./brain-lib.mjs";
+import { VAULT, VAULT_LIKE, INDEX_EXCLUDES, openDb, ftsMatch, vaultSearch } from "./brain-lib.mjs";
 
 const pretty = process.argv.includes("--pretty");
 const FLOOR = -6; // must match brain-inject: a hit it would not show is a miss here too
@@ -34,7 +34,7 @@ const CASES = [
   ["frontmatter schema naming conventions wikilinks", "Conventions"],
 ];
 
-const SKIP = new Set([".git", ".obsidian", "node_modules", "graphify-out", ".remember", ".claude", ".brain"]);
+const SKIP = new Set(INDEX_EXCLUDES); // the same list brain-reindex indexes by
 
 /** Every vault note, with its mtime. */
 function notes() {

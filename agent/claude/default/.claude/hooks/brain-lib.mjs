@@ -148,6 +148,16 @@ const dbs = (sub) => {
 export const sessionDbs = () => dbs("sessions");
 export const contentDbs = () => dbs("content");
 
+/**
+ * Directories never indexed and never counted as notes - one list, shared by brain-reindex (what
+ * gets indexed) and brain-doctor (what counts as a note). They used to be two lists, and they
+ * drifted: the index took in `.remember/` scratch buffers that the doctor ignored, so the first
+ * clean rebuild reported 7 ghosts that were really a disagreement between the two walkers.
+ * `.remember/` and `.claude/` are agent scratch and config, not notes - serving them as vault
+ * memory is the noise R1 removed (remember.md was one of the junk injections).
+ */
+export const INDEX_EXCLUDES = ["node_modules", "out", "target", ".git", "graphify-out", ".obsidian", ".remember", ".claude", ".brain"];
+
 // ---- Vault-scoped search -------------------------------------------------------------------
 // Shared by brain-inject (every prompt) and brain-doctor (the retrieval regression test), so the
 // test exercises exactly the path production takes. Until 2026-09-21 brain-inject walked every
