@@ -1,12 +1,19 @@
-// brain-capture.mjs - SessionEnd + PreCompact. No parsing, no API. Under 100ms.
-// Spec: C:\obsidian\root\40-Plans\2026-08-22-brain-memory-compiler.md
-import { copyFileSync, existsSync, readdirSync, statSync } from "node:fs";
+// brain-capture.mjs - SessionEnd · PreCompact · Stop · SubagentStop. No parsing, no API. Fast.
+// Plan: C:\obsidian\root\40-Plans\2026-09-20-vault-governance-overhaul\stages\vault-governance-02-session-capture.md
+import { statSync } from "node:fs";
 import { join } from "node:path";
-import { tmpdir, homedir } from "node:os";
 import { spawn } from "node:child_process";
-import { guard, readStdin, logicalDate, HOOKS, VAULT } from "./brain-lib.mjs";
+import { guard, readStdin, logicalDate, HOOKS, VAULT, logEvent, readWatermarks, writeWatermark, resolveTranscript } from "./brain-lib.mjs";
 
 guard(); // MUST be first - without this, flush's own `claude -p` re-fires this hook.
+
+const dry = process.argv.includes("--dry-run");
+
+// Stop fires after EVERY assistant turn. A session that compacts and keeps going never reaches
+// SessionEnd, so Stop is what captures its tail - at most once per 20 minutes per session, or it
+// would be a model call per turn. brain-flush's watermark makes a repeat capture send only what is
+// new, so extra capture points cannot duplicate content into the daily note.
+const STOP_EVERY_MS = 20 * 60_000;
 
 // process.execPath is bun.exe; --bun forces the bun runtime, per 00-Meta/Hard-Rules.
 const detach = (tag, ...argv) => {
@@ -19,78 +26,53 @@ const detach = (tag, ...argv) => {
   c.unref();
 };
 
-/**
- * The transcript for this session, however we can find it.
- *
- * `input.transcript_path` is the fast path and is usually right. It is also sometimes absent
- * or stale - Claude Code #13668 documents that for compactions, and on 2026-09-10 it turned out
- * to happen on ordinary SessionEnd too. That single `process.exit(0)` cost four days of daily
- * notes: capture kept running the whole time (usage.py fired, the session DBs kept growing) and
- * simply never copied a transcript, so flush had nothing to work on and the vault went quiet.
- * The canary caught the symptom; this is the cause.
- *
- * The file is on disk regardless, at ~/.claude/projects/<slugified-cwd>/<session_id>.jsonl.
- * Scanning for the filename beats reconstructing the slug: session ids are UUIDs, so a match
- * is exact, and we never have to care how Claude Code mangles a cwd into a directory name.
- */
-function resolveTranscript(input) {
-  const given = input.transcript_path;
-  if (given && existsSync(given)) return given;
-
-  const sid = String(input.session_id || "").replace(/[^a-z0-9-]/gi, "");
-  if (!sid) return null;
-
-  const root = join(homedir(), ".claude", "projects");
-  try {
-    for (const d of readdirSync(root, { withFileTypes: true })) {
-      if (!d.isDirectory()) continue;
-      const f = join(root, d.name, `${sid}.jsonl`);
-      if (existsSync(f)) return f;
-    }
-  } catch {
-    /* no projects dir - fall through to null */
-  }
-  return null;
-}
-
 try {
   const input = readStdin();
+  const event = String(input.hook_event_name || "unknown");
+  const sid = String(input.session_id || "").replace(/[^a-z0-9-]/gi, "");
+  const isStop = event === "Stop" || event === "SubagentStop";
 
-  // Promote a FINISHED daily log into 60-Decisions / 20-Knowledge / Hard-Rules. Detached: its
-  // `claude -p` runs for minutes, far past any hook timeout. No race with flush - compile only
-  // ever reads logs for a past logical day, and flush only ever appends to today's. Runs even
-  // when the transcript is missing, because it does not need one.
-  detach("brain_compile", join(HOOKS, "brain-compile.mjs"));
+  // Throttled Stops exit before logging: logging them would add a line per turn and say nothing.
+  if (isStop && Date.now() - (readWatermarks()[sid]?.triedAt ?? 0) < STOP_EVERY_MS) process.exit(0);
 
-  // Token/cost digest, at most once per logical day. The digest file's own mtime IS the gate -
-  // usage.py rewrites the whole month every run, so a fresh file means today is already covered
-  // and no state file is needed. Detached: it walks every transcript under ~/.claude/projects.
-  const day = (t) => logicalDate(new Date(t)).toDateString();
-  const d = logicalDate(new Date());
-  const month = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
-  let stale = true;
-  try {
-    stale = day(statSync(join(VAULT, "50-Ops", "Usage", `${month}.md`)).mtimeMs) !== day(Date.now());
-  } catch {
-    /* no digest yet - stale stays true */
-  }
-  if (stale) {
-    const u = spawn("python", [join(VAULT, ".brain", "usage.py"), "--month", month], {
-      detached: true,
-      stdio: "ignore",
-      windowsHide: true,
-    });
-    u.unref();
+  const tp = resolveTranscript(sid, input.transcript_path);
+
+  if (dry) {
+    process.stdout.write(
+      `${JSON.stringify({ event, sid, transcript: tp, compileAndUsage: !isStop, flush: !!(tp && sid) })}\n`,
+    );
+    process.exit(0);
   }
 
-  const tp = resolveTranscript(input);
-  if (!tp) process.exit(0);
+  logEvent({ hook: "capture", event, sid, transcript: tp, givenPathUsed: !!tp && tp === input.transcript_path });
 
-  const sid = String(input.session_id || "unknown").replace(/[^a-z0-9-]/gi, "");
-  const temp = join(tmpdir(), `brain-flush-${sid}.jsonl`);
-  copyFileSync(tp, temp);
+  if (!isStop) {
+    // Promote a FINISHED daily log into 60-Decisions / 20-Knowledge / Hard-Rules. Detached: its
+    // `claude -p` runs for minutes. Runs even without a transcript - it does not need one.
+    detach("brain_compile", join(HOOKS, "brain-compile.mjs"));
 
-  detach("brain_flush", join(HOOKS, "brain-flush.mjs"), temp, sid, input.cwd || "");
+    // Token/cost digest, at most once per logical day; the digest file's own mtime is the gate.
+    const day = (t) => logicalDate(new Date(t)).toDateString();
+    const d = logicalDate(new Date());
+    const month = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+    let stale = true;
+    try {
+      stale = day(statSync(join(VAULT, "50-Ops", "Usage", `${month}.md`)).mtimeMs) !== day(Date.now());
+    } catch {
+      /* no digest yet - stale stays true */
+    }
+    if (stale) {
+      spawn("python", [join(VAULT, ".brain", "usage.py"), "--month", month], {
+        detached: true,
+        stdio: "ignore",
+        windowsHide: true,
+      }).unref();
+    }
+  }
+
+  if (!tp || !sid) process.exit(0);
+  writeWatermark(sid, { triedAt: Date.now() });
+  detach("brain_flush", join(HOOKS, "brain-flush.mjs"), sid, String(input.cwd || ""), "--transcript", tp);
 } catch {
   /* a logging hook must never break a session */
 }

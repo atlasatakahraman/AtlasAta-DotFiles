@@ -1,7 +1,7 @@
 // brain-lib.mjs - shared helpers for the brain memory hooks.
 // Runtime is bun (`bun --bun`), per 00-Meta/Hard-Rules.
 // Spec: C:\obsidian\root\40-Plans\2026-08-22-brain-memory-compiler.md
-import { readFileSync, existsSync, mkdirSync, writeFileSync, readdirSync } from "node:fs";
+import { readFileSync, existsSync, mkdirSync, writeFileSync, readdirSync, appendFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { homedir, tmpdir } from "node:os";
 import { Database } from "bun:sqlite";
@@ -123,7 +123,10 @@ export function notePath(now) {
 export function ensureNote(file, now) {
   if (existsSync(file)) return;
   mkdirSync(dirname(file), { recursive: true });
-  const stamp = logicalDate(now).toISOString().slice(0, 10);
+  // Local date parts, as notePath uses. toISOString() is UTC: a flush at 05:00-08:00 TST stamped
+  // the previous day into a note whose path said today (2026-09-21.md was headed 2026-09-20).
+  const d = logicalDate(now);
+  const stamp = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
   writeFileSync(
     file,
     `---\ntype: session\nproject: knowledge\ntags: [session, log]\n` +
@@ -242,4 +245,69 @@ export function ftsMatch(text) {
     ),
   ].slice(0, 8);
   return toks.length ? toks.map((t) => `"${t}"`).join(" OR ") : "";
+}
+
+// ---- Capture diagnostics + per-session flush watermarks ---------------------------------------
+// Plan: 40-Plans/2026-09-20-vault-governance-overhaul/stages/vault-governance-02-session-capture.md
+
+/** Runtime state that must survive a reboot. Gitignored in AtlasAta-DotFiles: state, not config. */
+export const STATE_DIR = join(HOOKS, ".state");
+
+/**
+ * One JSON line per capture firing and per flush outcome, so a missing daily note can be traced to
+ * the layer that dropped it - "PreCompact fired 03:12, flush answered FLUSH_OK" - instead of just
+ * "a note is missing". In the vault, where the user reads it; gitignored there, because an
+ * append-only log would otherwise leave the vault permanently dirty.
+ */
+export const HOOK_EVENTS = join(VAULT, "50-Ops", "hook-events.jsonl");
+
+export function logEvent(e) {
+  try {
+    appendFileSync(HOOK_EVENTS, `${JSON.stringify({ ts: new Date().toISOString(), ...e })}\n`);
+  } catch {}
+}
+
+const WATERMARKS = join(STATE_DIR, "flush-watermarks.json");
+const WATERMARK_TTL_MS = 30 * 86_400_000;
+
+/** `{ [sessionId]: { dbs: { [dbFile]: lastEventId }, turns, triedAt, flushedAt } }` */
+export function readWatermarks() {
+  try {
+    return JSON.parse(readFileSync(WATERMARKS, "utf8"));
+  } catch {
+    return {};
+  }
+}
+
+/** Merge `patch` into one session's watermark. Sessions untouched for 30 days are pruned. */
+export function writeWatermark(sid, patch) {
+  try {
+    mkdirSync(STATE_DIR, { recursive: true });
+    const all = readWatermarks();
+    all[sid] = { ...all[sid], ...patch };
+    const cutoff = Date.now() - WATERMARK_TTL_MS;
+    for (const [k, v] of Object.entries(all)) if ((v.triedAt ?? v.flushedAt ?? 0) < cutoff) delete all[k];
+    writeFileSync(WATERMARKS, JSON.stringify(all));
+  } catch {}
+}
+
+/**
+ * A session's transcript. `given` (the hook payload's transcript_path) is the fast path and usually
+ * right, but it is sometimes absent or stale - Claude Code #13668 documents that for compactions,
+ * and on 2026-09-10 it happened on ordinary SessionEnd too. The file is always on disk as
+ * ~/.claude/projects/<slug>/<sessionId>.jsonl; session ids are UUIDs, so a filename match is exact.
+ */
+export function resolveTranscript(sessionId, given) {
+  if (given && existsSync(given)) return given;
+  const sid = String(sessionId || "").replace(/[^a-z0-9-]/gi, "");
+  if (!sid) return null;
+  const root = join(homedir(), ".claude", "projects");
+  try {
+    for (const d of readdirSync(root, { withFileTypes: true })) {
+      if (!d.isDirectory()) continue;
+      const f = join(root, d.name, `${sid}.jsonl`);
+      if (existsSync(f)) return f;
+    }
+  } catch {}
+  return null;
 }
