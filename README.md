@@ -64,4 +64,9 @@ separate OpenClaude multi-provider config and is not linked anywhere.
 
 ## License
 
-[AAKNCL v1.0](LICENSE.md) — Non-commercial use only.
+**GPL-3.0-only** — [LICENSE](LICENSE). Use, modify and redistribute under the GPL's terms.
+
+Third-party material keeps its own licence and is not covered by that grant — notably
+everything under `fonts/`.
+
+SPDX-License-Identifier: `GPL-3.0-only`
