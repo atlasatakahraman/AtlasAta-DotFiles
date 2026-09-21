@@ -10,7 +10,7 @@
 import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { release } from "node:os";
-import { VAULT, DEV_ROOT, sessionDbs, failures } from "./brain-lib.mjs";
+import { VAULT, DEV_ROOT, sessionDbs, failures, HOOK_EVENTS } from "./brain-lib.mjs";
 
 /**
  * Which OS this session runs on, detected now rather than written into a file. The machine
@@ -58,6 +58,18 @@ const STALE_DAYS = 3; // slack for a weekend off, tight enough to catch a real b
  * last note" alone cannot tell a broken pipeline from a few days off - the comparison against
  * capture activity is what makes the signal mean something.
  */
+/** The last flush outcome from the hook event log - names the layer, not just the symptom. */
+function lastFlush() {
+  try {
+    const lines = readFileSync(HOOK_EVENTS, "utf8").trimEnd().split("\n");
+    for (let i = lines.length - 1; i >= Math.max(0, lines.length - 500); i--) {
+      const e = JSON.parse(lines[i]);
+      if (e.hook === "flush") return `last flush: ${e.outcome} at ${String(e.ts).slice(0, 16)}Z`;
+    }
+  } catch {}
+  return "no flush in 50-Ops/hook-events.jsonl yet";
+}
+
 function flushCanary() {
   const days = (ms) => Math.floor((Date.now() - ms) / 86_400_000);
 
@@ -86,8 +98,9 @@ function flushCanary() {
 
   return (
     `!! FLUSH CANARY: sessions captured ${days(newestCapture)}d ago, but the newest note in ` +
-    `30-Sessions/ is ${quiet}d old. The memory loop is capturing and not writing. ` +
-    `Diagnose with: bun --bun ~/.claude/hooks/brain-flush.mjs <transcript> <session-id> "${VAULT}" --dry-run`
+    `30-Sessions/ is ${quiet}d old. The memory loop is capturing and not writing (${lastFlush()}). ` +
+    `Diagnose with: bun --bun ~/.claude/hooks/brain-flush.mjs <session-id> "<cwd>" --dry-run, ` +
+    `and read the tail of ${HOOK_EVENTS}.`
   );
 }
 
