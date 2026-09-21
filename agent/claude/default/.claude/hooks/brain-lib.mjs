@@ -176,7 +176,12 @@ const VAULT_SQL = `SELECT s.file_path AS path, snippet(chunks,1,'','','…',26) 
                    WHERE chunks MATCH ?
                      AND s.file_path LIKE ?
                      AND s.file_path NOT LIKE '%00-Brain%'
+                     AND s.file_path NOT LIKE ?
                    ORDER BY rank LIMIT 6`;
+// Per-commit notes and their month index are records, not answers: hundreds of short notes would
+// crowd rules and ADRs out of the six slots. They stay indexed (ctx_search finds them); injection
+// skips them.
+const COMMITS_LIKE = `%${join("50-Ops", "Commits")}${VAULT.includes("\\") ? "\\" : "/"}%`;
 const VAULT_HAS = `SELECT 1 FROM sources WHERE file_path LIKE ? LIMIT 1`;
 
 /** Query one DB: its vault hits, and whether it holds vault sources at all (for self-healing). */
@@ -184,7 +189,7 @@ function askVault(file, match) {
   let db;
   try {
     db = openDb(file);
-    const rows = db.prepare(VAULT_SQL).all(match, VAULT_LIKE);
+    const rows = db.prepare(VAULT_SQL).all(match, VAULT_LIKE, COMMITS_LIKE);
     return { rows, isVault: rows.length > 0 || !!db.prepare(VAULT_HAS).get(VAULT_LIKE) };
   } catch {
     return { rows: [], isVault: false };

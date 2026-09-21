@@ -157,7 +157,9 @@ if (process.argv.includes("--settle")) {
               "--bun", CM_CLI, "index", VAULT,
               "--source", "brain-vault",
               "--max-depth", "4",
-              "--max-files", "500",
+              // Per-commit notes (Stage 01) add 100+ files a month; at 500 the index would silently
+              // truncate within two months. brain-doctor's `unindexed` count is the tripwire.
+              "--max-files", "20000",
               "--ext", ".md",
               ...EXCLUDES.flatMap((e) => ["--exclude", `**/${e}/**`]),
             ],
