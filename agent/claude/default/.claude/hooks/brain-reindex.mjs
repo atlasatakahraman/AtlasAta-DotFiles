@@ -181,6 +181,14 @@ if (process.argv.includes("--settle")) {
       process.exit(0);
     }
 
+    // `--vault`: brain-compile's entry. The compiler writes through a guard()ed `claude -p`, so
+    // its Writes never reach this hook's PostToolUse matcher - the vault's largest writer was
+    // invisible to reindexing by construction (F2). It now schedules the reindex itself.
+    if (process.argv.includes("--vault")) {
+      schedule({ vault: true });
+      process.exit(0);
+    }
+
     const input = readStdin();
     const path = normDir(input.tool_input?.file_path || "");
     if (!path) process.exit(0);

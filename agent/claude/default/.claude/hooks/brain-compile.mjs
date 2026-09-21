@@ -9,8 +9,8 @@
 import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { createHash } from "node:crypto";
-import { execFileSync } from "node:child_process";
-import { notePath, VAULT, DEV_ROOT, recordFailure, clearFailure } from "./brain-lib.mjs";
+import { execFileSync, spawn } from "node:child_process";
+import { notePath, VAULT, DEV_ROOT, HOOKS, recordFailure, clearFailure } from "./brain-lib.mjs";
 
 const STATE = join(VAULT, "50-Ops", "brain-compile-state.json");
 const SESSIONS = join(VAULT, "30-Sessions");
@@ -190,6 +190,19 @@ try {
       "-c", "user.email=noreply@local",
       "commit", "-m", `chore(brain): compile ${log.slice(-13, -3)}`,
     );
+  }
+
+  // F2: this compiler is the vault's largest writer, and it writes through a guard()ed
+  // `claude -p` whose PostToolUse hooks exit immediately - so brain-reindex never saw a single
+  // one of its writes, and everything it produced was unsearchable until some unrelated edit
+  // happened to trigger a reindex. Schedule it here, and only when something was actually written.
+  // brain-reindex does not call guard(), so inheriting CLAUDE_INVOKED_BY is harmless.
+  if (mine.length) {
+    spawn(process.execPath, ["--bun", join(HOOKS, "brain-reindex.mjs"), "--vault"], {
+      detached: true,
+      stdio: "ignore",
+      windowsHide: true,
+    }).unref();
   }
 
   // Re-hash AFTER the run: the compiler sometimes edits the log it just read, and storing the
