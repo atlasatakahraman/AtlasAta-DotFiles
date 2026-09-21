@@ -553,3 +553,4 @@ graphify-out/
 # runtime lands in this working tree. Config is tracked; state is not.
 agent/claude/default/.claude/hooks/.remember/
 agent/claude/default/.claude/hooks/.statusline-cache.json
+agent/claude/default/.claude/hooks/.state/
