@@ -40,17 +40,27 @@ the checkouts root — lives in `brain-paths.mjs`, which **only the platform bra
 `brain-session.mjs` detects the running OS every session and tells the agent the machine
 dual-boots and which side it is on.
 
-Link the hooks into Claude Code's config directory:
+Link the hooks and the global agent instructions into Claude Code's config directory:
 
 ```powershell
 # Windows
 New-Item -ItemType SymbolicLink -Path $HOME\.claude\hooks -Target C:\dev\AtlasAta-DotFiles\agent\claude\default\.claude\hooks
+New-Item -ItemType SymbolicLink -Path $HOME\.claude\CLAUDE.md -Target C:\dev\AtlasAta-DotFiles\agent\claude\default\.claude\CLAUDE.md
 ```
 
 ```bash
 # Arch (the repo is $HOME)
 ln -s ~/agent/claude/default/.claude/hooks ~/.claude/hooks
+ln -s ~/agent/claude/default/.claude/CLAUDE.md ~/.claude/CLAUDE.md
 ```
+
+`.claude/CLAUDE.md` is **per branch**, like `brain-paths.mjs`: it names the vault and checkout
+paths, which differ per OS, and each OS has its own vault. The `windows` branch's copy points at
+`C:\obsidian\root`; `arch-caelestia` carries its own. Symlinked rather than copied for the same
+reason the hooks are — a second copy is one more thing to forget to sync.
+
+Not to be confused with `agent/claude/default/CLAUDE.md` (no leading `.claude/`), which is a
+separate OpenClaude multi-provider config and is not linked anywhere.
 
 ## License
 
