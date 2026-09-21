@@ -1,5 +1,5 @@
 // brain-inject.mjs - UserPromptSubmit. Injects relevant vault notes. Fails silent, always.
-// Spec: C:\obsidian\root\40-Plans\2026-08-22-brain-memory-compiler.md
+// Spec: C:\obsidian\root\40-Plans\2026-08-22-brain-memory-compiler\2026-08-22-brain-memory-compiler.md
 //
 // SCOPED TO THE VAULT, 2026-09-21. It used to walk every context-mode content DB under a 50ms
 // budget. Measured that day: 12 DBs at 7-9ms per open, ~90ms total - the budget stopped it at

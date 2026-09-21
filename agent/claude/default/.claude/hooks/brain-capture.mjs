@@ -57,7 +57,7 @@ try {
     const month = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
     let stale = true;
     try {
-      stale = day(statSync(join(VAULT, "50-Ops", "Usage", `${month}.md`)).mtimeMs) !== day(Date.now());
+      stale = day(statSync(join(VAULT, "50-Ops", "Usage", `usage-${month}.md`)).mtimeMs) !== day(Date.now());
     } catch {
       /* no digest yet - stale stays true */
     }

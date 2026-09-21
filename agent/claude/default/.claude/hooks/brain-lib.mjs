@@ -1,6 +1,6 @@
 // brain-lib.mjs - shared helpers for the brain memory hooks.
 // Runtime is bun (`bun --bun`), per 00-Meta/Hard-Rules.
-// Spec: C:\obsidian\root\40-Plans\2026-08-22-brain-memory-compiler.md
+// Spec: C:\obsidian\root\40-Plans\2026-08-22-brain-memory-compiler\2026-08-22-brain-memory-compiler.md
 import { readFileSync, existsSync, mkdirSync, writeFileSync, readdirSync, appendFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { homedir, tmpdir } from "node:os";
