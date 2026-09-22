@@ -50,6 +50,30 @@
         ]
       }
     ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:/Users/atlasfirarda/.bun/bin/bun.exe\" --bun \"C:/Users/atlasfirarda/.claude/hooks/brain-capture.mjs\"",
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:/Users/atlasfirarda/.bun/bin/bun.exe\" --bun \"C:/Users/atlasfirarda/.claude/hooks/brain-capture.mjs\"",
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      }
+    ],
     "PostToolUse": [
       {
         "matcher": "Edit|Write",
