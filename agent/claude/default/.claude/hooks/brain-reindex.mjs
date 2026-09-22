@@ -123,6 +123,12 @@ if (process.argv.includes("--settle")) {
         // Repo docs first: cheap, and the reason this hook fires most days now.
         for (const repo of s.repos ?? []) indexRepoDocs(repo);
         if (s.vault === false) break; // only repo docs changed; the vault indexes are current
+        // The FTS index before graphify: it takes seconds, and it is what retrieval and brain-doctor
+        // read. After graphify it waited on the slow graph rebuild, so fresh notes stayed unindexed
+        // longer.
+        try {
+          indexVault();
+        } catch {}
         try {
           execFileSync("graphify", ["update", "."], { cwd: VAULT, timeout: 600_000, ...QUIET });
         } catch {}
@@ -149,9 +155,6 @@ if (process.argv.includes("--settle")) {
               { cwd: VAULT, timeout: 600_000, ...QUIET },
             );
           }
-        } catch {}
-        try {
-          indexVault();
         } catch {}
         break;
       }
