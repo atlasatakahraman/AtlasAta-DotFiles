@@ -13,7 +13,9 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from "node:fs";
 import { join, basename } from "node:path";
 import { execFileSync } from "node:child_process";
-import { readStdin, logicalDate, VAULT, HOOKS, repoList, recentCommits, recordedCommits } from "./brain-lib.mjs";
+import {
+  readStdin, logicalDate, VAULT, HOOKS, repoList, recentCommits, recordedCommits, walkVault, brokenLinksIn,
+} from "./brain-lib.mjs";
 
 const dry = process.argv.includes("--dry-run");
 const bfAt = process.argv.indexOf("--backfill");
@@ -48,6 +50,22 @@ const filesOf = (c) => {
   }
 };
 
+/**
+ * A body is copied verbatim, so a commit message that mentions `[[file.png]]` as text became a
+ * dead link in the vault and failed brain-doctor's `links` (708adcc, 2026-09-22). Put backticks
+ * around every [[link]] that resolves to nothing; links that resolve, like compile's [[day]], stay live.
+ */
+let brokenIn = null;
+function quoteDeadLinks(body) {
+  if (!body || !body.includes("[[")) return body;
+  brokenIn ??= brokenLinksIn(walkVault());
+  const dead = new Set(brokenIn(body).map((t) => t.toLowerCase()));
+  if (!dead.size) return body;
+  return body.replace(/(?<!`)\[\[([^\]|#]+)[^\]]*\]\](?!`)/g, (m, t) =>
+    dead.has(t.trim().split(/[\\/]/).pop().toLowerCase()) ? `\`${m}\`` : m,
+  );
+}
+
 function noteFor(c, files, month, dd, n) {
   let stat = "";
   try {
@@ -62,7 +80,7 @@ function noteFor(c, files, month, dd, n) {
   // session log" for good; relinking records when a log appears later is the upgrade.
   const logged = existsSync(join(VAULT, "30-Sessions", month.slice(0, 4), month.slice(5), `${day}.md`));
   const why =
-    c.body ||
+    quoteDeadLinks(c.body) ||
     "_No commit body. Under D5 option A a commit record carries only what its message says — the why belongs in the body._";
   // ponytail: ordinal = highest existing for the day + 1. Correct when commits are recorded in time
   // order, which live use and a first backfill both guarantee. A later backfill of an OLDER day
