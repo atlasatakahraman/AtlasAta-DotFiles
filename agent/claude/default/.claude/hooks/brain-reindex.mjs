@@ -2,10 +2,13 @@
 // Runtime is bun (`bun --bun`), per 00-Meta/Hard-Rules.
 // Spec: C:\obsidian\root\40-Plans\2026-08-22-brain-memory-compiler\2026-08-22-brain-memory-compiler.md
 import { readFileSync, writeFileSync, unlinkSync, existsSync, readdirSync } from "node:fs";
-import { join, sep } from "node:path";
+import { join, sep, basename } from "node:path";
 import { tmpdir } from "node:os";
 import { spawn, execFileSync } from "node:child_process";
-import { readStdin, normDir, VAULT, HOOKS, DEV_ROOT, contextModeCli, INDEX_EXCLUDES, indexVault } from "./brain-lib.mjs";
+import {
+  readStdin, normDir, VAULT, HOOKS, DEV_ROOT, contextModeCli, INDEX_EXCLUDES, indexVault,
+  NOTE_EXEMPT, walkVault, frontmatterOk, brokenLinksIn,
+} from "./brain-lib.mjs";
 
 const STAMP = join(tmpdir(), "brain-reindex.json");
 const DEBOUNCE_MS = 90_000;
@@ -108,6 +111,29 @@ function repoRoot(path) {
   }
 }
 
+/**
+ * Write-time check for a vault note: frontmatter `type` + `created`, and every [[link]] resolves
+ * (or is in 00-Meta/Forward-Links.md). The same rules as brain-doctor's `frontmatter` and `links`,
+ * from brain-lib. Reported to the agent as context - never blocks the write.
+ * Lives here, not in a separate hook, because this hook already runs on every vault Edit|Write:
+ * a second hook on the same matcher would cost a second bun start (~330 ms) per write.
+ */
+function validateNote(file) {
+  const name = basename(file);
+  if (!name.endsWith(".md") || NOTE_EXEMPT.test(name)) return null;
+  let text;
+  try {
+    text = readFileSync(file, "utf8");
+  } catch {
+    return null;
+  }
+  const problems = [];
+  if (!frontmatterOk(text)) problems.push("frontmatter needs `type` and `created`");
+  const broken = [...new Set(brokenLinksIn(walkVault())(text))];
+  if (broken.length) problems.push(`links to nothing: ${broken.map((b) => `[[${b}]]`).join(", ")} — fix, or list as intentional in 00-Meta/Forward-Links.md`);
+  return problems.length ? `brain-validate ${name}: ${problems.join("; ")}. Conventions: 00-Meta/Conventions.md.` : null;
+}
+
 if (process.argv.includes("--settle")) {
   // Trailing debounce: keep waiting while edits are still arriving, then run once.
   (async () => {
@@ -186,7 +212,12 @@ if (process.argv.includes("--settle")) {
     if (!path) process.exit(0);
     if (EXCLUDES.some((e) => path.includes(`${sep}${e}${sep}`))) process.exit(0);
 
-    if (path.startsWith(normDir(VAULT))) schedule({ vault: true });
+    if (path.startsWith(normDir(VAULT))) {
+      schedule({ vault: true });
+      const problem = validateNote(String(input.tool_input?.file_path || ""));
+      if (problem)
+        process.stdout.write(JSON.stringify({ hookSpecificOutput: { hookEventName: "PostToolUse", additionalContext: problem } }));
+    }
     else if (path.endsWith(".md") && repoRoot(path)) schedule({ repo: repoRoot(path) });
   } catch {}
   process.exit(0);

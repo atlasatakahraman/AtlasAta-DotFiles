@@ -1,8 +1,8 @@
 // brain-lib.mjs - shared helpers for the brain memory hooks.
 // Runtime is bun (`bun --bun`), per 00-Meta/Hard-Rules.
 // Spec: C:\obsidian\root\40-Plans\2026-08-22-brain-memory-compiler\2026-08-22-brain-memory-compiler.md
-import { readFileSync, existsSync, mkdirSync, writeFileSync, readdirSync, appendFileSync } from "node:fs";
-import { join, dirname } from "node:path";
+import { readFileSync, existsSync, mkdirSync, writeFileSync, readdirSync, appendFileSync, statSync } from "node:fs";
+import { join, dirname, basename } from "node:path";
 import { homedir, tmpdir } from "node:os";
 import { execFileSync } from "node:child_process";
 import { Database } from "bun:sqlite";
@@ -398,6 +398,64 @@ export function indexVault() {
     ],
     { cwd: VAULT, timeout: 600_000, stdio: "ignore", windowsHide: true },
   );
+}
+
+// ---- Notes on disk --------------------------------------------------------------------------------
+// Moved from brain-doctor in Stage 07: brain-reindex's write-time check applies the same rules to
+// one note, and two copies of "what is a broken link" would disagree sooner or later.
+
+// Files whose top lines a tool or a reader consumes verbatim: no frontmatter, not notes to link.
+export const NOTE_EXEMPT = /^(LICENSE.*|CLAUDE|AGENTS|README)\.md$/i;
+
+/** Every note (lower-cased path -> { path, mtime }) and every file, skipping INDEX_EXCLUDES. */
+export function walkVault() {
+  const skip = new Set(INDEX_EXCLUDES);
+  const notes = new Map();
+  const files = []; // every file, for [[attachment.png]] links
+  const go = (d) => {
+    for (const e of readdirSync(d, { withFileTypes: true })) {
+      if (skip.has(e.name)) continue;
+      const p = join(d, e.name);
+      if (e.isDirectory()) go(p);
+      else {
+        files.push(p);
+        if (e.name.endsWith(".md")) notes.set(p.toLowerCase(), { path: p, mtime: statSync(p).mtimeMs });
+      }
+    }
+  };
+  go(VAULT);
+  return { notes, files };
+}
+
+// A link inside `inline code` or a fenced block is an example, not a link - Obsidian does not follow
+// it. Every link check strips code first, which is also what lets a prose example like `[[bin]]` stand.
+const stripCode = (t) => t.replace(/`{3}[\s\S]*?`{3}/g, "").replace(/`[^`\n]*`/g, "");
+export const linksOf = (text) => [...stripCode(text).matchAll(/\[\[([^\]|#]+)/g)].map((m) => m[1].trim().split(/[\\/]/).pop());
+
+/** `type` and `created` in a leading frontmatter block. */
+export function frontmatterOk(text) {
+  const m = /^---\r?\n([\s\S]*?)\r?\n---/.exec(text);
+  return !!m && /^type:\s*\S/m.test(m[1]) && /^created:\s*\S/m.test(m[1]);
+}
+
+/** Intentional forward links, lower-cased. The list writes each link in backticks, so it contains no broken links itself. */
+export function forwardLinks() {
+  try {
+    return new Set([...readFileSync(join(VAULT, "00-Meta", "Forward-Links.md"), "utf8").matchAll(/`\[\[([^\]|#]+)/g)].map((m) => m[1].trim().toLowerCase()));
+  } catch {
+    return new Set();
+  }
+}
+
+/** `(text) => targets` that resolve to no note, no file and no forward link. Build once, apply per note. */
+export function brokenLinksIn({ notes, files }, allowed = forwardLinks()) {
+  const names = new Set([...notes.values()].map((n) => basename(n.path, ".md").toLowerCase()));
+  const fileNames = new Set(files.map((p) => basename(p).toLowerCase()));
+  return (text) =>
+    linksOf(text).filter((t) => {
+      const k = t.toLowerCase();
+      return !names.has(k) && !fileNames.has(k) && !allowed.has(k);
+    });
 }
 
 // ---- Decision ledger (Stage 07) -----------------------------------------------------------------

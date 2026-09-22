@@ -11,14 +11,15 @@
 // A `fail` check makes the report FAIL; a `warn` check is reported and does not.
 // --repair runs only what is safe to run twice and cannot lose data (spec D9): re-index, graph
 // rebuild, hub regeneration. It never edits, moves or deletes a note.
-import { readdirSync, statSync, readFileSync, existsSync, writeFileSync, mkdirSync } from "node:fs";
+import { readdirSync, readFileSync, existsSync, writeFileSync, mkdirSync } from "node:fs";
 import { join, basename } from "node:path";
 import { homedir } from "node:os";
 import { execFileSync } from "node:child_process";
 import {
-  VAULT, DEV_ROOT, HOOKS, VAULT_LIKE, INDEX_EXCLUDES, HOOK_EVENTS,
+  VAULT, DEV_ROOT, HOOKS, VAULT_LIKE, HOOK_EVENTS,
   openDb, ftsMatch, vaultSearch, failures, logicalDate, notePath,
   repoList, recentCommits, recordedCommits, indexVault,
+  NOTE_EXEMPT as EXEMPT, walkVault as walk, linksOf, frontmatterOk, forwardLinks, brokenLinksIn,
 } from "./brain-lib.mjs";
 
 const pretty = process.argv.includes("--pretty");
@@ -26,10 +27,6 @@ const repair = process.argv.includes("--repair");
 const record = process.argv.includes("--record");
 const FLOOR = -6; // must match brain-inject: a hit it would not show is a miss here too
 const GRACE_MS = 10 * 60_000; // brain-reindex is debounced; a note written a minute ago is fine
-const SKIP = new Set(INDEX_EXCLUDES); // the same list brain-reindex indexes by
-// Files whose top lines a tool or a reader consumes verbatim: no frontmatter, not notes to link.
-const EXEMPT = /^(LICENSE.*|CLAUDE|AGENTS|README)\.md$/i;
-const FORWARD_LINKS = join(VAULT, "00-Meta", "Forward-Links.md");
 
 /** Ground truth. Keyed by basename, so moves cannot break it; a failing case means retrieval broke. */
 const CASES = [
@@ -41,31 +38,10 @@ const CASES = [
   ["frontmatter schema naming conventions wikilinks", "Conventions"],
 ];
 
-// ---- the vault on disk --------------------------------------------------------------------------
+// ---- the vault on disk (walk, links, frontmatter: shared with brain-reindex, in brain-lib) -------
 
-function walk() {
-  const notes = new Map(); // lower-cased path -> { path, mtime }
-  const files = []; // every file, for [[attachment.png]] links
-  const go = (d) => {
-    for (const e of readdirSync(d, { withFileTypes: true })) {
-      if (SKIP.has(e.name)) continue;
-      const p = join(d, e.name);
-      if (e.isDirectory()) go(p);
-      else {
-        files.push(p);
-        if (e.name.endsWith(".md")) notes.set(p.toLowerCase(), { path: p, mtime: statSync(p).mtimeMs });
-      }
-    }
-  };
-  go(VAULT);
-  return { notes, files };
-}
 const rel = (p) => p.slice(VAULT.length + 1);
 const isRootFile = (p) => !rel(p).includes("\\") && !rel(p).includes("/");
-// A link inside `inline code` or a fenced block is an example, not a link - Obsidian does not follow
-// it. Every link check strips code first, which is also what lets a prose example like `[[bin]]` stand.
-const stripCode = (t) => t.replace(/`{3}[\s\S]*?`{3}/g, "").replace(/`[^`\n]*`/g, "");
-const linksOf = (text) => [...stripCode(text).matchAll(/\[\[([^\]|#]+)/g)].map((m) => m[1].trim().split(/[\\/]/).pop());
 
 // ---- checks -------------------------------------------------------------------------------------
 
@@ -147,27 +123,18 @@ function checkFrontmatter({ notes }) {
   const bad = [];
   for (const { path } of notes.values()) {
     if (EXEMPT.test(basename(path))) continue;
-    const m = /^---\r?\n([\s\S]*?)\r?\n---/.exec(readFileSync(path, "utf8"));
-    if (!m || !/^type:\s*\S/m.test(m[1]) || !/^created:\s*\S/m.test(m[1])) bad.push(rel(path));
+    if (!frontmatterOk(readFileSync(path, "utf8"))) bad.push(rel(path));
   }
   return { id: "frontmatter", level: "fail", ok: !bad.length, detail: { bad: bad.length, samples: bad.slice(0, 8) } };
 }
 
 /** Every [[link]] resolves, except the intentional forward links listed in 00-Meta/Forward-Links.md. */
-function checkLinks({ notes, files }) {
-  const names = new Set([...notes.values()].map((n) => basename(n.path, ".md").toLowerCase()));
-  const fileNames = new Set(files.map((p) => basename(p).toLowerCase()));
-  let allowed = new Set();
-  try {
-    // The allowlist writes each link in backticks, so the list itself contains no broken links.
-    allowed = new Set([...readFileSync(FORWARD_LINKS, "utf8").matchAll(/`\[\[([^\]|#]+)/g)].map((m) => m[1].trim().toLowerCase()));
-  } catch {}
+function checkLinks(vault) {
+  const allowed = forwardLinks();
+  const brokenIn = brokenLinksIn(vault, allowed);
   const broken = [];
-  for (const { path } of notes.values())
-    for (const t of linksOf(readFileSync(path, "utf8"))) {
-      const k = t.toLowerCase();
-      if (!names.has(k) && !fileNames.has(k) && !allowed.has(k)) broken.push(`${rel(path)} -> [[${t}]]`);
-    }
+  for (const { path } of vault.notes.values())
+    for (const t of brokenIn(readFileSync(path, "utf8"))) broken.push(`${rel(path)} -> [[${t}]]`);
   return { id: "links", level: "fail", ok: !broken.length, detail: { broken: broken.length, allowedForward: allowed.size, samples: broken.slice(0, 8) } };
 }
 
