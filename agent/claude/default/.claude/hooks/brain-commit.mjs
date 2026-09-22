@@ -13,72 +13,16 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from "node:fs";
 import { join, basename } from "node:path";
 import { execFileSync } from "node:child_process";
-import { readStdin, logicalDate, VAULT, DEV_ROOT, HOOKS } from "./brain-lib.mjs";
+import { readStdin, logicalDate, VAULT, HOOKS, repoList, recentCommits, recordedCommits } from "./brain-lib.mjs";
 
 const dry = process.argv.includes("--dry-run");
 const bfAt = process.argv.indexOf("--backfill");
 const backfill = bfAt !== -1 ? process.argv[bfAt + 1] : null;
 const ROOT = join(VAULT, "50-Ops", "Commits");
-const US = "\x1f"; // field separator in git --format output
-const RS = "\x1e"; // record separator
 
 const git = (cwd, ...a) =>
   execFileSync("git", a, { cwd, encoding: "utf8", windowsHide: true, stdio: ["ignore", "pipe", "ignore"] });
 const pad = (n) => String(n).padStart(2, "0");
-
-/** The vault + every checkout under DEV_ROOT, each named for its GitHub remote (Conventions). */
-function repoList() {
-  const roots = [VAULT];
-  try {
-    for (const e of readdirSync(DEV_ROOT, { withFileTypes: true }))
-      if (e.isDirectory() && existsSync(join(DEV_ROOT, e.name, ".git"))) roots.push(join(DEV_ROOT, e.name));
-  } catch {}
-  return roots.map((root) => {
-    let name = basename(root);
-    try {
-      name = git(root, "remote", "get-url", "origin").trim().replace(/\.git$/, "").split(/[/:]/).pop() || name;
-    } catch {}
-    return { root, name };
-  });
-}
-
-/** Non-merge commits in one repo since `since`, oldest first. The full hash is the identity. */
-function recentCommits({ root, name }, since) {
-  let out = "";
-  try {
-    out = git(root, "log", `--since=${since}`, "--no-merges", "--reverse", `--format=%H${US}%cI${US}%s${US}%b${RS}`);
-  } catch {
-    return [];
-  }
-  return out
-    .split(RS)
-    .map((r) => r.replace(/^\s+/, ""))
-    .filter(Boolean)
-    .map((r) => {
-      const [hash, iso, subject, body = ""] = r.split(US);
-      return { root, name, hash, iso, subject: subject || "(no subject)", body: body.trim() };
-    })
-    .filter((c) => /^[0-9a-f]{40}$/.test(c.hash));
-}
-
-/** What is already recorded, read from the notes: full hashes, and each day's highest ordinal. */
-function recorded() {
-  const hashes = new Set();
-  const maxOrdinal = new Map(); // "YYYY-MM-DD" -> N
-  if (!existsSync(ROOT)) return { hashes, maxOrdinal };
-  for (const m of readdirSync(ROOT, { withFileTypes: true })) {
-    if (!m.isDirectory() || !/^\d{4}-\d{2}$/.test(m.name)) continue;
-    for (const f of readdirSync(join(ROOT, m.name))) {
-      const hit = /^(\d{2})-x(\d+)-.+\.md$/.exec(f);
-      if (!hit) continue;
-      const day = `${m.name}-${hit[1]}`;
-      maxOrdinal.set(day, Math.max(maxOrdinal.get(day) ?? 0, Number(hit[2])));
-      const h = /^hash:\s*([0-9a-f]{40})/m.exec(readFileSync(join(ROOT, m.name, f), "utf8"));
-      if (h) hashes.add(h[1]);
-    }
-  }
-  return { hashes, maxOrdinal };
-}
 
 /** Logical day (05:00 rollover), matching 30-Sessions/: a 02:00 commit is yesterday's work. */
 function dayOf(iso) {
@@ -199,7 +143,7 @@ try {
     if (!/\bcommit\b/.test(String(readStdin().tool_input?.command || ""))) process.exit(0);
   }
 
-  const { hashes, maxOrdinal } = recorded();
+  const { hashes, maxOrdinal } = recordedCommits();
   const fresh = repoList()
     .flatMap((r) => recentCommits(r, backfill || "3.days.ago"))
     .filter((c) => !hashes.has(c.hash))

@@ -5,7 +5,7 @@ import { readFileSync, writeFileSync, unlinkSync, existsSync, readdirSync } from
 import { join, sep } from "node:path";
 import { tmpdir } from "node:os";
 import { spawn, execFileSync } from "node:child_process";
-import { readStdin, normDir, VAULT, HOOKS, DEV_ROOT, contextModeCli, INDEX_EXCLUDES } from "./brain-lib.mjs";
+import { readStdin, normDir, VAULT, HOOKS, DEV_ROOT, contextModeCli, INDEX_EXCLUDES, indexVault } from "./brain-lib.mjs";
 
 const STAMP = join(tmpdir(), "brain-reindex.json");
 const DEBOUNCE_MS = 90_000;
@@ -151,20 +151,7 @@ if (process.argv.includes("--settle")) {
           }
         } catch {}
         try {
-          execFileSync(
-            process.execPath,
-            [
-              "--bun", CM_CLI, "index", VAULT,
-              "--source", "brain-vault",
-              "--max-depth", "4",
-              // Per-commit notes (Stage 01) add 100+ files a month; at 500 the index would silently
-              // truncate within two months. brain-doctor's `unindexed` count is the tripwire.
-              "--max-files", "20000",
-              "--ext", ".md",
-              ...EXCLUDES.flatMap((e) => ["--exclude", `**/${e}/**`]),
-            ],
-            { cwd: VAULT, timeout: 600_000, ...QUIET },
-          );
+          indexVault();
         } catch {}
         break;
       }
