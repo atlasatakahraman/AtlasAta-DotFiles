@@ -2,7 +2,7 @@
   "permissions": {
     "defaultMode": "auto"
   },
-  "model": "opus[1m]",
+  "model": "sonnet",
   "hooks": {
     "SessionStart": [
       {
@@ -113,10 +113,11 @@
     "claude-code-setup@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
     "supabase@claude-plugins-official": true,
-    "remember@claude-plugins-official": true,
+    "remember@claude-plugins-official": false,
     "ponytail@ponytail": true,
     "context-mode@context-mode": true,
-    "nateherk-design@nateherk": true
+    "nateherk-design@nateherk": true,
+    "rust-analyzer-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "everything-claude-code": {
@@ -144,9 +145,17 @@
       }
     }
   },
-  "outputStyle": "Concise",
+  "outputStyle": "Proactive",
   "syntaxHighlightingDisabled": false,
   "effortLevel": "high",
+  "modelSettings": {
+    "claude-sonnet-5": {
+      "effortLevel": "medium"
+    },
+    "claude-opus-5": {
+      "effortLevel": "high"
+    }
+  },
   "dialogExpiry": "never",
   "autoUpdatesChannel": "latest",
   "autoDreamEnabled": true,
@@ -191,13 +200,5 @@
       "**Org-specific CLIs**: None configured — routine local tooling seen in shell history is bun, cargo, rustup, git, npm/npx, uv, pip, ffmpeg, yt-dlp, gallery-dl, rg",
       "**Routine under this repo only**: bun scripts (dev/build/lint), `bun tsc --noEmit`, cargo fmt/clippy/check/test in src-tauri/, and the bash guard scripts under scripts/"
     ]
-  },
-  "modelSettings": {
-    "claude-sonnet-5": {
-      "effortLevel": "medium"
-    },
-    "claude-opus-5": {
-      "effortLevel": "high"
-    }
   }
 }
