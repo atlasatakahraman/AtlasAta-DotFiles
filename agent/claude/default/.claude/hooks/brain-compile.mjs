@@ -7,10 +7,10 @@
 // A log for a past logical day never changes again, so it compiles exactly once, and the hash
 // in STATE is what proves it. `--force` targets today's still-open log.
 import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
-import { join } from "node:path";
+import { join, basename } from "node:path";
 import { createHash } from "node:crypto";
 import { execFileSync, spawn } from "node:child_process";
-import { notePath, VAULT, DEV_ROOT, HOOKS, STATE_DIR, recordFailure, clearFailure } from "./brain-lib.mjs";
+import { notePath, VAULT, DEV_ROOT, HOOKS, STATE_DIR, recordFailure, clearFailure, linksOf } from "./brain-lib.mjs";
 
 const STATE = join(VAULT, "50-Ops", "brain-compile-state.json");
 const SESSIONS = join(VAULT, "30-Sessions");
@@ -56,6 +56,41 @@ function logs() {
 }
 
 const hashOf = (f) => createHash("sha256").update(readFileSync(f, "utf8")).digest("hex");
+
+/**
+ * Link every note this run created that its MOC does not link yet, under an "Unsorted" heading.
+ * The prompt asks the model to file its notes, and some runs don't: the 09-17 compile wrote five
+ * knowledge notes and linked none, so they sat outside `reach` until a human noticed. A MOC is one
+ * hop from 00-MOC-Root, so a link there keeps the note within the 2 hops `reach` requires.
+ * Returns the basenames it linked.
+ */
+function fileUnlinked(created, day) {
+  const MOCS = { "60-Decisions/": "60-Decisions/00-MOC-Decisions.md", "20-Knowledge/": "20-Knowledge/00-MOC-Knowledge.md" };
+  const HEAD = "## Unsorted (brain-compile)";
+  const filed = [];
+  for (const [prefix, moc] of Object.entries(MOCS)) {
+    const file = join(VAULT, moc);
+    let text;
+    try {
+      text = readFileSync(file, "utf8");
+    } catch {
+      continue;
+    }
+    const linked = new Set(linksOf(text).map((t) => t.toLowerCase()));
+    const add = created
+      .filter((p) => p.startsWith(prefix) && p.endsWith(".md") && !basename(p).startsWith("00-MOC-"))
+      .map((p) => basename(p, ".md"))
+      .filter((n) => !linked.has(n.toLowerCase()));
+    if (!add.length) continue;
+    const lines = add.map((n) => `- [[${n}]] — from [[${day}]], filed by brain-compile; move it to its section`);
+    text = text.includes(`${HEAD}\n\n`)
+      ? text.replace(`${HEAD}\n\n`, () => `${HEAD}\n\n${lines.join("\n")}\n`)
+      : `${text.replace(/\s*$/, "")}\n\n${HEAD}\n\n${lines.join("\n")}\n`;
+    writeFileSync(file, text, "utf8");
+    filed.push(...add);
+  }
+  return filed;
+}
 
 try {
   const now = new Date();
@@ -115,8 +150,10 @@ try {
     "  Never reuse a number already on disk, even when the file holding it looks unrelated to you.",
     "- Every note gets frontmatter per Conventions.md. Filenames kebab-case, H1 is `NNNN — Title`.",
     "- Link back to the source log with a [[wikilink]], never a path link.",
-    "- Add EVERY new decision to the table in 60-Decisions/00-MOC-Decisions.md. A note missing from",
-    "  its MOC is unreachable at retrieval tier 1 and will be rewritten by a later run.",
+    "- Add EVERY new decision to the table in 60-Decisions/00-MOC-Decisions.md, and EVERY new",
+    "  20-Knowledge note to 20-Knowledge/00-MOC-Knowledge.md under its area's section, as",
+    "  `- [[<slug>]] — <one line>`. A note missing from its MOC is unreachable at retrieval tier 1",
+    "  and will be rewritten by a later run.",
     "- Touch nothing outside the four target areas.",
     dry ? "- DRY RUN: describe what you would write. Write NOTHING." : "",
     "",
@@ -132,7 +169,8 @@ try {
   const snapshot = () => {
     try {
       return new Map(
-        execFileSync("git", ["status", "--porcelain", "--", ...SCOPE], {
+        // -uall: a new folder is listed file by file, so fileUnlinked() sees each new note.
+        execFileSync("git", ["status", "--porcelain", "--untracked-files=all", "--", ...SCOPE], {
           cwd: VAULT,
           encoding: "utf8",
           windowsHide: true,
@@ -185,13 +223,27 @@ try {
   // Stage the delta against the pre-run snapshot, never whole directories. A path the user
   // already had dirty keeps its status and is skipped - including one the compiler then also
   // edited, which is the intended bias: never fold someone else's work into this commit.
+  const day = log.slice(-13, -3);
+  const created = [...snapshot()].filter(([p, s]) => s === "??" && !before.has(p)).map(([p]) => p);
+  const filed = fileUnlinked(created, day);
   const mine = [...snapshot()].filter(([p, s]) => before.get(p) !== s).map(([p]) => p);
   if (mine.length) git("add", "--", ...mine);
-  if (mine.length && git("diff", "--cached", "--name-only").trim()) {
+  const staged = mine.length ? git("diff", "--cached", "--name-only").trim() : "";
+  if (staged) {
+    // The commit note copies the body as the commit's "why" (spec D5 option A). Without one, 14 of
+    // 17 subject-only commits in 2026-09 were this compiler's.
+    const body = [
+      `Promoted the finished session log [[${day}]] into the vault: the decisions, gotchas and`,
+      "preferences it recorded, routed by brain-compile (sonnet).",
+      "",
+      "Files:",
+      ...staged.split("\n").map((f) => `- ${f}`),
+      ...(filed.length ? ["", `Linked by the fallback, not by the model (sort them): ${filed.join(", ")}`] : []),
+    ].join("\n");
     git(
       "-c", "user.name=brain-compiler",
       "-c", "user.email=noreply@local",
-      "commit", "-m", `chore(brain): compile ${log.slice(-13, -3)}`,
+      "commit", "-m", `chore(brain): compile ${day}`, "-m", body,
     );
   }
 
