@@ -59,8 +59,9 @@ paths, which differ per OS, and each OS has its own vault. The `windows` branch'
 `C:\obsidian\root`; `arch-caelestia` carries its own. Symlinked rather than copied for the same
 reason the hooks are — a second copy is one more thing to forget to sync.
 
-Not to be confused with `agent/claude/default/CLAUDE.md` (no leading `.claude/`), which is a
-separate OpenClaude multi-provider config and is not linked anywhere.
+Not to be confused with `agent/openclaude/CLAUDE.md`, a separate OpenClaude multi-provider config
+that is not linked anywhere. It lives outside `agent/claude/` because Claude Code auto-loads any
+`CLAUDE.md` above a file it reads.
 
 ## License
 
