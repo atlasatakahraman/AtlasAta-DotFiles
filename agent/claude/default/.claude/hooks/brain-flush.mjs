@@ -8,12 +8,12 @@
 // clock, so it could neither stop a second capture point from re-sending the same 20 turns nor
 // tell a real repeat from a new stretch of the same session. The watermark records how far each
 // session has been flushed: last event id per session DB, and transcript turn count.
-import { readFileSync, appendFileSync } from "node:fs";
-import { basename } from "node:path";
+import { readFileSync, appendFileSync, openSync, closeSync, statSync, rmSync, mkdirSync } from "node:fs";
+import { basename, join } from "node:path";
 import { execFileSync } from "node:child_process";
 import {
   sessionDbs, notePath, ensureNote, openDb, recordFailure, clearFailure,
-  logEvent, readWatermarks, writeWatermark, resolveTranscript,
+  logEvent, readWatermarks, writeWatermark, resolveTranscript, STATE_DIR,
 } from "./brain-lib.mjs";
 
 const [, , rawSid = "", cwd = ""] = process.argv;
@@ -87,8 +87,38 @@ function turnsOf(path) {
   return out;
 }
 
+// One flush per session at a time. Three captures of one session on 2026-09-22 each read the same
+// watermark, each sent the same turns, and the daily note got the same entries three times. The
+// lock is an exclusive create, so the check and the claim are one filesystem operation. A flush
+// that died leaves its lock; it expires after the `claude -p` timeout plus margin. A flush that
+// finds the lock held exits: its material is above the watermark, so the next capture sends it.
+const LOCK = join(STATE_DIR, `flush-${sid}.lock`);
+const LOCK_STALE_MS = 180_000;
+function claim() {
+  mkdirSync(STATE_DIR, { recursive: true });
+  for (let i = 0; i < 2; i++) {
+    try {
+      closeSync(openSync(LOCK, "wx"));
+      return true;
+    } catch {
+      try {
+        if (Date.now() - statSync(LOCK).mtimeMs < LOCK_STALE_MS) return false;
+        rmSync(LOCK, { force: true });
+      } catch {}
+    }
+  }
+  return false;
+}
+
 try {
   if (!sid) process.exit(0);
+  if (!dry && !claim()) {
+    log({ hook: "flush", sid, outcome: "busy" });
+    process.exit(0);
+  }
+  process.on("exit", () => {
+    if (!dry) try { rmSync(LOCK, { force: true }); } catch {}
+  });
   const mark = readWatermarks()[sid] || {};
   const tp = resolveTranscript(sid, opt("--transcript"));
   const turns = tp ? turnsOf(tp) : [];
