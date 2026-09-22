@@ -9,8 +9,8 @@
 // Every failure of this system so far was SILENT - the retrieval hook never returned a vault note
 // for as long as it existed, and nothing noticed. Each check below exists because of one.
 // A `fail` check makes the report FAIL; a `warn` check is reported and does not.
-// --repair runs only what is safe to run twice and cannot lose data (spec D9): re-index, graph
-// rebuild, hub regeneration. It never edits, moves or deletes a note.
+// --repair runs only what is safe to run twice and cannot lose data (spec D9): prune ghost index
+// rows, re-index, graph rebuild, hub regeneration. It never edits, moves or deletes a note.
 import { readdirSync, readFileSync, existsSync, writeFileSync, mkdirSync } from "node:fs";
 import { join, basename } from "node:path";
 import { homedir } from "node:os";
@@ -18,7 +18,7 @@ import { execFileSync } from "node:child_process";
 import {
   VAULT, DEV_ROOT, HOOKS, VAULT_LIKE, HOOK_EVENTS,
   openDb, ftsMatch, vaultSearch, failures, logicalDate, notePath,
-  repoList, recentCommits, recordedCommits, indexVault,
+  repoList, recentCommits, recordedCommits, indexVault, pruneVaultIndex,
   NOTE_EXEMPT as EXEMPT, walkVault as walk, linksOf, frontmatterOk, forwardLinks, brokenLinksIn,
 } from "./brain-lib.mjs";
 
@@ -256,6 +256,7 @@ function runChecks() {
 
 function runRepairs() {
   const steps = [
+    ["prune", () => pruneVaultIndex()],
     ["reindex", () => indexVault()],
     ["graph", () => execFileSync("graphify", ["update", "."], { cwd: VAULT, timeout: 600_000, stdio: "ignore", windowsHide: true })],
     ["hubs", () => execFileSync(process.execPath, ["--bun", join(HOOKS, "brain-hubs.mjs")], { timeout: 60_000, stdio: "ignore", windowsHide: true })],
