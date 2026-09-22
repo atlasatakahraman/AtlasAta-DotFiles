@@ -13,7 +13,7 @@ import { basename, join } from "node:path";
 import { execFileSync } from "node:child_process";
 import {
   sessionDbs, notePath, ensureNote, openDb, recordFailure, clearFailure,
-  logEvent, readWatermarks, writeWatermark, resolveTranscript, STATE_DIR, ledgerAdd,
+  logEvent, readWatermarks, writeWatermark, resolveTranscript, STATE_DIR, ledgerAdd, quoteDeadLinks,
 } from "./brain-lib.mjs";
 
 const [, , rawSid = "", cwd = ""] = process.argv;
@@ -207,7 +207,7 @@ try {
   const now = backfill && !Number.isNaN(backfill.getTime()) ? backfill : new Date();
   const file = notePath(now);
   const where = cwd ? basename(String(cwd).replace(/[\\/]+$/, "")) : "?";
-  const block = `\n### ${backfill ? "backfill" : now.toTimeString().slice(0, 5)} · ${where}\n\n${out}\n`;
+  const block = `\n### ${backfill ? "backfill" : now.toTimeString().slice(0, 5)} · ${where}\n\n${quoteDeadLinks(out)}\n`;
 
   if (dry) {
     process.stdout.write(`[dry-run] would append to ${file}:\n${block}`);

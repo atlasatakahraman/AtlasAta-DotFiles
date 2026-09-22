@@ -14,7 +14,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 
 import { join, basename } from "node:path";
 import { execFileSync } from "node:child_process";
 import {
-  readStdin, logicalDate, VAULT, HOOKS, repoList, recentCommits, recordedCommits, walkVault, brokenLinksIn,
+  readStdin, logicalDate, VAULT, HOOKS, repoList, recentCommits, recordedCommits, quoteDeadLinks,
 } from "./brain-lib.mjs";
 
 const dry = process.argv.includes("--dry-run");
@@ -49,24 +49,6 @@ const filesOf = (c) => {
     return [];
   }
 };
-
-/**
- * A body is copied verbatim, so a commit message that mentions `[[file.png]]` as text became a
- * dead link in the vault and failed brain-doctor's `links` (708adcc, 2026-09-22). Put backticks
- * around every [[link]] that resolves to nothing; links that resolve, like compile's [[day]], stay live.
- */
-let brokenIn = null;
-function quoteDeadLinks(body) {
-  if (!body || !body.includes("[[")) return body;
-  brokenIn ??= brokenLinksIn(walkVault());
-  const dead = new Set(brokenIn(body).map((t) => t.toLowerCase()));
-  if (!dead.size) return body;
-  // A dead heading comes back as "note#heading", so it is matched with its anchor.
-  return body.replace(/(?<!`)\[\[([^\]|#\n]+)(?:#([^\]|#^\n]+))?[^\]\n]*\]\](?!`)/g, (m, t, h) => {
-    const n = t.trim().split(/[\\/]/).pop().toLowerCase();
-    return dead.has(n) || (h && dead.has(`${n}#${h.trim().toLowerCase()}`)) ? `\`${m}\`` : m;
-  });
-}
 
 function noteFor(c, files, month, dd, n) {
   let stat = "";
