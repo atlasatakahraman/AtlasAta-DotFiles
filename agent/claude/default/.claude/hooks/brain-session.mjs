@@ -41,7 +41,8 @@ function machine() {
   ].join("\n");
 }
 
-const CAP = 7000; // chars; ~1,900 tokens, paid once per session
+const CAP = 9000; // chars. Identity (~4.2 k) + rules kernel (≤ 3.3 k) with headroom. Raised deliberately:
+// at 7000 the second CORE note never fit - the root MOC was silently dropped from every session.
 const STALE_DAYS = 3; // slack for a weekend off, tight enough to catch a real break early
 
 /**
@@ -128,9 +129,11 @@ function healthAlarm() {
   return null;
 }
 
+// Priming is what the model needs before it acts: who the user is, and the rules that correct its
+// defaults. The root MOC is recall material - the note names brain-inject injects per prompt reach it.
 const CORE = [
   ["Identity", join(VAULT, "00-Meta", "Identity.md")],
-  ["Where things live", join(VAULT, "00-Meta", "00-MOC-Root.md")],
+  ["Hard rules — kernel", join(VAULT, "00-Meta", "Hard-Rules-Kernel.md")],
 ];
 
 // Strip YAML frontmatter - it is metadata, not context worth spending tokens on.
@@ -156,7 +159,11 @@ try {
   for (const [label, file] of CORE) {
     if (!existsSync(file)) continue;
     const t = body(readFileSync(file, "utf8"));
-    if (used + t.length > CAP) continue;
+    if (used + t.length > CAP) {
+      // Never silently: a skipped CORE note is exactly the failure that hid the MOC for weeks.
+      parts.push(`!! PRIMING: ${label} (${t.length} chars) skipped — over the ${CAP}-char cap. Raise CAP in brain-session.mjs or shorten the note.`);
+      continue;
+    }
     parts.push(`## ${label}\n\n${t}`);
     used += t.length;
   }
