@@ -430,7 +430,9 @@ export function walkVault() {
 // A link inside `inline code` or a fenced block is an example, not a link - Obsidian does not follow
 // it. Every link check strips code first, which is also what lets a prose example like `[[bin]]` stand.
 const stripCode = (t) => t.replace(/`{3}[\s\S]*?`{3}/g, "").replace(/`[^`\n]*`/g, "");
-export const linksOf = (text) => [...stripCode(text).matchAll(/\[\[([^\]|#]+)/g)].map((m) => m[1].trim().split(/[\\/]/).pop());
+// Closed on the same line, as Obsidian requires: an unclosed "[[" in prose is not a link. Before,
+// `contains "[[".` in a commit body was read as a link to the rest of the file.
+export const linksOf = (text) => [...stripCode(text).matchAll(/\[\[([^\]|#\n]+)[^\]\n]*\]\]/g)].map((m) => m[1].trim().split(/[\\/]/).pop());
 
 /** `type` and `created` in a leading frontmatter block. */
 export function frontmatterOk(text) {

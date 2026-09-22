@@ -61,7 +61,7 @@ function quoteDeadLinks(body) {
   brokenIn ??= brokenLinksIn(walkVault());
   const dead = new Set(brokenIn(body).map((t) => t.toLowerCase()));
   if (!dead.size) return body;
-  return body.replace(/(?<!`)\[\[([^\]|#]+)[^\]]*\]\](?!`)/g, (m, t) =>
+  return body.replace(/(?<!`)\[\[([^\]|#\n]+)[^\]\n]*\]\](?!`)/g, (m, t) =>
     dead.has(t.trim().split(/[\\/]/).pop().toLowerCase()) ? `\`${m}\`` : m,
   );
 }
@@ -100,7 +100,7 @@ function noteFor(c, files, month, dd, n) {
     "status: active",
     "---",
     "",
-    `# ${c.subject}`,
+    `# ${quoteDeadLinks(c.subject)}`,
     "",
     `\`${c.hash.slice(0, 7)}\` · ${c.name} · ${pad(t.getHours())}:${pad(t.getMinutes())} · ${logged ? `session log [[${day}]]` : "no session log"}`,
     "",
@@ -124,7 +124,8 @@ function writeIndex(month) {
     .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
     .map((f) => {
       const t = readFileSync(join(dir, f), "utf8");
-      const title = (/^# (.+)$/m.exec(t)?.[1] ?? f).replace(/[|\]]/g, "-");
+      // `[` too: a subject that mentions [[x]] would otherwise nest a link inside the index link.
+      const title = (/^# (.+)$/m.exec(t)?.[1] ?? f).replace(/[|[\]]/g, "-");
       const repo = /^repo:\s*(.+)$/m.exec(t)?.[1]?.trim() ?? "";
       return { dd: f.slice(0, 2), link: `- [[${f.slice(0, -3)}|${repo} · ${title}]]` };
     });
