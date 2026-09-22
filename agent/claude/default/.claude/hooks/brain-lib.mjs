@@ -4,6 +4,7 @@
 import { readFileSync, existsSync, mkdirSync, writeFileSync, readdirSync, appendFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { homedir, tmpdir } from "node:os";
+import { execFileSync } from "node:child_process";
 import { Database } from "bun:sqlite";
 
 /**
@@ -310,4 +311,91 @@ export function resolveTranscript(sessionId, given) {
     }
   } catch {}
   return null;
+}
+
+// ---- Repos, commits, the vault index -------------------------------------------------------
+// Moved here in Stage 06: brain-commit and brain-doctor both need them (the duplication trigger).
+
+const US = "\x1f"; // field separator in git --format output
+const RS = "\x1e"; // record separator
+const gitOut = (cwd, ...a) =>
+  execFileSync("git", a, { cwd, encoding: "utf8", windowsHide: true, stdio: ["ignore", "pipe", "ignore"] });
+
+/** The vault + every checkout under DEV_ROOT, each named for its GitHub remote (Conventions). */
+export function repoList() {
+  const roots = [VAULT];
+  try {
+    for (const e of readdirSync(DEV_ROOT, { withFileTypes: true }))
+      if (e.isDirectory() && existsSync(join(DEV_ROOT, e.name, ".git"))) roots.push(join(DEV_ROOT, e.name));
+  } catch {}
+  return roots.map((root) => {
+    let name = root.split(/[\\/]/).pop();
+    try {
+      name = gitOut(root, "remote", "get-url", "origin").trim().replace(/\.git$/, "").split(/[/:]/).pop() || name;
+    } catch {}
+    return { root, name };
+  });
+}
+
+/** Non-merge commits in one repo since `since`, oldest first. The full hash is the identity. */
+export function recentCommits({ root, name }, since) {
+  let out = "";
+  try {
+    out = gitOut(root, "log", `--since=${since}`, "--no-merges", "--reverse", `--format=%H${US}%cI${US}%s${US}%b${RS}`);
+  } catch {
+    return [];
+  }
+  return out
+    .split(RS)
+    .map((r) => r.replace(/^\s+/, ""))
+    .filter(Boolean)
+    .map((r) => {
+      const [hash, iso, subject, body = ""] = r.split(US);
+      return { root, name, hash, iso, subject: subject || "(no subject)", body: body.trim() };
+    })
+    .filter((c) => /^[0-9a-f]{40}$/.test(c.hash));
+}
+
+/** What is recorded, read from the notes: full hashes, and each logical day's highest ordinal. */
+export function recordedCommits() {
+  const root = join(VAULT, "50-Ops", "Commits");
+  const hashes = new Set();
+  const maxOrdinal = new Map(); // "YYYY-MM-DD" -> N
+  if (!existsSync(root)) return { hashes, maxOrdinal };
+  for (const m of readdirSync(root, { withFileTypes: true })) {
+    if (!m.isDirectory() || !/^\d{4}-\d{2}$/.test(m.name)) continue;
+    for (const f of readdirSync(join(root, m.name))) {
+      const hit = /^(\d{2})-x(\d+)-.+\.md$/.exec(f);
+      if (!hit) continue;
+      const day = `${m.name}-${hit[1]}`;
+      maxOrdinal.set(day, Math.max(maxOrdinal.get(day) ?? 0, Number(hit[2])));
+      const h = /^hash:\s*([0-9a-f]{40})/m.exec(readFileSync(join(root, m.name, f), "utf8"));
+      if (h) hashes.add(h[1]);
+    }
+  }
+  return { hashes, maxOrdinal };
+}
+
+/**
+ * Rebuild the vault's context-mode index, synchronously. The same arguments brain-reindex has
+ * always used; one definition, so the Routine's repair and the edit-time reindex cannot diverge.
+ * Throws on failure - callers decide whether that is fatal.
+ */
+export function indexVault() {
+  const cli = contextModeCli();
+  if (!cli) throw new Error("context-mode CLI not found");
+  execFileSync(
+    process.execPath,
+    [
+      "--bun", cli, "index", VAULT,
+      "--source", "brain-vault",
+      "--max-depth", "4",
+      // Per-commit notes add 100+ files a month; at 500 the index truncated silently.
+      // brain-doctor's `unindexed` count is the tripwire.
+      "--max-files", "20000",
+      "--ext", ".md",
+      ...INDEX_EXCLUDES.flatMap((e) => ["--exclude", `**/${e}/**`]),
+    ],
+    { cwd: VAULT, timeout: 600_000, stdio: "ignore", windowsHide: true },
+  );
 }
