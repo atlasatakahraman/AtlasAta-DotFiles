@@ -29,10 +29,12 @@ cd /c/obsidian/root && graphify merge-graphs graphify-out/graph.json /c/dev/*/gr
 served graph stale. The `brain-reindex` hook re-merges automatically after each vault rebuild, so
 this step matters when a *repo* graph changed.
 
-3. **Re-index for full-text search:** `/context-mode:ctx-index C:\obsidian\root`
+3. **Re-index for full-text search:** `bun --bun ~/.claude/hooks/brain-doctor.mjs --repair --pretty`
+   re-indexes the vault with the same arguments `brain-reindex` uses (source `brain-vault`),
+   rebuilds the graph and hubs, then runs the ten checks.
 
-   To make a repo's code searchable — and injectable by `brain-inject`, which iterates every
-   content DB:
+   To make a repo's code searchable by `ctx_search` in a session launched in that repo.
+   `brain-inject` does not read repo DBs: it is scoped to the vault's DB since 2026-09-21.
 
 ```bash
 bun --bun ~/.claude/plugins/cache/context-mode/context-mode/1.0.169/cli.bundle.mjs index C:/dev/<Repo> --source repo:<Repo> --ext .ts,.tsx,.rs,.md --max-depth 8 --max-files 800
