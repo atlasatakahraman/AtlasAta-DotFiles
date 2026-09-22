@@ -10,7 +10,7 @@
 import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { release } from "node:os";
-import { VAULT, DEV_ROOT, sessionDbs, failures, HOOK_EVENTS } from "./brain-lib.mjs";
+import { VAULT, DEV_ROOT, sessionDbs, failures, HOOK_EVENTS, ledgerRead } from "./brain-lib.mjs";
 
 /**
  * Which OS this session runs on, detected now rather than written into a file. The machine
@@ -171,6 +171,11 @@ try {
   try {
     health = healthAlarm();
   } catch {}
+  let decisions = null;
+  try {
+    const n = ledgerRead().filter((e) => e.promoted === null).length;
+    if (n) decisions = `${n} captured decision${n === 1 ? "" : "s"} not yet in 60-Decisions/ — promote with /brain new decision --ledger`;
+  } catch {}
 
   // The cause, when a hook recorded one — no waiting STALE_DAYS for the symptom.
   const failing = Object.entries(failures()).map(
@@ -183,6 +188,7 @@ try {
     ...failing.flatMap((l) => [l, ""]),
     ...(canary ? [canary, ""] : []),
     ...(health ? [health, ""] : []),
+    ...(decisions ? [decisions, ""] : []),
     machine(),
     "",
     `The user's second brain is at ${VAULT}. This is its always-true core, injected at`,
