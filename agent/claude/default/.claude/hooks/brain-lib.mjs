@@ -449,15 +449,33 @@ export function forwardLinks() {
   }
 }
 
-/** `(text) => targets` that resolve to no note, no file and no forward link. Build once, apply per note. */
+/**
+ * `(text) => targets` that resolve to no note, no file and no forward link, plus `Note#Heading`
+ * for a [[Note#Heading]] whose note has no such heading. Build once, apply per note.
+ */
 export function brokenLinksIn({ notes, files }, allowed = forwardLinks()) {
   const names = new Set([...notes.values()].map((n) => basename(n.path, ".md").toLowerCase()));
   const fileNames = new Set(files.map((p) => basename(p).toLowerCase()));
-  return (text) =>
-    linksOf(text).filter((t) => {
+  // The rules kernel links Hard-Rules sections (Stage 08): a renamed heading must not leave it
+  // pointing nowhere. Headings are read lazily, once per note; fenced code holds no headings.
+  const pathOf = new Map([...notes.values()].map((n) => [basename(n.path, ".md").toLowerCase(), n.path]));
+  const headingsOf = new Map();
+  const headings = (k) => {
+    if (!headingsOf.has(k))
+      headingsOf.set(k, new Set([...readFileSync(pathOf.get(k), "utf8").replace(/`{3}[\s\S]*?`{3}/g, "").matchAll(/^#{1,6}\s+(.+?)\s*$/gm)].map((m) => m[1].toLowerCase())));
+    return headingsOf.get(k);
+  };
+  return (text) => [
+    ...linksOf(text).filter((t) => {
       const k = t.toLowerCase();
       return !names.has(k) && !fileNames.has(k) && !allowed.has(k);
-    });
+    }),
+    // [^#^]: a nested [[Note#A#B]] or a block ref [[Note#^id]] is not checked.
+    ...[...stripCode(text).matchAll(/\[\[([^\]|#\n]+)#([^\]|#^\n]+)(?:\|[^\]\n]*)?\]\]/g)]
+      .map((m) => [m[1].trim().split(/[\\/]/).pop(), m[2].trim()])
+      .filter(([n, h]) => pathOf.has(n.toLowerCase()) && !headings(n.toLowerCase()).has(h.toLowerCase()))
+      .map(([n, h]) => `${n}#${h}`),
+  ];
 }
 
 // ---- Decision ledger (Stage 07) -----------------------------------------------------------------
