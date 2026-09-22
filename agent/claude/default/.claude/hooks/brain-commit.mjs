@@ -61,9 +61,11 @@ function quoteDeadLinks(body) {
   brokenIn ??= brokenLinksIn(walkVault());
   const dead = new Set(brokenIn(body).map((t) => t.toLowerCase()));
   if (!dead.size) return body;
-  return body.replace(/(?<!`)\[\[([^\]|#\n]+)[^\]\n]*\]\](?!`)/g, (m, t) =>
-    dead.has(t.trim().split(/[\\/]/).pop().toLowerCase()) ? `\`${m}\`` : m,
-  );
+  // A dead heading comes back as "note#heading", so it is matched with its anchor.
+  return body.replace(/(?<!`)\[\[([^\]|#\n]+)(?:#([^\]|#^\n]+))?[^\]\n]*\]\](?!`)/g, (m, t, h) => {
+    const n = t.trim().split(/[\\/]/).pop().toLowerCase();
+    return dead.has(n) || (h && dead.has(`${n}#${h.trim().toLowerCase()}`)) ? `\`${m}\`` : m;
+  });
 }
 
 function noteFor(c, files, month, dd, n) {
