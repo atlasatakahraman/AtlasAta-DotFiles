@@ -478,6 +478,25 @@ export function brokenLinksIn({ notes, files }, allowed = forwardLinks()) {
   ];
 }
 
+/**
+ * Text copied into the vault (a commit body, a flushed session summary) can mention `[[x]]` as
+ * prose, which the vault then counts as a dead link and brain-doctor's `links` fails on it
+ * (708adcc; brain-flush on 2026-09-22). Put backticks around every [[link]] that resolves to
+ * nothing; links that resolve, like compile's [[day]], stay live.
+ */
+let brokenIn = null;
+export function quoteDeadLinks(body) {
+  if (!body || !body.includes("[[")) return body;
+  brokenIn ??= brokenLinksIn(walkVault());
+  const dead = new Set(brokenIn(body).map((t) => t.toLowerCase()));
+  if (!dead.size) return body;
+  // A dead heading comes back as "note#heading", so it is matched with its anchor.
+  return body.replace(/(?<!`)\[\[([^\]|#\n]+)(?:#([^\]|#^\n]+))?[^\]\n]*\]\](?!`)/g, (m, t, h) => {
+    const n = t.trim().split(/[\\/]/).pop().toLowerCase();
+    return dead.has(n) || (h && dead.has(`${n}#${h.trim().toLowerCase()}`)) ? `\`${m}\`` : m;
+  });
+}
+
 // ---- Decision ledger (Stage 07) -----------------------------------------------------------------
 // One JSON line per captured decision. Tracked in git: these are durable records, unlike the hook
 // event log. Written only through these functions, so the file is never hand-edited.
