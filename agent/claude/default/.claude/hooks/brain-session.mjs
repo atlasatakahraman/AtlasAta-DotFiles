@@ -104,6 +104,30 @@ function flushCanary() {
   );
 }
 
+/**
+ * The daily sweep's verdict, surfaced only when something is wrong. Silence means healthy - a
+ * green line printed every session is wallpaper within a week. Also catches the Routine itself
+ * stopping: it is a claude session and dies with auth, and this hook does not depend on it (V7).
+ */
+function healthAlarm() {
+  const dir = join(VAULT, "50-Ops", "Health");
+  let files = [];
+  try {
+    files = readdirSync(dir).filter((f) => /^health-\d{4}-\d{2}\.md$/.test(f)).sort();
+  } catch {}
+  if (!files.length) return null; // before the Routine's first run: nothing to say yet
+  const lines = readFileSync(join(dir, files.at(-1)), "utf8").split("\n").filter((l) => /^- \d{4}-\d{2}-\d{2} /.test(l));
+  const last = lines.at(-1);
+  if (!last) return null;
+  const day = last.slice(2, 12);
+  const ageDays = Math.floor((Date.now() - Date.parse(`${day}T12:00:00`)) / 86_400_000);
+  if (ageDays >= 2)
+    return `!! VAULT HEALTH: the daily sweep has not recorded since ${day} (${ageDays}d). Is the Claude Desktop app running its vault-health Routine? Run it by hand: bun --bun ~/.claude/hooks/brain-doctor.mjs --repair --record --pretty`;
+  if (last.includes("**FAIL**"))
+    return `!! VAULT HEALTH FAIL (${day}): ${last.split("·")[1]?.trim()}. Details: bun --bun ~/.claude/hooks/brain-doctor.mjs --pretty — and any explanation the Routine wrote under that line in 50-Ops/Health/${files.at(-1)}.`;
+  return null;
+}
+
 const CORE = [
   ["Identity", join(VAULT, "00-Meta", "Identity.md")],
   ["Where things live", join(VAULT, "00-Meta", "00-MOC-Root.md")],
@@ -143,6 +167,10 @@ try {
   try {
     canary = flushCanary();
   } catch {}
+  let health = null;
+  try {
+    health = healthAlarm();
+  } catch {}
 
   // The cause, when a hook recorded one — no waiting STALE_DAYS for the symptom.
   const failing = Object.entries(failures()).map(
@@ -154,6 +182,7 @@ try {
   const ctx = [
     ...failing.flatMap((l) => [l, ""]),
     ...(canary ? [canary, ""] : []),
+    ...(health ? [health, ""] : []),
     machine(),
     "",
     `The user's second brain is at ${VAULT}. This is its always-true core, injected at`,
