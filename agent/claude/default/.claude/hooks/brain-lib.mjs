@@ -400,6 +400,34 @@ export function indexVault() {
   );
 }
 
+/**
+ * Drop vault index rows that match no note on disk - brain-doctor's own `ghost` definition.
+ * `context-mode index` adds and updates rows but never removes one, so every moved or deleted note
+ * left a ghost that failed the daily sweep until a full rebuild (Stage 09). Rows are derived from
+ * files, so nothing is lost; run it before indexVault, which restores any row a race dropped.
+ */
+export function pruneVaultIndex() {
+  const { file } = vaultSearch(ftsMatch("vault notes"));
+  if (!file) return 0;
+  const { notes } = walkVault();
+  const db = new Database(file);
+  try {
+    db.run("PRAGMA busy_timeout = 5000");
+    const gone = db.prepare("SELECT id, file_path FROM sources WHERE file_path LIKE ?").all(VAULT_LIKE)
+      .filter((r) => !notes.has(String(r.file_path).toLowerCase()));
+    db.transaction(() => {
+      for (const { id } of gone) {
+        db.run("DELETE FROM chunks WHERE source_id = ?", [id]);
+        db.run("DELETE FROM chunks_trigram WHERE source_id = ?", [id]);
+        db.run("DELETE FROM sources WHERE id = ?", [id]);
+      }
+    })();
+    return gone.length;
+  } finally {
+    db.close();
+  }
+}
+
 // ---- Notes on disk --------------------------------------------------------------------------------
 // Moved from brain-doctor in Stage 07: brain-reindex's write-time check applies the same rules to
 // one note, and two copies of "what is a broken link" would disagree sooner or later.
