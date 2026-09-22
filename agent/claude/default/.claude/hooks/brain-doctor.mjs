@@ -214,10 +214,21 @@ function checkHygiene() {
     }
   } catch {}
   out.memoryShards = shards.length;
+  // A file the checkout's own git tracks is that repo's documentation, which the vault never
+  // duplicates - only untracked agent leftovers are strays (owner's decision, Stage 08).
+  const tracked = (repo, f) => {
+    try {
+      execFileSync("git", ["ls-files", "--error-unmatch", f], { cwd: repo, stdio: "ignore" });
+      return true;
+    } catch {
+      return false;
+    }
+  };
   const strays = [];
   try {
     for (const d of readdirSync(DEV_ROOT))
-      for (const f of ["MEMORY.md", ".implementation_plan.md", ".remember"]) if (existsSync(join(DEV_ROOT, d, f))) strays.push(`${d}/${f}`);
+      for (const f of ["MEMORY.md", ".implementation_plan.md", ".remember"])
+        if (existsSync(join(DEV_ROOT, d, f)) && !tracked(join(DEV_ROOT, d), f)) strays.push(`${d}/${f}`);
   } catch {}
   out.straysInCheckouts = strays;
   try {
