@@ -1,6 +1,6 @@
 ---
 name: brain
-description: Use when creating or editing anything in the second brain vault at C:\obsidian\root - a new folder or structure, a repo/project page, a documentation note, a slash command, a commit, a task or todo, a hook, or a plan. Also use when asked to record a decision, log a session, or write something into the vault. Triggers on "/brain new", "/brain edit", "add this to the brain", "record this decision", "document this".
+description: Use when creating or editing anything in the second brain vault at C:\obsidian\root - a new folder or structure, a repo/project page, a documentation note, a slash command, a commit, a task or todo, a hook, a plan, or a decision (ADR), including promoting captured decisions from the ledger. Also use when asked to record a decision, log a session, or write something into the vault. Triggers on "/brain new", "/brain edit", "add this to the brain", "record this decision", "document this".
 ---
 
 # brain
@@ -35,6 +35,7 @@ Load **only** the reference file for the kind being invoked. Do not read the oth
 | `task` | `references/task.md` |
 | `hook` | `references/hook.md` |
 | `plan` | `references/plan.md` |
+| `decision` | `references/decision.md` — also `/brain new decision --ledger` |
 
 If the kind is ambiguous, ask — do not guess between `docs` and `repo`.
 

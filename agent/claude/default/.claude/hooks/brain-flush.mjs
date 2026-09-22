@@ -13,7 +13,7 @@ import { basename, join } from "node:path";
 import { execFileSync } from "node:child_process";
 import {
   sessionDbs, notePath, ensureNote, openDb, recordFailure, clearFailure,
-  logEvent, readWatermarks, writeWatermark, resolveTranscript, STATE_DIR,
+  logEvent, readWatermarks, writeWatermark, resolveTranscript, STATE_DIR, ledgerAdd,
 } from "./brain-lib.mjs";
 
 const [, , rawSid = "", cwd = ""] = process.argv;
@@ -63,8 +63,12 @@ function newEvents(mark) {
 /**
  * Real conversation turns only. A transcript also holds queue-operation, attachment and
  * bookkeeping records; a raw tail lands in those, not in the conversation.
+ *
+ * Also collects every AskUserQuestion answer into `asked` (tier 2 of the ledger). From the
+ * transcript, not the session events: context-mode records only the FIRST question of a
+ * multi-question call (7 of 11 answers on 2026-09-22), and never the options offered.
  */
-function turnsOf(path) {
+function turnsOf(path, asked = []) {
   const out = [];
   try {
     for (const line of readFileSync(path, "utf8").split("\n")) {
@@ -73,6 +77,18 @@ function turnsOf(path) {
         o = JSON.parse(line); // a partial last line of a live transcript lands here and is skipped
       } catch {
         continue;
+      }
+      const r = o.toolUseResult;
+      if (r?.answers && typeof r.answers === "object" && Array.isArray(r.questions)) {
+        r.questions.forEach((q, i) => {
+          const answer = r.answers[q?.question];
+          if (answer === undefined) return;
+          const note = r.annotations?.[q.question]?.notes;
+          asked.push({
+            tier: 2, sid, src: `${sid}:${o.uuid}:${i}`, question: String(q.question), answer: String(answer),
+            options: (q.options ?? []).map((x) => x?.label).filter(Boolean), ...(note ? { note } : {}),
+          });
+        });
       }
       if (o.type !== "user" && o.type !== "assistant") continue;
       const c = o.message?.content;
@@ -121,9 +137,13 @@ try {
   });
   const mark = readWatermarks()[sid] || {};
   const tp = resolveTranscript(sid, opt("--transcript"));
-  const turns = tp ? turnsOf(tp) : [];
+  const asked = [];
+  const turns = tp ? turnsOf(tp, asked) : [];
   const fresh = turns.slice(mark.turns ?? 0);
   const { rows, dbs } = newEvents(mark);
+  // Tier 2 of the decision ledger (spec D13): the verbatim AskUserQuestion answer, exact and free.
+  // Deduplicated by src, so a flush that fails and retries cannot append twice.
+  if (!dry && asked.length) logEvent({ hook: "flush", sid, outcome: "ledger", added: ledgerAdd(asked) });
   const advance = () => {
     if (!dry) writeWatermark(sid, { dbs, turns: turns.length, flushedAt: Date.now() });
   };

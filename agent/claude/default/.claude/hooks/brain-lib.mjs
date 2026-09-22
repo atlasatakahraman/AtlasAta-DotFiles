@@ -399,3 +399,39 @@ export function indexVault() {
     { cwd: VAULT, timeout: 600_000, stdio: "ignore", windowsHide: true },
   );
 }
+
+// ---- Decision ledger (Stage 07) -----------------------------------------------------------------
+// One JSON line per captured decision. Tracked in git: these are durable records, unlike the hook
+// event log. Written only through these functions, so the file is never hand-edited.
+
+export const LEDGER = join(VAULT, "50-Ops", "decisions.jsonl");
+
+export function ledgerRead() {
+  try {
+    return readFileSync(LEDGER, "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l));
+  } catch {
+    return [];
+  }
+}
+
+/** Append entries whose `src` is not already in the ledger. Returns how many were added. */
+export function ledgerAdd(entries) {
+  const seen = new Set(ledgerRead().map((e) => e.src));
+  const fresh = entries.filter((e) => e.src && !seen.has(e.src));
+  if (fresh.length) appendFileSync(LEDGER, fresh.map((e) => `${JSON.stringify({ ts: new Date().toISOString(), promoted: null, ...e })}\n`).join(""));
+  return fresh.length;
+}
+
+/**
+ * Update one entry in place, by `src`. Rewrites the whole file - it is small.
+ * ponytail: a flush appending during this rewrite can lose its line; the next flush of that
+ * session re-adds nothing (its watermark moved). A lock shared with ledgerAdd is the upgrade.
+ */
+export function ledgerSet(src, patch) {
+  const all = ledgerRead();
+  const i = all.findIndex((e) => e.src === src);
+  if (i === -1) return false;
+  all[i] = { ...all[i], ...patch };
+  writeFileSync(LEDGER, all.map((e) => `${JSON.stringify(e)}\n`).join(""));
+  return true;
+}
