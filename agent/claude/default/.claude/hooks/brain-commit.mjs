@@ -145,7 +145,8 @@ try {
 
   const { hashes, maxOrdinal } = recordedCommits();
   const fresh = repoList()
-    .flatMap((r) => recentCommits(r, backfill || "3.days.ago"))
+    // A date-only --since is read with the current time of day, so `--backfill <today>` found nothing.
+    .flatMap((r) => recentCommits(r, backfill ? `${backfill} 00:00` : "3.days.ago"))
     .filter((c) => !hashes.has(c.hash))
     .sort((a, b) => Date.parse(a.iso) - Date.parse(b.iso));
 
