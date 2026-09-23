@@ -1,6 +1,6 @@
 // brain-verify.mjs - referential integrity of the vault. Two checks, one command:
 //   1. every [[wikilink]] resolves to a real note
-//   2. every checkout:/docs: pointer in 10-Repos/*.md exists on disk
+//   2. every checkout:/docs: pointer in a 10-Repos note exists on disk
 //
 // Runtime is bun (`bun --bun`), per 00-Meta/Hard-Rules. Exits 1 if anything is broken, so it
 // can gate a script; prints nothing but the verdict when clean.
@@ -11,7 +11,7 @@
 // answer is worse than an error, and re-deriving a check each run is how you get one.
 import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { join, basename, relative, sep } from "node:path";
-import { VAULT } from "./brain-lib.mjs";
+import { VAULT, forwardLinks } from "./brain-lib.mjs";
 
 const SKIP = new Set(["graphify-out", ".obsidian", ".remember", ".git", "node_modules"]);
 // 80-Assets holds attachments and verbatim COPIES of repo files. They are valid link TARGETS but
@@ -66,26 +66,10 @@ for (const p of allMd) {
 // wikilinks and used to produce ~50 phantom failures from the dotfiles tree.
 const strip = (t) => t.replace(/```[\s\S]*?```/g, "").replace(/`[^`\n]*`/g, "");
 
-/**
- * The deliberate-dangling allowlist lives in the VAULT, not in this script - 20-Knowledge's
- * "Known gaps" section. The vault owns the policy; this file only enforces it. Those entries sit
- * inside inline code, so they are read from the raw text, before stripping.
- */
-function knownDangling() {
-  const out = new Set();
-  for (const f of allMd.filter((p) => basename(p).startsWith("00-MOC-"))) {
-    const t = readFileSync(f, "utf8");
-    const sec = t.split(/^##+\s*Known gaps.*$/im)[1];
-    if (!sec) continue;
-    const block = sec.split(/^##/m)[0];
-    for (const x of block.matchAll(/\[\[([^\]|#]+)/g)) {
-      out.add(lc(basename(x[1].trim())));
-    }
-  }
-  return out;
-}
-
-const KNOWN = knownDangling();
+// The deliberate-dangling allowlist lives in the VAULT, in 00-Meta/Forward-Links.md - the same
+// list brain-doctor's `links` check reads. (Until 2026-09-23 this read a MOC "Known gaps" section
+// that no longer exists, so every forward link showed up here as broken.)
+const KNOWN = forwardLinks();
 
 let links = 0;
 let known = 0;
@@ -108,13 +92,9 @@ for (const f of allMd.filter(isVaultNote)) {
 let ptrs = 0;
 const dead = [];
 const REPOS = join(VAULT, "10-Repos");
-for (const f of (() => {
-  try {
-    return readdirSync(REPOS).filter((x) => x.endsWith(".md"));
-  } catch {
-    return [];
-  }
-})()) {
+// Every note under 10-Repos: since the Stage 03 restructure a repo page is <Repo>/<Repo>.md, and
+// reading only the top level had left all ten checkout: pointers unchecked.
+for (const f of allMd.filter((p) => p.startsWith(REPOS + sep)).map((p) => relative(REPOS, p))) {
   const t = readFileSync(join(REPOS, f), "utf8");
   const fm = (t.match(/^---\r?\n([\s\S]*?)\r?\n---/) || [])[1];
   if (!fm) continue;
@@ -140,7 +120,7 @@ for (const f of (() => {
 }
 
 console.log(`notes ${allMd.filter(isVaultNote).length} · links ${links} · pointers ${ptrs}`);
-console.log(`known-dangling (allowlisted in a MOC's "Known gaps"): ${known}`);
+console.log(`known-dangling (allowlisted in Forward-Links): ${known}`);
 
 if (!broken.length && !dead.length) {
   console.log("OK - every link resolves, every pointer exists");

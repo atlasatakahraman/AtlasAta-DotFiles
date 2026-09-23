@@ -468,10 +468,14 @@ export function frontmatterOk(text) {
   return !!m && /^type:\s*\S/m.test(m[1]) && /^created:\s*\S/m.test(m[1]);
 }
 
-/** Intentional forward links, lower-cased. The list writes each link in backticks, so it contains no broken links itself. */
+/**
+ * Intentional forward links, lower-cased. The list writes each link in backticks, so it contains no broken links itself.
+ * Only a bullet's leading link counts: the note's prose mentions `[[link]]`, which allowlisted a note named "link"
+ * until 2026-09-23 and let two real dead links through `links` and `quoteDeadLinks`.
+ */
 export function forwardLinks() {
   try {
-    return new Set([...readFileSync(join(VAULT, "00-Meta", "Forward-Links.md"), "utf8").matchAll(/`\[\[([^\]|#]+)/g)].map((m) => m[1].trim().toLowerCase()));
+    return new Set([...readFileSync(join(VAULT, "00-Meta", "Forward-Links.md"), "utf8").matchAll(/^-\s+`\[\[([^\]|#]+)/gm)].map((m) => m[1].trim().toLowerCase()));
   } catch {
     return new Set();
   }
