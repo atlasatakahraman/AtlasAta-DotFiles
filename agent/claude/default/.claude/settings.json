@@ -145,7 +145,7 @@
       }
     }
   },
-  "outputStyle": "Proactive",
+  "outputStyle": "Concise",
   "syntaxHighlightingDisabled": false,
   "effortLevel": "high",
   "modelSettings": {
@@ -156,6 +156,7 @@
       "effortLevel": "high"
     }
   },
+  "autoCompactWindow": 720000,
   "dialogExpiry": "never",
   "autoUpdatesChannel": "latest",
   "autoDreamEnabled": true,
