@@ -7,10 +7,11 @@
 // CLAUDE.md never loads) still know who the user is and where things live.
 //
 // Runtime is bun (`bun --bun`), per 00-Meta/Hard-Rules.
-import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
+import { readFileSync, existsSync, readdirSync, statSync, openSync, readSync, closeSync } from "node:fs";
 import { join } from "node:path";
 import { release } from "node:os";
-import { VAULT, DEV_ROOT, sessionDbs, failures, HOOK_EVENTS, ledgerRead } from "./brain-lib.mjs";
+import { spawn } from "node:child_process";
+import { VAULT, DEV_ROOT, HOOKS, sessionDbs, failures, HOOK_EVENTS, ledgerRead, logicalDate } from "./brain-lib.mjs";
 
 /**
  * Which OS this session runs on, detected now rather than written into a file. The machine
@@ -129,6 +130,62 @@ function healthAlarm() {
   return null;
 }
 
+/**
+ * Re-flush sessions whose last flush never finished. Closing the app ends every session at once and
+ * kills each detached flush mid-`claude -p`: the watermark never advances, and an ended session never
+ * captures again - two sessions' tails were lost that way on 2026-09-22. Such a session's last
+ * capture/flush event is its capture, flush's `ledger` step, `busy` or `failed`, never a finished
+ * outcome. The lock and the watermark make a duplicate re-flush harmless.
+ */
+function reflushOrphans() {
+  if (process.env.CLAUDE_INVOKED_BY) return 0; // flush's own `claude -p` starts a session too
+  const last = new Map();
+  const tps = new Map();
+  for (const l of readFileSync(HOOK_EVENTS, "utf8").trimEnd().split("\n")) {
+    let e;
+    try { e = JSON.parse(l); } catch { continue; }
+    if (!e.sid || (e.hook !== "flush" && e.hook !== "capture")) continue;
+    if (e.hook === "capture" && e.transcript) tps.set(e.sid, e.transcript);
+    last.set(e.sid, e);
+  }
+  const day = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  const today = day(logicalDate(new Date()));
+  let n = 0;
+  for (const [sid, e] of last) {
+    const age = Date.now() - Date.parse(e.ts);
+    if (n >= 5 || age < 180_000 || age > 3 * 86_400_000) continue; // 180 s: flush's lock expiry
+    if (e.hook === "flush" && !["ledger", "busy", "failed"].includes(e.outcome)) continue;
+    const tp = tps.get(sid);
+    if (!tp || !existsSync(tp)) continue;
+    const argv = [join(HOOKS, "brain-flush.mjs"), sid, cwdOf(tp), "--transcript", tp];
+    const d = day(logicalDate(new Date(e.ts)));
+    if (d !== today) argv.push("--date", d);
+    spawn(process.execPath, ["--bun", ...argv], {
+      detached: true,
+      stdio: "ignore",
+      windowsHide: true,
+      env: { ...process.env, CLAUDE_INVOKED_BY: "brain_flush" },
+    }).unref();
+    n++;
+  }
+  return n;
+}
+
+/** The session's cwd, from the first transcript record that carries one - only the note's label uses it. */
+function cwdOf(tp) {
+  let fd;
+  try {
+    fd = openSync(tp, "r");
+    const buf = Buffer.alloc(65_536);
+    const m = buf.toString("utf8", 0, readSync(fd, buf, 0, buf.length, 0)).match(/"cwd":"((?:[^"\\]|\\.)*)"/);
+    return m ? JSON.parse(`"${m[1]}"`) : "";
+  } catch {
+    return "";
+  } finally {
+    try { if (fd !== undefined) closeSync(fd); } catch {}
+  }
+}
+
 // Priming is what the model needs before it acts: who the user is, and the rules that correct its
 // defaults. The root MOC is recall material - the note names brain-inject injects per prompt reach it.
 const CORE = [
@@ -177,6 +234,9 @@ try {
   let health = null;
   try {
     health = healthAlarm();
+  } catch {}
+  try {
+    reflushOrphans();
   } catch {}
   let decisions = null;
   try {
