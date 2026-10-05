@@ -68,7 +68,7 @@ function newEvents(mark) {
  * transcript, not the session events: context-mode records only the FIRST question of a
  * multi-question call (7 of 11 answers on 2026-09-22), and never the options offered.
  */
-function turnsOf(path, asked = []) {
+function turnsOf(path, asked = [], times = []) {
   const out = [];
   try {
     for (const line of readFileSync(path, "utf8").split("\n")) {
@@ -97,7 +97,10 @@ function turnsOf(path, asked = []) {
         : typeof c === "string"
           ? c
           : "";
-      if (text.trim()) out.push(`${o.type}: ${text.trim()}`);
+      if (text.trim()) {
+        out.push(`${o.type}: ${text.trim()}`);
+        times.push(o.timestamp);
+      }
     }
   } catch {}
   return out;
@@ -138,7 +141,8 @@ try {
   const mark = readWatermarks()[sid] || {};
   const tp = resolveTranscript(sid, opt("--transcript"));
   const asked = [];
-  const turns = tp ? turnsOf(tp, asked) : [];
+  const times = [];
+  const turns = tp ? turnsOf(tp, asked, times) : [];
   const fresh = turns.slice(mark.turns ?? 0);
   const { rows, dbs } = newEvents(mark);
   // Tier 2 of the decision ledger (spec D13): the verbatim AskUserQuestion answer, exact and free.
@@ -204,7 +208,13 @@ try {
     process.exit(0);
   }
 
-  const now = backfill && !Number.isNaN(backfill.getTime()) ? backfill : new Date();
+  // Filed on the day the work happened, not the day the flush ran. A session that worked 04:06-04:25
+  // and ended at 05:26 had its tail flushed by SessionEnd into the NEXT day's note, and brain-doctor
+  // saw 2026-10-04 as a day with captures and no note.
+  // ponytail: a flush spanning the rollover goes wholly to its last turn's day; Stop's 20-min throttle keeps that span short.
+  const last = new Date(fresh.length ? times.at(-1) : NaN);
+  const workedAt = Number.isNaN(last.getTime()) ? new Date() : last;
+  const now = backfill && !Number.isNaN(backfill.getTime()) ? backfill : workedAt;
   const file = notePath(now);
   const where = cwd ? basename(String(cwd).replace(/[\\/]+$/, "")) : "?";
   const block = `\n### ${backfill ? "backfill" : now.toTimeString().slice(0, 5)} · ${where}\n\n${quoteDeadLinks(out)}\n`;
