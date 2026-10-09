@@ -255,7 +255,11 @@ function runChecks() {
 // ---- repair (derived artifacts only) -------------------------------------------------------------
 
 function runRepairs() {
+  const since = new Date(Date.now() - 3 * 864e5).toISOString().slice(0, 10); // checkCommits' window
   const steps = [
+    // Commits made outside a Claude Bash call (terminal, PowerShell, other hooks) get no PostToolUse
+    // note; the sweep records them here, before reindex so the new notes are indexed.
+    ["commits", () => execFileSync(process.execPath, ["--bun", join(HOOKS, "brain-commit.mjs"), "--backfill", since], { timeout: 120_000, stdio: "ignore", windowsHide: true })],
     ["prune", () => pruneVaultIndex()],
     ["reindex", () => indexVault()],
     ["graph", () => execFileSync("graphify", ["update", "."], { cwd: VAULT, timeout: 600_000, stdio: "ignore", windowsHide: true })],
