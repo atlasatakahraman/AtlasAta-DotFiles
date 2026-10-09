@@ -18,7 +18,7 @@ import { execFileSync } from "node:child_process";
 import {
   VAULT, DEV_ROOT, HOOKS, VAULT_LIKE, HOOK_EVENTS,
   openDb, ftsMatch, vaultSearch, failures, logicalDate, notePath,
-  repoList, recentCommits, recordedCommits, indexVault, pruneVaultIndex,
+  repoList, recentCommits, recordedCommits, unrecorded, indexVault, pruneVaultIndex,
   NOTE_EXEMPT as EXEMPT, walkVault as walk, linksOf, frontmatterOk, forwardLinks, brokenLinksIn,
 } from "./brain-lib.mjs";
 
@@ -184,14 +184,12 @@ function checkIgnores() {
 function checkCommits() {
   const { hashes } = recordedCommits();
   const missing = [];
-  for (const r of repoList())
-    for (const c of recentCommits(r, "3.days.ago")) {
-      if (hashes.has(c.hash)) continue;
-      let files = [];
-      try { files = execFileSync("git", ["show", "--name-only", "--format=", c.hash], { cwd: c.root, encoding: "utf8" }).split("\n").filter(Boolean); } catch {}
-      if (c.root === VAULT && files.length && files.every((f) => f.startsWith("50-Ops/Commits/"))) continue; // record-only commits are skipped by design
-      missing.push(`${c.name} ${c.hash.slice(0, 7)} ${c.subject.slice(0, 60)}`);
-    }
+  for (const c of unrecorded(repoList().flatMap((r) => recentCommits(r, "3.days.ago")), hashes)) {
+    let files = [];
+    try { files = execFileSync("git", ["show", "--name-only", "--format=", c.hash], { cwd: c.root, encoding: "utf8" }).split("\n").filter(Boolean); } catch {}
+    if (c.root === VAULT && files.length && files.every((f) => f.startsWith("50-Ops/Commits/"))) continue; // record-only commits are skipped by design
+    missing.push(`${c.name} ${c.hash.slice(0, 7)} ${c.subject.slice(0, 60)}`);
+  }
   return { id: "commits", level: "fail", ok: !missing.length, detail: { missing: missing.length, samples: missing.slice(0, 8) } };
 }
 

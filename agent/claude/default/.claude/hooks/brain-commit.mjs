@@ -14,7 +14,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 
 import { join, basename } from "node:path";
 import { execFileSync } from "node:child_process";
 import {
-  readStdin, logicalDate, VAULT, HOOKS, repoList, recentCommits, recordedCommits, quoteDeadLinks,
+  readStdin, logicalDate, VAULT, HOOKS, repoList, recentCommits, recordedCommits, quoteDeadLinks, unrecorded,
 } from "./brain-lib.mjs";
 
 const dry = process.argv.includes("--dry-run");
@@ -148,11 +148,11 @@ try {
   }
 
   const { hashes, maxOrdinal } = recordedCommits();
-  const fresh = repoList()
+  const fresh = unrecorded(
     // A date-only --since is read with the current time of day, so `--backfill <today>` found nothing.
-    .flatMap((r) => recentCommits(r, backfill ? `${backfill} 00:00` : "3.days.ago"))
-    .filter((c) => !hashes.has(c.hash))
-    .sort((a, b) => Date.parse(a.iso) - Date.parse(b.iso));
+    repoList().flatMap((r) => recentCommits(r, backfill ? `${backfill} 00:00` : "3.days.ago")),
+    hashes,
+  );
 
   const months = new Set();
   const mdRepos = new Set();
