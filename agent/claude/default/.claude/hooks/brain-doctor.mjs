@@ -290,13 +290,13 @@ function writeRecord(report) {
   mkdirSync(dir, { recursive: true });
   const head = ["---", "type: usage", "project: knowledge", "tags: [health, ops, generated]", `created: ${month}-01`, `updated: ${day}`, "status: active", "---", "", `# Vault health — ${month}`, "", "One line per logical day from `brain-doctor --record`. The 17:00 Routine may indent an explanation under a FAIL line.", ""].join("\n");
   let body = existsSync(file) ? readFileSync(file, "utf8") : head;
-  // Replace today's line (and the explanation indented under it) on a re-run, so a day has one line.
+  // Replace today's line on a re-run, so a day has one line. The explanation indented under it is kept,
+  // and a replaced FAIL line is kept as a bullet so that explanation still says what it explains.
   const lines = body.split("\n");
   const at = lines.findIndex((l) => l.startsWith(`- ${day} `));
   if (at !== -1) {
-    let end = at + 1;
-    while (end < lines.length && lines[end].startsWith("  ")) end++;
-    lines.splice(at, end - at, line);
+    const old = lines[at];
+    lines.splice(at, 1, line, ...(old.includes("**FAIL**") ? [`  - replaced: ${old.slice(2)}`] : []));
     body = lines.join("\n");
   } else body = `${body.replace(/\n*$/, "\n")}${line}\n`;
   writeFileSync(file, body.replace(/^updated: .*$/m, `updated: ${day}`), "utf8");
