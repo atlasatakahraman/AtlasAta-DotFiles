@@ -18,6 +18,13 @@ query before it is an answer.
 - `00-Meta\Hard-Rules.md` — bun, shadcn, deps, licensing, Tauri/Wayland, tooling
 - `00-Meta\Retrieval-Protocol.md` — long form of the rules below
 
+Identity and the full Hard-Rules are loaded here, whole, every session. Never move either behind a
+link or into a hook: a hook's context is cut to a 2,000-char preview past 10,000 chars, and a cap
+that kept it under once dropped the rules (2026-10-09). `brain-doctor`'s `priming` check guards both.
+
+@C:/obsidian/root/00-Meta/Identity.md
+@C:/obsidian/root/00-Meta/Hard-Rules.md
+
 ## Retrieval — hard rules
 
 Tiers run **in order**. Do not skip down. Do not start at the bottom.
