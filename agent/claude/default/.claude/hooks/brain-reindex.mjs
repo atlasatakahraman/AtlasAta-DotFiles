@@ -7,7 +7,7 @@ import { tmpdir } from "node:os";
 import { spawn, execFileSync } from "node:child_process";
 import {
   readStdin, normDir, VAULT, HOOKS, DEV_ROOT, contextModeCli, INDEX_EXCLUDES, indexVault,
-  NOTE_EXEMPT, walkVault, frontmatterOk, brokenLinksIn,
+  NOTE_EXEMPT, walkVault, frontmatterOk, brokenLinksIn, rebuildGraph,
 } from "./brain-lib.mjs";
 
 const STAMP = join(tmpdir(), "brain-reindex.json");
@@ -155,32 +155,10 @@ if (process.argv.includes("--settle")) {
         try {
           indexVault();
         } catch {}
+        // graphify, the wikilink bridge, and the re-merge into merged-graph.json (what .mcp.json
+        // serves) - one shared function, so every rebuild path gets all three.
         try {
-          execFileSync("graphify", ["update", "."], { cwd: VAULT, timeout: 600_000, ...QUIET });
-        } catch {}
-        // Re-merge whatever repo graphs exist under C:\dev\ into merged-graph.json, which is what
-        // .mcp.json actually serves. Without this the vault half is rebuilt on every edit while
-        // the served graph stays at whenever someone last ran merge-graphs by hand.
-        // Repo graphs are built on demand, so a repo with no graphify-out yet is simply absent
-        // from the merge - never an error.
-        try {
-          const repoGraphs = readdirSync(DEV_ROOT, { withFileTypes: true })
-            .filter((e) => e.isDirectory())
-            .map((e) => join(DEV_ROOT, e.name, "graphify-out", "graph.json"))
-            .filter((p) => existsSync(p));
-          if (repoGraphs.length) {
-            execFileSync(
-              "graphify",
-              [
-                "merge-graphs",
-                join(VAULT, "graphify-out", "graph.json"),
-                ...repoGraphs,
-                "--out",
-                join(VAULT, "graphify-out", "merged-graph.json"),
-              ],
-              { cwd: VAULT, timeout: 600_000, ...QUIET },
-            );
-          }
+          rebuildGraph();
         } catch {}
         break;
       }
