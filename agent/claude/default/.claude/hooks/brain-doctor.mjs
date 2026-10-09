@@ -11,7 +11,7 @@
 // A `fail` check makes the report FAIL; a `warn` check is reported and does not.
 // --repair runs only what is safe to run twice and cannot lose data (spec D9): prune ghost index
 // rows, re-index, graph rebuild, hub regeneration. It never edits, moves or deletes a note.
-import { readdirSync, readFileSync, existsSync, writeFileSync, mkdirSync } from "node:fs";
+import { readdirSync, readFileSync, existsSync, writeFileSync, mkdirSync, realpathSync } from "node:fs";
 import { join, basename, dirname, isAbsolute } from "node:path";
 import { homedir } from "node:os";
 import { execFileSync } from "node:child_process";
@@ -224,6 +224,32 @@ function checkPriming() {
   };
 }
 
+// Tracked on DotFiles `main` because arch-caelestia takes them from there, but each platform branch
+// keeps its own content (ADR AtlasAta-DotFiles/0004). Deleting them from `main` would delete Arch's
+// copies on its next merge of `main`, so they stay, exempt from parity.
+const PER_BRANCH_ON_MAIN = new Set([
+  "agent/claude/default/.claude/commands/brain-commits.md",
+  "agent/claude/default/.claude/commands/brain-sync.md",
+]);
+
+/**
+ * DotFiles `main` holds only shared material (ADR AtlasAta-DotFiles/0003), so every file it tracks
+ * must be identical on the checked-out platform branch. A hook fix committed straight to `windows`
+ * (7dc1b16) was missing from `main` for weeks and nothing noticed. Read-only and local refs only:
+ * no fetch, and the other OS's branch is never read.
+ */
+function checkDotfilesParity() {
+  const repo = execFileSync("git", ["rev-parse", "--show-toplevel"], { cwd: realpathSync(HOOKS), encoding: "utf8", windowsHide: true }).trim();
+  const git = (...a) => execFileSync("git", a, { cwd: repo, encoding: "utf8", windowsHide: true }).split("\n").filter(Boolean);
+  const branch = git("rev-parse", "--abbrev-ref", "HEAD")[0];
+  const shared = new Set(git("ls-tree", "-r", "--name-only", "main").filter((f) => !PER_BRANCH_ON_MAIN.has(f)));
+  const differ = git("diff", "--name-only", "main", "HEAD").filter((f) => shared.has(f));
+  return {
+    id: "dotfiles-parity", level: "fail", ok: !differ.length,
+    detail: { branch, shared: shared.size, differ: differ.length, samples: differ.slice(0, 8) },
+  };
+}
+
 /** Every [[wikilink]] between two notes is an edge in the served graph (graphify drops cross-folder links). */
 function checkGraphLinks() {
   const missing = missingLinkEdges(JSON.parse(readFileSync(MERGED_GRAPH, "utf8")), "root::");
@@ -287,7 +313,7 @@ function runChecks() {
       return { id: fn.name.replace(/^check/, "").toLowerCase(), level: "fail", ok: false, detail: { error: String(e?.message ?? e) } };
     }
   };
-  return [checkIndex, checkRetrieval, checkSessions, checkAuth, checkFrontmatter, checkLinks, checkReach, checkIgnores, checkCommits, checkPriming, checkGraphLinks, checkHygiene].map(guard);
+  return [checkIndex, checkRetrieval, checkSessions, checkAuth, checkFrontmatter, checkLinks, checkReach, checkIgnores, checkCommits, checkPriming, checkGraphLinks, checkDotfilesParity, checkHygiene].map(guard);
 }
 
 // ---- repair (derived artifacts only) -------------------------------------------------------------
