@@ -42,8 +42,6 @@ function machine() {
   ].join("\n");
 }
 
-const CAP = 9000; // chars. Identity (~4.2 k) + rules kernel (≤ 3.3 k) with headroom. Raised deliberately:
-// at 7000 the second CORE note never fit - the root MOC was silently dropped from every session.
 const STALE_DAYS = 3; // slack for a weekend off, tight enough to catch a real break early
 
 /**
@@ -186,15 +184,11 @@ function cwdOf(tp) {
   }
 }
 
-// Priming is what the model needs before it acts: who the user is, and the rules that correct its
-// defaults. The root MOC is recall material - the note names brain-inject injects per prompt reach it.
-const CORE = [
-  ["Identity", join(VAULT, "00-Meta", "Identity.md")],
-  ["Hard rules — kernel", join(VAULT, "00-Meta", "Hard-Rules-Kernel.md")],
-];
-
-// Strip YAML frontmatter - it is metadata, not context worth spending tokens on.
-const body = (t) => t.replace(/^---\n[\s\S]*?\n---\n/, "").trim();
+// Priming (Identity, Hard-Rules) is NOT injected here: ~/.claude/CLAUDE.md imports both, and
+// Claude Code loads imports in full. A hook's additionalContext over 10,000 chars is replaced by a
+// file path and a 2,000-char preview, and the old CAP that kept it under dropped the rules kernel
+// (2026-10-09). This hook carries only what changes per session; brain-doctor's `priming` check
+// keeps its output under the limit and the imports resolving.
 
 try {
   // The OS line matters even when the vault is missing — more so, since that is how a fresh
@@ -211,21 +205,6 @@ try {
     process.exit(0);
   }
 
-  const parts = [];
-  let used = 0;
-  for (const [label, file] of CORE) {
-    if (!existsSync(file)) continue;
-    const t = body(readFileSync(file, "utf8"));
-    if (used + t.length > CAP) {
-      // Never silently: a skipped CORE note is exactly the failure that hid the MOC for weeks.
-      parts.push(`!! PRIMING: ${label} (${t.length} chars) skipped — over the ${CAP}-char cap. Raise CAP in brain-session.mjs or shorten the note.`);
-      continue;
-    }
-    parts.push(`## ${label}\n\n${t}`);
-    used += t.length;
-  }
-  if (!parts.length) process.exit(0);
-
   // Never let the canary break the injection it rides on.
   let canary = null;
   try {
@@ -235,9 +214,11 @@ try {
   try {
     health = healthAlarm();
   } catch {}
-  try {
-    reflushOrphans();
-  } catch {}
+  // --dry: brain-doctor runs this hook to measure its output; that run must not spawn flushes.
+  if (!process.argv.includes("--dry"))
+    try {
+      reflushOrphans();
+    } catch {}
   let decisions = null;
   try {
     const n = ledgerRead().filter((e) => e.promoted === null).length;
@@ -258,8 +239,8 @@ try {
     ...(decisions ? [decisions, ""] : []),
     machine(),
     "",
-    `The user's second brain is at ${VAULT}. This is its always-true core, injected at`,
-    "session start. It is authoritative about who the user is and where things live.",
+    `The user's second brain is at ${VAULT}. Its Identity.md and Hard-Rules.md are loaded in full`,
+    "through ~/.claude/CLAUDE.md imports and are authoritative about who the user is and the rules.",
     "",
     "Retrieval order for anything else - do not skip tiers:",
     "  0. Note names injected on each prompt by brain-inject - vault notes only. Follow one into the file.",
@@ -278,9 +259,6 @@ try {
     `Do NOT sweep ${DEV_ROOT} blind: that is where node_modules and target/ live. Repo docs are indexed`,
     "per repo (searchable via ctx_search in a session launched in that repo) and reachable through",
     "the merged graph, so a blind sweep is the wrong tool there too.",
-    "Full behavioural rules: 00-Meta/Hard-Rules.md.",
-    "",
-    parts.join("\n\n---\n\n"),
   ].join("\n");
 
   process.stdout.write(
