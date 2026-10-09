@@ -142,8 +142,9 @@ try {
   if (!backfill) {
     // Loose prefilter only: could this Bash command have made a commit? A false positive costs one
     // scan that finds nothing new. A false negative is the only failure that matters, so no
-    // exclusions — v1's `git log` exclusion is exactly what dropped all ten commits.
-    if (!/\bcommit\b/.test(String(readStdin().tool_input?.command || ""))) process.exit(0);
+    // exclusions — v1's `git log` exclusion is exactly what dropped all ten commits. Any `git`, not
+    // just `commit`: `git cherry-pick`/`merge`/`revert` make commits too (02ca9db was missed that way).
+    if (!/\b(git|commit)\b/.test(String(readStdin().tool_input?.command || ""))) process.exit(0);
   }
 
   const { hashes, maxOrdinal } = recordedCommits();
