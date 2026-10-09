@@ -60,13 +60,14 @@ function checkIndex({ notes }) {
   }
   const indexed = new Map(rows.map((r) => [String(r.file_path).toLowerCase(), Date.parse(`${r.indexed_at.replace(" ", "T")}Z`)]));
   const unindexed = [];
+  const pending = []; // unindexed but younger than GRACE_MS: brain-reindex's debounce has not fired yet
   const stale = [];
   // context-mode's chunker splits on "\n" and its heading regex fails on a trailing "\r": a CRLF
   // note is indexed as ONE chunk and loses every ranking. Found 2026-09-22 (retrieval fell to 5/6).
   const crlf = [];
   for (const [key, n] of notes) {
     const at = indexed.get(key);
-    if (at === undefined) unindexed.push(n.path);
+    if (at === undefined) (Date.now() - n.mtime < GRACE_MS ? pending : unindexed).push(n.path);
     else if (n.mtime > at + GRACE_MS) stale.push(n.path);
     if (readFileSync(n.path, "utf8").includes("\r\n")) crlf.push(n.path);
   }
@@ -76,7 +77,7 @@ function checkIndex({ notes }) {
     ok: !unindexed.length && !stale.length && !dead && !ghosts.length && !crlf.length,
     detail: {
       db: basename(file), notes: notes.size, rows: rows.length, deadRows: dead, ghostRows: ghosts.length,
-      unindexed: unindexed.length, stale: stale.length, crlf: crlf.length,
+      unindexed: unindexed.length, pending: pending.length, stale: stale.length, crlf: crlf.length,
       samples: [
         ...unindexed.slice(0, 5).map((p) => `unindexed: ${rel(p)}`),
         ...stale.slice(0, 5).map((p) => `stale: ${rel(p)}`),
