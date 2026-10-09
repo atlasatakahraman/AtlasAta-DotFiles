@@ -42,9 +42,8 @@ function machine() {
   ].join("\n");
 }
 
-const CAP = 12000; // chars. Rules kernel (~3.5 k) + Identity (~5.6 k) with headroom. Raised deliberately:
-// at 7000 the second CORE note never fit - the root MOC was silently dropped from every session; at
-// 9000 Identity's growth pushed the kernel out (2026-10-09), and a session broke the arch-caelestia rule.
+const CAP = 9000; // chars. Identity (~4.2 k) + rules kernel (≤ 3.3 k) with headroom. Raised deliberately:
+// at 7000 the second CORE note never fit - the root MOC was silently dropped from every session.
 const STALE_DAYS = 3; // slack for a weekend off, tight enough to catch a real break early
 
 /**
@@ -189,10 +188,9 @@ function cwdOf(tp) {
 
 // Priming is what the model needs before it acts: who the user is, and the rules that correct its
 // defaults. The root MOC is recall material - the note names brain-inject injects per prompt reach it.
-// Rules first: if the cap is ever hit again, the note that drops is Identity, not the rules.
 const CORE = [
-  ["Hard rules — kernel", join(VAULT, "00-Meta", "Hard-Rules-Kernel.md")],
   ["Identity", join(VAULT, "00-Meta", "Identity.md")],
+  ["Hard rules — kernel", join(VAULT, "00-Meta", "Hard-Rules-Kernel.md")],
 ];
 
 // Strip YAML frontmatter - it is metadata, not context worth spending tokens on.
