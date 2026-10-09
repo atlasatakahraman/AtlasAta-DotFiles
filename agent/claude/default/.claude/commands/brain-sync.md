@@ -7,7 +7,7 @@ Bring the brain's indexes back in step with what is on disk. Run in order:
 1. **Rebuild the vault graph** — free, AST only, no LLM, no tokens:
 
 ```bash
-cd /c/obsidian/root && graphify update . --force
+bun --bun ~/.claude/hooks/brain-graph.mjs --force
 ```
 
 `--force` is required whenever the rebuild is smaller than the stored graph; without it graphify

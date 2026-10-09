@@ -69,7 +69,7 @@ Full table: `00-Meta\Hard-Rules.md#Tooling`. The non-negotiable subset:
   for API syntax, config, or migration steps.
 - **All file writes are native `Write` / `Edit`.** `ctx_execute` sandboxes the filesystem and
   discards it; nothing written there persists.
-- **`graphify update .`** to rebuild — free, AST only, no tokens. `/graphify . --update` is the
+- **`bun --bun ~/.claude/hooks/brain-graph.mjs`** to rebuild the vault graph — free, AST only, no tokens; it adds the wikilink edges a bare `graphify update .` drops, then merges. `/graphify . --update` is the
   semantic pass and **costs tokens**: a deliberate act, never routine maintenance.
 - Break-even for context-mode over `Read` is **~4 KB / ~1,100 tokens**. Above it the win is large
   (88× on a 96 KB file). Below it, plain `Read` is cheaper.
