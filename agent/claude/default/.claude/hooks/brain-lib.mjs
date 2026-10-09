@@ -337,11 +337,16 @@ export function repoList() {
   });
 }
 
-/** Non-merge commits in one repo since `since`, oldest first. The full hash is the identity. */
+/**
+ * Non-merge commits in one repo since `since`, oldest first. The full hash is the identity.
+ * HEAD plus `main`/`master`: shared DotFiles changes are authored on `main` in a worktree while the
+ * checkout sits on `windows`, and HEAD-only never saw them. Not every branch: a fetched local
+ * `arch-caelestia` holds Arch commits, which belong to the Arch vault.
+ */
 export function recentCommits({ root, name }, since) {
   let out = "";
   try {
-    out = gitOut(root, "log", `--since=${since}`, "--no-merges", "--reverse", `--format=%H${US}%cI${US}%s${US}%b${RS}`);
+    out = gitOut(root, "log", "HEAD", "--branches=main", "--branches=master", `--since=${since}`, "--no-merges", "--reverse", `--format=%H${US}%cI${US}%s${US}%b${RS}`);
   } catch {
     return [];
   }
@@ -351,9 +356,29 @@ export function recentCommits({ root, name }, since) {
     .filter(Boolean)
     .map((r) => {
       const [hash, iso, subject, body = ""] = r.split(US);
-      return { root, name, hash, iso, subject: subject || "(no subject)", body: body.trim() };
+      const picked = /\(cherry picked from commit ([0-9a-f]{40})\)/.exec(body)?.[1] ?? null;
+      return { root, name, hash, iso, subject: subject || "(no subject)", body: body.trim(), picked };
     })
     .filter((c) => /^[0-9a-f]{40}$/.test(c.hash));
+}
+
+/**
+ * The commits of `scan` that still need a note. A cherry-pick (`-x` trailer) and its source are one
+ * change: if either has a note, neither needs another; of two unrecorded ones, the first kept wins.
+ * brain-commit and brain-doctor's `commits` check both use this, so the recorder and the check agree.
+ */
+export function unrecorded(scan, hashes) {
+  const key = (c) => c.picked ?? c.hash;
+  const done = new Set([...hashes, ...scan.filter((c) => hashes.has(c.hash)).map(key)]);
+  const seen = new Set();
+  return [...scan]
+    .sort((a, b) => Date.parse(a.iso) - Date.parse(b.iso))
+    .filter((c) => {
+      const k = key(c);
+      if (done.has(c.hash) || done.has(k) || seen.has(k)) return false;
+      seen.add(k);
+      return true;
+    });
 }
 
 /** What is recorded, read from the notes: full hashes, and each logical day's highest ordinal. */
