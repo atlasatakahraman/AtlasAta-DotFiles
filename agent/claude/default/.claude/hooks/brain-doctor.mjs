@@ -12,7 +12,7 @@
 // --repair runs only what is safe to run twice and cannot lose data (spec D9): prune ghost index
 // rows, re-index, graph rebuild, hub regeneration. It never edits, moves or deletes a note.
 import { readdirSync, readFileSync, existsSync, writeFileSync, mkdirSync } from "node:fs";
-import { join, basename } from "node:path";
+import { join, basename, dirname, isAbsolute } from "node:path";
 import { homedir } from "node:os";
 import { execFileSync } from "node:child_process";
 import {
@@ -194,6 +194,35 @@ function checkCommits() {
   return { id: "commits", level: "fail", ok: !missing.length, detail: { missing: missing.length, samples: missing.slice(0, 8) } };
 }
 
+/**
+ * Identity and Hard-Rules reach every session whole: ~/.claude/CLAUDE.md imports both, every import
+ * resolves, and the session hook stays under Claude Code's 10,000-char additionalContext limit (over
+ * it, Claude gets a file path and a 2,000-char preview). The old in-hook cap dropped the rules
+ * kernel instead, and nothing noticed (2026-10-09).
+ */
+function checkPriming() {
+  const LIMIT = 10_000;
+  const md = join(homedir(), ".claude", "CLAUDE.md");
+  const norm = (p) => p.replace(/\\/g, "/").toLowerCase();
+  const imports = [...readFileSync(md, "utf8").matchAll(/^@(\S+)\s*$/gm)]
+    .map((m) => m[1].replace(/^~(?=[\\/])/, homedir()))
+    .map((p) => (isAbsolute(p) ? p : join(dirname(md), p)));
+  const missing = imports.filter((p) => !existsSync(p));
+  const unimported = ["Identity.md", "Hard-Rules.md"]
+    .map((f) => join(VAULT, "00-Meta", f))
+    .filter((r) => !imports.some((i) => norm(i) === norm(r)));
+  let hookChars = -1;
+  try {
+    const out = execFileSync(process.execPath, ["--bun", join(HOOKS, "brain-session.mjs"), "--dry"], { input: "{}", encoding: "utf8", timeout: 30_000, windowsHide: true });
+    hookChars = JSON.parse(out).hookSpecificOutput.additionalContext.length;
+  } catch {}
+  return {
+    id: "priming", level: "fail",
+    ok: !missing.length && !unimported.length && hookChars >= 0 && hookChars <= LIMIT,
+    detail: { imports: imports.length, missing, unimported: unimported.map(rel), hookChars, limit: LIMIT },
+  };
+}
+
 /** Reported, not failed: normal mid-day, but worth seeing every day. */
 function checkHygiene() {
   const out = {};
@@ -248,7 +277,7 @@ function runChecks() {
       return { id: fn.name.replace(/^check/, "").toLowerCase(), level: "fail", ok: false, detail: { error: String(e?.message ?? e) } };
     }
   };
-  return [checkIndex, checkRetrieval, checkSessions, checkAuth, checkFrontmatter, checkLinks, checkReach, checkIgnores, checkCommits, checkHygiene].map(guard);
+  return [checkIndex, checkRetrieval, checkSessions, checkAuth, checkFrontmatter, checkLinks, checkReach, checkIgnores, checkCommits, checkPriming, checkHygiene].map(guard);
 }
 
 // ---- repair (derived artifacts only) -------------------------------------------------------------
