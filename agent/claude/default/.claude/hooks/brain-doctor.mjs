@@ -19,6 +19,7 @@ import {
   VAULT, DEV_ROOT, HOOKS, VAULT_LIKE, HOOK_EVENTS,
   openDb, ftsMatch, vaultSearch, failures, logicalDate, notePath,
   repoList, recentCommits, recordedCommits, unrecorded, indexVault, pruneVaultIndex,
+  rebuildGraph, missingLinkEdges, wikilinkPairs, MERGED_GRAPH,
   NOTE_EXEMPT as EXEMPT, walkVault as walk, linksOf, frontmatterOk, forwardLinks, brokenLinksIn,
 } from "./brain-lib.mjs";
 
@@ -223,6 +224,15 @@ function checkPriming() {
   };
 }
 
+/** Every [[wikilink]] between two notes is an edge in the served graph (graphify drops cross-folder links). */
+function checkGraphLinks() {
+  const missing = missingLinkEdges(JSON.parse(readFileSync(MERGED_GRAPH, "utf8")), "root::");
+  return {
+    id: "graph-links", level: "fail", ok: !missing.length,
+    detail: { pairs: wikilinkPairs().size, missing: missing.length, samples: missing.slice(0, 5).map(({ from, to }) => `${from} -> ${to}`) },
+  };
+}
+
 /** Reported, not failed: normal mid-day, but worth seeing every day. */
 function checkHygiene() {
   const out = {};
@@ -277,7 +287,7 @@ function runChecks() {
       return { id: fn.name.replace(/^check/, "").toLowerCase(), level: "fail", ok: false, detail: { error: String(e?.message ?? e) } };
     }
   };
-  return [checkIndex, checkRetrieval, checkSessions, checkAuth, checkFrontmatter, checkLinks, checkReach, checkIgnores, checkCommits, checkPriming, checkHygiene].map(guard);
+  return [checkIndex, checkRetrieval, checkSessions, checkAuth, checkFrontmatter, checkLinks, checkReach, checkIgnores, checkCommits, checkPriming, checkGraphLinks, checkHygiene].map(guard);
 }
 
 // ---- repair (derived artifacts only) -------------------------------------------------------------
@@ -290,7 +300,7 @@ function runRepairs() {
     ["commits", () => execFileSync(process.execPath, ["--bun", join(HOOKS, "brain-commit.mjs"), "--backfill", since], { timeout: 120_000, stdio: "ignore", windowsHide: true })],
     ["prune", () => pruneVaultIndex()],
     ["reindex", () => indexVault()],
-    ["graph", () => execFileSync("graphify", ["update", "."], { cwd: VAULT, timeout: 600_000, stdio: "ignore", windowsHide: true })],
+    ["graph", () => rebuildGraph()], // graphify + wikilink bridge + merge into the served graph
     ["hubs", () => execFileSync(process.execPath, ["--bun", join(HOOKS, "brain-hubs.mjs")], { timeout: 60_000, stdio: "ignore", windowsHide: true })],
   ];
   return steps.map(([step, fn]) => {
