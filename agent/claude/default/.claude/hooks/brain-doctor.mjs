@@ -324,10 +324,12 @@ function runRepairs() {
     // Commits made outside a Claude Bash call (terminal, PowerShell, other hooks) get no PostToolUse
     // note; the sweep records them here, before reindex so the new notes are indexed.
     ["commits", () => execFileSync(process.execPath, ["--bun", join(HOOKS, "brain-commit.mjs"), "--backfill", since], { timeout: 120_000, stdio: "ignore", windowsHide: true })],
+    // Hubs read the filesystem only, and write MOC links (a new day's [[YYYY-MM-DD]]) that reindex and
+    // graph must see. Run after them and the graph misses those links: graph-links FAIL, 2026-10-10.
+    ["hubs", () => execFileSync(process.execPath, ["--bun", join(HOOKS, "brain-hubs.mjs")], { timeout: 60_000, stdio: "ignore", windowsHide: true })],
     ["prune", () => pruneVaultIndex()],
     ["reindex", () => indexVault()],
     ["graph", () => rebuildGraph()], // graphify + wikilink bridge + merge into the served graph
-    ["hubs", () => execFileSync(process.execPath, ["--bun", join(HOOKS, "brain-hubs.mjs")], { timeout: 60_000, stdio: "ignore", windowsHide: true })],
   ];
   return steps.map(([step, fn]) => {
     const t = Date.now();
