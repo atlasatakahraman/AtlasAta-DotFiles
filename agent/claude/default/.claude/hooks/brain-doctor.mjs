@@ -11,6 +11,7 @@
 // A `fail` check makes the report FAIL; a `warn` check is reported and does not.
 // --repair runs only what is safe to run twice and cannot lose data (spec D9): prune ghost index
 // rows, re-index, graph rebuild, hub regeneration. It never edits, moves or deletes a note.
+// A plain run writes one derived artifact too: the graph, when `graph-links` finds it stale.
 import { readdirSync, readFileSync, existsSync, writeFileSync, mkdirSync, realpathSync } from "node:fs";
 import { join, basename, dirname, isAbsolute } from "node:path";
 import { homedir } from "node:os";
@@ -252,10 +253,19 @@ function checkDotfilesParity() {
 
 /** Every [[wikilink]] between two notes is an edge in the served graph (graphify drops cross-folder links). */
 function checkGraphLinks() {
-  const missing = missingLinkEdges(JSON.parse(readFileSync(MERGED_GRAPH, "utf8")), "root::");
+  const scan = () => missingLinkEdges(JSON.parse(readFileSync(MERGED_GRAPH, "utf8")), "root::");
+  let missing = scan();
+  // A link written since the last rebuild is a stale graph, not a broken bridge: rebuild once and
+  // re-check, so only an edge the rebuild still drops fails (2026-10-10, a fresh session-log link).
+  // Only when something is missing, so a clean graph costs nothing. --repair skips it: its own graph
+  // step rebuilds before the after-check, and the before-check should report the stale state.
+  let rebuilt = false;
+  if (missing.length && !repair) {
+    try { rebuildGraph(); rebuilt = true; missing = scan(); } catch {}
+  }
   return {
     id: "graph-links", level: "fail", ok: !missing.length,
-    detail: { pairs: wikilinkPairs().size, missing: missing.length, samples: missing.slice(0, 5).map(({ from, to }) => `${from} -> ${to}`) },
+    detail: { pairs: wikilinkPairs().size, missing: missing.length, rebuilt, samples: missing.slice(0, 5).map(({ from, to }) => `${from} -> ${to}`) },
   };
 }
 
