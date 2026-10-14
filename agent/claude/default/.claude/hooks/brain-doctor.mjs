@@ -99,22 +99,32 @@ function checkRetrieval() {
   return { id: "retrieval", level: "fail", ok: !failed.length, detail: { passed: CASES.length - failed.length, total: CASES.length, failed } };
 }
 
-/** Yesterday's daily note exists - or there was no session yesterday to capture. */
+/**
+ * Yesterday's daily note exists - or every session that captured yesterday was flushed and judged
+ * non-durable. A flush writes a note only on durable output, so a quiet day has captures and no
+ * note by design; 2026-10-12/13 failed this check while every flush was a genuine FLUSH_OK.
+ */
 function checkSessions() {
   const file = notePath(new Date(Date.now() - 86_400_000));
   const day = basename(file, ".md");
   if (existsSync(file)) return { id: "sessions", level: "fail", ok: true, detail: { day, note: true } };
   // Without the capture log this check could not tell a broken pipeline from a day off.
-  let captures = 0;
+  const captured = new Map(); // sid -> last capture ts that day
+  const settled = new Map(); // sid -> last flush ts that judged its material
   try {
     for (const l of readFileSync(HOOK_EVENTS, "utf8").split("\n")) {
       try {
         const e = JSON.parse(l);
-        if (e.hook === "capture" && basename(notePath(new Date(e.ts)), ".md") === day) captures++;
+        if (e.hook === "capture" && basename(notePath(new Date(e.ts)), ".md") === day) captured.set(e.sid, e.ts);
+        // Any day: a session's tail is often flushed by SessionEnd after the rollover.
+        if (e.hook === "flush" && ["flush-ok", "nothing-new", "wrote"].includes(e.outcome)) settled.set(e.sid, e.ts);
       } catch {}
     }
   } catch {}
-  return { id: "sessions", level: "fail", ok: captures === 0, detail: { day, note: false, captures, reading: captures ? "sessions ran and no note was written" : "no session that day" } };
+  const unsettled = [...captured].filter(([sid, ts]) => !(settled.get(sid) >= ts)).map(([sid]) => sid.slice(0, 8));
+  const reading = !captured.size ? "no session that day"
+    : unsettled.length ? "sessions ran and no note was written" : "sessions ran, every flush judged nothing durable";
+  return { id: "sessions", level: "fail", ok: !unsettled.length, detail: { day, note: false, sessions: captured.size, unsettled, reading } };
 }
 
 function checkAuth() {
