@@ -201,7 +201,15 @@ try {
     process.exit(0);
   }
 
-  if (!out || out.includes("FLUSH_OK")) {
+  // An empty reply is a broken CLI, not a verdict. Counting it as FLUSH_OK would advance the
+  // watermark past material nobody judged, and brain-doctor would read the day as settled.
+  if (!out) {
+    if (!dry) recordFailure("flush", new Error("claude -p returned an empty reply"));
+    log({ hook: "flush", sid, outcome: "empty", events: rows.length, turns: fresh.length });
+    process.exit(0);
+  }
+
+  if (out.includes("FLUSH_OK")) {
     advance();
     log({ hook: "flush", sid, outcome: "flush-ok", events: rows.length, turns: fresh.length });
     if (dry) process.stdout.write("[dry-run] FLUSH_OK - nothing durable, no note would be written\n");
