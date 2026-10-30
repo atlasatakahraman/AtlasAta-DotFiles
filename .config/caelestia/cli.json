@@ -2,6 +2,33 @@
   "sysmon": {
     "enable": false
   },
+  "toggles": {
+    "communication": {
+      "discord": {
+        "enable": false
+      },
+      "vesktop": {
+        "enable": true,
+        "match": [
+          {
+            "class": "vesktop"
+          },
+          {
+            "class": "Vesktop"
+          },
+          {
+            "class": "dev.vencord.Vesktop"
+          }
+        ],
+        "command": [
+          "flatpak",
+          "run",
+          "dev.vencord.Vesktop"
+        ],
+        "move": true
+      }
+    }
+  },
   "wallpaper": {
     "postHook": "sudo /usr/share/sddm/themes/caelestia/scripts/sync.sh --posthook"
   },

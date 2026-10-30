@@ -1,0 +1,12 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = caelestia-sddm*
+
+[Action]
+Description = Re-syncing Caelestia SDDM dynamic theme...
+When = PostTransaction
+Depends = bash
+Depends = coreutils
+Exec = /usr/bin/env SUDO_USER=atlasata /usr/share/sddm/themes/caelestia/scripts/sync.sh --posthook
