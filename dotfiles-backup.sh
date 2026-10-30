@@ -4,7 +4,8 @@
 # Çalıştır: cd ~ && bash dotfiles-backup.sh
 # ============================================================
 
-BRANCH="main"
+# Branch: 1. argüman > mevcut branch (örn: bash dotfiles-backup.sh archlinux)
+BRANCH="${1:-$(git -C "$HOME" rev-parse --abbrev-ref HEAD 2>/dev/null || echo main)}"
 COMMIT_MSG="backup: $(date '+%Y-%m-%d %H:%M')"
 
 GREEN='\033[0;32m'; YELLOW='\033[1;33m'; RED='\033[0;31m'; NC='\033[0m'
@@ -24,6 +25,17 @@ if ! git remote get-url origin &>/dev/null; then
 fi
 
 info "Remote: $(git remote get-url origin)"
+
+# ── 1b. Branch kontrolü ──────────────────────────────────────
+CURRENT=$(git rev-parse --abbrev-ref HEAD)
+if [ "$CURRENT" != "$BRANCH" ]; then
+    if git show-ref --verify --quiet "refs/heads/$BRANCH"; then
+        git checkout "$BRANCH" || error "'$BRANCH' branch'ine geçilemedi"
+    else
+        git checkout -b "$BRANCH" || error "'$BRANCH' branch'i oluşturulamadı"
+    fi
+fi
+info "Branch: $BRANCH"
 
 # ── 2. .gitattributes (LFS YOK) ──────────────────────────────
 # Sadece yoksa yaz
@@ -99,4 +111,4 @@ else
     git push -u origin "$BRANCH" || error "Push başarısız."
 fi
 
-info "✅ Dotfiles backup tamamlandı → github.com/atlasatakahraman/AtlasAta-DotFiles"
+info "✅ Dotfiles backup tamamlandı → github.com/atlasatakahraman/AtlasAta-DotFiles/tree/$BRANCH"
