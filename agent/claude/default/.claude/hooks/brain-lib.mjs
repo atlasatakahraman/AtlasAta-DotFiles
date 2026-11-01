@@ -1,7 +1,7 @@
 // brain-lib.mjs - shared helpers for the brain memory hooks.
 // Runtime is bun (`bun --bun`), per 00-Meta/Hard-Rules.
 // Spec: C:\obsidian\root\40-Plans\2026-08-22-brain-memory-compiler\2026-08-22-brain-memory-compiler.md
-import { readFileSync, existsSync, mkdirSync, writeFileSync, readdirSync, appendFileSync, statSync } from "node:fs";
+import { readFileSync, existsSync, mkdirSync, writeFileSync, readdirSync, appendFileSync, statSync, copyFileSync } from "node:fs";
 import { join, dirname, basename, relative } from "node:path";
 import { homedir, tmpdir } from "node:os";
 import { execFileSync } from "node:child_process";
@@ -672,5 +672,7 @@ export function rebuildGraph({ force = false } = {}) {
     .filter((e) => e.isDirectory())
     .map((e) => join(DEV_ROOT, e.name, "graphify-out", "graph.json"))
     .filter((p) => existsSync(p));
+  // No repo graph yet (a fresh machine): the vault graph alone is what gets served.
   if (repoGraphs.length) execFileSync("graphify", ["merge-graphs", GRAPH, ...repoGraphs, "--out", MERGED_GRAPH], q);
+  else copyFileSync(GRAPH, MERGED_GRAPH);
 }
