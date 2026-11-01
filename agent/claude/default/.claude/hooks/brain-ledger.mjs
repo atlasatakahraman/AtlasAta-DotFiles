@@ -1,6 +1,6 @@
 // brain-ledger.mjs - read and update the decision ledger. The brain skill calls this; nothing
 // hand-edits 50-Ops/decisions.jsonl.
-// Plan: C:\obsidian\root\40-Plans\2026-09-20-vault-governance-overhaul\stages\vault-governance-07-decision-capture.md
+// Plan: [[vault-governance-07-decision-capture]] (vault plan).
 //
 //   list                                                        unpromoted entries
 //   add --tier 1 --question "<q>" --answer "<a>" [--promoted <path>]

@@ -11,12 +11,12 @@ import { readFileSync, existsSync, readdirSync, statSync, openSync, readSync, cl
 import { join } from "node:path";
 import { release } from "node:os";
 import { spawn, spawnSync } from "node:child_process";
-import { VAULT, DEV_ROOT, HOOKS, sessionDbs, failures, HOOK_EVENTS, ledgerRead, logicalDate } from "./brain-lib.mjs";
+import { VAULT, DEV_ROOT, HOOKS, sessionDbs, failures, HOOK_EVENTS, ledgerRead, logicalDate, FOLDERS, CONFIG } from "./brain-lib.mjs";
 
 /**
- * Which OS this session runs on, detected now rather than written into a file. The machine
- * dual-boots, and the same dotfiles (merged from `main`) are checked out on both sides — a
- * hand-written "you are on Windows" would be right on one boot and wrong on the other.
+ * Which OS this session runs on, detected now rather than written into a file. A machine may
+ * boot more than one OS over the same vault — a hand-written "you are on Windows" would be right
+ * on one boot and wrong on the other. The description around it is the config's `machine` text.
  */
 function machine() {
   let current;
@@ -35,10 +35,8 @@ function machine() {
   return [
     "## Machine",
     "",
-    "This machine DUAL-BOOTS Windows 10 Pro and Arch Linux (Hyprland + Caelestia shell), on the",
-    `same hardware. **Current OS: ${current}.** Paths, shells and tools differ per OS: vault`,
-    `${VAULT}, checkouts ${DEV_ROOT}. Hardware and per-OS details: Identity.md § Machine.`,
-    "Dotfiles: AtlasAta-DotFiles, branch `windows` or `archlinux`; shared material on `main`.",
+    ...(CONFIG.machine ? [CONFIG.machine, ""] : []),
+    `**Current OS: ${current}** (records stamped \`${CONFIG.os}\`). Vault ${VAULT}, checkouts ${DEV_ROOT}.`,
   ].join("\n");
 }
 
@@ -92,14 +90,14 @@ function lastFlush() {
       if (e.hook === "flush") return `last flush: ${e.outcome} at ${String(e.ts).slice(0, 16)}Z`;
     }
   } catch {}
-  return "no flush in 50-Ops/hook-events.jsonl yet";
+  return `no flush in ${FOLDERS.ops}/hook-events.jsonl yet`;
 }
 
 function flushCanary() {
   const days = (ms) => Math.floor((Date.now() - ms) / 86_400_000);
 
   let newestNote = 0;
-  const dir = join(VAULT, "30-Sessions");
+  const dir = join(VAULT, FOLDERS.sessions);
   const walk = (p) => {
     for (const e of readdirSync(p, { withFileTypes: true })) {
       if (e.isDirectory()) walk(join(p, e.name));
@@ -123,7 +121,7 @@ function flushCanary() {
 
   return (
     `!! FLUSH CANARY: sessions captured ${days(newestCapture)}d ago, but the newest note in ` +
-    `30-Sessions/ is ${quiet}d old. The memory loop is capturing and not writing (${lastFlush()}). ` +
+    `${FOLDERS.sessions}/ is ${quiet}d old. The memory loop is capturing and not writing (${lastFlush()}). ` +
     `Diagnose with: bun --bun ~/.claude/hooks/brain-flush.mjs <session-id> "<cwd>" --dry-run, ` +
     `and read the tail of ${HOOK_EVENTS}.`
   );
@@ -135,7 +133,7 @@ function flushCanary() {
  * stopping: it is a claude session and dies with auth, and this hook does not depend on it (V7).
  */
 function healthAlarm() {
-  const dir = join(VAULT, "50-Ops", "Health");
+  const dir = join(VAULT, FOLDERS.ops, "Health");
   let files = [];
   try {
     files = readdirSync(dir).filter((f) => /^health-\d{4}-\d{2}\.md$/.test(f)).sort();
@@ -149,7 +147,7 @@ function healthAlarm() {
   if (ageDays >= 2)
     return `!! VAULT HEALTH: the daily sweep has not recorded since ${day} (${ageDays}d). Is the Claude Desktop app running its vault-health Routine? Run it by hand: bun --bun ~/.claude/hooks/brain-doctor.mjs --repair --record --pretty`;
   if (last.includes("**FAIL**"))
-    return `!! VAULT HEALTH FAIL (${day}): ${last.split("·")[1]?.trim()}. Details: bun --bun ~/.claude/hooks/brain-doctor.mjs --pretty — and any explanation the Routine wrote under that line in 50-Ops/Health/${files.at(-1)}.`;
+    return `!! VAULT HEALTH FAIL (${day}): ${last.split("·")[1]?.trim()}. Details: bun --bun ~/.claude/hooks/brain-doctor.mjs --pretty — and any explanation the Routine wrote under that line in ${FOLDERS.ops}/Health/${files.at(-1)}.`;
   return null;
 }
 
@@ -252,7 +250,7 @@ try {
   let decisions = null;
   try {
     const n = ledgerRead().filter((e) => e.promoted === null).length;
-    if (n) decisions = `${n} captured decision${n === 1 ? "" : "s"} not yet in 60-Decisions/ — promote with /brain new decision --ledger`;
+    if (n) decisions = `${n} captured decision${n === 1 ? "" : "s"} not yet in ${FOLDERS.decisions}/ — promote with /brain new decision --ledger`;
   } catch {}
 
   // The cause, when a hook recorded one — no waiting STALE_DAYS for the symptom.
@@ -283,7 +281,7 @@ try {
     "ctx_search reaches the vault ONLY in a session launched in the vault. Its `project` parameter",
     "does not redirect it (measured 2026-09-21, context-mode v1.0.169): from anywhere else it returns",
     "this session's own events, never vault notes - even though the index is complete. Outside the",
-    "vault, tier 0 then tier 4 is the working path. Details: 00-Meta/Hard-Rules.md § Tooling.",
+    `vault, tier 0 then tier 4 is the working path. Details: ${FOLDERS.meta}/Hard-Rules.md § Tooling.`,
     "Check retrieval any time, zero tokens: bun --bun ~/.claude/hooks/brain-doctor.mjs --pretty",
     "",
     `The vault is notes only - the checkouts moved to ${join(DEV_ROOT, "<remote-name>")} on 2026-09-06.`,

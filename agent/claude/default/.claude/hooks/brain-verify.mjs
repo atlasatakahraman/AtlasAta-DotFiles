@@ -11,12 +11,12 @@
 // answer is worse than an error, and re-deriving a check each run is how you get one.
 import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { join, basename, relative, sep } from "node:path";
-import { VAULT, forwardLinks } from "./brain-lib.mjs";
+import { VAULT, forwardLinks, FOLDERS } from "./brain-lib.mjs";
 
 const SKIP = new Set(["graphify-out", ".obsidian", ".remember", ".git", "node_modules"]);
 // 80-Assets holds attachments and verbatim COPIES of repo files. They are valid link TARGETS but
 // are not vault notes, so their own links are not the vault's problem.
-const isVaultNote = (p) => !p.includes(`${sep}80-Assets${sep}`);
+const isVaultNote = (p) => !p.includes(`${sep}${FOLDERS.assets}${sep}`);
 
 const allMd = [];
 (function walk(d) {
@@ -34,8 +34,8 @@ const allMd = [];
   }
 })(VAULT);
 
-// Windows is case-insensitive and so is Obsidian's resolution here: [[TheAtlas-Media]] finds
-// theatlas-media.md. A case-sensitive check reports false breaks.
+// Windows is case-insensitive and so is Obsidian's resolution here: [[My-App]] finds
+// my-app.md. A case-sensitive check reports false breaks.
 const lc = (s) => String(s).toLowerCase();
 const byName = new Set(allMd.map((p) => lc(basename(p, ".md"))));
 const byPath = new Set(
@@ -91,7 +91,7 @@ for (const f of allMd.filter(isVaultNote)) {
 
 let ptrs = 0;
 const dead = [];
-const REPOS = join(VAULT, "10-Repos");
+const REPOS = join(VAULT, FOLDERS.repos);
 // Every note under 10-Repos: since the Stage 03 restructure a repo page is <Repo>/<Repo>.md, and
 // reading only the top level had left all ten checkout: pointers unchecked.
 for (const f of allMd.filter((p) => p.startsWith(REPOS + sep)).map((p) => relative(REPOS, p))) {

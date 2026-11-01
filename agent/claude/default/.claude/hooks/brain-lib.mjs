@@ -1,6 +1,6 @@
 // brain-lib.mjs - shared helpers for the brain memory hooks.
 // Runtime is bun (`bun --bun`), per 00-Meta/Hard-Rules.
-// Spec: C:\obsidian\root\40-Plans\2026-08-22-brain-memory-compiler\2026-08-22-brain-memory-compiler.md
+// Spec: [[2026-08-22-brain-memory-compiler]] (vault plan).
 import { readFileSync, existsSync, mkdirSync, writeFileSync, readdirSync, appendFileSync, statSync, copyFileSync } from "node:fs";
 import { join, dirname, basename, relative } from "node:path";
 import { homedir, tmpdir } from "node:os";
@@ -17,17 +17,18 @@ export function openDb(file) {
   return new Database(file, { readonly: true });
 }
 
-// The two roots differ per OS, so they live in `brain-paths.mjs`: each platform branch of
-// AtlasAta-DotFiles (`windows`, `arch-caelestia`) carries its own. `main` has none — it is never
-// deployed, only merged from.
+// The roots, the OS label and the rollover hour differ per machine, so they come from
+// skeleton-config.mjs (config.json, or the old per-branch brain-paths.mjs while machines migrate).
 // Imported AND re-exported: a bare `export { … } from` creates no local binding, and brain-lib's own
-// vault helpers need VAULT in scope. Getting this wrong fails at MODULE LOAD, before any hook's
+// vault helpers need these in scope. Getting this wrong fails at MODULE LOAD, before any hook's
 // try/catch exists - so every hook importing this file dies at once. It did, on 2026-09-21.
-import { VAULT, DEV_ROOT } from "./brain-paths.mjs";
-export { VAULT, DEV_ROOT };
+import { CONFIG, FOLDERS } from "./skeleton-config.mjs";
+export { CONFIG, FOLDERS };
+export const VAULT = CONFIG.vault;
+export const DEV_ROOT = CONFIG.devRoot;
 export const HOOKS = join(homedir(), ".claude", "hooks");
 export const CTX = join(homedir(), ".claude", "context-mode");
-export const ROLLOVER_HOUR = 5;
+export const ROLLOVER_HOUR = CONFIG.rolloverHour;
 
 /**
  * Why the last `claude -p` a background hook spawned failed, by hook tag. Hooks fail silent, and
@@ -84,7 +85,7 @@ export const IS_WINDOWS = process.platform === "win32";
  * The OS written into records (daily-log headings, commit notes), so a note read from the other
  * boot says which side it was true on ([[0045-cross-os-vault-sync-and-os-stamps]]).
  */
-export const OS_TAG = IS_WINDOWS ? "windows" : process.platform === "linux" ? "arch" : process.platform;
+export const OS_TAG = CONFIG.os;
 
 /**
  * A path in comparable form. Windows paths arrive with mixed separators and are
@@ -113,7 +114,7 @@ export function contextModeCli() {
   }
 }
 
-/** The logical date `now` belongs to. Rollover is 05:00 - a 02:00 session is still yesterday. */
+/** The logical date `now` belongs to. Rollover is ROLLOVER_HOUR (default 05:00) - a 02:00 session is still yesterday. */
 export function logicalDate(now) {
   return new Date(now.getTime() - ROLLOVER_HOUR * 3600_000);
 }
@@ -124,14 +125,14 @@ export function notePath(now) {
   const y = String(d.getFullYear());
   const m = String(d.getMonth() + 1).padStart(2, "0");
   const day = String(d.getDate()).padStart(2, "0");
-  return join(VAULT, "30-Sessions", y, m, `${y}-${m}-${day}.md`);
+  return join(VAULT, FOLDERS.sessions, y, m, `${y}-${m}-${day}.md`);
 }
 
 export function ensureNote(file, now) {
   if (existsSync(file)) return;
   mkdirSync(dirname(file), { recursive: true });
-  // Local date parts, as notePath uses. toISOString() is UTC: a flush at 05:00-08:00 TST stamped
-  // the previous day into a note whose path said today (2026-09-21.md was headed 2026-09-20).
+  // Local date parts, as notePath uses. toISOString() is UTC: east of UTC, a flush in the hours after
+  // rollover stamped the previous day into a note whose path said today (2026-09-21.md was headed 2026-09-20).
   const d = logicalDate(now);
   const stamp = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
   writeFileSync(
@@ -191,7 +192,7 @@ const VAULT_SQL = `SELECT s.file_path AS path, snippet(chunks,1,'','','…',26) 
 // Per-commit notes and their month index are records, not answers: hundreds of short notes would
 // crowd rules and ADRs out of the six slots. They stay indexed (ctx_search finds them); injection
 // skips them.
-const COMMITS_LIKE = `%${join("50-Ops", "Commits")}${VAULT.includes("\\") ? "\\" : "/"}%`;
+const COMMITS_LIKE = `%${join(FOLDERS.ops, "Commits")}${VAULT.includes("\\") ? "\\" : "/"}%`;
 const VAULT_HAS = `SELECT 1 FROM sources WHERE file_path LIKE ? LIMIT 1`;
 
 /** Query one DB: its vault hits, and whether it holds vault sources at all (for self-healing). */
@@ -257,7 +258,7 @@ export function ftsMatch(text) {
 // ---- Capture diagnostics + per-session flush watermarks ---------------------------------------
 // Plan: 40-Plans/2026-09-20-vault-governance-overhaul/stages/vault-governance-02-session-capture.md
 
-/** Runtime state that must survive a reboot. Gitignored in AtlasAta-DotFiles: state, not config. */
+/** Runtime state that must survive a reboot. Gitignored in the hooks' repo: state, not config. */
 export const STATE_DIR = join(HOOKS, ".state");
 
 /**
@@ -266,7 +267,7 @@ export const STATE_DIR = join(HOOKS, ".state");
  * "a note is missing". In the vault, where the user reads it; gitignored there, because an
  * append-only log would otherwise leave the vault permanently dirty.
  */
-export const HOOK_EVENTS = join(VAULT, "50-Ops", "hook-events.jsonl");
+export const HOOK_EVENTS = join(VAULT, FOLDERS.ops, "hook-events.jsonl");
 
 export function logEvent(e) {
   try {
@@ -345,9 +346,9 @@ export function repoList() {
 
 /**
  * Non-merge commits in one repo since `since`, oldest first. The full hash is the identity.
- * HEAD plus `main`/`master`: shared DotFiles changes are authored on `main` in a worktree while the
- * checkout sits on `windows`, and HEAD-only never saw them. Not every branch: a fetched local
- * `arch-caelestia` holds Arch commits, which belong to the Arch vault.
+ * HEAD plus `main`/`master`: in a repo with per-OS branches, shared changes are authored on `main`
+ * in a worktree while the checkout sits on a platform branch, and HEAD-only never saw them. Not every
+ * branch: a fetched local copy of another OS's branch holds that OS's commits.
  */
 export function recentCommits({ root, name }, since) {
   let out = "";
@@ -389,7 +390,7 @@ export function unrecorded(scan, hashes) {
 
 /** What is recorded, read from the notes: full hashes, and each logical day's highest ordinal. */
 export function recordedCommits() {
-  const root = join(VAULT, "50-Ops", "Commits");
+  const root = join(VAULT, FOLDERS.ops, "Commits");
   const hashes = new Set();
   const maxOrdinal = new Map(); // "YYYY-MM-DD" -> N
   if (!existsSync(root)) return { hashes, maxOrdinal };
@@ -506,7 +507,7 @@ export function frontmatterOk(text) {
  */
 export function forwardLinks() {
   try {
-    return new Set([...readFileSync(join(VAULT, "00-Meta", "Forward-Links.md"), "utf8").matchAll(/^-\s+`\[\[([^\]|#]+)/gm)].map((m) => m[1].trim().toLowerCase()));
+    return new Set([...readFileSync(join(VAULT, FOLDERS.meta, "Forward-Links.md"), "utf8").matchAll(/^-\s+`\[\[([^\]|#]+)/gm)].map((m) => m[1].trim().toLowerCase()));
   } catch {
     return new Set();
   }
@@ -564,7 +565,7 @@ export function quoteDeadLinks(body) {
 // One JSON line per captured decision. Tracked in git: these are durable records, unlike the hook
 // event log. Written only through these functions, so the file is never hand-edited.
 
-export const LEDGER = join(VAULT, "50-Ops", "decisions.jsonl");
+export const LEDGER = join(VAULT, FOLDERS.ops, "decisions.jsonl");
 
 export function ledgerRead() {
   try {
