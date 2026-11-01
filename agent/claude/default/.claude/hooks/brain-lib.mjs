@@ -81,6 +81,12 @@ export function readStdin() {
 export const IS_WINDOWS = process.platform === "win32";
 
 /**
+ * The OS written into records (daily-log headings, commit notes), so a note read from the other
+ * boot says which side it was true on ([[0045-cross-os-vault-sync-and-os-stamps]]).
+ */
+export const OS_TAG = IS_WINDOWS ? "windows" : process.platform === "linux" ? "arch" : process.platform;
+
+/**
  * A path in comparable form. Windows paths arrive with mixed separators and are
  * case-insensitive, so there they are unified to `\` and lower-cased. Linux paths are
  * case-sensitive and already `/`-separated: only a trailing separator goes.

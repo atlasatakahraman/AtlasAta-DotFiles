@@ -13,7 +13,7 @@ import { basename, join } from "node:path";
 import { execFileSync } from "node:child_process";
 import {
   sessionDbs, notePath, ensureNote, openDb, recordFailure, clearFailure,
-  logEvent, readWatermarks, writeWatermark, resolveTranscript, STATE_DIR, ledgerAdd, quoteDeadLinks,
+  logEvent, readWatermarks, writeWatermark, resolveTranscript, STATE_DIR, ledgerAdd, quoteDeadLinks, OS_TAG,
 } from "./brain-lib.mjs";
 
 const [, , rawSid = "", cwd = ""] = process.argv;
@@ -225,7 +225,8 @@ try {
   const now = backfill && !Number.isNaN(backfill.getTime()) ? backfill : workedAt;
   const file = notePath(now);
   const where = cwd ? basename(String(cwd).replace(/[\\/]+$/, "")) : "?";
-  const block = `\n### ${backfill ? "backfill" : now.toTimeString().slice(0, 5)} · ${where}\n\n${quoteDeadLinks(out)}\n`;
+  // The transcript lives on the machine that ran the session, so the OS flushing it is the OS it ran on.
+  const block = `\n### ${backfill ? "backfill" : now.toTimeString().slice(0, 5)} · ${where} · ${OS_TAG}\n\n${quoteDeadLinks(out)}\n`;
 
   if (dry) {
     process.stdout.write(`[dry-run] would append to ${file}:\n${block}`);

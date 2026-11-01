@@ -14,7 +14,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 
 import { join, basename } from "node:path";
 import { execFileSync } from "node:child_process";
 import {
-  readStdin, logicalDate, VAULT, HOOKS, repoList, recentCommits, recordedCommits, quoteDeadLinks, unrecorded,
+  readStdin, logicalDate, VAULT, HOOKS, repoList, recentCommits, recordedCommits, quoteDeadLinks, unrecorded, OS_TAG,
 } from "./brain-lib.mjs";
 
 const dry = process.argv.includes("--dry-run");
@@ -50,6 +50,31 @@ const filesOf = (c) => {
   }
 };
 
+/**
+ * The OS a commit was made on: this one if the HEAD reflog shows it being created here, else
+ * `unknown`. A pulled commit arrives as a `pull: Fast-forward` entry for the tip only, so its
+ * origin cannot be told from this side ([[0045-cross-os-vault-sync-and-os-stamps]]).
+ */
+const madeHere = new Map();
+function osOf(c) {
+  if (!madeHere.has(c.root)) {
+    let set = new Set();
+    try {
+      set = new Set(
+        git(c.root, "reflog", "--format=%H %gs")
+          .split("\n")
+          // Only entries that create a commit: `rebase (start)` checks out the upstream tip and a
+          // `Fast-forward` merge moves to someone else's commit, so both would claim pulled work.
+          .filter((l) => !/Fast-forward/.test(l))
+          .filter((l) => /^\S+ ((commit|cherry-pick|merge|revert|am)\b|(rebase( -i)?|pull --rebase) \((pick|reword|edit|squash|fixup)\))/.test(l))
+          .map((l) => l.slice(0, l.indexOf(" "))),
+      );
+    } catch {}
+    madeHere.set(c.root, set);
+  }
+  return madeHere.get(c.root).has(c.hash) ? OS_TAG : "unknown";
+}
+
 function noteFor(c, files, month, dd, n) {
   let stat = "";
   try {
@@ -79,6 +104,7 @@ function noteFor(c, files, month, dd, n) {
     `repo: ${c.name}`,
     `hash: ${c.hash}`,
     `committed: ${c.iso}`,
+    `os: ${osOf(c)}`,
     `created: ${day}`,
     `updated: ${day}`,
     "status: active",
