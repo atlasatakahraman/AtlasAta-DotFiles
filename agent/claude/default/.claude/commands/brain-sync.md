@@ -2,40 +2,46 @@
 description: Refresh the brain - rebuild graphs, re-index, prune phantoms, verify links
 ---
 
-Bring the brain's indexes back in step with what is on disk. Run in order:
+Bring the brain's indexes back in step with what is on disk. The vault and checkout roots come from this machine's config:
+
+```bash
+CFG=~/.claude/hooks/skeleton-config.mjs; VAULT=$(bun --bun $CFG vault); DEV=$(bun --bun $CFG devRoot)
+```
+
+Then run in order:
 
 1. **Rebuild the vault graph** — free, AST only, no LLM, no tokens:
 
 ```bash
-cd /c/obsidian/root && graphify update . --force
+cd "$VAULT" && graphify update . --force
 ```
 
 `--force` is required whenever the rebuild is smaller than the stored graph; without it graphify
 refuses to shrink. See [[Conventions]].
 
 2. **Rebuild any repo graph you have touched, then re-merge.** The checkouts live at
-   `C:\dev\<remote-name>\` since 2026-09-06 ([[0012-repos-leave-the-vault-index-stays]]) and each
+   `$DEV/<remote-name>/` ([[0012-repos-leave-the-vault-index-stays]]) and each
    carries its own `graphify-out/`, built on demand:
 
 ```bash
-cd /c/dev/<Repo> && graphify update .
+cd "$DEV/<Repo>" && graphify update .
 ```
 
 ```bash
-cd /c/obsidian/root && graphify merge-graphs graphify-out/graph.json /c/dev/*/graphify-out/graph.json --out graphify-out/merged-graph.json
+cd "$VAULT" && graphify merge-graphs graphify-out/graph.json "$DEV"/*/graphify-out/graph.json --out graphify-out/merged-graph.json
 ```
 
-**`merged-graph.json` is what `.mcp.json` serves — not `graph.json`.** Step 1 alone leaves the
+**`merged-graph.json` is what the graphify MCP serves — not `graph.json`.** Step 1 alone leaves the
 served graph stale. The `brain-reindex` hook re-merges automatically after each vault rebuild, so
 this step matters when a *repo* graph changed.
 
-3. **Re-index for full-text search:** `/context-mode:ctx-index C:\obsidian\root`
+3. **Re-index for full-text search:** `/context-mode:ctx-index <vault>` (the `$VAULT` path)
 
    To make a repo's code searchable — and injectable by `brain-inject`, which iterates every
    content DB:
 
 ```bash
-bun --bun ~/.claude/plugins/cache/context-mode/context-mode/1.0.169/cli.bundle.mjs index C:/dev/<Repo> --source repo:<Repo> --ext .ts,.tsx,.rs,.md --max-depth 8 --max-files 800
+bun --bun ~/.claude/plugins/cache/context-mode/context-mode/1.0.169/cli.bundle.mjs index "$DEV/<Repo>" --source repo:<Repo> --ext .ts,.tsx,.rs,.md --max-depth 8 --max-files 800
 ```
 
 4. **Prune phantom index entries.** `context-mode index` is **additive** — it never removes
@@ -70,7 +76,7 @@ bun --bun ~/.claude/hooks/brain-verify.mjs
 ```
 
 **Do not re-derive this check as a shell one-liner.** It was got wrong twice in one run that way —
-once from case-sensitivity (Obsidian resolves `[[TheAtlas-Media]]` to `theatlas-media.md`), once
+once from case-sensitivity (Obsidian resolves `[[My-App]]` to `my-app.md`), once
 from shell escaping mangling a regex so it skipped three files and printed a confident wrong
 count. The script handles case-insensitivity, frontmatter `aliases:`, code-fence stripping (bash
 `[[ ... ]]` conditionals are indistinguishable from wikilinks), and treats `80-Assets/` copies as
