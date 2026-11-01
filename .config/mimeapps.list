@@ -80,3 +80,4 @@ application/vnd.ms-excel.sheet.binary.macroEnabled.12=ai.storyteller.gridcraft.d
 application/vnd.oasis.opendocument.spreadsheet=ai.storyteller.gridcraft.desktop
 text/csv=ai.storyteller.gridcraft.desktop
 text/tab-separated-values=ai.storyteller.gridcraft.desktop
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop

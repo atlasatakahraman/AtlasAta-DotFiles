@@ -544,3 +544,17 @@ lfs_cozucu.py
 !.mozilla/firefox/*/chrome/userChrome.css
 !.mozilla/firefox/*/chrome/userContent.css
 .local/share/fish/fish_history
+
+# ============================================================
+# Claude Code runtime state — history, transcripts, session keys, caches.
+# Private, not secrets: gitleaks does not catch them. Only the config is tracked.
+# ============================================================
+.claude/*
+!.claude/CLAUDE.md
+!.claude/settings.json
+!.claude/brain-paths.mjs
+!.claude/skills/
+.claude/skills/synced/
+.claude.json.backup
+# ~/dev holds independent checkouts, each its own repo
+dev/

@@ -1,3 +1,124 @@
 {
-  "theme": "dark-ansi"
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/atlasata/.bun/bin/bun --bun /home/atlasata/.claude/hooks/context-mode-cache-heal.mjs"
+          },
+          {
+            "type": "command",
+            "command": "/home/atlasata/.bun/bin/bun --bun /home/atlasata/.claude/hooks/brain-session.mjs"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/atlasata/.bun/bin/bun --bun /home/atlasata/.claude/hooks/brain-inject.mjs"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/atlasata/.bun/bin/bun --bun /home/atlasata/.claude/hooks/brain-capture.mjs",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/atlasata/.bun/bin/bun --bun /home/atlasata/.claude/hooks/brain-capture.mjs",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/atlasata/.bun/bin/bun --bun /home/atlasata/.claude/hooks/brain-capture.mjs",
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/atlasata/.bun/bin/bun --bun /home/atlasata/.claude/hooks/brain-capture.mjs",
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/atlasata/.bun/bin/bun --bun /home/atlasata/.claude/hooks/brain-reindex.mjs"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/atlasata/.bun/bin/bun --bun /home/atlasata/.claude/hooks/brain-commit.mjs",
+            "timeout": 15,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/atlasata/.bun/bin/bun --bun /home/atlasata/.claude/hooks/brain-commit.mjs",
+            "timeout": 15,
+            "async": true
+          }
+        ]
+      }
+    ]
+  },
+  "extraKnownMarketplaces": {
+    "context-mode": {
+      "source": {
+        "source": "github",
+        "repo": "mksglu/context-mode"
+      }
+    }
+  },
+  "outputStyle": "Proactive",
+  "theme": "dark-ansi",
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true,
+  "enabledPlugins": {
+    "context-mode@context-mode": true
+  }
 }
