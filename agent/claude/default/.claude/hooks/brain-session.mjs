@@ -10,7 +10,7 @@
 import { readFileSync, existsSync, readdirSync, statSync, openSync, readSync, closeSync } from "node:fs";
 import { join } from "node:path";
 import { release } from "node:os";
-import { spawn } from "node:child_process";
+import { spawn, spawnSync } from "node:child_process";
 import { VAULT, DEV_ROOT, HOOKS, sessionDbs, failures, HOOK_EVENTS, ledgerRead, logicalDate } from "./brain-lib.mjs";
 
 /**
@@ -38,8 +38,33 @@ function machine() {
     "This machine DUAL-BOOTS Windows 10 Pro and Arch Linux (Hyprland + Caelestia shell), on the",
     `same hardware. **Current OS: ${current}.** Paths, shells and tools differ per OS: vault`,
     `${VAULT}, checkouts ${DEV_ROOT}. Hardware and per-OS details: Identity.md § Machine.`,
-    "Dotfiles: AtlasAta-DotFiles, branch `windows` or `arch-caelestia`; shared material on `main`.",
+    "Dotfiles: AtlasAta-DotFiles, branch `windows` or `archlinux`; shared material on `main`.",
   ].join("\n");
+}
+
+/**
+ * Fast-forward the vault from origin before the session reads it ([[0045-cross-os-vault-sync-and-os-stamps]]).
+ * The two boots never edit at once, so every conflict so far was a forgotten pull. Pull only:
+ * pushing stays the user's call. Clean tree only (untracked files never block a fast-forward).
+ * Silent when already current; one line when it pulled or could not.
+ */
+function vaultPull() {
+  if (process.env.CLAUDE_INVOKED_BY || process.argv.includes("--dry")) return null;
+  const git = (...a) =>
+    spawnSync("git", a, {
+      cwd: VAULT, encoding: "utf8", windowsHide: true, timeout: 8_000,
+      env: { ...process.env, GIT_TERMINAL_PROMPT: "0" },
+    });
+  if (git("status", "--porcelain", "--untracked-files=no").stdout?.trim())
+    return "!! VAULT PULL skipped: uncommitted changes. Commit or stash, then `git pull --ff-only`.";
+  const before = git("rev-parse", "HEAD").stdout?.trim();
+  const r = git("pull", "--ff-only", "--quiet");
+  if (r.status !== 0)
+    return `!! VAULT PULL failed: ${(r.stderr || r.error?.message || "timeout").trim().split("\n")[0]}. Pull by hand before editing.`;
+  const n = Number(git("rev-list", "--count", `${before}..HEAD`).stdout?.trim() || 0);
+  if (!n) return null;
+  spawn(process.execPath, ["--bun", join(HOOKS, "brain-reindex.mjs"), "--vault"], { detached: true, stdio: "ignore", windowsHide: true }).unref();
+  return `Vault pulled ${n} commit${n === 1 ? "" : "s"} from origin (the other OS may have written since). Reindex scheduled.`;
 }
 
 const STALE_DAYS = 3; // slack for a weekend off, tight enough to catch a real break early
@@ -205,6 +230,11 @@ try {
     process.exit(0);
   }
 
+  // First, so everything below reads the pulled vault.
+  let pulled = null;
+  try {
+    pulled = vaultPull();
+  } catch {}
   // Never let the canary break the injection it rides on.
   let canary = null;
   try {
@@ -234,6 +264,7 @@ try {
 
   const ctx = [
     ...failing.flatMap((l) => [l, ""]),
+    ...(pulled ? [pulled, ""] : []),
     ...(canary ? [canary, ""] : []),
     ...(health ? [health, ""] : []),
     ...(decisions ? [decisions, ""] : []),
