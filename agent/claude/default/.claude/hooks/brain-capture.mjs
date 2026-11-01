@@ -1,9 +1,9 @@
 // brain-capture.mjs - SessionEnd · PreCompact · Stop · SubagentStop. No parsing, no API. Fast.
-// Plan: C:\obsidian\root\40-Plans\2026-09-20-vault-governance-overhaul\stages\vault-governance-02-session-capture.md
+// Plan: [[vault-governance-02-session-capture]] (vault plan).
 import { statSync, openSync, readSync, closeSync } from "node:fs";
 import { join } from "node:path";
 import { spawn } from "node:child_process";
-import { guard, readStdin, logicalDate, HOOKS, VAULT, logEvent, readWatermarks, writeWatermark, resolveTranscript } from "./brain-lib.mjs";
+import { guard, readStdin, logicalDate, HOOKS, VAULT, logEvent, readWatermarks, writeWatermark, resolveTranscript, FOLDERS } from "./brain-lib.mjs";
 
 guard(); // MUST be first - without this, flush's own `claude -p` re-fires this hook.
 
@@ -92,7 +92,7 @@ try {
     const month = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
     let stale = true;
     try {
-      stale = day(statSync(join(VAULT, "50-Ops", "Usage", `usage-${month}.md`)).mtimeMs) !== day(Date.now());
+      stale = day(statSync(join(VAULT, FOLDERS.ops, "Usage", `usage-${month}.md`)).mtimeMs) !== day(Date.now());
     } catch {
       /* no digest yet - stale stays true */
     }

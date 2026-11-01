@@ -1,5 +1,5 @@
 // brain-commit.mjs - one vault note per commit, in every repo, with its why. Runtime: bun --bun.
-// Plan: C:\obsidian\root\40-Plans\2026-09-20-vault-governance-overhaul\stages\vault-governance-01-commit-recording.md
+// Plan: [[vault-governance-01-commit-recording]] (vault plan).
 //
 //   (PostToolUse Bash hook)      record commits from the last 3 days that have no note yet
 //   --backfill YYYY-MM-DD        the same, since that date. Idempotent: safe to re-run.
@@ -14,13 +14,13 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 
 import { join, basename } from "node:path";
 import { execFileSync } from "node:child_process";
 import {
-  readStdin, logicalDate, VAULT, HOOKS, repoList, recentCommits, recordedCommits, quoteDeadLinks, unrecorded, OS_TAG,
+  readStdin, logicalDate, VAULT, HOOKS, repoList, recentCommits, recordedCommits, quoteDeadLinks, unrecorded, OS_TAG, FOLDERS,
 } from "./brain-lib.mjs";
 
 const dry = process.argv.includes("--dry-run");
 const bfAt = process.argv.indexOf("--backfill");
 const backfill = bfAt !== -1 ? process.argv[bfAt + 1] : null;
-const ROOT = join(VAULT, "50-Ops", "Commits");
+const ROOT = join(VAULT, FOLDERS.ops, "Commits");
 
 const git = (cwd, ...a) =>
   execFileSync("git", a, { cwd, encoding: "utf8", windowsHide: true, stdio: ["ignore", "pipe", "ignore"] });
@@ -87,7 +87,7 @@ function noteFor(c, files, month, dd, n) {
   // (the flush pipeline was down), and 55 notes carried a dead [[day]] link.
   // ponytail: checked at record time, so a commit made before the day's first flush says "no
   // session log" for good; relinking records when a log appears later is the upgrade.
-  const logged = existsSync(join(VAULT, "30-Sessions", month.slice(0, 4), month.slice(5), `${day}.md`));
+  const logged = existsSync(join(VAULT, FOLDERS.sessions, month.slice(0, 4), month.slice(5), `${day}.md`));
   const why =
     quoteDeadLinks(c.body) ||
     "_No commit body. Under D5 option A a commit record carries only what its message says — the why belongs in the body._";
@@ -187,7 +187,7 @@ try {
     const files = filesOf(c);
     // A commit that only adds commit records would record itself forever, one trailing note per
     // commit of the notes. Skip it — its content IS the record.
-    if (c.root === VAULT && files.length && files.every((f) => f.startsWith("50-Ops/Commits/"))) continue;
+    if (c.root === VAULT && files.length && files.every((f) => f.startsWith(`${FOLDERS.ops}/Commits/`))) continue;
 
     const { month, dd } = dayOf(c.iso);
     const key = `${month}-${dd}`;

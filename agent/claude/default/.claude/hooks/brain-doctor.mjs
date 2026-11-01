@@ -1,5 +1,5 @@
 // brain-doctor.mjs - zero-token vault health check. JSON by default; exit 0 always.
-// Plan: C:\obsidian\root\40-Plans\2026-09-20-vault-governance-overhaul\stages\vault-governance-06-daily-sweep.md
+// Plan: [[vault-governance-06-daily-sweep]] (vault plan).
 //
 //   bun --bun ~/.claude/hooks/brain-doctor.mjs            JSON, for the Routine
 //   ... --pretty                                          table, for a human
@@ -17,7 +17,7 @@ import { join, basename, dirname, isAbsolute } from "node:path";
 import { homedir } from "node:os";
 import { execFileSync } from "node:child_process";
 import {
-  VAULT, DEV_ROOT, HOOKS, VAULT_LIKE, HOOK_EVENTS,
+  VAULT, DEV_ROOT, HOOKS, VAULT_LIKE, HOOK_EVENTS, FOLDERS,
   openDb, ftsMatch, vaultSearch, failures, logicalDate, notePath,
   repoList, recentCommits, recordedCommits, unrecorded, indexVault, pruneVaultIndex,
   rebuildGraph, missingLinkEdges, wikilinkPairs, MERGED_GRAPH,
@@ -165,7 +165,8 @@ function checkReach({ notes }) {
     for (const p of frontier) for (const q of adj.get(p) || []) if (!depth.has(q)) { depth.set(q, d); next.push(q); }
     frontier = next;
   }
-  const isRecord = (p) => /[\\/]30-Sessions[\\/]/.test(p) || /[\\/]50-Ops[\\/]Commits[\\/]\d{4}-\d{2}[\\/]/.test(p);
+  const RECORD = new RegExp(`[\\\\/](${FOLDERS.sessions}[\\\\/]|${FOLDERS.ops}[\\\\/]Commits[\\\\/]\\d{4}-\\d{2}[\\\\/])`);
+  const isRecord = (p) => RECORD.test(p);
   const orphans = [];
   for (const { path } of notes.values()) {
     if (isRootFile(path) && EXEMPT.test(basename(path))) continue;
@@ -200,7 +201,7 @@ function checkCommits() {
   for (const c of unrecorded(repoList().flatMap((r) => recentCommits(r, "3.days.ago")), hashes)) {
     let files = [];
     try { files = execFileSync("git", ["show", "--name-only", "--format=", c.hash], { cwd: c.root, encoding: "utf8" }).split("\n").filter(Boolean); } catch {}
-    if (c.root === VAULT && files.length && files.every((f) => f.startsWith("50-Ops/Commits/"))) continue; // record-only commits are skipped by design
+    if (c.root === VAULT && files.length && files.every((f) => f.startsWith(`${FOLDERS.ops}/Commits/`))) continue; // record-only commits are skipped by design
     missing.push(`${c.name} ${c.hash.slice(0, 7)} ${c.subject.slice(0, 60)}`);
   }
   return { id: "commits", level: "fail", ok: !missing.length, detail: { missing: missing.length, samples: missing.slice(0, 8) } };
@@ -221,7 +222,7 @@ function checkPriming() {
     .map((p) => (isAbsolute(p) ? p : join(dirname(md), p)));
   const missing = imports.filter((p) => !existsSync(p));
   const unimported = ["Identity.md", "Hard-Rules.md"]
-    .map((f) => join(VAULT, "00-Meta", f))
+    .map((f) => join(VAULT, FOLDERS.meta, f))
     .filter((r) => !imports.some((i) => norm(i) === norm(r)));
   let hookChars = -1;
   try {
@@ -235,18 +236,18 @@ function checkPriming() {
   };
 }
 
-// Tracked on DotFiles `main` because arch-caelestia takes them from there, but each platform branch
-// keeps its own content (ADR AtlasAta-DotFiles/0004). Deleting them from `main` would delete Arch's
-// copies on its next merge of `main`, so they stay, exempt from parity.
+// Tracked on the hooks repo's `main`, but each platform branch keeps its own content. Deleting them
+// from `main` would delete a platform branch's copies on its next take of `main`, so they stay,
+// exempt from parity. Replaced by a skeleton-version check at knowledge-skeleton Stage 2.
 const PER_BRANCH_ON_MAIN = new Set([
   "agent/claude/default/.claude/commands/brain-commits.md",
   "agent/claude/default/.claude/commands/brain-sync.md",
 ]);
 
 /**
- * DotFiles `main` holds only shared material (ADR AtlasAta-DotFiles/0003), so every file it tracks
- * must be identical on the checked-out platform branch. A hook fix committed straight to `windows`
- * (7dc1b16) was missing from `main` for weeks and nothing noticed. Read-only and local refs only:
+ * The hooks repo's `main` holds only shared material, so every file it tracks must be identical on
+ * the checked-out platform branch. A hook fix committed straight to a platform branch (7dc1b16) was
+ * missing from `main` for weeks and nothing noticed. Read-only and local refs only:
  * no fetch, and the other OS's branch is never read.
  */
 function checkDotfilesParity() {
@@ -285,7 +286,7 @@ function checkHygiene() {
   try {
     // Machine-written paths are dirty by design until the next vault commit (D9: the Routine never
     // commits), so counting them would warn every single day. What matters is human work at risk.
-    const MACHINE = /^.. (\.obsidian\/|50-Ops\/|30-Sessions\/|graphify-out\/)/;
+    const MACHINE = new RegExp(`^.. (\\.obsidian/|${FOLDERS.ops}/|${FOLDERS.sessions}/|graphify-out/)`);
     out.uncommitted = execFileSync("git", ["status", "--porcelain"], { cwd: VAULT, encoding: "utf8" }).split("\n").filter((l) => l && !MACHINE.test(l)).length;
   } catch {}
   // D11: durable memory belongs in the vault. Non-empty per-cwd shards and stray files in checkouts are drift.
@@ -316,7 +317,7 @@ function checkHygiene() {
   } catch {}
   out.straysInCheckouts = strays;
   try {
-    out.unpromotedDecisions = readFileSync(join(VAULT, "50-Ops", "decisions.jsonl"), "utf8").split("\n").filter((l) => l.includes('"promoted":null')).length;
+    out.unpromotedDecisions = readFileSync(join(VAULT, FOLDERS.ops, "decisions.jsonl"), "utf8").split("\n").filter((l) => l.includes('"promoted":null')).length;
   } catch {
     out.unpromotedDecisions = 0;
   }
@@ -374,7 +375,7 @@ function writeRecord(report) {
   const warning = report.checks.filter((c) => c.level === "warn" && !c.ok).map((c) => c.id);
   const notes = report.checks.find((c) => c.id === "vault-index")?.detail?.notes ?? "?";
   const line = `- ${day} ${pad(now.getHours())}:${pad(now.getMinutes())} **${report.ok ? "PASS" : "FAIL"}** · failing: ${failing.join(", ") || "none"} · warn: ${warning.join(", ") || "none"} · notes=${notes}`;
-  const dir = join(VAULT, "50-Ops", "Health");
+  const dir = join(VAULT, FOLDERS.ops, "Health");
   const file = join(dir, `health-${month}.md`);
   const created = !existsSync(file);
   mkdirSync(dir, { recursive: true });

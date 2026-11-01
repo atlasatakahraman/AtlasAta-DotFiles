@@ -1,6 +1,6 @@
 // brain-flush.mjs - detached. Sends only what is NEW in a session since its last flush, and
 // appends what is worth keeping to the daily note.
-// Plan: C:\obsidian\root\40-Plans\2026-09-20-vault-governance-overhaul\stages\vault-governance-02-session-capture.md
+// Plan: [[vault-governance-02-session-capture]] (vault plan).
 //
 //   brain-flush.mjs <session-id> <cwd> [--transcript <path>] [--date YYYY-MM-DD] [--dry-run]
 //

@@ -1,5 +1,5 @@
 // brain-inject.mjs - UserPromptSubmit. Injects relevant vault notes. Fails silent, always.
-// Spec: C:\obsidian\root\40-Plans\2026-08-22-brain-memory-compiler\2026-08-22-brain-memory-compiler.md
+// Spec: [[2026-08-22-brain-memory-compiler]] (vault plan).
 //
 // SCOPED TO THE VAULT, 2026-09-21. It used to walk every context-mode content DB under a 50ms
 // budget. Measured that day: 12 DBs at 7-9ms per open, ~90ms total - the budget stopped it at
@@ -8,7 +8,7 @@
 // stray agent-memory files (AppView.tsx, store.ts, MEMORY.md, build.rs) - zero vault notes, and
 // ~330 tokens per prompt of misleading context. The query now lives in brain-lib's vaultSearch(),
 // shared with brain-doctor so the regression test exercises this exact path.
-// Evidence: C:\obsidian\root\40-Plans\2026-09-20-vault-governance-overhaul\evidence\2026-09-21-retrieval-audit.md
+// Evidence: [[2026-09-21-retrieval-audit]] (vault plan).
 import { basename } from "node:path";
 import { readStdin, ftsMatch, vaultSearch, VAULT } from "./brain-lib.mjs";
 

@@ -1,13 +1,13 @@
 // brain-reindex.mjs - PostToolUse(Edit|Write). Trailing-debounce rebuild of both indexes.
 // Runtime is bun (`bun --bun`), per 00-Meta/Hard-Rules.
-// Spec: C:\obsidian\root\40-Plans\2026-08-22-brain-memory-compiler\2026-08-22-brain-memory-compiler.md
+// Spec: [[2026-08-22-brain-memory-compiler]] (vault plan).
 import { readFileSync, writeFileSync, unlinkSync, existsSync, readdirSync } from "node:fs";
 import { join, sep, basename } from "node:path";
 import { tmpdir } from "node:os";
 import { spawn, execFileSync } from "node:child_process";
 import {
   readStdin, normDir, VAULT, HOOKS, DEV_ROOT, contextModeCli, INDEX_EXCLUDES, indexVault,
-  NOTE_EXEMPT, walkVault, frontmatterOk, brokenLinksIn, rebuildGraph,
+  NOTE_EXEMPT, walkVault, frontmatterOk, brokenLinksIn, rebuildGraph, FOLDERS,
 } from "./brain-lib.mjs";
 
 const STAMP = join(tmpdir(), "brain-reindex.json");
@@ -17,7 +17,7 @@ const EXCLUDES = INDEX_EXCLUDES; // shared with brain-doctor, so what is indexed
 // context-mode is NOT on PATH - it ships as a plugin bundle. Invoke it through the runtime.
 const CM_CLI = contextModeCli();
 // Checkouts left the vault on 2026-09-06 - see [[0012-repos-leave-the-vault-index-stays]].
-// DEV_ROOT comes from brain-paths.mjs: C:\dev on Windows, ~/dev on Arch.
+// DEV_ROOT comes from the machine's config (skeleton-config.mjs).
 
 // Every child runs headless. Without this, each one opens a console window on Windows.
 const QUIET = { stdio: "ignore", windowsHide: true };
@@ -95,7 +95,7 @@ function schedule({ vault = false, repo = null }) {
 /**
  * `<DEV_ROOT>/<Repo>/…` → `<DEV_ROOT>/<Repo>`, or null outside DEV_ROOT. On Windows `path`
  * arrives lower-cased by `normDir`, so the name is looked up on disk for its real casing:
- * `theatlas` and `TheAtlas` are one directory to Windows and two different projects to the
+ * `my-app` and `My-App` are one directory to Windows and two different projects to the
  * source label (Conventions § Renaming).
  */
 function repoRoot(path) {
@@ -130,8 +130,8 @@ function validateNote(file) {
   const problems = [];
   if (!frontmatterOk(text)) problems.push("frontmatter needs `type` and `created`");
   const broken = [...new Set(brokenLinksIn(walkVault())(text))];
-  if (broken.length) problems.push(`links to nothing: ${broken.map((b) => `[[${b}]]`).join(", ")} — fix, or list as intentional in 00-Meta/Forward-Links.md`);
-  return problems.length ? `brain-validate ${name}: ${problems.join("; ")}. Conventions: 00-Meta/Conventions.md.` : null;
+  if (broken.length) problems.push(`links to nothing: ${broken.map((b) => `[[${b}]]`).join(", ")} — fix, or list as intentional in ${FOLDERS.meta}/Forward-Links.md`);
+  return problems.length ? `brain-validate ${name}: ${problems.join("; ")}. Conventions: ${FOLDERS.meta}/Conventions.md.` : null;
 }
 
 if (process.argv.includes("--settle")) {

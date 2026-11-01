@@ -61,7 +61,7 @@ const check = (name, got, want) => {
   if (!ok) failed++;
   console.log(`${ok ? "PASS" : "FAIL"}  ${name}${ok ? "" : `  (got ${got}, want ${want})`}`);
 };
-const end = { cwd: "C:\\dev\\TheAtlas", hook_event_name: "SessionEnd" };
+const end = { cwd: "C:\\dev\\My-App", hook_event_name: "SessionEnd" };
 
 // The bug: this payload is what SessionEnd actually delivered, and capture gave up.
 check("payload with NO transcript_path still resolves it from session_id", run({ ...end, session_id: t.sid }).transcript, t.path);
