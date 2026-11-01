@@ -552,9 +552,10 @@ lfs_cozucu.py
 .claude/*
 !.claude/CLAUDE.md
 !.claude/settings.json
-!.claude/brain-paths.mjs
 !.claude/skills/
 .claude/skills/synced/
+# A symlink into the knowledge-skeleton checkout, like ~/.claude/hooks and commands/
+.claude/skills/brain
 .claude.json.backup
 # ~/dev holds independent checkouts, each its own repo
 dev/
