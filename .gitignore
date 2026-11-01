@@ -558,3 +558,6 @@ lfs_cozucu.py
 .claude.json.backup
 # ~/dev holds independent checkouts, each its own repo
 dev/
+
+# The vault is its own private repo (atlasatakahraman/knowledge); tracking it here committed its HEAD as a gitlink on every backup
+/knowledge/
