@@ -536,13 +536,15 @@ lfs_cozucu.py
 # ============================================================
 # MOZİLLA — sadece userChrome.css
 # ============================================================
+# ~/.mozilla/firefox is a symlink to ~/.config/mozilla/firefox (since 2026-05-23). git does not
+# follow symlinks, so the profiles are allowlisted at their real path under .config/.
 .mozilla/**
-!.mozilla/firefox/
-!.mozilla/firefox/*/
-.mozilla/firefox/*/**
-!.mozilla/firefox/*/chrome/
-!.mozilla/firefox/*/chrome/userChrome.css
-!.mozilla/firefox/*/chrome/userContent.css
+!.config/mozilla/
+!.config/mozilla/firefox/
+!.config/mozilla/firefox/*/
+!.config/mozilla/firefox/*/chrome/
+!.config/mozilla/firefox/*/chrome/userChrome.css
+!.config/mozilla/firefox/*/chrome/userContent.css
 .local/share/fish/fish_history
 
 # ============================================================

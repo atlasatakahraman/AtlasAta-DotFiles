@@ -1,0 +1,894 @@
+/**
+ * Caelestia Firefox Theme - Custom for Arch Linux + Hyprland
+ * Matches Caelestia Shell design language
+ * NOW WITH LIGHT THEME SUPPORT!
+ *
+ * IMPORTANT INSTALLATION INSTRUCTIONS:
+ * ====================================
+ * 1. Open Firefox and type "about:config" in the address bar
+ * 2. Click "Accept the Risk and Continue"
+ * 3. Search for: toolkit.legacyUserProfileCustomizations.stylesheets
+ * 4. Set it to "true" (double-click or toggle)
+ * 5. Type "about:support" in address bar
+ * 6. Find "Profile Directory" row and click "Open Directory"
+ * 7. Create a folder named "chrome" (all lowercase, no quotes)
+ * 8. Save this file as "userChrome.css" (exact name, case-sensitive)
+ *    - Make sure it's .css extension, NOT .css.txt
+ *    - On Linux: file should be at ~/.mozilla/firefox/XXXXXXXX.default/chrome/userChrome.css
+ * 9. Restart Firefox completely
+ *
+ * LIGHT/DARK THEME:
+ * ================
+ * Theme automatically switches based on your system theme preference.
+ * To force dark or light mode, uncomment one of these lines at the bottom:
+ * - Force dark: @media (prefers-color-scheme: light) { :root { color-scheme: dark; } }
+ * - Force light: @media (prefers-color-scheme: dark) { :root { color-scheme: light; } }
+ *
+ * TROUBLESHOOTING:
+ * ===============
+ * - Verify file is named exactly "userChrome.css" (case-sensitive)
+ * - Check file location: should be inside profile_folder/chrome/
+ * - Ensure toolkit.legacyUserProfileCustomizations.stylesheets = true
+ * - Restart Firefox after any changes
+ * - Use Browser Toolbox (Ctrl+Shift+Alt+I) to debug in real-time
+ *
+ * Version: 3.0 - Light Theme Edition
+ * Updated: January 2026
+ * Tested on: Firefox 133+
+ */
+
+/* ==================== ROOT VARIABLES - DARK THEME (DEFAULT) ==================== */
+:root {
+    --caelestia-font-primary:
+        "Inter", "SF Pro", system-ui, -apple-system, sans-serif;
+    --caelestia-font-monospace:
+        "CaskaydiaCove", "Fira Code", "Cascadia Code", monospace;
+
+    /* Caelestia Color Palette - Dark Mode */
+    --caelestia-bg-primary: rgba(28, 27, 26, 0.63);
+    --caelestia-bg-secondary: rgba(49, 48, 46, 0.68);
+    --caelestia-bg-tertiary: #31302e;
+    --caelestia-bg-elevated: #3d3b38;
+
+    --caelestia-purple-primary: #cec6b1;
+    --caelestia-purple-light: #eae2cd;
+    --caelestia-purple-dark: #b8b09e;
+    --caelestia-purple-accent: #c6beaa;
+    --caelestia-pink: #c3c9ba;
+    --caelestia-pink-light: #dfe5d6;
+
+    /* Text Colors - Dark Mode */
+    --caelestia-text-primary: #f4f0ed;
+    --caelestia-text-secondary: #ccc6bb;
+    --caelestia-text-muted: #9a968e;
+    --caelestia-text-disabled: #4a463f;
+
+    /* Borders & Shadows - Dark Mode */
+    --caelestia-border-subtle: rgba(206, 198, 177, 0.08);
+    --caelestia-border-medium: rgba(206, 198, 177, 0.15);
+    --caelestia-border-strong: rgba(206, 198, 177, 0.25);
+
+    --caelestia-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+    --caelestia-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+    --caelestia-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.6);
+    --caelestia-shadow-glow: 0 0 20px rgba(206, 198, 177, 0.12);
+
+    /* Border Radius */
+    --radius-sm: 12px;
+    --radius-md: 16px;
+    --radius-lg: 20px;
+    --radius-xl: 24px;
+    --radius-full: 9999px;
+
+    /* Spacing */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 12px;
+    --space-lg: 16px;
+    --space-xl: 24px;
+    --space-2xl: 32px;
+
+    /* Transitions - Optimized for smoothness */
+    --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Firefox System Colors Integration */
+    --toolbar-bgcolor: var(--caelestia-bg-primary) !important;
+    --toolbar-color: var(--caelestia-text-primary) !important;
+    --lwt-accent-color: var(--caelestia-bg-primary) !important;
+    --lwt-text-color: var(--caelestia-text-primary) !important;
+    --arrowpanel-background: var(--caelestia-bg-secondary) !important;
+    --arrowpanel-color: var(--caelestia-text-primary) !important;
+    --autocomplete-popup-background: var(--caelestia-bg-secondary) !important;
+    --autocomplete-popup-color: var(--caelestia-text-primary) !important;
+}
+
+/* ==================== LIGHT THEME OVERRIDE ==================== */
+@media (prefers-color-scheme: light) {
+    :root {
+        /* Caelestia Color Palette - Light Mode */
+        --caelestia-bg-primary: rgba(253, 248, 245, 0.95);
+        --caelestia-bg-secondary: rgba(247, 243, 240, 0.98);
+        --caelestia-bg-tertiary: #ece7e4;
+        --caelestia-bg-elevated: #ffffff;
+
+        --caelestia-purple-primary: #7a7463;
+        --caelestia-purple-light: #cec6b1;
+        --caelestia-purple-dark: #524d3d;
+        --caelestia-purple-accent: #645e4d;
+        --caelestia-pink: #70776a;
+        --caelestia-pink-light: #dfe5d6;
+
+        /* Text Colors - Light Mode */
+        --caelestia-text-primary: #1c1b1a;
+        --caelestia-text-secondary: #4a473e;
+        --caelestia-text-muted: #78746b;
+        --caelestia-text-disabled: #ccc6bb;
+
+        /* Borders & Shadows - Light Mode */
+        --caelestia-border-subtle: rgba(122, 116, 99, 0.08);
+        --caelestia-border-medium: rgba(122, 116, 99, 0.15);
+        --caelestia-border-strong: rgba(122, 116, 99, 0.25);
+
+        --caelestia-shadow-sm: 0 2px 8px rgba(122, 116, 99, 0.08);
+        --caelestia-shadow-md: 0 4px 16px rgba(122, 116, 99, 0.12);
+        --caelestia-shadow-lg: 0 8px 24px rgba(122, 116, 99, 0.15);
+        --caelestia-shadow-glow: 0 0 20px rgba(122, 116, 99, 0.08);
+
+        /* Firefox System Colors Integration - Light Mode */
+        --toolbar-bgcolor: var(--caelestia-bg-primary) !important;
+        --toolbar-color: var(--caelestia-text-primary) !important;
+        --lwt-accent-color: var(--caelestia-bg-primary) !important;
+        --lwt-text-color: var(--caelestia-text-primary) !important;
+        --arrowpanel-background: var(--caelestia-bg-secondary) !important;
+        --arrowpanel-color: var(--caelestia-text-primary) !important;
+        --autocomplete-popup-background: var(
+            --caelestia-bg-secondary
+        ) !important;
+        --autocomplete-popup-color: var(--caelestia-text-primary) !important;
+    }
+}
+
+/* ==================== PROFILE/ACCOUNT ICON SIZE ==================== */
+/* Change the number to adjust size (default is around 32px) */
+#fxa-avatar-image,
+.fxa-avatar,
+#fxa-toolbar-menu-button > .toolbarbutton-badge-stack > .toolbarbutton-icon,
+#fxa-menu-avatar {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+}
+
+* {
+    font-family: var(--caelestia-font-primary) !important;
+    font-weight: 500;
+}
+
+/* ==================== MAIN WINDOW ==================== */
+#main-window {
+    background-color: var(--caelestia-bg-primary) !important;
+}
+
+/* ==================== NAVIGATOR TOOLBOX ==================== */
+#navigator-toolbox {
+    background-color: var(--caelestia-bg-primary) !important;
+    border: none !important;
+    overflow: visible !important;
+}
+
+/* ==================== NAVIGATION BAR ==================== */
+#nav-bar {
+    background: var(--caelestia-bg-secondary) !important;
+    border: none !important;
+    box-shadow: var(--caelestia-shadow-sm) !important;
+    padding: var(--space-md) var(--space-lg) !important;
+    margin: var(--space-sm) var(--space-md) !important;
+    border-radius: var(--radius-lg) !important;
+    overflow: visible !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+:root[uidensity="compact"] #nav-bar {
+    padding: var(--space-xs) var(--space-md) !important;
+}
+
+/* ==================== TABS TOOLBAR ==================== */
+#TabsToolbar {
+    background-color: var(--caelestia-bg-primary) !important;
+    border: none !important;
+    padding: var(--space-sm) var(--space-md) 0 !important;
+    overflow: visible !important;
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+#TabsToolbar .toolbar-items {
+    background-color: transparent !important;
+    overflow: visible !important;
+}
+
+/* Fix for tab strip container */
+#tabbrowser-tabs {
+    overflow: visible !important;
+}
+
+.tabbrowser-arrowscrollbox {
+    overflow: visible !important;
+}
+
+/* ==================== TABS STYLING ==================== */
+.tabbrowser-tab {
+    background-color: transparent !important;
+    border: none !important;
+    margin: 0 var(--space-xs) !important;
+    border-radius: var(--radius-md) !important;
+    overflow: visible !important;
+}
+
+/* Ensure dragged tab uses absolute positioning expected by Firefox drag engine and matches full height */
+.tabbrowser-tab[dragtarget] {
+    position: absolute !important;
+    top: 0 !important;
+    height: 100% !important;
+}
+
+.tabbrowser-tab[dragtarget] > .tab-stack {
+    height: 100% !important;
+}
+
+:root[uidensity="compact"] .tabbrowser-tab {
+    margin: 0 1px !important;
+}
+
+.tabbrowser-tab .tab-background {
+    background: var(--caelestia-bg-secondary) !important;
+    border: 1px solid var(--caelestia-border-subtle) !important;
+    border-radius: var(--radius-md) !important;
+    margin: var(--space-xs) 0 !important;
+    transition: all var(--transition-normal) !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+.tabbrowser-tab:hover .tab-background {
+    background: var(--caelestia-bg-tertiary) !important;
+    border-color: var(--caelestia-border-medium) !important;
+    box-shadow: var(--caelestia-shadow-sm) !important;
+}
+
+.tabbrowser-tab[selected="true"] .tab-background {
+    background: linear-gradient(
+        135deg,
+        rgba(122, 116, 99, 0.12),
+        rgba(112, 119, 106, 0.08)
+    ) !important;
+    border: 2px solid var(--caelestia-purple-primary) !important;
+}
+
+/* Tab Stack - Fix overflow */
+.tab-stack {
+    overflow: hidden !important;
+    border-radius: var(--radius-md) !important;
+}
+
+/* Tab Content */
+.tab-content {
+    overflow: hidden !important;
+    padding: 0 var(--space-md) !important;
+}
+
+/* Tab Text */
+.tabbrowser-tab .tab-label {
+    color: var(--caelestia-text-secondary) !important;
+    font-weight: 500 !important;
+    transition: color var(--transition-normal) !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.tabbrowser-tab:hover .tab-label {
+    color: var(--caelestia-text-primary) !important;
+}
+
+.tabbrowser-tab[selected="true"] .tab-label {
+    color: var(--caelestia-text-primary) !important;
+    font-weight: 600 !important;
+}
+
+/* Tab Icon */
+.tab-icon-image {
+    margin-right: var(--space-sm) !important;
+}
+
+/* Tab Close Button */
+.tab-close-button {
+    color: var(--caelestia-text-muted) !important;
+    background: transparent !important;
+    border-radius: var(--radius-full) !important;
+    padding: 4px !important;
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    transition: all var(--transition-fast) !important;
+    margin-left: var(--space-sm) !important;
+}
+
+.tab-close-button:hover {
+    background-color: rgba(112, 119, 106, 0.15) !important;
+    color: var(--caelestia-pink) !important;
+}
+
+/* New Tab Button */
+#tabs-newtab-button,
+#new-tab-button {
+    background: var(--caelestia-purple-accent) !important;
+    border: none !important;
+    border-radius: var(--radius-full) !important;
+    margin: var(--space-xs) !important;
+    padding: 10px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    transition: all var(--transition-normal) !important;
+}
+
+#tabs-newtab-button:hover,
+#new-tab-button:hover {
+    background: var(--caelestia-purple-dark) !important;
+    box-shadow: 0 4px 12px rgba(122, 116, 99, 0.4) !important;
+    transform: translateY(-2px);
+}
+
+#tabs-newtab-button:active,
+#new-tab-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(122, 116, 99, 0.3) !important;
+}
+
+#tabs-newtab-button .toolbarbutton-icon,
+#new-tab-button .toolbarbutton-icon {
+    fill: #ffffff !important;
+}
+
+/* ==================== URL BAR ==================== */
+#urlbar-container {
+    background-color: transparent !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    position: relative !important;
+    z-index: 3 !important;
+}
+
+#urlbar {
+    background: var(--caelestia-bg-primary) !important;
+    border: 2px solid var(--caelestia-border-subtle) !important;
+    border-radius: var(--radius-xl) !important;
+    color: var(--caelestia-text-primary) !important;
+    padding: var(--space-sm) var(--space-xl) !important;
+    transition: all var(--transition-normal) !important;
+    box-shadow: var(--caelestia-shadow-sm) !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+#urlbar:hover {
+    background: var(--caelestia-bg-tertiary) !important;
+    border-color: var(--caelestia-border-medium) !important;
+}
+
+#urlbar[focused="true"],
+#urlbar[open] {
+    background: var(--caelestia-bg-elevated) !important;
+    border: 2px solid var(--caelestia-purple-primary) !important;
+    box-shadow:
+        0 0 0 2px rgba(122, 116, 99, 0.15),
+        var(--caelestia-shadow-glow) !important;
+}
+
+/* Fix for URL bar expanding/megabar - Critical z-index fix */
+#urlbar[breakout][breakout-extend] {
+    z-index: 10 !important;
+    position: relative !important;
+}
+
+#urlbar[breakout][breakout-extend] > #urlbar-input-container {
+    height: var(--urlbar-height) !important;
+    padding-block: 0 !important;
+    padding-inline: 0 !important;
+    overflow: hidden !important;
+}
+
+#urlbar[breakout][breakout-extend] > #urlbar-background {
+    animation-name: none !important;
+    box-shadow:
+        0 0 0 2px rgba(122, 116, 99, 0.15),
+        var(--caelestia-shadow-glow) !important;
+    border-radius: var(--radius-xl) !important;
+    border: 2px solid var(--caelestia-purple-primary) !important;
+}
+
+#urlbar-input-container {
+    border-radius: var(--radius-xl) !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+#urlbar-background {
+    border-radius: var(--radius-xl) !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+#urlbar-input {
+    color: var(--caelestia-text-primary) !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+}
+
+#urlbar-input::placeholder {
+    color: var(--caelestia-text-muted) !important;
+    text-align: center !important;
+}
+
+.urlbar-icon,
+.urlbar-icon-wrapper {
+    color: var(--caelestia-text-secondary) !important;
+    fill: var(--caelestia-text-secondary) !important;
+}
+
+/* Fix icon overflow */
+#urlbar .urlbar-input-box {
+    overflow: hidden !important;
+}
+
+/* Fix page action button overflow */
+#page-action-buttons {
+    overflow: visible !important;
+}
+
+/* Identity box overflow fix */
+#identity-box {
+    border-radius: var(--radius-lg) !important;
+    padding: 2px var(--space-md) !important;
+    margin-right: var(--space-sm) !important;
+    transition: all var(--transition-fast) !important;
+    overflow: visible !important;
+    flex-shrink: 0 !important;
+}
+
+#identity-box:hover {
+    background: rgba(122, 116, 99, 0.08) !important;
+}
+
+#identity-icon {
+    fill: var(--caelestia-purple-primary) !important;
+}
+
+/* Fix tracking protection icon overflow */
+#tracking-protection-icon-container {
+    overflow: visible !important;
+    flex-shrink: 0 !important;
+}
+
+/* ==================== DROPDOWN SUGGESTIONS ==================== */
+#urlbar-results {
+    background: var(--caelestia-bg-secondary) !important;
+    border-radius: var(--radius-xl) !important;
+    margin-top: var(--space-sm) !important;
+    padding: var(--space-md) !important;
+    overflow: hidden !important;
+    position: relative !important;
+    z-index: 11 !important;
+}
+
+.urlbarView {
+    border-radius: var(--radius-lg) !important;
+    overflow: hidden !important;
+}
+
+.urlbarView-row {
+    background: transparent !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-md) var(--space-lg) !important;
+    margin: var(--space-xs) 0 !important;
+    transition: background var(--transition-fast) !important;
+    min-height: 40px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+.urlbarView-row:hover {
+    background: var(--caelestia-bg-tertiary) !important;
+}
+
+.urlbarView-row[selected] {
+    background: linear-gradient(
+        90deg,
+        rgba(122, 116, 99, 0.12),
+        rgba(112, 119, 106, 0.08)
+    ) !important;
+}
+
+.urlbarView-row:first-child {
+    margin-top: 0 !important;
+}
+
+.urlbarView-row:last-child {
+    margin-bottom: 0 !important;
+}
+
+.urlbarView-title {
+    color: var(--caelestia-text-primary) !important;
+    font-weight: 500 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.urlbarView-url {
+    color: var(--caelestia-text-secondary) !important;
+    font-size: 0.9em !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.urlbarView-results {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+.urlbarView-favicon {
+    margin-right: var(--space-md) !important;
+    flex-shrink: 0 !important;
+}
+
+.urlbarView-type-icon {
+    fill: var(--caelestia-text-secondary) !important;
+}
+
+.urlbarView-action {
+    color: var(--caelestia-text-muted) !important;
+    font-size: 0.85em !important;
+}
+
+/* ==================== TOOLBAR BUTTONS ==================== */
+.toolbarbutton-1 {
+    background: transparent !important;
+    border: none !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-md) !important;
+    margin: 0 var(--space-xs) !important;
+    fill: var(--caelestia-text-secondary) !important;
+    color: var(--caelestia-text-secondary) !important;
+    transition: all var(--transition-fast) !important;
+    overflow: visible !important;
+}
+
+.toolbarbutton-1:hover {
+    background: rgba(122, 116, 99, 0.12) !important;
+    fill: var(--caelestia-purple-primary) !important;
+    color: var(--caelestia-purple-primary) !important;
+    transform: scale(1.05);
+}
+
+.toolbarbutton-1:active {
+    transform: scale(0.95);
+}
+
+.toolbarbutton-1[open="true"] {
+    background: rgba(122, 116, 99, 0.18) !important;
+    fill: var(--caelestia-purple-primary) !important;
+}
+
+.toolbarbutton-icon {
+    fill: inherit !important;
+}
+
+#back-button,
+#forward-button,
+#reload-button,
+#stop-button {
+    border-radius: var(--radius-full) !important;
+}
+
+/* ==================== BOOKMARKS TOOLBAR ==================== */
+#PersonalToolbar {
+    background: var(--caelestia-bg-secondary) !important;
+    border: none !important;
+    padding: var(--space-sm) var(--space-lg) !important;
+    margin: 0 var(--space-md) var(--space-sm) !important;
+    border-radius: var(--radius-lg) !important;
+    overflow: visible !important;
+}
+
+.bookmark-item {
+    background: transparent !important;
+    border: none !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-sm) var(--space-lg) !important;
+    margin: 0 var(--space-xs) !important;
+    transition: all var(--transition-fast) !important;
+}
+
+.bookmark-item:hover {
+    background: rgba(122, 116, 99, 0.12) !important;
+    transform: translateY(-1px);
+}
+
+/* Fix bookmark text visibility */
+.bookmark-item .toolbarbutton-text {
+    color: var(--caelestia-text-secondary) !important;
+}
+
+.bookmark-item:hover .toolbarbutton-text {
+    color: var(--caelestia-purple-primary) !important;
+}
+
+toolbarbutton.bookmark-item > .toolbarbutton-icon {
+    margin-right: var(--space-sm) !important;
+}
+
+/* Bookmark folders */
+.bookmark-item[container="true"] {
+    color: var(--caelestia-text-secondary) !important;
+}
+
+.bookmark-item[container="true"]:hover {
+    color: var(--caelestia-purple-primary) !important;
+}
+
+/* ==================== SIDEBAR ==================== */
+#sidebar-box {
+    background: var(--caelestia-bg-secondary) !important;
+    border-right: 1px solid var(--caelestia-border-subtle) !important;
+    overflow: visible !important;
+}
+
+#sidebar-header {
+    background: var(--caelestia-bg-primary) !important;
+    border-bottom: 1px solid var(--caelestia-border-subtle) !important;
+    color: var(--caelestia-text-primary) !important;
+    padding: var(--space-lg) !important;
+}
+
+#sidebar {
+    background: var(--caelestia-bg-secondary) !important;
+}
+
+#sidebar-switcher-target {
+    background: transparent !important;
+    border-radius: var(--radius-sm) !important;
+    transition: background var(--transition-fast) !important;
+}
+
+#sidebar-switcher-target:hover {
+    background: rgba(122, 116, 99, 0.12) !important;
+}
+
+/* ==================== CONTEXT MENUS & PANELS ==================== */
+menupopup,
+panel {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background: var(--caelestia-bg-secondary) !important;
+    border: 1px solid var(--caelestia-border-medium) !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: var(--caelestia-shadow-lg) !important;
+    color: var(--caelestia-text-primary) !important;
+    padding: var(--space-sm) !important;
+    overflow: visible !important;
+}
+
+menuitem,
+menu {
+    color: var(--caelestia-text-primary) !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-sm) var(--space-lg) !important;
+    margin: var(--space-xs) 0 !important;
+    transition: background var(--transition-fast) !important;
+    min-height: unset !important;
+    overflow: hidden !important;
+}
+
+menuitem:hover,
+menu:hover,
+menuitem[_pophover="true"],
+menu[_pophover="true"] {
+    background: rgba(122, 116, 99, 0.12) !important;
+    color: var(--caelestia-purple-light) !important;
+}
+
+menuseparator {
+    border-color: var(--caelestia-border-subtle) !important;
+    margin: var(--space-sm) 0 !important;
+    appearance: none !important;
+}
+
+.panel-arrowcontent {
+    background: var(--caelestia-bg-secondary) !important;
+    border-radius: var(--radius-lg) !important;
+    border: 1px solid var(--caelestia-border-medium) !important;
+    overflow: visible !important;
+}
+
+.panel-arrowbox {
+    display: none !important;
+}
+
+/* ==================== SCROLLBARS ==================== */
+* {
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(122, 116, 99, 0.25) transparent !important;
+}
+
+scrollbar thumb {
+    background: rgba(122, 116, 99, 0.25) !important;
+    border-radius: 10px !important;
+    transition: background var(--transition-fast) !important;
+}
+
+scrollbar thumb:hover {
+    background: var(--caelestia-purple-primary) !important;
+}
+
+/* ==================== NOTIFICATIONS ==================== */
+.notification-button {
+    background: var(--caelestia-purple-accent) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-sm) var(--space-xl) !important;
+    font-weight: 600 !important;
+    transition: all var(--transition-normal) !important;
+}
+
+.notification-button:hover {
+    background: var(--caelestia-purple-dark) !important;
+    box-shadow: 0 4px 12px rgba(122, 116, 99, 0.4) !important;
+    transform: translateY(-1px);
+}
+
+/* ==================== PERFORMANCE OPTIMIZATIONS ==================== */
+.tabbrowser-tab .tab-background,
+.toolbarbutton-1,
+#urlbar,
+.bookmark-item {
+    will-change: auto;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.tab-throbber,
+.toolbarbutton-icon {
+    transform: translateZ(0);
+}
+
+/* Enable GPU acceleration for smooth animations */
+#nav-bar,
+#urlbar {
+    transform: translate3d(0, 0, 0);
+}
+
+/* ==================== TOOLTIPS CUSTOMIZATION ==================== */
+tooltip {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background: var(--caelestia-bg-elevated) !important;
+    border: 1px solid var(--caelestia-border-medium) !important;
+    border-radius: var(--radius-md) !important;
+    color: var(--caelestia-text-primary) !important;
+    padding: var(--space-sm) var(--space-md) !important;
+    font-size: 13px !important;
+}
+
+/* ==================== ACCESSIBILITY ==================== */
+*:focus-visible {
+    outline: 2px solid var(--caelestia-purple-primary) !important;
+    outline-offset: 2px !important;
+}
+
+.urlbarView-title strong {
+    color: var(--caelestia-purple-light) !important;
+}
+
+/* ==================== ADDITIONAL FIXES ==================== */
+
+/* Fix for popup panels z-index */
+panel[type="autocomplete-richlistbox"],
+#PopupAutoComplete {
+    z-index: 12 !important;
+}
+
+/* Fix border-box for all elements */
+* {
+    box-sizing: border-box !important;
+}
+
+/* Fix tab line (remove if present) */
+.tab-line {
+    display: none !important;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth !important;
+}
+
+/* Fix findbar */
+.findbar-textbox {
+    border-radius: var(--radius-lg) !important;
+    background: var(--caelestia-bg-primary) !important;
+    border: 1px solid var(--caelestia-border-medium) !important;
+    color: var(--caelestia-text-primary) !important;
+}
+
+/* Fix notification bar */
+notification {
+    background: var(--caelestia-bg-secondary) !important;
+    border: 1px solid var(--caelestia-border-medium) !important;
+    border-radius: var(--radius-lg) !important;
+    margin: var(--space-sm) var(--space-md) !important;
+}
+
+/* Fix download button */
+#downloads-button {
+    overflow: visible !important;
+}
+
+/* ==================== LIGHT THEME ENHANCEMENTS ==================== */
+/* Additional refinements for light mode readability */
+@media (prefers-color-scheme: light) {
+    /* Enhance contrast for selected tabs in light mode */
+    .tabbrowser-tab[selected="true"] .tab-background {
+        background: linear-gradient(
+            135deg,
+            rgba(122, 116, 99, 0.15),
+            rgba(112, 119, 106, 0.1)
+        ) !important;
+        box-shadow: var(--caelestia-shadow-md) !important;
+    }
+
+    /* Better shadows for URL bar in light mode */
+    #urlbar[focused="true"],
+    #urlbar[open] {
+        box-shadow:
+            0 0 0 3px rgba(122, 116, 99, 0.12),
+            0 8px 24px rgba(122, 116, 99, 0.15) !important;
+    }
+
+    /* Enhance menu contrast in light mode */
+    menuitem:hover,
+    menu:hover,
+    menuitem[_pophover="true"],
+    menu[_pophover="true"] {
+        background: rgba(122, 116, 99, 0.15) !important;
+    }
+}
+
+/* ==================== END OF THEME ==================== */
+
+/*
+ * OPTIONAL: Force specific theme mode
+ * Uncomment ONE of the following blocks to override system preference:
+ */
+
+/* Force Dark Mode (uncomment to use):
+@media (prefers-color-scheme: light) {
+    :root {
+        color-scheme: dark;
+    }
+}
+*/
+
+/* Force Light Mode (uncomment to use):
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: light;
+    }
+}
+*/

@@ -1,0 +1,479 @@
+/**
+ * Firefox Soft Purple Dreams Theme
+ * Matches Discord theme color palette
+ * Palette: #B497CD (Purple), #F3B7BD (Pink), #16131A (Dark BG), #CEACED (Lavender)
+ *
+ * Installation:
+ * 1. Type "about:config" in Firefox address bar
+ * 2. Search for "toolkit.legacyUserProfileCustomizations.stylesheets"
+ * 3. Set it to "true"
+ * 4. Type "about:support" in address bar
+ * 5. Click "Open Folder" next to Profile Folder
+ * 6. Create a folder named "chrome" (if it doesn't exist)
+ * 7. Save this file as "userChrome.css" in the chrome folder
+ * 8. Restart Firefox
+ */
+
+/* ==================== ROOT VARIABLES ==================== */
+:root {
+    /* Color Palette */
+    --soft-purple: #b497cd;
+    --soft-pink: #f3b7bd;
+    --peachy-pink: #ffb4ab;
+    --lavender-gray: #ceaced;
+    --light-lilac: #d1c1d9;
+    --deep-dark: #16131a;
+    --dark-charcoal: #242d28;
+    --main-dark: #1a1720;
+    --card-dark: #252028;
+    --card-hover: #2a2430;
+
+    /* Text Colors */
+    --text-primary: #e8e0f0;
+    --text-secondary: #a89bb8;
+    --text-muted: #6d5f7d;
+
+    /* Border & Shadow */
+    --border-subtle: rgba(180, 151, 205, 0.08);
+    --border-medium: rgba(180, 151, 205, 0.15);
+    --shadow-subtle: 0 2px 8px rgba(22, 19, 26, 0.4);
+    --shadow-medium: 0 4px 16px rgba(22, 19, 26, 0.5);
+
+    /* Border Radius */
+    --radius-small: 8px;
+    --radius-medium: 12px;
+    --radius-large: 16px;
+
+    /* Animation */
+    --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==================== MAIN BROWSER WINDOW ==================== */
+#main-window {
+    background-color: var(--deep-dark) !important;
+}
+
+/* ==================== TOOLBAR BACKGROUNDS ==================== */
+#navigator-toolbox {
+    background-color: var(--deep-dark) !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
+}
+
+#nav-bar {
+    background: var(--main-dark) !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 4px 8px !important;
+}
+
+#PersonalToolbar {
+    background-color: var(--main-dark) !important;
+    border-top: 1px solid var(--border-subtle) !important;
+}
+
+/* Tab Bar Background */
+#TabsToolbar {
+    background-color: var(--deep-dark) !important;
+    border: none !important;
+}
+
+/* ==================== TABS STYLING ==================== */
+.tabbrowser-tab {
+    background-color: transparent !important;
+    border: none !important;
+    margin: 0 2px !important;
+    border-radius: var(--radius-medium) !important;
+    transition: var(--transition) !important;
+}
+
+/* Tab Background */
+.tabbrowser-tab .tab-background {
+    background: var(--card-dark) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-medium) !important;
+    margin: 4px 0 !important;
+    transition: var(--transition) !important;
+}
+
+/* Tab Hover */
+.tabbrowser-tab:hover .tab-background {
+    background: var(--card-hover) !important;
+    border-color: var(--border-medium) !important;
+}
+
+/* Active Tab */
+.tabbrowser-tab[selected="true"] .tab-background {
+    background: linear-gradient(
+        135deg,
+        rgba(180, 151, 205, 0.2),
+        rgba(206, 172, 237, 0.15)
+    ) !important;
+    border-color: var(--soft-purple) !important;
+    box-shadow: 0 0 0 1px var(--soft-purple) !important;
+}
+
+/* Tab Text */
+.tabbrowser-tab .tab-label {
+    color: var(--text-secondary) !important;
+    font-weight: 500 !important;
+}
+
+.tabbrowser-tab:hover .tab-label {
+    color: var(--text-primary) !important;
+}
+
+.tabbrowser-tab[selected="true"] .tab-label {
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+}
+
+/* Tab Close Button */
+.tab-close-button {
+    color: var(--text-muted) !important;
+    border-radius: 6px !important;
+    transition: var(--transition) !important;
+}
+
+.tab-close-button:hover {
+    background-color: rgba(243, 183, 189, 0.2) !important;
+    color: var(--soft-pink) !important;
+}
+
+/* New Tab Button */
+#tabs-newtab-button,
+#new-tab-button {
+    background-color: var(--card-dark) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-medium) !important;
+    margin: 4px !important;
+    transition: var(--transition) !important;
+}
+
+#tabs-newtab-button:hover,
+#new-tab-button:hover {
+    background-color: var(--card-hover) !important;
+    border-color: var(--soft-purple) !important;
+}
+
+/* ==================== URL BAR (SEARCH BAR) ==================== */
+#urlbar-container {
+    background-color: transparent !important;
+}
+
+#urlbar {
+    background-color: var(--card-dark) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-large) !important;
+    color: var(--text-primary) !important;
+    padding: 6px 12px !important;
+    transition: var(--transition) !important;
+}
+
+#urlbar:hover {
+    background-color: var(--card-hover) !important;
+    border-color: var(--border-medium) !important;
+}
+
+#urlbar[focused="true"] {
+    background-color: var(--card-hover) !important;
+    border-color: var(--soft-purple) !important;
+    box-shadow: 0 0 0 2px rgba(180, 151, 205, 0.2) !important;
+}
+
+/* URL Bar Text */
+#urlbar-input {
+    color: var(--text-primary) !important;
+    font-weight: 500 !important;
+}
+
+/* URL Bar Placeholder */
+#urlbar-input::placeholder {
+    color: var(--text-muted) !important;
+}
+
+/* URL Bar Icons */
+#urlbar .urlbar-icon,
+#urlbar .urlbar-icon-wrapper {
+    color: var(--text-secondary) !important;
+}
+
+/* ==================== DROPDOWN PANEL (URL SUGGESTIONS) ==================== */
+#urlbar-results {
+    background-color: var(--card-dark) !important;
+    border: 1px solid var(--border-medium) !important;
+    border-radius: var(--radius-medium) !important;
+    box-shadow: var(--shadow-medium) !important;
+    margin-top: 4px !important;
+}
+
+.urlbarView-row {
+    background-color: transparent !important;
+    border-radius: var(--radius-small) !important;
+    transition: var(--transition) !important;
+}
+
+.urlbarView-row:hover {
+    background-color: var(--card-hover) !important;
+}
+
+.urlbarView-row[selected] {
+    background-color: rgba(180, 151, 205, 0.15) !important;
+}
+
+.urlbarView-title {
+    color: var(--text-primary) !important;
+}
+
+.urlbarView-url {
+    color: var(--text-secondary) !important;
+}
+
+/* ==================== TOOLBAR BUTTONS ==================== */
+.toolbarbutton-1 {
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: var(--radius-small) !important;
+    transition: var(--transition) !important;
+    fill: var(--text-secondary) !important;
+    color: var(--text-secondary) !important;
+}
+
+.toolbarbutton-1:hover {
+    background-color: rgba(180, 151, 205, 0.15) !important;
+    fill: var(--soft-purple) !important;
+    color: var(--soft-purple) !important;
+}
+
+.toolbarbutton-1[open="true"] {
+    background-color: rgba(180, 151, 205, 0.2) !important;
+    fill: var(--soft-purple) !important;
+}
+
+/* Back/Forward Buttons */
+#back-button,
+#forward-button {
+    border-radius: 50% !important;
+    padding: 6px !important;
+}
+
+/* ==================== SIDEBAR ==================== */
+#sidebar-box {
+    background-color: var(--main-dark) !important;
+    border-right: 1px solid var(--border-subtle) !important;
+}
+
+#sidebar-header {
+    background-color: var(--deep-dark) !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
+    color: var(--text-primary) !important;
+}
+
+#sidebar {
+    background-color: var(--main-dark) !important;
+}
+
+/* ==================== CONTEXT MENUS & PANELS ==================== */
+menupopup,
+panel {
+    background-color: var(--card-dark) !important;
+    border: 1px solid var(--border-medium) !important;
+    border-radius: var(--radius-medium) !important;
+    box-shadow: var(--shadow-medium) !important;
+    color: var(--text-primary) !important;
+}
+
+menuitem,
+menu {
+    color: var(--text-primary) !important;
+    border-radius: var(--radius-small) !important;
+    transition: var(--transition) !important;
+}
+
+menuitem:hover,
+menu:hover,
+menuitem[_pophover="true"],
+menu[_pophover="true"] {
+    background-color: rgba(180, 151, 205, 0.15) !important;
+    color: var(--soft-purple) !important;
+}
+
+menuseparator {
+    border-color: var(--border-subtle) !important;
+}
+
+/* ==================== SCROLLBARS ==================== */
+scrollbar {
+    background-color: transparent !important;
+}
+
+scrollbar thumb {
+    background-color: rgba(168, 155, 184, 0.3) !important;
+    border-radius: 10px !important;
+    transition: var(--transition) !important;
+}
+
+scrollbar thumb:hover {
+    background-color: var(--soft-purple) !important;
+}
+
+/* ==================== BOOKMARKS TOOLBAR ==================== */
+.bookmark-item {
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: var(--radius-small) !important;
+    color: var(--text-secondary) !important;
+    transition: var(--transition) !important;
+    padding: 4px 8px !important;
+}
+
+.bookmark-item:hover {
+    background-color: rgba(180, 151, 205, 0.15) !important;
+    color: var(--soft-purple) !important;
+}
+
+/* ==================== FINDBAR (CTRL+F) ==================== */
+.findbar-textbox {
+    background-color: var(--card-dark) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-small) !important;
+    color: var(--text-primary) !important;
+}
+
+.findbar-textbox:focus {
+    border-color: var(--soft-purple) !important;
+    box-shadow: 0 0 0 1px var(--soft-purple) !important;
+}
+
+findbar {
+    background-color: var(--main-dark) !important;
+    border-top: 1px solid var(--border-subtle) !important;
+}
+
+/* ==================== NOTIFICATIONS ==================== */
+notification {
+    background-color: var(--card-dark) !important;
+    border: 1px solid var(--border-medium) !important;
+    border-radius: var(--radius-medium) !important;
+    color: var(--text-primary) !important;
+}
+
+.notification-button {
+    background-color: var(--soft-purple) !important;
+    color: var(--deep-dark) !important;
+    border-radius: var(--radius-small) !important;
+}
+
+.notification-button:hover {
+    background-color: var(--light-lilac) !important;
+}
+
+/* ==================== STATUSPANEL (LINK PREVIEW) ==================== */
+#statuspanel {
+    background-color: var(--card-dark) !important;
+    border: 1px solid var(--border-medium) !important;
+    border-radius: var(--radius-small) !important;
+    color: var(--text-secondary) !important;
+}
+
+/* ==================== PRIVATE BROWSING INDICATOR ==================== */
+#private-browsing-indicator-with-label {
+    background-color: rgba(243, 183, 189, 0.2) !important;
+    border: 1px solid var(--soft-pink) !important;
+    color: var(--soft-pink) !important;
+    border-radius: var(--radius-small) !important;
+}
+
+/* ==================== DOWNLOADS BUTTON ==================== */
+#downloads-button[attention="success"] {
+    fill: var(--soft-purple) !important;
+}
+
+#downloads-button[attention="warning"] {
+    fill: var(--soft-pink) !important;
+}
+
+/* ==================== TAB LOADING INDICATOR ==================== */
+.tab-throbber {
+    fill: var(--soft-purple) !important;
+}
+
+/* ==================== IDENTITY BOX (LOCK ICON) ==================== */
+#identity-box {
+    border-radius: var(--radius-small) !important;
+    transition: var(--transition) !important;
+}
+
+#identity-box:hover {
+    background-color: rgba(180, 151, 205, 0.1) !important;
+}
+
+#identity-icon {
+    fill: var(--soft-purple) !important;
+}
+
+/* ==================== PAGE ACTION BUTTONS ==================== */
+.urlbar-page-action {
+    fill: var(--text-secondary) !important;
+    transition: var(--transition) !important;
+}
+
+.urlbar-page-action:hover {
+    background-color: rgba(180, 151, 205, 0.15) !important;
+    fill: var(--soft-purple) !important;
+}
+
+/* ==================== EXTENSION BUTTONS ==================== */
+.webextension-browser-action {
+    transition: var(--transition) !important;
+}
+
+.webextension-browser-action:hover {
+    background-color: rgba(180, 151, 205, 0.15) !important;
+}
+
+/* ==================== MINIMIZE/MAXIMIZE/CLOSE BUTTONS ==================== */
+.titlebar-button {
+    transition: var(--transition) !important;
+}
+
+.titlebar-button:hover {
+    background-color: rgba(180, 151, 205, 0.2) !important;
+}
+
+.titlebar-close:hover {
+    background-color: rgba(243, 183, 189, 0.3) !important;
+}
+
+/* ==================== AUTOFILL DROPDOWN ==================== */
+#PopupAutoComplete {
+    background-color: var(--card-dark) !important;
+    border: 1px solid var(--border-medium) !important;
+    border-radius: var(--radius-medium) !important;
+    box-shadow: var(--shadow-medium) !important;
+}
+
+.autocomplete-richlistitem {
+    color: var(--text-primary) !important;
+    border-radius: var(--radius-small) !important;
+}
+
+.autocomplete-richlistitem[selected] {
+    background-color: rgba(180, 151, 205, 0.15) !important;
+}
+
+/* ==================== COMPACT MODE ADJUSTMENTS ==================== */
+:root[uidensity="compact"] #nav-bar {
+    padding: 2px 6px !important;
+}
+
+:root[uidensity="compact"] .tabbrowser-tab {
+    margin: 0 1px !important;
+}
+
+/* ==================== ANIMATION & TRANSITIONS ==================== */
+* {
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease !important;
+}
