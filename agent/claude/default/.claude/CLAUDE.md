@@ -31,10 +31,10 @@ Tiers run **in order**. Do not skip down. Do not start at the bottom.
 
 | # | Tier | Use for |
 |---|---|---|
-| 0 | The `UserPromptSubmit` hook's injected note names — **vault notes only** | Breadcrumbs. A snippet is not the note — follow the name into tier 1. |
+| 0 | The `UserPromptSubmit` hook's injected notes — **vault notes only** | Breadcrumbs, sometimes with the passage itself. A snippet is not the note — follow the name into tier 1. |
 | 1 | `00-MOC-Root.md` → the `00-MOC-*.md` it points to → the note | "where is X". Most questions end here. |
-| 2 | `ctx_search(queries: [...])` — **only in a session launched in the vault** | "what did I write about X". Batch every question into one call. Anywhere else, skip it: see Tools. |
-| 3 | `graphify query "<q>" --budget 1500` | "how does X connect to Y". Free, AST-only, bounded. |
+| 2 | `knowledge find "<q>"` — **from any folder** | "what did I write about X": ranked notes, each with its best passage. One call per question. |
+| 3 | `knowledge graph <note> [<other note>]` | "how does X connect to Y": a note's links in and out, or the path between two. Free, ~25 ms. |
 | 4 | Native `Read` of **one named file** | Only when 1–3 failed. |
 
 **Stop-check:** about to `Read` or `Bash` a `C:\obsidian\root` path without having run tiers 1–3?
@@ -51,28 +51,25 @@ has *named* the file, native `Read` on that one file is correct and cheaper than
 
 Full table: `00-Meta\Hard-Rules.md#Tooling`. The non-negotiable subset:
 
-- **`ctx_search` searches the project the session was *launched* in.** Its `project` parameter does
-  not redirect it (measured 2026-09-21, context-mode v1.0.169): from a session launched outside the
-  vault, `project: "global"` returns `"Knowledge base is empty"` and `project: "C:\obsidian\root"`
-  returns only that session's own events — never vault notes, even with a complete index. It
-  worked on 2026-08-22; context-mode's behaviour changed. **Outside the vault, use tier 0 then a
-  `Read` of the named note.**
+- **`knowledge find` and `knowledge graph` read the vault index wherever the session was
+  launched** (`~/.cargo/bin/knowledge`, vault audit Stage 3). `knowledge find "<q>" --repo [<name>]`
+  searches the checkouts' docs, `--captures` what was kept or fetched in the last 14 days (Stage 4).
 - **Retrieval health, zero tokens:** `bun --bun ~/.claude/hooks/brain-doctor.mjs --pretty` — asserts
-  the vault index is complete and six vault-shaped questions return the right note.
-- **`ctx_execute` / `ctx_execute_file` instead of Bash + Read** whenever output will be filtered,
-  counted, parsed, or aggregated. Bash stays right for short fixed output and for mutating state
-  (git, mkdir, mv).
-- **`ctx_fetch_and_index` instead of `WebFetch`.** `WebSearch` is used directly — it returns titles
-  + URLs, there is nothing to sandbox. Pattern: `WebSearch` to find → `ctx_fetch_and_index` to read
-  → `ctx_search` to re-query.
+  the vault index is complete and 33 vault-shaped questions return the right note.
+- **Work tools: `knowledge keep`, `knowledge fetch`.** Pipe a large output through
+  `<cmd> | knowledge keep "<label>" --q "<what you need>"` instead of reading it whole: it is
+  stored, and only the matching sections print (2,000 chars at most). Bash stays right for short
+  fixed output and for mutating state (git, mkdir, mv).
+- **`knowledge fetch <url> --q "<q>"` instead of `WebFetch`:** the page as Markdown, private
+  addresses refused. `WebSearch` is used directly — it returns titles + URLs. Pattern: `WebSearch`
+  to find → `knowledge fetch` to read → `knowledge find "<q>" --captures` to re-query.
 - **Context7 for library/framework/API docs** — versioned, skips page fetching. Never `WebSearch`
   for API syntax, config, or migration steps.
-- **All file writes are native `Write` / `Edit`.** `ctx_execute` sandboxes the filesystem and
-  discards it; nothing written there persists.
-- **`bun --bun ~/.claude/hooks/brain-graph.mjs`** to rebuild the vault graph — free, AST only, no tokens; it adds the wikilink edges a bare `graphify update .` drops, then merges. `/graphify . --update` is the
-  semantic pass and **costs tokens**: a deliberate act, never routine maintenance.
-- Break-even for context-mode over `Read` is **~4 KB / ~1,100 tokens**. Above it the win is large
-  (88× on a 96 KB file). Below it, plain `Read` is cheaper.
+- **All file writes are native `Write` / `Edit`.**
+- **graphify is for the repos' code graphs**, merged by `bun --bun ~/.claude/hooks/brain-graph.mjs`
+  into what the graphify MCP serves; the vault's links are `knowledge graph`'s. `/graphify . --update`
+  is the semantic pass and **costs tokens**: a deliberate act, never routine maintenance.
+- `keep` prints at most 2,000 chars, so an output or file under that is cheaper read whole.
 - **`bunx --bun`, never bare `bunx`.** Without the flag bunx honours a package's
   `#!/usr/bin/env node` shebang and hands execution to node, whose resolver then fails on the temp
   install — `ERR_MODULE_NOT_FOUND` for a transitive dep the package clearly ships. Verified
