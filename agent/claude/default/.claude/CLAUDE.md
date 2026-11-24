@@ -1,7 +1,3 @@
-# graphify
-- **graphify** (`~/.claude/skills/graphify/SKILL.md`) - any input to knowledge graph. Trigger: `/graphify`
-When the user types `/graphify`, use the installed graphify skill or instructions before doing anything else.
-
 # Knowledge vault — C:\obsidian\root
 
 My knowledge base lives in an Obsidian vault at `C:\obsidian\root`. My repositories are checked out
